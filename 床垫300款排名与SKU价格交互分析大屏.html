@@ -1212,6 +1212,9 @@
         <button class="tab-btn" onclick="switchNav('tab-compare')">
             <span>⚖️</span> 5. 多维度多组横向对比分析 (自定义价格/排名/关键词)
         </button>
+        <button class="tab-btn" onclick="switchNav('tab-main-images')">
+            <span>🖼️</span> 6. 主图视觉卖点与引流定价全景透视
+        </button>
     </div>
 
     <!-- TAB 1: 自定义价格段精准检索 -->
@@ -1585,6 +1588,204 @@
             </div>
             <div id="compare-drilldown-results">
                 <!-- 由 JS 渲染具体的商品列表 -->
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- ======================= TAB 6: 主图视觉卖点与引流定价全景透视 ======================= -->
+    <div id="tab-main-images" class="tab-content">
+        <!-- 顶部宏观透视 KPI 指标卡 -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">全量主图采集识别</div>
+                <div class="kpi-value" style="color: #38bdf8;">296 / 300</div>
+                <div class="kpi-sub">OCR全量提取覆盖率 98.7%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">主图明示标价商品</div>
+                <div class="kpi-value" style="color: #f87171;">44 款</div>
+                <div class="kpi-sub">主图定价引流率 14.7%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Top 1 核心功能卖点</div>
+                <div class="kpi-value" style="color: #fbbf24; font-size: 20px;">人体工学护脊</div>
+                <div class="kpi-sub">146 款商品覆盖 (48.7%)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Top 1 营销利益点</div>
+                <div class="kpi-value" style="color: #f472b6; font-size: 20px;">平台/政府补贴</div>
+                <div class="kpi-sub">124 款商品应用 (41.3%)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">主导视觉展现形式</div>
+                <div class="kpi-value" style="color: #c084fc; font-size: 20px;">3D分层结构剖面</div>
+                <div class="kpi-sub">155 款商品采用 (51.7%)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">主图标价引流策略分布</div>
+                <div class="kpi-value" style="color: #10b981; font-size: 20px;">精准对标SKU低价</div>
+                <div class="kpi-sub">占明评标价款 59.1%</div>
+            </div>
+        </div>
+
+        <!-- 2列对比卡片：核心卖点排行 & 营销利益点排行 -->
+        <div class="tab-grid-2col">
+            <!-- 核心功能卖点排行 -->
+            <div class="stat-card-section">
+                <div class="stat-card-title">
+                    <span>🏆 全网 Top 10 核心主图功能卖点透视</span>
+                    <span class="stat-badge-count">覆盖 296 款商品</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-img-table" id="table-img-selling-points">
+                        <thead>
+                            <tr>
+                                <th>功能卖点</th>
+                                <th>覆盖款数</th>
+                                <th>全网占比</th>
+                                <th>Top30渗透</th>
+                                <th>平均排名</th>
+                                <th>中位价(￥)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS 动态渲染 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 营销利益点与服务背书排行 -->
+            <div class="stat-card-section">
+                <div class="stat-card-title">
+                    <span>🎁 营销利益点与信任背书分布透视</span>
+                    <span class="stat-badge-count">高转化成交推手</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-img-table" id="table-img-marketing">
+                        <thead>
+                            <tr>
+                                <th>营销/权益类型</th>
+                                <th>采用款数</th>
+                                <th>全网占比</th>
+                                <th>Top30渗透</th>
+                                <th>平均排名</th>
+                                <th>视觉格式主导</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS 动态渲染 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2列对比卡片：视觉呈现形式 & 主图标价引流策略深度透视 -->
+        <div class="tab-grid-2col">
+            <!-- 视觉形式分布 -->
+            <div class="stat-card-section">
+                <div class="stat-card-title">
+                    <span>🎨 主图视觉呈现形式与各梯队偏好</span>
+                    <span class="stat-badge-count">视觉风格矩阵</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-img-table" id="table-img-visual">
+                        <thead>
+                            <tr>
+                                <th>视觉展现形式</th>
+                                <th>商品款数</th>
+                                <th>全网占比</th>
+                                <th>头部(Top1-30)</th>
+                                <th>腰部(31-100)</th>
+                                <th>长尾(101-300)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS 动态渲染 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 主图定价引流策略分布 -->
+            <div class="stat-card-section">
+                <div class="stat-card-title">
+                    <span>💰 主图明示标价 vs SKU价格偏离策略分析</span>
+                    <span class="stat-badge-count">44款标价商品</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-img-table" id="table-img-price-tiers">
+                        <thead>
+                            <tr>
+                                <th>引流对标策略</th>
+                                <th>引流度区间 (主图/最低SKU)</th>
+                                <th>款数</th>
+                                <th>占比</th>
+                                <th>平均相差(￥)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS 动态渲染 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 44款主图标价明细深度对照大表 -->
+        <div class="stat-card-section" style="margin-bottom: 20px;">
+            <div class="stat-card-title">
+                <span>📊 44款明示主图价格商品深度对标矩阵 (主图到手价 vs 1.8m SKU最低/中位/最高价)</span>
+                <span class="stat-badge-count" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">低价引流度透视</span>
+            </div>
+            <div class="table-responsive" style="max-height: 420px;">
+                <table class="custom-img-table" id="table-img-price-detail">
+                    <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>品牌店铺</th>
+                            <th>商品标题</th>
+                            <th>主图标价 (￥)</th>
+                            <th>SKU最低价</th>
+                            <th>SKU中位价</th>
+                            <th>最接近对标</th>
+                            <th>价差 (￥)</th>
+                            <th>低价引流度</th>
+                            <th>引流策略等级</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JS 动态渲染 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 主图与全网商品即时交叉图鉴检索器 -->
+        <div class="stat-card-section">
+            <div class="stat-card-title">
+                <span>🔍 全网 300 款主图视觉卖点即时图鉴卡片流</span>
+                <div style="display: flex; gap: 10px; margin-left: auto; align-items: center; flex-wrap: wrap;">
+                    <input type="text" id="tab6-search-box" class="input-box" placeholder="搜索主图文字/卖点/营销词..." style="width: 220px; padding: 4px 10px; font-size: 12px;" oninput="filterTab6Products()">
+                    <select id="tab6-filter-select" class="input-box" style="padding: 4px 10px; font-size: 12px;" onchange="filterTab6Products()">
+                        <option value="all">全部商品 (300款)</option>
+                        <option value="has_price">仅含有主图标价 (44款)</option>
+                        <option value="0胶水">0胶水/零胶</option>
+                        <option value="护脊">人体工学护脊</option>
+                        <option value="天然乳胶">天然乳胶释压</option>
+                        <option value="独立袋">独立袋弹簧</option>
+                        <option value="双面双睡感">双面双睡感</option>
+                        <option value="平台/政府大额补贴">平台/政府补贴</option>
+                        <option value="免费试睡保障">免费试睡</option>
+                        <option value="3D分层结构透视">3D分层结构剖面</option>
+                        <option value="促销大字报冲击型">促销大字报冲击型</option>
+                    </select>
+                </div>
+            </div>
+            <div id="tab6-cards-container" class="product-cards-container" style="max-height: 650px; overflow-y: auto; padding: 10px 4px;">
+                <!-- JS 动态渲染 -->
             </div>
         </div>
     </div>
