@@ -1973,6 +1973,9 @@
                     <button class="crowd-nav-btn" id="btn-crowd-dim-rank" onclick="switchCrowdDim('rank')">
                         <span>🏆</span> 排名段拥挤度
                     </button>
+                    <button class="crowd-nav-btn" id="btn-crowd-dim-combo" onclick="switchCrowdDim('combo')" style="border-color: #a855f7; color: #d8b4fe;">
+                        <span>🧬</span> 全维度排列组合 (精准度从低到高)
+                    </button>
                 </div>
             </div>
 
@@ -4459,14 +4462,19 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         
 
         
-        // ======================= 动态多维分类拥挤度全景矩阵核心逻辑 (已修复闭包捕获与数值输入) =======================
+        // ======================= 动态多维分类拥挤度全景矩阵核心逻辑 (含全维度排列组合从低到高) =======================
         let CROWD_STATE = {
-            dim: 'price', // 'price' | 'height' | 'material' | 'rank'
-            metric: 'count', // 'count' | 'density' | 'blue_ocean'
+            dim: 'price', // 'price' | 'height' | 'material' | 'rank' | 'combo'
+            metric: 'count', // 始终保持 "款数与组内占比"
             price: { min: 0, max: 5000, step: 500 },
             height: { min: 0, max: 35, step: 4 },
             rank: { min: 1, max: 300, step: 30 },
-            material: { crossDim: 'price', step: 800 }
+            material: { crossDim: 'price', step: 800 },
+            combo: {
+                levelFilter: 'all', // 'all' | '1' | '2' | '3' | '4'
+                sortBy: 'precision_asc', // 'precision_asc' (精准度从低到高) | 'precision_desc' | 'count_desc' | 'blue_ocean'
+                matFilter: 'all' // 'all' | '乳胶' | '黄麻' | '记忆棉' | '椰棕' | '0胶'
+            }
         };
 
         function switchCrowdDim(dim) {
@@ -4475,14 +4483,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const activeBtn = document.getElementById(`btn-crowd-dim-${dim}`);
             if (activeBtn) activeBtn.classList.add('active');
 
-            renderCrowdControlBar();
-            if (lastCompareResults && lastCompareResults.length > 0) {
-                renderCrowdMatrix(lastCompareResults);
-            }
-        }
-
-        function setCrowdMetric(mode) {
-            CROWD_STATE.metric = mode;
             renderCrowdControlBar();
             if (lastCompareResults && lastCompareResults.length > 0) {
                 renderCrowdMatrix(lastCompareResults);
@@ -4505,6 +4505,30 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             }
         }
 
+        function setComboLevelFilter(lvl) {
+            CROWD_STATE.combo.levelFilter = lvl;
+            renderCrowdControlBar();
+            if (lastCompareResults && lastCompareResults.length > 0) {
+                renderCrowdMatrix(lastCompareResults);
+            }
+        }
+
+        function setComboSortBy(sortKey) {
+            CROWD_STATE.combo.sortBy = sortKey;
+            renderCrowdControlBar();
+            if (lastCompareResults && lastCompareResults.length > 0) {
+                renderCrowdMatrix(lastCompareResults);
+            }
+        }
+
+        function setComboMatFilter(matKey) {
+            CROWD_STATE.combo.matFilter = matKey;
+            renderCrowdControlBar();
+            if (lastCompareResults && lastCompareResults.length > 0) {
+                renderCrowdMatrix(lastCompareResults);
+            }
+        }
+
         function onCrowdParamChange() {
             const dim = CROWD_STATE.dim;
             if (dim === 'price') {
@@ -4515,9 +4539,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 if (maxEl && maxEl.value !== '') CROWD_STATE.price.max = Math.max(1, parseFloat(maxEl.value) || 1000);
                 if (stepEl && stepEl.value !== '') {
                     const val = parseFloat(stepEl.value);
-                    if (!isNaN(val) && val > 0) {
-                        CROWD_STATE.price.step = val;
-                    }
+                    if (!isNaN(val) && val > 0) CROWD_STATE.price.step = val;
                 }
             } else if (dim === 'height') {
                 const minEl = document.getElementById('crowd-min-height');
@@ -4527,9 +4549,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 if (maxEl && maxEl.value !== '') CROWD_STATE.height.max = Math.max(1, parseFloat(maxEl.value) || 30);
                 if (stepEl && stepEl.value !== '') {
                     const val = parseFloat(stepEl.value);
-                    if (!isNaN(val) && val > 0) {
-                        CROWD_STATE.height.step = val;
-                    }
+                    if (!isNaN(val) && val > 0) CROWD_STATE.height.step = val;
                 }
             } else if (dim === 'rank') {
                 const minEl = document.getElementById('crowd-min-rank');
@@ -4539,9 +4559,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 if (maxEl && maxEl.value !== '') CROWD_STATE.rank.max = Math.max(1, parseInt(maxEl.value) || 300);
                 if (stepEl && stepEl.value !== '') {
                     const val = parseInt(stepEl.value);
-                    if (!isNaN(val) && val > 0) {
-                        CROWD_STATE.rank.step = val;
-                    }
+                    if (!isNaN(val) && val > 0) CROWD_STATE.rank.step = val;
                 }
             }
 
@@ -4585,7 +4603,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                         <span>至</span>
                         <input type="number" id="crowd-max-height" class="crowd-input" value="${CROWD_STATE.height.max}" oninput="onCrowdParamChange()" title="截止厚度">
                         <span>cm ｜ <b>间隔档位:</b></span>
-                        <input type="number" id="crowd-step-height" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值" title="可输入任意厚度步长，如1、2、3、4、5等">
+                        <input type="number" id="crowd-step-height" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值" title="可输入任意厚度步长">
                         <span>cm/档</span>
                         <div class="crowd-quick-steps">
                             <span style="font-size: 11px; color: var(--text-dim);">快捷步长:</span>
@@ -4604,7 +4622,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                         <span>至</span>
                         <input type="number" id="crowd-max-rank" class="crowd-input" value="${CROWD_STATE.rank.max}" oninput="onCrowdParamChange()" title="截止名次">
                         <span>名 ｜ <b>间隔档位:</b></span>
-                        <input type="number" id="crowd-step-rank" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值" title="可输入任意名次步长">
+                        <input type="number" id="crowd-step-rank" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值">
                         <span>名/档</span>
                         <div class="crowd-quick-steps">
                             <span style="font-size: 11px; color: var(--text-dim);">快捷步长:</span>
@@ -4621,25 +4639,278 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                         <span style="color: var(--text-dim); font-size: 12px;">(涵盖 天然乳胶 / S型黄麻 / 环保椰棕 / 记忆棉 / 独立弹簧 / 0胶水 / 空气纤维 / 高密海绵)</span>
                     </div>
                 `;
+            } else if (dim === 'combo') {
+                // 全维度排列组合控制栏
+                const curLvl = CROWD_STATE.combo.levelFilter;
+                const curSort = CROWD_STATE.combo.sortBy;
+                const curMat = CROWD_STATE.combo.matFilter;
+                inputsHtml = `
+                    <div class="crowd-ctrl-inputs">
+                        <span><b>精准度阶梯:</b></span>
+                        <div class="crowd-quick-steps">
+                            ${[
+                                { id: 'all', label: '全部阶梯 (L1~L4)' },
+                                { id: '1', label: '⭐ L1 单维基础' },
+                                { id: '2', label: '⭐⭐ L2 双维交叉' },
+                                { id: '3', label: '⭐⭐⭐ L3 三维深度' },
+                                { id: '4', label: '⭐⭐⭐⭐ L4 四维全息' }
+                            ].map(l => `
+                                <button class="crowd-step-pill ${curLvl === l.id ? 'active' : ''}" onclick="setComboLevelFilter('${l.id}')">${l.label}</button>
+                            `).join('')}
+                        </div>
+                        <span style="margin-left: 8px;"><b>排列排序:</b></span>
+                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" onchange="setComboSortBy(this.value)">
+                            <option value="precision_asc" ${curSort === 'precision_asc' ? 'selected' : ''}>📈 精准度: 从低到高 (L1 → L4 推荐)</option>
+                            <option value="precision_desc" ${curSort === 'precision_desc' ? 'selected' : ''}>📉 精准度: 从高到低 (L4 → L1)</option>
+                            <option value="count_desc" ${curSort === 'count_desc' ? 'selected' : ''}>🔥 行业规模: 从多到少 (红海集中度)</option>
+                            <option value="blue_ocean" ${curSort === 'blue_ocean' ? 'selected' : ''}>💎 蓝海机会: 优先真空机会点</option>
+                        </select>
+                        <span style="margin-left: 8px;"><b>聚焦材质:</b></span>
+                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" onchange="setComboMatFilter(this.value)">
+                            <option value="all" ${curMat === 'all' ? 'selected' : ''}>全部材质组合</option>
+                            <option value="乳胶" ${curMat === '乳胶' ? 'selected' : ''}>仅含 天然乳胶</option>
+                            <option value="黄麻" ${curMat === '黄麻' ? 'selected' : ''}>仅含 S型黄麻</option>
+                            <option value="记忆棉" ${curMat === '记忆棉' ? 'selected' : ''}>仅含 记忆棉</option>
+                            <option value="椰棕" ${curMat === '椰棕' ? 'selected' : ''}>仅含 环保椰棕</option>
+                            <option value="0胶" ${curMat === '0胶' ? 'selected' : ''}>仅含 0胶水/纯物理</option>
+                        </select>
+                    </div>
+                `;
             }
 
+            // 红框 1 明确要求：只保留这一个 "款数与组内占比"
             const metricModesHtml = `
                 <div class="crowd-metric-modes">
-                    <span style="font-size: 12px; color: var(--text-dim);">显示指标:</span>
-                    <button class="crowd-mode-btn ${CROWD_STATE.metric === 'count' ? 'active' : ''}" onclick="setCrowdMetric('count')">📊 款数与组内占比</button>
-                    <button class="crowd-mode-btn ${CROWD_STATE.metric === 'density' ? 'active' : ''}" onclick="setCrowdMetric('density')">🔥 竞争拥挤指数</button>
-                    <button class="crowd-mode-btn ${CROWD_STATE.metric === 'blue_ocean' ? 'active' : ''}" onclick="setCrowdMetric('blue_ocean')">💡 蓝海空白探测</button>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px;">
+                        <span>📊</span> 核心指标：款数与组内占比 (含红蓝海竞争热力)
+                    </span>
                 </div>
             `;
 
             container.innerHTML = inputsHtml + metricModesHtml;
         }
 
-        // 生成各维度的分段 Bins (彻底修复闭包变量捕获 Bug)
+        // 生成全维度排列组合从低到高的 Bins
+        function generateCombinatorialBins() {
+            const MAT_DEFS = [
+                { name: '天然乳胶', kw: '乳胶', color: '#c084fc' },
+                { name: 'S型黄麻', kw: '黄麻', color: '#34d399' },
+                { name: '环保椰棕', kw: '椰棕', color: '#fbbf24' },
+                { name: '非温感记忆棉', kw: '记忆棉', color: '#38bdf8' },
+                { name: '0胶水/纯物理', kw: '0胶', color: '#f43f5e' }
+            ];
+
+            const PRICE_DEFS = [
+                { label: '< 800元 (平价入门)', short: '<800元', min: 0, max: 800, color: '#60a5fa' },
+                { label: '800 ~ 1500元 (腰部刚需)', short: '800-1500元', min: 800, max: 1500, color: '#38bdf8' },
+                { label: '1500 ~ 3000元 (国民爆款带)', short: '1500-3000元', min: 1500, max: 3000, color: '#10b981' },
+                { label: '3000 ~ 5000元 (中高端DTC)', short: '3000-5000元', min: 3000, max: 5000, color: '#f59e0b' },
+                { label: '> 5000元 (高端奢睡)', short: '>5000元', min: 5000, max: 999999, color: '#8b5cf6' }
+            ];
+
+            const HEIGHT_DEFS = [
+                { label: '≤10cm (护脊薄垫)', short: '≤10cm薄垫', min: 0, max: 10.5, color: '#6ee7b7' },
+                { label: '11~18cm (偏薄/高箱)', short: '11-18cm', min: 10.6, max: 18.9, color: '#93c5fd' },
+                { label: '19~25cm (主流标准厚)', short: '19-25cm主流厚', min: 19.0, max: 25.9, color: '#38bdf8' },
+                { label: '≥26cm (加厚舒适)', short: '≥26cm加厚', min: 26.0, max: 999, color: '#c084fc' }
+            ];
+
+            const RANK_DEFS = [
+                { label: 'Top 1~30 (头部标杆爆款)', short: 'Top1-30头部', min: 1, max: 30, color: '#fbbf24' },
+                { label: 'Top 31~100 (腰部中坚)', short: 'Top31-100腰部', min: 31, max: 100, color: '#60a5fa' },
+                { label: 'Top 101~300 (长尾走量)', short: 'Top101-300长尾', min: 101, max: 300, color: '#94a3b8' }
+            ];
+
+            function checkMat(p, kw) {
+                const fullText = (p.title + ' ' + (p.main_image ? (p.main_image.all_text + ' ' + (p.main_image.detected_tags || []).join(' ')) : '')).toLowerCase();
+                return fullText.includes(kw.toLowerCase());
+            }
+
+            function checkPrice(p, minP, maxP) {
+                const pv = (p.median_price !== null && !isNaN(p.median_price)) ? p.median_price : 
+                           ((p.min_price !== null && !isNaN(p.min_price)) ? p.min_price : null);
+                if (pv === null) return false;
+                return pv >= minP && pv < maxP;
+            }
+
+            function checkHeight(p, minH, maxH) {
+                if (p.height === null || isNaN(p.height)) return false;
+                return p.height >= minH && p.height <= maxH;
+            }
+
+            function checkRank(p, minR, maxR) {
+                return p.rank >= minR && p.rank <= maxR;
+            }
+
+            let combos = [];
+
+            // ========== L1: 单维基础 (精准度 1 级 · 市场大盘) ==========
+            PRICE_DEFS.forEach(pr => {
+                const prMin = pr.min, prMax = pr.max;
+                combos.push({
+                    id: `combo_l1_p_${prMin}`,
+                    level: 1,
+                    levelBadge: '⭐ L1 单维',
+                    levelClass: 'pill-blue',
+                    label: `价格: ${pr.label}`,
+                    shortLabel: pr.short,
+                    tags: [{ text: pr.short, color: pr.color }],
+                    matchFn: (p) => checkPrice(p, prMin, prMax)
+                });
+            });
+
+            MAT_DEFS.forEach(m => {
+                const kw = m.kw;
+                combos.push({
+                    id: `combo_l1_m_${m.kw}`,
+                    level: 1,
+                    levelBadge: '⭐ L1 单维',
+                    levelClass: 'pill-blue',
+                    label: `材质: ${m.name}`,
+                    shortLabel: m.name,
+                    tags: [{ text: m.name, color: m.color }],
+                    matchFn: (p) => checkMat(p, kw)
+                });
+            });
+
+            HEIGHT_DEFS.forEach(h => {
+                const hMin = h.min, hMax = h.max;
+                combos.push({
+                    id: `combo_l1_h_${hMin}`,
+                    level: 1,
+                    levelBadge: '⭐ L1 单维',
+                    levelClass: 'pill-blue',
+                    label: `厚度: ${h.label}`,
+                    shortLabel: h.short,
+                    tags: [{ text: h.short, color: h.color }],
+                    matchFn: (p) => checkHeight(p, hMin, hMax)
+                });
+            });
+
+            // ========== L2: 双维交叉 (精准度 2 级 · 材质 × 价格 / 材质 × 厚度) ==========
+            MAT_DEFS.forEach(m => {
+                const kw = m.kw;
+                PRICE_DEFS.forEach(pr => {
+                    const prMin = pr.min, prMax = pr.max;
+                    combos.push({
+                        id: `combo_l2_mp_${m.kw}_${prMin}`,
+                        level: 2,
+                        levelBadge: '⭐⭐ L2 双维',
+                        levelClass: 'pill-green',
+                        label: `【${m.name}】×【${pr.label}】`,
+                        shortLabel: `${m.name} + ${pr.short}`,
+                        tags: [{ text: m.name, color: m.color }, { text: pr.short, color: pr.color }],
+                        matchFn: (p) => checkMat(p, kw) && checkPrice(p, prMin, prMax)
+                    });
+                });
+
+                HEIGHT_DEFS.forEach(h => {
+                    const hMin = h.min, hMax = h.max;
+                    combos.push({
+                        id: `combo_l2_mh_${m.kw}_${hMin}`,
+                        level: 2,
+                        levelBadge: '⭐⭐ L2 双维',
+                        levelClass: 'pill-green',
+                        label: `【${m.name}】×【${h.label}】`,
+                        shortLabel: `${m.name} + ${h.short}`,
+                        tags: [{ text: m.name, color: m.color }, { text: h.short, color: h.color }],
+                        matchFn: (p) => checkMat(p, kw) && checkHeight(p, hMin, hMax)
+                    });
+                });
+            });
+
+            // ========== L3: 三维深度 (精准度 3 级 · 材质 × 价格 × 厚度) ==========
+            MAT_DEFS.forEach(m => {
+                const kw = m.kw;
+                PRICE_DEFS.forEach(pr => {
+                    const prMin = pr.min, prMax = pr.max;
+                    HEIGHT_DEFS.forEach(h => {
+                        const hMin = h.min, hMax = h.max;
+                        combos.push({
+                            id: `combo_l3_mph_${m.kw}_${prMin}_${hMin}`,
+                            level: 3,
+                            levelBadge: '⭐⭐⭐ L3 三维',
+                            levelClass: 'pill-amber',
+                            label: `【${m.name}】×【${pr.short}】×【${h.short}】`,
+                            shortLabel: `${m.name} + ${pr.short} + ${h.short}`,
+                            tags: [{ text: m.name, color: m.color }, { text: pr.short, color: pr.color }, { text: h.short, color: h.color }],
+                            matchFn: (p) => checkMat(p, kw) && checkPrice(p, prMin, prMax) && checkHeight(p, hMin, hMax)
+                        });
+                    });
+                });
+            });
+
+            // ========== L4: 四维全息 (精准度 4 级 · 极限组合 材质 × 价格 × 厚度 × 排名) ==========
+            MAT_DEFS.forEach(m => {
+                const kw = m.kw;
+                // 取最具代表性的主战场价格带
+                [PRICE_DEFS[1], PRICE_DEFS[2], PRICE_DEFS[3]].forEach(pr => {
+                    const prMin = pr.min, prMax = pr.max;
+                    // 取主流标准厚度与加厚
+                    [HEIGHT_DEFS[0], HEIGHT_DEFS[2]].forEach(h => {
+                        const hMin = h.min, hMax = h.max;
+                        // 取头部与腰部梯队
+                        [RANK_DEFS[0], RANK_DEFS[1]].forEach(rk => {
+                            const rkMin = rk.min, rkMax = rk.max;
+                            combos.push({
+                                id: `combo_l4_${m.kw}_${prMin}_${hMin}_${rkMin}`,
+                                level: 4,
+                                levelBadge: '⭐⭐⭐⭐ L4 四维',
+                                levelClass: 'pill-purple',
+                                label: `【${m.name}】×【${pr.short}】×【${h.short}】×【${rk.short}】`,
+                                shortLabel: `${m.name} + ${pr.short} + ${h.short} + ${rk.short}`,
+                                tags: [{ text: m.name, color: m.color }, { text: pr.short, color: pr.color }, { text: h.short, color: h.color }, { text: rk.short, color: rk.color }],
+                                matchFn: (p) => checkMat(p, kw) && checkPrice(p, prMin, prMax) && checkHeight(p, hMin, hMax) && checkRank(p, rkMin, rkMax)
+                            });
+                        });
+                    });
+                });
+            });
+
+            // 过滤无命中商品的空行 (全盘>=1款才保留，确保每行都有商业分析价值)
+            combos = combos.filter(c => {
+                const benchCnt = DB.products.filter(p => c.matchFn(p)).length;
+                c.benchmarkCount = benchCnt;
+                return benchCnt > 0;
+            });
+
+            // 材质筛选
+            const matFilter = CROWD_STATE.combo.matFilter;
+            if (matFilter !== 'all') {
+                combos = combos.filter(c => c.label.includes(matFilter) || c.tags.some(t => t.text.includes(matFilter)));
+            }
+
+            // 精准度层级筛选
+            const lvlFilter = CROWD_STATE.combo.levelFilter;
+            if (lvlFilter !== 'all') {
+                combos = combos.filter(c => String(c.level) === lvlFilter);
+            }
+
+            // 排序模式：精准度从低到高 (默认) / 从高到低 / 规模从多到少 / 蓝海优先
+            const sortBy = CROWD_STATE.combo.sortBy;
+            if (sortBy === 'precision_asc') {
+                combos.sort((a, b) => a.level - b.level || b.benchmarkCount - a.benchmarkCount);
+            } else if (sortBy === 'precision_desc') {
+                combos.sort((a, b) => b.level - a.level || b.benchmarkCount - a.benchmarkCount);
+            } else if (sortBy === 'count_desc') {
+                combos.sort((a, b) => b.benchmarkCount - a.benchmarkCount || a.level - b.level);
+            } else if (sortBy === 'blue_ocean') {
+                // 蓝海：大盘款数适中或多，但精准度较高的组合
+                combos.sort((a, b) => (b.level * 10 - b.benchmarkCount) - (a.level * 10 - a.benchmarkCount));
+            }
+
+            return combos;
+        }
+
+        // 统一生成分段 Bins 调度器
         function generateCrowdBins() {
             const dim = CROWD_STATE.dim;
+            if (dim === 'combo') {
+                return generateCombinatorialBins();
+            }
+
             const bins = [];
-            const MAX_ALLOWED_BINS = 60; // 档位数安全上限，防止微小步长卡死
+            const MAX_ALLOWED_BINS = 60; // 档位数安全上限
 
             if (dim === 'price') {
                 const min = Math.max(0, CROWD_STATE.price.min);
@@ -4671,7 +4942,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     cur = next;
                 }
 
-                // 超出上限的收拢段
                 const capMax = max;
                 bins.push({
                     id: `p_${capMax}_plus`,
@@ -4713,7 +4983,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     cur = next;
                 }
 
-                // 超出厚度上限收拢段
                 const capMaxH = max;
                 bins.push({
                     id: `h_${capMaxH}_plus`,
@@ -4724,7 +4993,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     matchFn: (p) => p.height !== null && !isNaN(p.height) && p.height > capMaxH
                 });
 
-                // 未明确厚度或特殊智能款收拢段
                 bins.push({
                     id: `h_unspecified`,
                     label: `未标明厚度 / 智能款`,
@@ -4793,9 +5061,11 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
 
             const bins = generateCrowdBins();
             const totalBenchmarkProds = DB.products.length; // 300
+            const isCombo = CROWD_STATE.dim === 'combo';
 
             // 预计算全盘基准在每个 bin 里的分布
             const benchmarkCounts = bins.map(bin => {
+                if (typeof bin.benchmarkCount === 'number') return bin.benchmarkCount;
                 return DB.products.filter(p => bin.matchFn(p)).length;
             });
 
@@ -4816,7 +5086,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     let heatColor = 'rgba(255, 255, 255, 0.02)';
 
                     if (count === 0) {
-                        if (benchCount >= 5) {
+                        if (benchCount >= (isCombo ? 3 : 5)) {
                             status = 'blue_ocean';
                             badgeLabel = '💎 蓝海真空';
                             badgeClass = 'tag-void-blueocean';
@@ -4869,8 +5139,8 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 <table class="crowd-table">
                     <thead>
                         <tr>
-                            <th style="width: 170px; background: rgba(0,0,0,0.3);">
-                                <b>分段区间 / 档位</b>
+                            <th style="${isCombo ? 'width: 320px;' : 'width: 170px;'} background: rgba(0,0,0,0.3);">
+                                <b>${isCombo ? '🧬 全维度组合特征 (精准度阶梯 L1 → L4)' : '分段区间 / 档位'}</b>
                             </th>
                             ${results.map(r => `
                                 <th style="border-top: 3px solid ${r.palette.color};">
@@ -4885,7 +5155,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                             `).join('')}
                             <th style="width: 140px; border-top: 3px solid #64748b; background: rgba(255,255,255,0.02);">
                                 <div>🌐 全盘 300 款基准</div>
-                                <div style="font-size: 11px; color: var(--text-dim);">全行业整体分布参考</div>
+                                <div style="font-size: 11px; color: var(--text-dim);">全行业整体规模参考</div>
                             </th>
                         </tr>
                     </thead>
@@ -4896,43 +5166,52 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const bCount = benchmarkCounts[bIdx];
                 const bPct = ((bCount / totalBenchmarkProds) * 100).toFixed(1);
 
-                tableHtml += `
-                    <tr>
+                let firstColHtml = '';
+                if (isCombo) {
+                    firstColHtml = `
+                        <td style="background: rgba(0,0,0,0.18); padding: 10px 12px;">
+                            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                                <span class="pill ${bin.levelClass}" style="font-size: 10.5px; padding: 1px 6px;">${bin.levelBadge}</span>
+                                <span style="font-size: 13px; font-weight: 700; color: #fff;">${escapeHtml(bin.label)}</span>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                ${bin.tags.map(t => `
+                                    <span style="display: inline-block; font-size: 10.5px; padding: 1px 6px; border-radius: 4px; background: rgba(255,255,255,0.06); border: 1px solid ${t.color}; color: ${t.color};">
+                                        ${t.text}
+                                    </span>
+                                `).join('')}
+                            </div>
+                            <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px;">
+                                全行业大盘: <b>${bCount} 款</b> (占 ${bPct}%)
+                            </div>
+                        </td>
+                    `;
+                } else {
+                    firstColHtml = `
                         <td style="font-weight: 700; color: #cbd5e1; background: rgba(0,0,0,0.15);">
                             <div>${bin.label}</div>
                             <div style="font-size: 11px; color: var(--text-dim); font-weight: normal;">
                                 行业规模: ${bCount}款 (${bPct}%)
                             </div>
                         </td>
-                `;
+                    `;
+                }
+
+                tableHtml += `<tr>` + firstColHtml;
 
                 results.forEach((r, gIdx) => {
                     const cell = groupBinData[gIdx][bIdx];
                     const fillWidth = Math.min(100, Math.max(cell.ratio, cell.count > 0 ? 6 : 0));
 
-                    let displayHtml = '';
-                    if (CROWD_STATE.metric === 'density') {
-                        displayHtml = `
-                            <div class="crowd-cell-top">
-                                <span class="crowd-count" style="font-size: 14px;">${cell.badgeLabel}</span>
-                                <span class="crowd-pct">${cell.count}款</span>
-                            </div>
-                        `;
-                    } else {
-                        displayHtml = `
-                            <div class="crowd-cell-top">
-                                <span class="crowd-count">${cell.count} <span style="font-size: 11px; font-weight: normal;">款</span></span>
-                                <span class="crowd-pct">${cell.ratio.toFixed(1)}%</span>
-                            </div>
-                        `;
-                    }
-
                     tableHtml += `
                         <td>
                             <div class="crowd-cell-box" style="background: ${cell.heatColor};" 
                                 onclick="onCrowdCellClick(${r.group.id}, '${escapeHtml(bin.shortLabel)}', ${gIdx}, ${bIdx})"
-                                title="点击查看【${escapeHtml(r.group.name)}】在【${bin.label}】命中的 ${cell.count} 款商品详情">
-                                ${displayHtml}
+                                title="点击查看【${escapeHtml(r.group.name)}】在【${escapeHtml(bin.label)}】命中的 ${cell.count} 款商品详情">
+                                <div class="crowd-cell-top">
+                                    <span class="crowd-count">${cell.count} <span style="font-size: 11px; font-weight: normal;">款</span></span>
+                                    <span class="crowd-pct">${cell.ratio.toFixed(1)}%</span>
+                                </div>
                                 <div class="crowd-bar-track">
                                     <div class="crowd-bar-fill" style="width: ${fillWidth}%; background: ${cell.status === 'extreme' ? '#f87171' : (cell.status === 'high' ? '#fbbf24' : r.palette.color)};"></div>
                                 </div>
@@ -4969,15 +5248,13 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             if (insightsContainer) {
                 let insightsHtml = '';
 
-                // 1. 扫描最高拥挤档位
                 let maxCrowdInfo = { ratio: -1, groupName: '', binLabel: '', count: 0 };
-                // 2. 扫描最明显蓝海空白 (全盘多、组内为0)
                 let bestBlueOceanInfo = { benchCount: -1, groupName: '', binLabel: '' };
 
                 groupBinData.forEach((gBins, gIdx) => {
                     const gName = results[gIdx].group.name;
                     gBins.forEach(cell => {
-                        if (cell.ratio > maxCrowdInfo.ratio && cell.count >= 3) {
+                        if (cell.ratio > maxCrowdInfo.ratio && cell.count >= (isCombo ? 2 : 3)) {
                             maxCrowdInfo = { ratio: cell.ratio, groupName: gName, binLabel: cell.bin.label, count: cell.count };
                         }
                         if (cell.count === 0 && cell.benchCount > bestBlueOceanInfo.benchCount) {
@@ -4989,28 +5266,28 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 insightsHtml += `
                     <div class="crowd-insight-item" style="border-left: 3px solid #f87171;">
                         <div class="crowd-insight-title" style="color: #f87171;">
-                            <span>🔴</span> 极度红海集中度预警
+                            <span>🔴</span> ${isCombo ? '复合维度极度红海组合' : '极度红海集中度预警'}
                         </div>
                         <div class="crowd-insight-desc">
-                            在当前对比分类中，<b>【${escapeHtml(maxCrowdInfo.groupName || '各组')}】</b> 在 <b>${maxCrowdInfo.binLabel || '-'}</b> 呈现最严峻的拥挤堆叠，组内集中度高达 <b>${maxCrowdInfo.ratio ? maxCrowdInfo.ratio.toFixed(1) : 0}%</b> (${maxCrowdInfo.count}款)。该区间价格厮杀白热化，同质化严重，切忌盲目跟风硬拼。
+                            在当前对比分类中，<b>【${escapeHtml(maxCrowdInfo.groupName || '各组')}】</b> 在 <b>${escapeHtml(maxCrowdInfo.binLabel || '-')}</b> 呈现最严峻的拥挤堆叠，组内集中度高达 <b>${maxCrowdInfo.ratio ? maxCrowdInfo.ratio.toFixed(1) : 0}%</b> (${maxCrowdInfo.count}款)。该组合竞争极度白热化，同质化最严重。
                         </div>
                     </div>
 
                     <div class="crowd-insight-item" style="border-left: 3px solid #34d399;">
                         <div class="crowd-insight-title" style="color: #34d399;">
-                            <span>💎</span> 结构性蓝海真空与机会点探测
+                            <span>💎</span> ${isCombo ? '高价值蓝海多维组合真空' : '结构性蓝海真空与机会点探测'}
                         </div>
                         <div class="crowd-insight-desc">
-                            在 <b>${bestBlueOceanInfo.binLabel || '-'}</b> 档位，全行业大盘拥有 <b>${bestBlueOceanInfo.benchCount} 款</b> 稳定在售爆款，但在 <b>【${escapeHtml(bestBlueOceanInfo.groupName || '部分分类')}】</b> 中为 0 渗透或处于绝对空白。这为错位新品打入提供了不可多得的<b>“有大盘需求却无分类巨头”</b>的切入真空窗口！
+                            在 <b>${escapeHtml(bestBlueOceanInfo.binLabel || '-')}</b> 维度组合下，全行业大盘拥有 <b>${bestBlueOceanInfo.benchCount} 款</b> 稳定在售爆款，但在 <b>【${escapeHtml(bestBlueOceanInfo.groupName || '部分分类')}】</b> 中为 0 渗透。是极具打爆潜力的<b>“有大盘刚需却无品类霸主”</b>的精准切入机会！
                         </div>
                     </div>
 
-                    <div class="crowd-insight-item" style="border-left: 3px solid #38bdf8;">
-                        <div class="crowd-insight-title" style="color: #38bdf8;">
-                            <span>💡</span> 交互穿透提示
+                    <div class="crowd-insight-item" style="border-left: 3px solid #a855f7;">
+                        <div class="crowd-insight-title" style="color: #c084fc;">
+                            <span>🧬</span> 精准度阶梯解析 (从低到高)
                         </div>
                         <div class="crowd-insight-desc">
-                            点击表格中任意带有款数的热力单元格，系统将自动定位并在下方<b>【命中商品与 1.8m SKU 明细下钻】</b>中展开该组落在该具体区间的床垫款式、品牌与实际价格明细！
+                            <b>L1单维</b>看大盘基盘；<b>L2双维</b>看材质×价格渗透；<b>L3三维</b>直接锁定产品形态(材质+价格+厚度)；<b>L4四维</b>完全穿透头部爆品DNA！点击任意单元格即可穿透查看具体商品。
                         </div>
                     </div>
                 `;
@@ -5023,7 +5300,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         function onCrowdCellClick(groupId, binShortLabel, groupIdx, binIdx) {
             currentDrillDownGroupId = groupId;
 
-            // 提取该格的商品
             const bins = generateCrowdBins();
             const targetBin = bins[binIdx];
             const targetGroupResult = lastCompareResults.find(r => r.group.id === groupId);
@@ -5032,7 +5308,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const filteredProds = targetGroupResult.matchedProducts.filter(mp => targetBin.matchFn(mp.product));
                 renderCompareDrillDown(lastCompareResults);
 
-                // 更新下钻容器为过滤后的商品
                 const drillContainer = document.getElementById('compare-drilldown-results');
                 if (drillContainer) {
                     if (filteredProds.length > 0) {
@@ -5046,7 +5321,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     }
                 }
 
-                // 平滑滚动到下钻区域
                 const drillEl = document.getElementById('compare-drilldown-tabs');
                 if (drillEl) {
                     drillEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
