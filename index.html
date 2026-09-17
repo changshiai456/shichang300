@@ -1165,6 +1165,82 @@
             background: linear-gradient(90deg, #ec4899, #a855f7);
         }
 
+    
+        /* =================== TAB 6: 顶部宏观透视 6 宫格 KPI 卡片样式 =================== */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        @media (max-width: 1400px) {
+            .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .kpi-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.75), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.25s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.45);
+            box-shadow: 0 6px 22px rgba(99, 102, 241, 0.25);
+        }
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+        }
+        .kpi-card.c-blue::before { background: linear-gradient(90deg, #38bdf8, #6366f1); }
+        .kpi-card.c-red::before { background: linear-gradient(90deg, #f87171, #ef4444); }
+        .kpi-card.c-yellow::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+        .kpi-card.c-pink::before { background: linear-gradient(90deg, #f472b6, #ec4899); }
+        .kpi-card.c-purple::before { background: linear-gradient(90deg, #c084fc, #8b5cf6); }
+        .kpi-card.c-green::before { background: linear-gradient(90deg, #34d399, #10b981); }
+
+        .kpi-label {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .kpi-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1.25;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+        .kpi-sub {
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .kpi-sub b {
+            color: #94a3b8;
+        }
+
     </style>
 </head>
 <body>
@@ -1595,37 +1671,37 @@
     
     <!-- ======================= TAB 6: 主图视觉卖点与引流定价全景透视 ======================= -->
     <div id="tab-main-images" class="tab-content">
-        <!-- 顶部宏观透视 KPI 指标卡 -->
+                <!-- 顶部宏观透视 6 宫格专业 KPI 指标卡 -->
         <div class="kpi-grid">
-            <div class="kpi-card">
-                <div class="kpi-label">全量主图采集识别</div>
-                <div class="kpi-value" style="color: #38bdf8;">296 / 300</div>
-                <div class="kpi-sub">OCR全量提取覆盖率 98.7%</div>
+            <div class="kpi-card c-blue">
+                <div class="kpi-label">📸 全网主图采集识别</div>
+                <div class="kpi-value" style="color: #38bdf8;">296 <span style="font-size: 14px; font-weight: 500; color: #64748b;">/ 300 款</span></div>
+                <div class="kpi-sub"><span>OCR文案全量提取率</span><b>98.7%</b></div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">主图明示标价商品</div>
+            <div class="kpi-card c-red">
+                <div class="kpi-label">🏷️ 明示主图到手价</div>
                 <div class="kpi-value" style="color: #f87171;">44 款</div>
-                <div class="kpi-sub">主图定价引流率 14.7%</div>
+                <div class="kpi-sub"><span>主图标价引流渗透率</span><b>14.7%</b></div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Top 1 核心功能卖点</div>
-                <div class="kpi-value" style="color: #fbbf24; font-size: 20px;">人体工学护脊</div>
-                <div class="kpi-sub">146 款商品覆盖 (48.7%)</div>
+            <div class="kpi-card c-yellow">
+                <div class="kpi-label">🎯 Top 1 核心功能卖点</div>
+                <div class="kpi-value" style="color: #fbbf24; font-size: 18px;">人体工学护脊</div>
+                <div class="kpi-sub"><span>全网覆盖商品</span><b>146款 (48.7%)</b></div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Top 1 营销利益点</div>
-                <div class="kpi-value" style="color: #f472b6; font-size: 20px;">平台/政府补贴</div>
-                <div class="kpi-sub">124 款商品应用 (41.3%)</div>
+            <div class="kpi-card c-pink">
+                <div class="kpi-label">🎁 Top 1 营销转化推手</div>
+                <div class="kpi-value" style="color: #f472b6; font-size: 18px;">平台/政府补贴</div>
+                <div class="kpi-sub"><span>全网应用商品</span><b>124款 (41.3%)</b></div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">主导视觉展现形式</div>
-                <div class="kpi-value" style="color: #c084fc; font-size: 20px;">3D分层结构剖面</div>
-                <div class="kpi-sub">155 款商品采用 (51.7%)</div>
+            <div class="kpi-card c-purple">
+                <div class="kpi-label">🎨 主导视觉展现形式</div>
+                <div class="kpi-value" style="color: #c084fc; font-size: 18px;">3D分层结构剖面</div>
+                <div class="kpi-sub"><span>内材透视表达采用率</span><b>155款 (51.7%)</b></div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">主图标价引流策略分布</div>
-                <div class="kpi-value" style="color: #10b981; font-size: 20px;">精准对标SKU低价</div>
-                <div class="kpi-sub">占明评标价款 59.1%</div>
+            <div class="kpi-card c-green">
+                <div class="kpi-label">⚡ 标价引流核心策略</div>
+                <div class="kpi-value" style="color: #34d399; font-size: 18px;">精准对标最低SKU</div>
+                <div class="kpi-sub"><span>明标商品占比</span><b>59.1% (引流走量)</b></div>
             </div>
         </div>
 
