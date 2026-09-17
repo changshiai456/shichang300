@@ -1279,26 +1279,92 @@
                 </div>
             </div>
 
-            <!-- 关键词与特征过滤 -->
+            <!-- 关键词与特征多维搜索过滤 -->
             <div class="filter-row">
                 <div class="filter-group">
                     <span class="filter-label">关键词搜索:</span>
-                    <input type="text" id="cust-keyword" class="input-box input-search" placeholder="输入店铺、标题或SKU (支持用 / 分割多个词，如: 记忆棉/0压/压缩)..." oninput="debounceFilter()">
-                </div>
-                <div class="pill-group" id="feature-pills">
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('记忆棉', this)">记忆棉</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('0压', this)">0压</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('压缩', this)">压缩</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('乳胶', this)">天然乳胶</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('黄麻', this)">黄麻护脊</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('0胶', this)">0胶水/零胶</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('可拆洗', this)">可拆洗</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('双面', this)">双面双睡感</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('套餐', this)">含床架/家纺套餐</button>
-                    <button class="pill-btn" onclick="toggleFeatureKeyword('智能', this)">智能床/电动</button>
+                    <input type="text" id="cust-keyword" class="input-box input-search" style="width: 280px;" placeholder="输入材质、主图卖点、文案、品牌等 (支持空格/逗号/斜杠多词)..." oninput="debounceFilter()">
+                    <button class="btn-clear" onclick="clearKeyword()" style="background: rgba(255,255,255,0.06); border: 1px solid #334155; color: #94a3b8; padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">清空词</button>
                 </div>
             </div>
-        </div>
+
+            <!-- 搜索范围维度切换 (核心功能：决定在主图、标题、SKU还是全域去重分析) -->
+            <div class="scope-toggle-container">
+                <span class="filter-label" style="min-width: 96px; color: #a5b4fc; font-weight: 700;">🔍 搜索范围维度:</span>
+                <div class="scope-toggle-group">
+                    <button class="scope-btn active" id="scope-btn-all" onclick="setSearchScope('all', this)" title="全量去重综合分析 (同时检索主图文字卖点、标题、店铺名及SKU规格)">
+                        🌐 全域去重综合 (主图+标题+SKU)
+                    </button>
+                    <button class="scope-btn" id="scope-btn-main_image" onclick="setSearchScope('main_image', this)" title="仅分析主图RapidOCR提取文字、核心卖点、营销文案与视觉形式">
+                        🎯 仅主图内容/卖点 (仅首图分析)
+                    </button>
+                    <button class="scope-btn" id="scope-btn-title" onclick="setSearchScope('title', this)" title="仅检索商品主标题与店铺名称">
+                        📝 仅商品标题/店铺 (仅标题分析)
+                    </button>
+                    <button class="scope-btn" id="scope-btn-sku" onclick="setSearchScope('sku', this)" title="仅检索1.8米具体SKU规格名称与睡感材质说明">
+                        🏷️ 仅SKU规格 (仅规格分析)
+                    </button>
+                </div>
+                <span style="font-size: 11px; color: #94a3b8; margin-left: 6px;">💡 切换后上方 KPI 看板与商品列表将实时动态重算中位数、均价与命中商品！</span>
+            </div>
+
+            <!-- 快捷标签特征矩阵 (按材质、主图卖点、营销权益、视觉分类) -->
+            <div class="pill-group-category" id="feature-pills-container">
+                <!-- 材质与核心结构 -->
+                <div class="pill-row">
+                    <span class="pill-row-label">🌿 材质与结构:</span>
+                    <div class="pill-group" id="feature-pills-mat">
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('黄麻', this)">黄麻</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('乳胶', this)">天然乳胶</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('独立袋', this)">独立袋弹簧</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('椰棕', this)">椰棕</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('记忆棉', this)">记忆棉</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('3D', this)">3D空气纤维</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('海绵', this)">海绵</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('可拆洗', this)">可拆洗</button>
+                        <button class="pill-btn" onclick="toggleFeatureKeyword('双面', this)">双面双睡感</button>
+                    </div>
+                </div>
+
+                <!-- 主图核心功能卖点 -->
+                <div class="pill-row">
+                    <span class="pill-row-label">🎯 主图功能卖点:</span>
+                    <div class="pill-group" id="feature-pills-sp">
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('0胶水', this)">0胶水/零胶</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('护脊', this)">硬核护脊/护腰</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('释压', this)">天然释压</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('母婴', this)">母婴A类标准</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('五星级', this)">五星级酒店款</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('静音', this)">静音抗干扰</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('防螨', this)">抗菌防螨</button>
+                        <button class="pill-btn img-pill" onclick="toggleFeatureKeyword('透气', this)">吸湿透气</button>
+                    </div>
+                </div>
+
+                <!-- 营销权益与信任背书 -->
+                <div class="pill-row">
+                    <span class="pill-row-label">🎁 营销权益背书:</span>
+                    <div class="pill-group" id="feature-pills-mkt">
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('补贴', this)">平台/政府补贴</button>
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('试睡', this)">免费试睡保障</button>
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('送装', this)">免费送装一体</button>
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('赠', this)">买赠枕被好礼</button>
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('质保', this)">超长弹簧质保</button>
+                        <button class="pill-btn mkt-pill" onclick="toggleFeatureKeyword('免息', this)">分期免息</button>
+                    </div>
+                </div>
+
+                <!-- 视觉呈现风格 -->
+                <div class="pill-row">
+                    <span class="pill-row-label">🎨 视觉展现形式:</span>
+                    <div class="pill-group" id="feature-pills-vis">
+                        <button class="pill-btn vis-pill" onclick="toggleFeatureKeyword('3D分层', this)">3D分层剖面</button>
+                        <button class="pill-btn vis-pill" onclick="toggleFeatureKeyword('促销大字报', this)">促销大字报冲击型</button>
+                        <button class="pill-btn vis-pill" onclick="toggleFeatureKeyword('生活家居', this)">生活家居场景型</button>
+                        <button class="pill-btn vis-pill" onclick="toggleFeatureKeyword('权威背书', this)">权威背书/实验室</button>
+                    </div>
+                </div>
+            </div></div>
 
         <!-- 动态多维统计看板 (实时反映当前筛选条件下的全部中位数、均值与占比) -->
         <div class="dynamic-metrics-dashboard">
@@ -2779,11 +2845,17 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                                 placeholder="最高cm" value="${g.maxHeight !== null ? g.maxHeight : ''}" oninput="onGroupConditionChange(${g.id})">
                         </div>
 
-                        <!-- 关键词过滤 -->
+                        <!-- 关键词与搜索范围过滤 -->
                         <div class="group-field-row">
                             <span class="group-field-lbl">关键词:</span>
                             <input type="text" id="cg-kw-${g.id}" class="group-input-box" 
-                                placeholder="用/分割多词，如: 记忆棉/0压/压缩" value="${escapeHtml(g.keyword || '')}" oninput="onGroupConditionChange(${g.id})">
+                                placeholder="支持多词，如: 0胶水/黄麻" value="${escapeHtml(g.keyword || '')}" oninput="onGroupConditionChange(${g.id})" style="flex: 1;">
+                            <select id="cg-scope-${g.id}" class="group-input-box" style="width: 125px; padding: 4px 6px; font-size: 11px; background: #0f172a; border-color: #475569;" onchange="onGroupConditionChange(${g.id})">
+                                <option value="all" ${(!g.scope || g.scope === 'all') ? 'selected' : ''}>🌐 全域去重</option>
+                                <option value="main_image" ${g.scope === 'main_image' ? 'selected' : ''}>🎯 仅主图内容</option>
+                                <option value="title" ${g.scope === 'title' ? 'selected' : ''}>📝 仅商品标题</option>
+                                <option value="sku" ${g.scope === 'sku' ? 'selected' : ''}>🏷️ 仅SKU规格</option>
+                            </select>
                         </div>
 
                         <!-- 快捷特征药丸标签 -->
@@ -3055,14 +3127,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                         if (maxH !== null && p.height > maxH) return;
                     }
 
-                    const prodTitleMatch = matchKeyword(p.title, kw) || matchKeyword(p.shop, kw);
+                    const groupScope = g.scope || 'all';
+                    const matchResult = isProductMatchKeyword(p, kw, groupScope);
                     const matchedSkus = [];
                     const otherSkus = [];
 
                     p.skus.forEach(s => {
                         const skuPrice = s.price;
                         const inPrice = (skuPrice !== null) && (skuPrice >= minP && skuPrice <= maxP);
-                        const skuKwMatch = prodTitleMatch || matchKeyword(s.name, kw);
+                        const skuKwMatch = matchResult.matchSkuFunc(s);
 
                         let inHeight = true;
                         if (hasHeightFilter && s.height !== null) {
