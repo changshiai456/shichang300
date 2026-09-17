@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>床垫大盘透视与10款新品矩阵操盘全案</title>
+    <style>
+        :root {
+            --bg-body: #0a0e17;
+            --bg-card: #111827;
+            --bg-card-sub: #1a2234;
+            --bg-card-hover: #222d42;
+            --border-color: #2a364f;
+            --border-highlight: #3b82f6;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #8b5cf6;
+            --accent-rose: #f43f5e;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+            --text-muted: #64748b;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 15px;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部导航与英雄区 */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 23, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            padding: 48px 0 32px;
+            text-align: center;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-sub);
+            max-width: 820px;
+            margin: 0 auto 30px;
+            font-size: 16px;
+        }
+
+        /* 核心指标看板 */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-cyan);
+        }
+        .metric-card.blue::before { background: var(--primary); }
+        .metric-card.purple::before { background: var(--accent-purple); }
+        .metric-card.green::before { background: var(--accent-green); }
+        .metric-card.amber::before { background: var(--accent-amber); }
+        .metric-card.rose::before { background: var(--accent-rose); }
+
+        .metric-label { font-size: 13px; color: var(--text-sub); margin-bottom: 6px; }
+        .metric-val { font-size: 26px; font-weight: 700; color: #fff; }
+        .metric-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+        /* 通用区块样式 */
+        .section-block {
+            margin-bottom: 56px;
+            scroll-margin-top: 80px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 14px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-badge {
+            background: var(--bg-card-sub);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        .section-desc {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* 表格样式 */
+        .custom-table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+        .custom-table th {
+            background: rgba(255,255,255,0.02);
+            color: var(--text-sub);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+        .custom-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: #e2e8f0;
+        }
+        .custom-table tr:last-child td { border-bottom: none; }
+        .custom-table tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* 标签与Badge */
+        .pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .pill-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .pill-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .pill-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .pill-purple { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .pill-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+        /* 价格带柱状图卡片 */
+        .bands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .band-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .band-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+        .band-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .band-name { font-weight: 700; font-size: 15px; color: #fff; }
+        .band-bar-wrap {
+            background: rgba(255,255,255,0.06);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .band-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+        .band-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* 痛点洞察网格 */
+        .pain-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-rose);
+        }
+        .pain-card.green { border-left-color: var(--accent-green); }
+        .pain-card.blue { border-left-color: var(--primary); }
+        .pain-card.purple { border-left-color: var(--accent-purple); }
+        .pain-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .pain-card p { font-size: 13.5px; color: var(--text-sub); line-height: 1.6; }
+        .pain-opp {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 12.5px;
+            color: #38bdf8;
+        }
+
+        /* 10款新品卡片设计 */
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-sub);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        .product-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .product-detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+            transition: border-color 0.2s;
+        }
+        .product-detail-card:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+        .product-card-top {
+            background: linear-gradient(90deg, rgba(30, 41, 59, 0.6) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .p-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .p-rank-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px var(--primary-glow);
+        }
+        .p-rank-badge.gold { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .p-rank-badge.silver { background: linear-gradient(135deg, #94a3b8, #64748b); }
+        .p-rank-badge.bronze { background: linear-gradient(135deg, #d97706, #b45309); }
+
+        .p-name { font-size: 20px; font-weight: 800; color: #fff; }
+        .p-type-tag { font-size: 13px; color: var(--text-sub); }
+        .p-price-tag {
+            text-align: right;
+        }
+        .p-price-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: #38bdf8;
+        }
+        .p-price-label { font-size: 11px; color: var(--text-muted); }
+
+        .product-body {
+            padding: 24px;
+        }
+
+        /* 卖点列表 */
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        .usp-item {
+            background: var(--bg-card-sub);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .usp-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #60a5fa;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .usp-desc { font-size: 13px; color: var(--text-sub); line-height: 1.5; }
+
+        /* 4大逻辑问答块 */
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .reason-item h5 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .reason-item p {
+            font-size: 12.5px;
+            color: var(--text-sub);
+            line-height: 1.55;
+        }
+
+        /* PSPM 评估矩阵 */
+        .pspm-score-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .score-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .score-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+        }
+        .score-text { font-size: 12px; font-weight: 700; width: 32px; text-align: right; }
+
+        /* GTM 时间线 */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+        .timeline-step {
+            position: relative;
+            margin-bottom: 28px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-body);
+        }
+        .timeline-step h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .timeline-step p { font-size: 13.5px; color: var(--text-sub); line-height: 1.6; }
+
+        /* 页脚 */
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 16px; flex-direction: column; gap: 10px; }
+            .hero h1 { font-size: 26px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .product-card-top { flex-direction: column; align-items: flex-start; }
+            .p-price-tag { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+            <span>床垫新品矩阵决策操盘全案</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#market-overview" class="nav-link">大盘穿透</a>
+            <a href="#product-matrix" class="nav-link active">10款新品全案</a>
+            <a href="#pspm-ranking" class="nav-link">成功率模型与榜单</a>
+            <a href="#gtm-strategy" class="nav-link">GTM操盘战役</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 英雄区与大盘概览 -->
+        <section class="hero">
+            <div class="hero-tag">数据驱动 · 深度选品 · 商业闭环</div>
+            <h1>300款床垫大盘数据洞察与10款新品矩阵规划全案</h1>
+            <p>基于全网 300 款热销床垫、4,594 个细分 SKU 与价格维度的穿透分析，解析价格断层与用户痛点，量身打造覆盖流量、主力、利润与技术图腾的新品矩阵系统。</p>
+
+            <!-- 核心指标看板 -->
+            <div class="metrics-grid">
+                <div class="metric-card blue">
+                    <div class="metric-label">分析样本产品总量</div>
+                    <div class="metric-val">300 <span style="font-size:15px;font-weight:normal">款</span></div>
+                    <div class="metric-sub">覆盖天猫全网 Top 300 爆品</div>
+                </div>
+                <div class="metric-card purple">
+                    <div class="metric-label">精细分析 SKU 总数</div>
+                    <div class="metric-val">4,594 <span style="font-size:15px;font-weight:normal">个</span></div>
+                    <div class="metric-sub">涵盖规格/厚度/面料/睡感</div>
+                </div>
+                <div class="metric-card cyan">
+                    <div class="metric-label">全市场价格中位数</div>
+                    <div class="metric-val">¥ 760.3</div>
+                    <div class="metric-sub">平均价格 ¥ 1,583.9</div>
+                </div>
+                <div class="metric-card green">
+                    <div class="metric-label">弹簧厚垫 vs 护脊薄垫</div>
+                    <div class="metric-val">55.3% : 33.7%</div>
+                    <div class="metric-sub">两大主力形态主导90%大盘</div>
+                </div>
+                <div class="metric-card amber">
+                    <div class="metric-label">规划新品战略矩阵</div>
+                    <div class="metric-val">10 <span style="font-size:15px;font-weight:normal">款</span></div>
+                    <div class="metric-sub">4个战略梯队，全价格带穿透</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第一部分：大盘深度洞察 -->
+        <section id="market-overview" class="section-block">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">
+                        <span>第一部分：300款床垫大盘数据深度洞察与竞争真相</span>
+                        <span class="section-badge">数据底座</span>
+                    </h2>
+                    <p class="section-desc">穿透全网销量头部 300 款产品，识别价格带聚集区与头部品牌垄断格局</p>
+                </div>
+            </div>
+
+            <!-- 价格带统计图表 -->
+            <h3 style="font-size:16px; margin-bottom:14px; color:#93c5fd;">1. 全网 8 大价格带分布与成交爆发力分析</h3>
+            <div class="bands-grid">
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">&lt; 300元 (极低价/租房)</span>
+                        <span class="pill pill-rose">SKU 9.7%</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 9.7%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 31款 (10.3%)</span>
+                        <span>中位价: ¥229.9</span>
+                        <span>最佳排: 第20名</span>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">三足鸟海绵垫、纯低价走量薄垫，毛利极薄、客诉率高。</div>
+                </div>
+
+                <div class="band-card" style="border-color: rgba(59,130,246,0.4);">
+                    <div class="band-header">
+                        <span class="band-name">300 ~ 800元 (平价入门)</span>
+                        <span class="pill pill-blue">SKU 42.9% (最多)</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 42.9%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 123款 (41.0%)</span>
+                        <span>中位价: ¥510.0</span>
+                        <span>最佳排: 第6名</span>
+                    </div>
+                    <div style="font-size:12px;color:#60a5fa;margin-top:6px;">蓝盒子小蓝垫(483元)位居第6！大牌高颜值降维做小件杀伤力巨大。</div>
+                </div>
+
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">800 ~ 1,500元 (腰部护脊)</span>
+                        <span class="pill pill-green">产品 45.3%</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 23.0%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 136款 (45.3%)</span>
+                        <span>中位价: ¥1,070.1</span>
+                        <span>最佳排: 第7名</span>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">麻大师豆7、全友、月光之家。大众护脊硬垫与初阶弹簧的核心阵地。</div>
+                </div>
+
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">1,500 ~ 2,000元 (品质入门)</span>
+                        <span class="pill pill-amber">转化甜点区</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 7.1%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 87款 (29.0%)</span>
+                        <span>中位价: ¥1,698.3</span>
+                        <span>最佳排: 第3名</span>
+                    </div>
+                    <div style="font-size:12px;color:#fbbf24;margin-top:6px;">喜临门塔利亚Pro(1699元，Rank 3)、源氏木语椰椰(1899元)。大牌厚垫质价比线。</div>
+                </div>
+
+                <div class="band-card" style="border-color: rgba(16,185,129,0.5);">
+                    <div class="band-header">
+                        <span class="band-name">2,000 ~ 3,000元 (国民爆款区)</span>
+                        <span class="pill pill-green">主战场 · 销冠带</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 6.9%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 91款 (30.3%)</span>
+                        <span>中位价: ¥2,455.7</span>
+                        <span>最佳排: 第1名 (销冠)</span>
+                    </div>
+                    <div style="font-size:12px;color:#34d399;margin-top:6px;">喜临门【白骑士Plus】(2804元)稳居全网第一！婚房换新绝对首选。</div>
+                </div>
+
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">3,000 ~ 5,000元 (中高端DTC)</span>
+                        <span class="pill pill-purple">高毛利新中产</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 4.8%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 85款 (28.3%)</span>
+                        <span>中位价: ¥3,692.4</span>
+                        <span>最佳排: 第1名</span>
+                    </div>
+                    <div style="font-size:12px;color:#c084fc;margin-top:6px;">蓝盒子Z1(3305元，Rank 2)、源氏木语J121(3786元)、栖作坚果(4681元)。</div>
+                </div>
+
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">5,000 ~ 10,000元 (轻奢高星)</span>
+                        <span class="pill pill-blue">豪华大牌</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 4.1%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 45款 (15.0%)</span>
+                        <span>中位价: ¥7,188.5</span>
+                        <span>最佳排: 第2名</span>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">舒达妙享(8073元，Rank 29)、蓝盒子Z1Pro(5158元)。五星级酒店奢睡感。</div>
+                </div>
+
+                <div class="band-card">
+                    <div class="band-header">
+                        <span class="band-name">&gt; 10,000元 (智能豪华)</span>
+                        <span class="pill pill-amber">品牌技术图腾</span>
+                    </div>
+                    <div class="band-bar-wrap"><div class="band-bar-fill" style="width: 1.4%;"></div></div>
+                    <div class="band-meta">
+                        <span>产品数: 16款 (5.3%)</span>
+                        <span>中位价: ¥12,698.0</span>
+                        <span>最佳排: 第4名</span>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">喜临门呼呼AI(1.64w，Rank 4)、梦百合三体智能电动床(1.11w，Rank 8)。</div>
+                </div>
+            </div>
+
+            <!-- 核心痛点与破局洞察 -->
+            <h3 style="font-size:16px; margin: 24px 0 14px; color:#93c5fd;">2. 市场痛点剖析与 4 大差异化创新缝隙（Gap Analysis）</h3>
+            <div class="pain-points-grid">
+                <div class="pain-card">
+                    <h4>痛点 1：“胶水黑盒”与深层甲醛焦虑</h4>
+                    <p>传统厚床垫内部层叠粘合普遍使用热熔胶或喷胶，且封闭缝边不可拆洗，消费者无法验证真伪；源氏木语主打“0胶水”爆卖，证明环保安全已成为最高权重决策因素。</p>
+                    <div class="pain-opp">💡 破局切口：打造 2,000 元级「整床拉链全开 + 物理卡扣 0 胶水」，实现用料可视化。</div>
+                </div>
+
+                <div class="pain-card green">
+                    <h4>痛点 2：“偏硬护脊”的伪命题与腰椎悬空</h4>
+                    <p>Top 100 中 51% 标榜护脊，但多数低端棕垫是“硬邦邦像石板”，缺乏生理贴合释压；而纯乳胶垫下沉过深早晨腰酸。大量用户买完后抱怨“床垫买软了”却退货无门。</p>
+                    <div class="pain-opp">💡 破局切口：S型热压黄麻 + 复合微弹释压层，做到“硬而不僵，护脊不硌骨”。</div>
+                </div>
+
+                <div class="pain-card blue">
+                    <h4>痛点 3：夫妻左右睡感冲突与极高退货成本</h4>
+                    <p>传统床垫单一体感，大体重丈夫嫌软腰疼、偏轻妻子嫌硬硌骨头；线上床垫退换物流费高达 300~500 元，导致逆向退货吃掉所有利润。</p>
+                    <div class="pain-opp">💡 破局切口：左右独立分体模块化设计，软硬不合只需补寄单侧海绵内芯，退货率降至 2% 以下。</div>
+                </div>
+
+                <div class="pain-card purple">
+                    <h4>痛点 4：儿童/青少年假护脊与尿床发霉死穴</h4>
+                    <p>市面儿童床垫多数是“成人薄垫换壳”，缺乏成长分龄支撑；儿童尿床、出汗极易让内胆发霉生螨，普通床垫一旦渗尿即直接报废。</p>
+                    <div class="pain-opp">💡 破局切口：分阶成长双芯（骨骼塑形期 vs 释压期）+ 内外芯材全面可机洗水洗。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二部分：10款新品矩阵全案 -->
+        <section id="product-matrix" class="section-block">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">
+                        <span>第二部分：10款新品床垫矩阵战略全案（定义·卖点·SKU·逻辑）</span>
+                        <span class="section-badge">操盘核心</span>
+                    </h2>
+                    <p class="section-desc">包含形态、厚度、卖点USP、SKU规格表、定价逻辑、选品依据与量化目标的完整产品定义</p>
+                </div>
+            </div>
+
+            <!-- 梯队过滤按钮 -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterProducts('all')">全部 10 款新品</button>
+                <button class="filter-btn" onclick="filterProducts('tier-traffic')">第一梯队：流量破局款 (2款)</button>
+                <button class="filter-btn" onclick="filterProducts('tier-main')">第二梯队：主力走量款 (4款)</button>
+                <button class="filter-btn" onclick="filterProducts('tier-profit')">第三梯队：高毛利升级款 (3款)</button>
+                <button class="filter-btn" onclick="filterProducts('tier-flagship')">第四梯队：品牌图腾款 (1款)</button>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- 产品 1 -->
+                <div class="product-detail-card" data-tier="tier-traffic">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge silver">01</div>
+                            <div>
+                                <div class="p-name">【轻语Air】全拆洗三折叠多功能高密释压垫</div>
+                                <div class="p-type-tag">形态：5cm / 6.5cm 便携折叠薄垫 ｜ 场景：宿舍 / 租房 / 飘窗 / 榻榻米 ｜ 角色：流量引流款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 399 ~ 699</div>
+                            <div class="p-price-label">1.8米主力价：¥599 ｜ 0.9米引流价：¥399</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🌟</span> 全外套物理拉链可拆机洗</div>
+                                <div class="usp-desc">击中租房、宿舍、垫子脏了无法清洗、生螨发霉痛点；A类母婴面料，整机机洗不易变形。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🔄</span> 三折无缝收纳 + 软硬双面体感</div>
+                                <div class="usp-desc">折叠后仅行李箱尺寸，搬家女生单手提；正面40D高密支撑棉（偏硬），反面波浪透气棉（释压）。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>📦</span> 附赠压缩收纳带与防尘提袋</div>
+                                <div class="usp-desc">开箱即用，卷包顺丰直发入户；干线物流成本比大床垫下降 80%，极低退货损耗。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>睡感配置</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>轻语Air 0.9m 宿舍版</strong></td>
+                                        <td>0.9 × 1.9 m</td>
+                                        <td>5.0 cm</td>
+                                        <td>高密支撑 + 透气释压双面</td>
+                                        <td><strong style="color:#60a5fa">¥ 399</strong></td>
+                                        <td>¥ 599</td>
+                                        <td><span class="pill pill-rose">极致引流爆点 (毛利38%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>轻语Air 1.2m 单人加宽</strong></td>
+                                        <td>1.2 × 2.0 m</td>
+                                        <td>5.0 cm</td>
+                                        <td>高密支撑 + 透气释压双面</td>
+                                        <td><strong style="color:#60a5fa">¥ 499</strong></td>
+                                        <td>¥ 799</td>
+                                        <td><span class="pill pill-blue">转化款 (毛利46%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>轻语Air 1.5m 租房双人</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>6.5 cm (加厚)</td>
+                                        <td>加厚高弹释压层</td>
+                                        <td><strong style="color:#60a5fa">¥ 569</strong></td>
+                                        <td>¥ 899</td>
+                                        <td><span class="pill pill-green">主推走量 (毛利52%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>轻语Air 1.8m 家用主推</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>6.5 cm (加厚)</td>
+                                        <td>加厚高弹释压层</td>
+                                        <td><strong style="color:#38bdf8">¥ 599</strong></td>
+                                        <td>¥ 999</td>
+                                        <td><span class="pill pill-green">核心爆款 (贡献45%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>轻语Air 1.8m + 纯棉替换外套套包</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>6.5 cm</td>
+                                        <td>双外套轮换换洗组合</td>
+                                        <td><strong style="color:#a78bfa">¥ 699</strong></td>
+                                        <td>¥ 1,199</td>
+                                        <td><span class="pill pill-purple">升档溢价款 (毛利58%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>蓝盒子【小蓝垫】(483元，Rank 6)证明学生与租房党对“大牌品质感薄垫”极度渴望。传统廉价垫海绵密度低、塌陷快且无法清洗。我们用“可拆机洗+三折双睡感”一举颠覆传统低端垫。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>300~800元是全网SKU最多（42.9%）的走量带。399元单人卡在学生换新心理线，599元家用双人击穿大牌（金橡树5cm纯乳胶需1150元），降维收割。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>供应链高度标准化，卷包发货物流成本极低（单件运费仅十余元），极低售后退换货风险，是建立正现金流与好评基数的绝对利器。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p><strong>规模放量与破冰拉新</strong>。全渠道月销 15,000+ 张，打造全店销量 TOP 1 爆款，引流年轻客群后续置换主卧厚垫。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 2 -->
+                <div class="product-detail-card" data-tier="tier-traffic">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge bronze">02</div>
+                            <div>
+                                <div class="p-name">【小硬派Mini】0胶S型黄麻护腰改造薄垫</div>
+                                <div class="p-type-tag">形态：7cm / 10cm 天然黄麻硬垫 ｜ 场景：旧床加硬改造 / 高箱床 / 中老年护腰 ｜ 角色：腰部流量款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 899 ~ 1,399</div>
+                            <div class="p-price-label">1.8米主力价：¥1,099 ｜ 7cm基础款：¥899</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🪵</span> 旧床太软拯救神器·铺上即变硬</div>
+                                <div class="usp-desc">专治“新买床垫太软腰酸、旧床塌陷换新麻烦”，直接铺在原床垫上秒变护脊偏硬床，带四角防滑加固绑带。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🍃</span> 100℃高温热压纯物理0胶S型黄麻</div>
+                                <div class="usp-desc">零化学胶水，纯物理热压成型，三维立体S型黄麻，透气排湿，甲醛未检出，防霉防蛀。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🛡️</span> 1cm高弹微释压缓冲·告别硬板硌骨</div>
+                                <div class="usp-desc">1cm 环保微孔高回弹棉 + 6cm 硬黄麻，贴合人体腰椎自然生理曲度，硬而不僵，久睡不累。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>材质与配置</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>小硬派 7cm 护腰版 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>7.0 cm</td>
+                                        <td>A类针织 + 5cm黄麻 + 1cm高弹棉</td>
+                                        <td><strong style="color:#60a5fa">¥ 899</strong></td>
+                                        <td>¥ 1,399</td>
+                                        <td><span class="pill pill-rose">引流破冰 (毛利45%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>小硬派 7cm 护腰版 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>7.0 cm</td>
+                                        <td>A类针织 + 5cm黄麻 + 1cm高弹棉</td>
+                                        <td><strong style="color:#60a5fa">¥ 999</strong></td>
+                                        <td>¥ 1,599</td>
+                                        <td><span class="pill pill-blue">破千元心理款 (毛利48%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>小硬派 10cm 加硬旗舰 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>10.0 cm</td>
+                                        <td>A类面料 + 8cm黄麻 + 1cm高弹棉</td>
+                                        <td><strong style="color:#34d399">¥ 1,099</strong></td>
+                                        <td>¥ 1,799</td>
+                                        <td><span class="pill pill-green">高性价比 (毛利53%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>小硬派 10cm 加硬旗舰 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>10.0 cm</td>
+                                        <td>A类面料 + 8cm黄麻 + 1cm高弹棉</td>
+                                        <td><strong style="color:#38bdf8">¥ 1,199</strong></td>
+                                        <td>¥ 1,999</td>
+                                        <td><span class="pill pill-green">核心主力爆款 (贡献55%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>小硬派 10cm 尊享乳胶黄麻款</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>10.0 cm</td>
+                                        <td>1cm泰国天然乳胶 + 7cm黄麻</td>
+                                        <td><strong style="color:#c084fc">¥ 1,399</strong></td>
+                                        <td>¥ 2,299</td>
+                                        <td><span class="pill pill-purple">利润升档 (毛利58%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>麻大师【加硬神器】(Rank 28)和【豆7】(Rank 18)长盛不衰，印证了庞大的存量家庭饱受“床垫买软了腰疼、换新床垫舍不得扔”的折磨。“旧床加硬改造”是极高搜索转化的刚需痛点。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>800~1,500元占据大盘45.3%的产品。千元出头避开了劣质椰棕的刺鼻异味，又比源氏木语2000元以上的纯黄麻垫更具价格亲和力。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>天然黄麻供应链在江浙极其成熟稳定，物理热压不含胶水，品质客诉极低，产品寿命长，退货率远低于大弹簧床垫。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>占领“护腰加硬改造”品类搜索前3名，单月销量突破 5,000+ 张，为全店中高端弹簧床垫输送腰痛客群画像。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 3 -->
+                <div class="product-detail-card" data-tier="tier-main">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge gold">03</div>
+                            <div>
+                                <div class="p-name">【净界01·国民版】物理卡扣全拆洗0胶双面弹簧床垫</div>
+                                <div class="p-type-tag">形态：24cm 独立袋装弹簧厚床垫 ｜ 场景：主卧婚房 / 换新升级 ｜ 角色：核心战略大单品 (GMV第一支柱)</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 1,899 ~ 2,599</div>
+                            <div class="p-price-label">1.8米主力价：¥2,199 ｜ 对标：喜临门白骑士Plus(¥2,804)</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🔍</span> 全拆洗·整床可视化真0胶水</div>
+                                <div class="usp-desc">颠覆传统封闭盲盒！四面全开高精度拉链，层层可见，采用食品级物理卡扣连接，拒绝一滴化学胶水，直击甲醛恐惧。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🌗</span> 黄金A/B面双睡感·一床睡十年</div>
+                                <div class="usp-desc">A面2cm泰国93%纯天然乳胶（软硬适中、微弹释压包裹）；B面1.5cm高温热压精织黄麻（强力挺腰、深层护脊硬睡感）。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🔇</span> 六环高碳锰钢独袋弹簧 + 四周M型防塌固边</div>
+                                <div class="usp-desc">独立袋装静音弹簧，伴侣翻身0干扰；床沿四周高密度海绵发泡嵌边+M型支撑弹簧，边缘坐立不滑落溜边。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>配置特色</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>净界01 经典双睡感 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>2cm乳胶 + 1.5cm黄麻 + 独立袋</td>
+                                        <td><strong style="color:#60a5fa">¥ 1,999</strong></td>
+                                        <td>¥ 3,299</td>
+                                        <td><span class="pill pill-blue">次卧质价比款 (毛利52%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>净界01 经典双睡感 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>2cm乳胶 + 1.5cm黄麻 + 独立袋</td>
+                                        <td><strong style="color:#38bdf8">¥ 2,199</strong></td>
+                                        <td>¥ 3,599</td>
+                                        <td><span class="pill pill-green">超级镇店之宝 (贡献50%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>净界01 偏硬舒脊款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>2.5cm 加厚黄麻 + 强化独袋弹簧</td>
+                                        <td><strong style="color:#34d399">¥ 2,299</strong></td>
+                                        <td>¥ 3,799</td>
+                                        <td><span class="pill pill-green">护脊偏好款 (毛利55%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>净界01 奢享Pro款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>26 cm</td>
+                                        <td>3cm特级乳胶 + 四叶草静音弹簧</td>
+                                        <td><strong style="color:#c084fc">¥ 2,599</strong></td>
+                                        <td>¥ 4,299</td>
+                                        <td><span class="pill pill-purple">高配溢价款 (毛利60%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>喜临门【白骑士Plus】长期稳坐全网第 1 名（均价 2804元），证明“黄麻+乳胶+弹簧”是中国大众心智接受度最高的配置。但传统爆款全封闭用胶，无法拆洗。我们以“物理全拆洗0胶水”形成代际降维打击。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>白骑士Plus成交在 2500~2800元，栖作0胶可拆洗坚果在 3300~4600元。我们以 2,199元 击穿价格真空带，比白骑士更透明，比栖作便宜千元以上。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>24cm 占据大盘厚度黄金中枢（46%产品处于23~26cm），适配全行业所有床架高度，老少皆宜，具备超级大单品体量。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p><strong>成为全店销量与GMV第一支柱</strong>，全渠道正面抢夺白骑士Plus份额，月销目标突破 10,000+ 张，打造全网国民床垫新名片。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 4 -->
+                <div class="product-detail-card" data-tier="tier-main">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge silver">04</div>
+                            <div>
+                                <div class="p-name">【深睡盒Z-Zero】零压慢回弹恒温记忆棉静音床垫</div>
+                                <div class="p-type-tag">形态：22cm 纯卷包无压弹簧床垫 ｜ 场景：年轻白领 / 一二线新中产 / 婚房 ｜ 角色：DTC旗舰款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 2,699 ~ 3,399</div>
+                            <div class="p-price-label">1.8米主力价：¥2,999 ｜ 对标：蓝盒子Z1(¥3,305)</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>☁️</span> 非温感微孔凝胶记忆棉·四季恒温</div>
+                                <div class="usp-desc">解决传统记忆棉夏天闷热积汗、冬天发硬死板缺陷；凝胶微粒子导热排湿，提供如浮于水面的失重级释压。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>📦</span> 小巧纸箱卷包运输·100%无障碍入户</div>
+                                <div class="usp-desc">真空压缩卷包，体积缩小 75%，无论老旧小区狭窄楼道还是小型电梯，女生单人推箱入户，开箱10秒回弹。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>💤</span> 100天免费深度试睡承诺</div>
+                                <div class="usp-desc">打消线上买床垫无法试躺的全部疑虑，100天不适应免费上门取件退换，直击年轻消费者决策阻力。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>睡感与特性</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>深睡盒 经典适中款 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>22 cm</td>
+                                        <td>凝胶记忆棉 + 独立袋弹簧</td>
+                                        <td><strong style="color:#60a5fa">¥ 2,699</strong></td>
+                                        <td>¥ 4,299</td>
+                                        <td><span class="pill pill-blue">新中产次卧 (毛利56%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>深睡盒 经典适中款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>22 cm</td>
+                                        <td>凝胶记忆棉 + 独立袋弹簧</td>
+                                        <td><strong style="color:#38bdf8">¥ 2,999</strong></td>
+                                        <td>¥ 4,699</td>
+                                        <td><span class="pill pill-green">主销核心爆款 (贡献60%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>深睡盒 小坚果支撑偏硬 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>22 cm</td>
+                                        <td>加硬护脊支撑棉 + 高支撑弹簧</td>
+                                        <td><strong style="color:#34d399">¥ 3,199</strong></td>
+                                        <td>¥ 4,999</td>
+                                        <td><span class="pill pill-green">偏硬人群 (对标小石头)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>深睡盒 云端旗舰加厚款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>25 cm</td>
+                                        <td>天丝真丝混纺外套 + 双层缓释棉</td>
+                                        <td><strong style="color:#c084fc">¥ 3,399</strong></td>
+                                        <td>¥ 5,399</td>
+                                        <td><span class="pill pill-purple">品质升级款 (毛利62%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>蓝盒子Z1（Rank 2，售价 3,305元）与亚朵星球普兰特（Rank 10，3,039元）的巨大成功，证明年轻一代极度偏好“静音抗干扰、高包裹慢回弹与极简入户体验”。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>将经典主力规格锚定在 2,999元，守在“3000元心理临界线”内，比蓝盒子便宜 300 多元，给足用户高性价比理由，同时保留充足的试睡退货损耗空间。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>压缩卷包床垫降低了干线运输仓储成本 60% 以上，极具社交传播与开箱仪式感，极其适合小红书和抖音的信息流短视频投放。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>成为新锐 DTC 品牌的深睡标杆，月销 4,000+ 张，树立高颜值、高美誉度的年轻品牌心智。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 5 -->
+                <div class="product-detail-card" data-tier="tier-main">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge">05</div>
+                            <div>
+                                <div class="p-name">【青苗Grow】分龄护脊母婴级模块化儿童/青少年床垫</div>
+                                <div class="p-type-tag">形态：12cm / 15cm 双芯可调薄垫 ｜ 场景：儿童床 / 上下铺 / 青少年成长房 ｜ 角色：高毛利垂类主力款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 1,599 ~ 2,299</div>
+                            <div class="p-price-label">1.5米主力价：¥1,799 ｜ 适配上下铺护栏规范</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🌱</span> 3~18岁分阶成长双芯·一垫睡到高考</div>
+                                <div class="usp-desc">3~8岁幼童骨骼塑形期睡【精工3D高弹纤维（偏硬托背）】；9~18岁学业压力期翻转至【微感释压乳胶层（舒压深睡）】。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🚿</span> 整垫内胆芯材全物理拆开直接冲洗</div>
+                                <div class="usp-desc">小孩尿床、吐奶、夜汗不再报废床垫！拉开拉链，内部芯材可直接拿到淋浴喷头下冲洗，1小时速干防发霉。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🍼</span> 欧盟母婴A类三防面料·物理0螨</div>
+                                <div class="usp-desc">三防（防污/防泼溅/防菌）面料，通过欧盟 REACH 检测，无荧光剂、无重金属，呵护过敏体质儿童。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>配置特色</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>青苗Grow 上下铺专用 (1.2m)</strong></td>
+                                        <td>1.2 × 1.9 m</td>
+                                        <td>12 cm (防翻滚)</td>
+                                        <td>分龄双芯 + 安全矮厚度</td>
+                                        <td><strong style="color:#60a5fa">¥ 1,599</strong></td>
+                                        <td>¥ 2,499</td>
+                                        <td><span class="pill pill-blue">高箱/上下铺款 (毛利58%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>青苗Grow 标准儿童床 (1.2m)</strong></td>
+                                        <td>1.2 × 2.0 m</td>
+                                        <td>12 cm</td>
+                                        <td>分龄双芯 + 可冲洗内芯</td>
+                                        <td><strong style="color:#60a5fa">¥ 1,699</strong></td>
+                                        <td>¥ 2,699</td>
+                                        <td><span class="pill pill-blue">标准单人款 (毛利60%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>青苗Grow 青少年通用 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>15 cm</td>
+                                        <td>分龄双芯 + 3D水洗高弹</td>
+                                        <td><strong style="color:#38bdf8">¥ 1,799</strong></td>
+                                        <td>¥ 2,899</td>
+                                        <td><span class="pill pill-green">核心走量爆款 (贡献65%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>青苗Grow 大床通用 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>15 cm</td>
+                                        <td>分龄双芯 + 3D水洗高弹</td>
+                                        <td><strong style="color:#34d399">¥ 1,999</strong></td>
+                                        <td>¥ 3,199</td>
+                                        <td><span class="pill pill-green">大尺寸款 (毛利63%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>青苗Grow 1.5m + 医用级隔尿替换套</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>15 cm</td>
+                                        <td>带全包围隔尿床笠组合</td>
+                                        <td><strong style="color:#c084fc">¥ 2,299</strong></td>
+                                        <td>¥ 3,599</td>
+                                        <td><span class="pill pill-purple">无忧套装 (毛利68%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>大盘中儿童与青少年关键词占 25%，顾家【睡饱饱】（Rank 24）热卖。但市面儿童垫无法水洗、内胆发霉严重，且不能适应骨骼成长。我们以“全水洗+分龄硬度”建立专业技术壁垒。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>儿童消费中父母对价格敏感度低、对材质健康要求极高。1,599~1,999元完美卡在中产父母的品质预期区间，毛利率超过 60%。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>12~15cm 严格符合儿童高低床国家安全防护栏高度限制（防跌落安全隐患），合规性强，避开成人大厚垫退换货难题。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>垄断小红书和社群妈妈圈“可水洗儿童床垫”第一心智，月销 3,500+ 张，打造高粘性、极高转介绍的品类冠军。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 6 -->
+                <div class="product-detail-card" data-tier="tier-main">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge">06</div>
+                            <div>
+                                <div class="p-name">【脊泰Pro】大承重舒脊分区硬核弹簧床垫</div>
+                                <div class="p-type-tag">形态：24cm 增强型独袋弹簧厚垫 ｜ 场景：腰肌劳损 / 腰突康复 / 大体重 / 程序员久坐 ｜ 角色：硬核功能款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 2,399 ~ 3,199</div>
+                            <div class="p-price-label">1.8米主力价：¥2,699 ｜ 腰椎定点支撑系统</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🦴</span> 腰部黄金受力区 2.3mm 粗径拱桥强撑</div>
+                                <div class="usp-desc">针对腰椎悬空酸痛，腰部弹簧线径比肩臀区加粗 30%，躺下腰部被有力托起，维持人体生理曲度。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🏋️</span> 200斤大体重稳固无沉降·久睡不凹陷</div>
+                                <div class="usp-desc">高回弹硬质冷泡棉 + 1cm 极密空气纤维支撑层，承托力强劲，翻身极其省力，起身不伤腰。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>👨‍⚕️</span> 骨科医生联名人体工程调校</div>
+                                <div class="usp-desc">联合脊柱康复专家团队针对腰痛人群联合设计刚度曲线，附赠腰肌牵引拉伸操指南。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>配置特色</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>脊泰Pro 强支撑款 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>腰部加强独袋 + 空气纤维硬层</td>
+                                        <td><strong style="color:#60a5fa">¥ 2,399</strong></td>
+                                        <td>¥ 3,699</td>
+                                        <td><span class="pill pill-blue">标准款 (毛利54%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>脊泰Pro 强支撑款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>腰部加强独袋 + 空气纤维硬层</td>
+                                        <td><strong style="color:#38bdf8">¥ 2,699</strong></td>
+                                        <td>¥ 4,199</td>
+                                        <td><span class="pill pill-green">核心主力爆款 (贡献65%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>脊泰Pro 大体重增强版 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>24 cm</td>
+                                        <td>特硬粗线径 + 双层抗冲冷泡棉</td>
+                                        <td><strong style="color:#34d399">¥ 2,899</strong></td>
+                                        <td>¥ 4,499</td>
+                                        <td><span class="pill pill-green">大体重专享 (毛利58%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>脊泰Pro 奢华理疗版 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>26 cm</td>
+                                        <td>石墨烯远红外理疗外套 + 奢华护脊</td>
+                                        <td><strong style="color:#c084fc">¥ 3,199</strong></td>
+                                        <td>¥ 4,999</td>
+                                        <td><span class="pill pill-purple">高端理疗款 (毛利62%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>蓝盒子专门推出【小石头偏硬版】（Rank 21，3305元），全友硬床垫（Rank 16）热销，证明“真正有硬度支撑但不是硬板床”的用户群极其庞大且刚需强烈。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>以 2,699元 价格切入，比蓝盒子小石头低 600 元，功能参数和弹簧线径更为硬核，转化率极高。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>腰痛、久坐人群痛点清晰、决策果断，在短视频与信息流定向投放时具有极高的 ROI。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>打造全网“腰肌劳损/腰突人群首选护脊床垫”，月销 3,000+ 张，确立专业医学级护脊形象。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 7 -->
+                <div class="product-detail-card" data-tier="tier-profit">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge">07</div>
+                            <div>
+                                <div class="p-name">【双享境Duo】左右自分区独立软硬模块双人床垫</div>
+                                <div class="p-type-tag">形态：25cm 左右异感全拆洗厚床垫 ｜ 场景：夫妻体重大差 / 婚房 / 拒绝妥协 ｜ 角色：高毛利差异化款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 3,599 ~ 4,599</div>
+                            <div class="p-price-label">1.8米主力价：¥3,999 ｜ 告别同床异梦</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>👫</span> 左右独立内芯配置·各选各的睡感</div>
+                                <div class="usp-desc">内部内胆左右对半分开，左侧可配软（云感记忆棉），右侧可配硬（护脊硬黄麻），夫妻不再为软硬妥协。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🔄</span> 内胆模块自由翻转·4种体感组合自由变</div>
+                                <div class="usp-desc">拉开拉链，内部层叠海绵自己动手翻转，即可在“软、适中、硬、超硬”之间无缝切换，彻底解决买错软硬难题。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🚚</span> 售后零整床退货·仅补寄单侧内芯</div>
+                                <div class="usp-desc">若用户觉得一侧偏软，客服直接寄送一块加硬棉更换，无需整床退回，将行业高昂退货成本压缩 90%。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>睡感搭配</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>双享境Duo 【左适中 + 右偏硬】</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>25 cm</td>
+                                        <td>黄金夫妻档组合 (左软右硬)</td>
+                                        <td><strong style="color:#38bdf8">¥ 3,999</strong></td>
+                                        <td>¥ 5,999</td>
+                                        <td><span class="pill pill-green">超级核心主推 (占65%销量)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>双享境Duo 【左偏软 + 右偏硬】</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>25 cm</td>
+                                        <td>体重大差极度专配</td>
+                                        <td><strong style="color:#38bdf8">¥ 3,999</strong></td>
+                                        <td>¥ 5,999</td>
+                                        <td><span class="pill pill-blue">特色定制款 (毛利64%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>双享境Duo 【双护脊加硬组合】</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>25 cm</td>
+                                        <td>双侧均配加硬模块</td>
+                                        <td><strong style="color:#38bdf8">¥ 3,999</strong></td>
+                                        <td>¥ 5,999</td>
+                                        <td><span class="pill pill-blue">纯硬配置 (毛利64%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>双享境Duo 奢享羊毛礼盒版</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>25 cm</td>
+                                        <td>升级澳洲羊毛外套 + 备用调整棉</td>
+                                        <td><strong style="color:#c084fc">¥ 4,599</strong></td>
+                                        <td>¥ 6,999</td>
+                                        <td><span class="pill pill-purple">顶配礼盒款 (毛利68%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>床垫行业最大的售后痛点是“老公嫌软腰疼、老婆嫌硬骨头疼”，栖作（Rank 27 坚果系列 4681元）以模块化概念走红，证明该需求极具溢价空间。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>栖作主力价格在 4500~6000 元。我们以 3,999元 切入 3000~5000 元中产升级黄金区间（大盘占28.3%），毛利空间超过 60%。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>彻底解决大件逆向退货痛点。通过分体模块化，若睡感不合仅补发内胆海绵，退货率从 15% 降至 2% 以下，留存极高净利。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>成为新婚夫妇与改善主卧的首选话题爆款，小红书深度内容种草，月销 2,500+ 张，贡献全店最高纯利润。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 8 -->
+                <div class="product-detail-card" data-tier="tier-profit">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge">08</div>
+                            <div>
+                                <div class="p-name">【云端境Max】五星奢旅双层弹簧深睡厚床垫</div>
+                                <div class="p-type-tag">形态：28~30cm 豪华双层弹簧厚垫 ｜ 场景：大平层主卧 / 别墅婚房 / 追求五星酒店包裹 ｜ 角色：轻奢高端款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 4,299 ~ 5,999</div>
+                            <div class="p-price-label">1.8米主力价：¥4,999 ｜ 对标：舒达妙享(¥8,073)</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🏨</span> 双层弹簧系统（微气囊迷你簧 + 主独袋簧）</div>
+                                <div class="usp-desc">下层强力承托脊柱，上层超密集迷你弹簧贴合身体每一寸微弧度，复刻万豪、丽思卡尔顿总统套房奢华悬浮睡感。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🐑</span> 4cm 特级进口乳胶 + 澳洲美利奴纯羊毛</div>
+                                <div class="usp-desc">高克重羊毛层吸湿排汗控温，大厚度纯乳胶深层包裹，躺下瞬间触碰云端，奢华触感。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>✨</span> 欧式大围边手工拉花立体云垫面</div>
+                                <div class="usp-desc">30cm 极具视觉张力的饱满加厚外观，豪宅大卧室首选颜值担当。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>配置特色</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>云端境Max 奢享适中款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>28 cm</td>
+                                        <td>双层弹簧 + 4cm乳胶 + 羊毛面</td>
+                                        <td><strong style="color:#38bdf8">¥ 4,999</strong></td>
+                                        <td>¥ 7,999</td>
+                                        <td><span class="pill pill-green">核心主销款 (毛利65%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>云端境Max 奢享微硬款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>28 cm</td>
+                                        <td>双层弹簧 + 强化支撑舒适层</td>
+                                        <td><strong style="color:#34d399">¥ 5,199</strong></td>
+                                        <td>¥ 8,299</td>
+                                        <td><span class="pill pill-blue">偏硬奢睡款 (毛利66%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>云端境Max 总统套房加厚尊享 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>30 cm</td>
+                                        <td>双层弹簧 + 羊绒面料 + 鹅绒垫层</td>
+                                        <td><strong style="color:#c084fc">¥ 5,999</strong></td>
+                                        <td>¥ 9,999</td>
+                                        <td><span class="pill pill-purple">顶配奢享款 (毛利70%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>舒达【妙享】（Rank 29，8073元）与蓝盒子【Z1Pro】（Rank 30，5158元）证明了追求五星酒店级奢睡体验的中高端客群基数稳固，愿意为顶级用料买单。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>线下专柜同等双层弹簧配置在 15,000 元以上，舒达线上售 8,000 元。我们以 4,999 元定价，提供极致的大牌平替感。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>拉高全店客单价与品牌档次，让 2000 元主力款在对比下显得极具性价比（价格锚点效应）。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>精准拦截线下外资品牌高净值人群，月销 1,500+ 张，打造高毛利现金流支撑。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 9 -->
+                <div class="product-detail-card" data-tier="tier-profit">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge">09</div>
+                            <div>
+                                <div class="p-name">【氧气派Bio】全水洗高弹3D空气纤维0胶环保全透气床垫</div>
+                                <div class="p-type-tag">形态：18cm 纯科技环保透气无弹簧床垫 ｜ 场景：南方潮湿梅雨 / 易过敏体质 / 易出汗体质 ｜ 角色：新材料科技款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 3,299 ~ 4,299</div>
+                            <div class="p-price-label">1.8米主力价：¥3,699 ｜ 对标：源氏木语J121(¥3,786)</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🚿</span> POE 食品级空气纤维·内芯全身可直接水冲</div>
+                                <div class="usp-desc">日本同源高分子立体缠绕技术，水流一冲即透，甩干速干，汗液皮屑绝无残留，根绝霉菌滋生环境。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🌬️</span> 90% 内部大中空全通风·杜绝闷汗</div>
+                                <div class="usp-desc">空气自由循环流转，告别乳胶与海绵积热蓄汗的物理硬伤，南方梅雨天不发霉受潮。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🌱</span> 纯物理零胶水 + 六面全透气防螨网眼外套</div>
+                                <div class="usp-desc">无弹簧、无金属电磁干扰、无甲醛，回弹性比传统海绵提升 40%，护脊支撑力强劲。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>配置特色</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>氧气派Bio 全透气标准款 (1.5m)</strong></td>
+                                        <td>1.5 × 2.0 m</td>
+                                        <td>18 cm</td>
+                                        <td>纯 POE 3D空气纤维芯材</td>
+                                        <td><strong style="color:#60a5fa">¥ 3,299</strong></td>
+                                        <td>¥ 4,899</td>
+                                        <td><span class="pill pill-blue">标准款 (毛利58%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>氧气派Bio 全透气标准款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>18 cm</td>
+                                        <td>纯 POE 3D空气纤维芯材</td>
+                                        <td><strong style="color:#38bdf8">¥ 3,699</strong></td>
+                                        <td>¥ 5,399</td>
+                                        <td><span class="pill pill-green">主力爆款 (贡献60%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>氧气派Bio 复合柔弹款 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>20 cm</td>
+                                        <td>空气纤维 + 2cm微感纯乳胶层</td>
+                                        <td><strong style="color:#34d399">¥ 3,999</strong></td>
+                                        <td>¥ 5,899</td>
+                                        <td><span class="pill pill-green">适中睡感款 (毛利62%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>氧气派Bio 极寒凉感限定套 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>20 cm</td>
+                                        <td>配置夏季冰丝 + 冬季暖感双外套</td>
+                                        <td><strong style="color:#c084fc">¥ 4,299</strong></td>
+                                        <td>¥ 6,299</td>
+                                        <td><span class="pill pill-purple">顶配四季款 (毛利65%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>源氏木语【J121 元气空气纤维】位居大盘第 5 名（售价 3,786元），证明新一代“全身可水洗、0胶水、透气不闷汗”的科技材质拥有极高的中产认知度。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>源氏木语售价在 3700~4900 元。我们以 3,699 元主力切入，主打比木语更年轻化的“全身可水冲洗+高弹护脊”概念。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>彻底解决南方用户“床垫长毛发霉”和哮喘鼻炎过敏群体的痛点，开辟全新的新材料差异化蓝海。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>占领“可水洗透气床垫”第一品牌心智，聚焦南方高湿市场与母婴过敏家庭，月销 2,000+ 张。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品 10 -->
+                <div class="product-detail-card" data-tier="tier-flagship">
+                    <div class="product-card-top">
+                        <div class="p-title-wrap">
+                            <div class="p-rank-badge" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">10</div>
+                            <div>
+                                <div class="p-name">【天枢AI·智能自适应】双侧独立气囊自适应深睡电动床垫</div>
+                                <div class="p-type-tag">形态：26cm 智能双侧无级气囊 / 电动升降床垫 ｜ 场景：科技极客 / 高净值大宅 / 智能养老 ｜ 角色：品牌图腾旗舰款</div>
+                            </div>
+                        </div>
+                        <div class="p-price-tag">
+                            <div class="p-price-val">¥ 8,999 ~ 13,999</div>
+                            <div class="p-price-label">1.8米主力价：¥10,999 ｜ 对标：喜临门呼呼AI(¥16,499)</div>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="usp-grid">
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🧠</span> 左右独立体压传感与气囊矩阵自适应充放气</div>
+                                <div class="usp-desc">毫秒级自动识别仰卧/侧卧姿势变化，无级调节腰肩支撑刚度，让脊柱时刻保持水平生理曲线。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>🛑</span> 鼾声主动干预 + 128° 零重力无压模式</div>
+                                <div class="usp-desc">监测到鼾声自动将头部平缓抬起 15° 舒畅气道止鼾；一键抬腿升背进入零重力漂浮状态，快速助眠。</div>
+                            </div>
+                            <div class="usp-item">
+                                <div class="usp-title"><span>📱</span> 非接触式心率呼吸睡眠监测与App远程守护</div>
+                                <div class="usp-desc">无需佩戴手环，精准追踪深浅睡眠、心率与离床状态，生成健康晨报，支持子女远程关爱父母健康。</div>
+                            </div>
+                        </div>
+
+                        <!-- SKU 表格 -->
+                        <div class="custom-table-wrapper">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>SKU 名称</th>
+                                        <th>规格尺寸</th>
+                                        <th>厚度</th>
+                                        <th>核心配置</th>
+                                        <th>日常现价</th>
+                                        <th>原价标价</th>
+                                        <th>角色与毛利</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>天枢AI 独立自适应床垫版 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>26 cm</td>
+                                        <td>自适应气囊矩阵 + 兼容普通床架</td>
+                                        <td><strong style="color:#60a5fa">¥ 8,999</strong></td>
+                                        <td>¥ 13,999</td>
+                                        <td><span class="pill pill-blue">纯床垫尝鲜款 (毛利65%)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>天枢AI 电动智能一体套装 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>26 cm</td>
+                                        <td>气囊床垫 + 双电机静音电动排骨架</td>
+                                        <td><strong style="color:#38bdf8">¥ 10,999</strong></td>
+                                        <td>¥ 16,999</td>
+                                        <td><span class="pill pill-green">超级主推旗舰 (贡献75%GMV)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>天枢AI 尊荣全景套房版 (1.8m)</strong></td>
+                                        <td>1.8 × 2.0 m</td>
+                                        <td>26 cm</td>
+                                        <td>电动套 + 智能离床夜灯 + 纯真丝外套</td>
+                                        <td><strong style="color:#c084fc">¥ 13,999</strong></td>
+                                        <td>¥ 21,999</td>
+                                        <td><span class="pill pill-purple">科技顶配 (毛利72%)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4个为什么 -->
+                        <div class="reason-grid">
+                            <div class="reason-item">
+                                <h5>❓ 为什么这样做产品？</h5>
+                                <p>喜临门【呼呼AI】（Rank 4，16,499元）和梦百合【三体电动床】（Rank 8，11,150元）进入全网前十，证明智能电动床正在成为高端换代爆发风口。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>💰 为什么选这个价格段？</h5>
+                                <p>喜临门同类产品售价高达 1.6 万+。我们把带电动升降架的整套体验下探至 10,999 元，打穿消费者的万元心理防线。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🎯 为什么选择这样的产品？</h5>
+                                <p>品牌技术图腾产品。它不负责冲销量大盘，但它决定了品牌的科技天花板，为全线 1000~3000 元的普通产品提供强大的研发技术背书。</p>
+                            </div>
+                            <div class="reason-item">
+                                <h5>🚀 目标与打法是什么？</h5>
+                                <p>树立行业科技领先地位，收获高端科技圈层声量与高额毛利，月销 300~500 套。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 第三部分：成功可能性评估模型与终极排名 -->
+        <section id="pspm-ranking" class="section-block">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">
+                        <span>第三部分：PSPM 成功可能性量化评估模型与终极排行榜</span>
+                        <span class="section-badge">科学决策</span>
+                    </h2>
+                    <p class="section-desc">基于五大客观维度建立加权量化模型，评定哪款产品成功爆发可能性最大</p>
+                </div>
+            </div>
+
+            <!-- 评估标准解释 -->
+            <div class="custom-table-wrapper" style="margin-bottom: 24px;">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">评估维度</th>
+                            <th style="width: 10%;">权重</th>
+                            <th>评估指标与商业考量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. 市场容量与刚需基数</strong></td>
+                            <td><span class="pill pill-blue">25%</span></td>
+                            <td>对应价格带与产品形态在 300 款大盘中的销量规模、搜索频次、受众面（大盘2000~3000元和300~800元最大）。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. 痛点击穿与差异化显性化</strong></td>
+                            <td><span class="pill pill-green">25%</span></td>
+                            <td>是否解决死穴痛点？卖点能否在 3 秒内被小白用户完全理解（如可拆洗、真0胶水、左右分体、防尿床）。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. 价格穿透力与性价比心智</strong></td>
+                            <td><span class="pill pill-amber">20%</span></td>
+                            <td>相较同价位竞品（喜临门、蓝盒子、源氏木语），配置是否形成降维打击，给用户不可抗拒的“超值感”。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. 履约难度与售后退换风险</strong></td>
+                            <td><span class="pill pill-purple">15%</span></td>
+                            <td>大件干线物流破损率、入户通过率，因软硬不合导致的逆向退货风险（床垫退货运费极高，吃掉利润）。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. 供应链成熟度与毛利投产比</strong></td>
+                            <td><span class="pill pill-rose">15%</span></td>
+                            <td>供应链是否成熟可迅速规模化？毛利率是否充裕（超50%）以支撑淘系直通车与抖音信息流投放推广。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 10款产品打分明细矩阵 -->
+            <h3 style="font-size:16px; margin-bottom:14px; color:#93c5fd;">10 款新品 PSPM 量化打分与最终成功可能性排行榜</h3>
+            <div class="custom-table-wrapper">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>成功率排名</th>
+                            <th>产品代号与名称</th>
+                            <th>形态与价格</th>
+                            <th>容量(25)</th>
+                            <th>痛点(25)</th>
+                            <th>价格(20)</th>
+                            <th>履约(15)</th>
+                            <th>供应(15)</th>
+                            <th style="width:160px">综合得分 (100)</th>
+                            <th>定位与成败核心理由</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(245, 158, 11, 0.05);">
+                            <td><span class="pill pill-amber" style="font-size:12px">🥇 NO.1</span></td>
+                            <td><strong>【净界01·国民版】</strong></td>
+                            <td>24cm厚垫 / ¥2,199</td>
+                            <td>24.5</td>
+                            <td>24.0</td>
+                            <td>19.0</td>
+                            <td>13.0</td>
+                            <td>14.0</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 94.5%;"></div></div>
+                                    <span class="score-text" style="color:#fbbf24">94.5</span>
+                                </div>
+                            </td>
+                            <td>直接进攻 2000~2500 元全网最大蛋糕，用“全拆洗+物理0胶水”击穿白骑士Plus黑盒痛点，成功率最高！</td>
+                        </tr>
+
+                        <tr style="background: rgba(148, 163, 184, 0.05);">
+                            <td><span class="pill pill-blue" style="font-size:12px">🥈 NO.2</span></td>
+                            <td><strong>【轻语Air】</strong></td>
+                            <td>6.5cm薄垫 / ¥599</td>
+                            <td>24.0</td>
+                            <td>23.5</td>
+                            <td>18.5</td>
+                            <td>14.5</td>
+                            <td>14.5</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 94.0%;"></div></div>
+                                    <span class="score-text" style="color:#60a5fa">94.0</span>
+                                </div>
+                            </td>
+                            <td>卡位 300~800 元最大SKU走量池，三折可拆洗击穿租房与宿舍，物流破损几乎为0，极易迅速跑出正现金流。</td>
+                        </tr>
+
+                        <tr style="background: rgba(217, 119, 6, 0.05);">
+                            <td><span class="pill pill-amber" style="font-size:12px">🥉 NO.3</span></td>
+                            <td><strong>【小硬派Mini】</strong></td>
+                            <td>10cm黄麻 / ¥1,099</td>
+                            <td>22.5</td>
+                            <td>23.0</td>
+                            <td>18.0</td>
+                            <td>13.5</td>
+                            <td>14.0</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 90.0%;"></div></div>
+                                    <span class="score-text" style="color:#f59e0b">90.0</span>
+                                </div>
+                            </td>
+                            <td>千元档直击“旧床太软改造”刚需，乘上麻大师豆7红利，供应链成熟，几乎零售后退货。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 4</strong></td>
+                            <td><strong>【深睡盒Z-Zero】</strong></td>
+                            <td>22cm卷包 / ¥2,999</td>
+                            <td>21.0</td>
+                            <td>22.0</td>
+                            <td>17.5</td>
+                            <td>14.0</td>
+                            <td>13.5</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 88.0%;"></div></div>
+                                    <span class="score-text">88.0</span>
+                                </div>
+                            </td>
+                            <td>对位蓝盒子Z1与亚朵星球，卷包解决入户痛点，百天试睡降低决策门槛，年轻人极度买单。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 5</strong></td>
+                            <td><strong>【青苗Grow】</strong></td>
+                            <td>15cm儿童 / ¥1,799</td>
+                            <td>19.0</td>
+                            <td>23.5</td>
+                            <td>17.0</td>
+                            <td>13.5</td>
+                            <td>13.0</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 86.0%;"></div></div>
+                                    <span class="score-text">86.0</span>
+                                </div>
+                            </td>
+                            <td>分龄护脊 + 全可冲洗，直击中产父母尿床发霉痛点，客单高、毛利超60%，社群转介绍强。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 6</strong></td>
+                            <td><strong>【脊泰Pro】</strong></td>
+                            <td>24cm腰突 / ¥2,699</td>
+                            <td>19.5</td>
+                            <td>21.5</td>
+                            <td>16.5</td>
+                            <td>12.5</td>
+                            <td>13.5</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 83.5%;"></div></div>
+                                    <span class="score-text">83.5</span>
+                                </div>
+                            </td>
+                            <td>久坐与腰突精准人群，腰部2.3mm粗弹簧拱桥托腰，信息流精准定向投放投产比高。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 7</strong></td>
+                            <td><strong>【双享境Duo】</strong></td>
+                            <td>25cm模块 / ¥3,999</td>
+                            <td>17.0</td>
+                            <td>23.0</td>
+                            <td>16.0</td>
+                            <td>14.0</td>
+                            <td>12.0</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 82.0%;"></div></div>
+                                    <span class="score-text">82.0</span>
+                                </div>
+                            </td>
+                            <td>解决夫妻软硬打架与大件退货死穴（只换内胆不退整床），客单高毛利厚，但需内容深度种草。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 8</strong></td>
+                            <td><strong>【云端境Max】</strong></td>
+                            <td>28cm双层 / ¥4,999</td>
+                            <td>15.0</td>
+                            <td>19.0</td>
+                            <td>16.5</td>
+                            <td>10.5</td>
+                            <td>13.0</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 74.0%;"></div></div>
+                                    <span class="score-text">74.0</span>
+                                </div>
+                            </td>
+                            <td>五星酒店双层弹簧奢睡，拦截舒达线下万人群，但受限于线上4000+客单大盘漏斗较窄。</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>TOP 9</strong></td>
+                            <td><strong>【氧气派Bio】</strong></td>
+                            <td>18cm水洗 / ¥3,699</td>
+                            <td>15.5</td>
+                            <td>20.0</td>
+                            <td>15.0</td>
+                            <td>11.5</td>
+                            <td>11.5</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 73.5%;"></div></div>
+                                    <span class="score-text">73.5</span>
+                                </div>
+                            </td>
+                            <td>3D空气纤维科技概念先进、全水洗排湿，但原材料成本较高且消费者需认知教育。</td>
+                        </tr>
+
+                        <tr style="opacity: 0.85;">
+                            <td><strong>TOP 10</strong></td>
+                            <td><strong>【天枢AI】</strong></td>
+                            <td>26cm智能 / ¥10,999</td>
+                            <td>11.0</td>
+                            <td>22.0</td>
+                            <td>14.5</td>
+                            <td>8.0</td>
+                            <td>9.5</td>
+                            <td>
+                                <div class="pspm-score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 65.0%;"></div></div>
+                                    <span class="score-text">65.0</span>
+                                </div>
+                            </td>
+                            <td>万元智能电动床受众极窄，售后维修重体验；战略价值（品牌图腾）远大于短期规模走量。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 第四部分：GTM 战役与落地节奏 -->
+        <section id="gtm-strategy" class="section-block">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">
+                        <span>第四部分：GTM 操盘战役节奏与行动路线图</span>
+                        <span class="section-badge">实操落地</span>
+                    </h2>
+                    <p class="section-desc">分阶段推进产品上线与流量打法，确保供应链稳定与正向现金流循环</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <h4>第一阶段：破局启动期（第 1 ~ 2 个月）· 闪电打造现金流与评价基石</h4>
+                    <p>
+                        <strong>核心上线品</strong>：优先上线 <strong>TOP 2【轻语Air】</strong> (¥399~599) 与 <strong>TOP 3【小硬派Mini】</strong> (¥899~1099)。<br>
+                        <strong>战术目的</strong>：薄垫免模具费、开模快、试错成本极低。借助 399~1099 元高频带，迅速跑通抖音小店、小红书与天猫搜索权重，积累 5,000+ 条五星好评，提升店铺 DSR 评分并沉淀初级粉丝池。
+                    </p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="background:#10b981;"></div>
+                    <h4>第二阶段：决战爆发期（第 3 ~ 4 个月）· 攻坚核心主战场，夺取60%GMV</h4>
+                    <p>
+                        <strong>核心上线品</strong>：重磅首发 <strong>TOP 1【净界01·国民版】</strong> (¥2,199) 与 <strong>TOP 4【深睡盒Z-Zero】</strong> (¥2,999)。<br>
+                        <strong>战术目的</strong>：全网视觉升级，打出“整床拉链全开·物理0胶水”超级口号，对位收割喜临门白骑士Plus与蓝盒子Z1客群。联合50+测评博主进行“暴力拆解床垫见胶水”对比实验，引爆核心主战场，单品冲刺月销过万张。
+                    </p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="background:#8b5cf6;"></div>
+                    <h4>第三阶段：护城河构筑期（第 5 ~ 6 个月）· 细分渗透与品牌图腾压轴</h4>
+                    <p>
+                        <strong>核心上线品</strong>：全面铺开细分款（<strong>TOP 5 青苗Grow儿童垫、TOP 6 脊泰Pro护腰垫、TOP 7 双享境左右分区</strong>），并在高端线推出 <strong>TOP 8 云端境Max</strong> 与 <strong>TOP 10 天枢AI</strong> 智能电动床。<br>
+                        <strong>战术目的</strong>：儿童圈层做透妈妈口碑，腰突圈层做透久坐人群，天枢AI作为高科技图腾引爆科技媒体公关。形成全价格带、全人群覆盖的无死角矩阵，筑牢品牌长期壁垒。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 床垫行业大数据分析与新品企划系统 ｜ 本地独立自包含报告</p>
+            <p style="margin-top:4px; font-size:12px;">基于 E:\AI软件-业务项目\市场行情分析\gemini分析 底层大盘数据驱动研发</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function filterProducts(tier) {
+            // 更新按钮状态
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 过滤卡片
+            const cards = document.querySelectorAll('.product-detail-card');
+            cards.forEach(card => {
+                if (tier === 'all' || card.getAttribute('data-tier') === tier) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
