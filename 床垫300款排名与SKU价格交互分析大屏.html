@@ -4459,7 +4459,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         
 
         
-        // ======================= 动态多维分类拥挤度全景矩阵核心逻辑 =======================
+        // ======================= 动态多维分类拥挤度全景矩阵核心逻辑 (已修复闭包捕获与数值输入) =======================
         let CROWD_STATE = {
             dim: 'price', // 'price' | 'height' | 'material' | 'rank'
             metric: 'count', // 'count' | 'density' | 'blue_ocean'
@@ -4491,10 +4491,13 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
 
         function setCrowdStep(stepVal) {
             const dim = CROWD_STATE.dim;
-            if (dim === 'price') CROWD_STATE.price.step = Number(stepVal);
-            else if (dim === 'height') CROWD_STATE.height.step = Number(stepVal);
-            else if (dim === 'rank') CROWD_STATE.rank.step = Number(stepVal);
-            else if (dim === 'material') CROWD_STATE.material.step = Number(stepVal);
+            const val = parseFloat(stepVal);
+            if (!isNaN(val) && val > 0) {
+                if (dim === 'price') CROWD_STATE.price.step = val;
+                else if (dim === 'height') CROWD_STATE.height.step = val;
+                else if (dim === 'rank') CROWD_STATE.rank.step = val;
+                else if (dim === 'material') CROWD_STATE.material.step = val;
+            }
 
             renderCrowdControlBar();
             if (lastCompareResults && lastCompareResults.length > 0) {
@@ -4508,23 +4511,38 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const minEl = document.getElementById('crowd-min-price');
                 const maxEl = document.getElementById('crowd-max-price');
                 const stepEl = document.getElementById('crowd-step-price');
-                if (minEl && minEl.value !== '') CROWD_STATE.price.min = Math.max(0, Number(minEl.value));
-                if (maxEl && maxEl.value !== '') CROWD_STATE.price.max = Math.max(100, Number(maxEl.value));
-                if (stepEl && stepEl.value !== '') CROWD_STATE.price.step = Math.max(50, Number(stepEl.value));
+                if (minEl && minEl.value !== '') CROWD_STATE.price.min = Math.max(0, parseFloat(minEl.value) || 0);
+                if (maxEl && maxEl.value !== '') CROWD_STATE.price.max = Math.max(1, parseFloat(maxEl.value) || 1000);
+                if (stepEl && stepEl.value !== '') {
+                    const val = parseFloat(stepEl.value);
+                    if (!isNaN(val) && val > 0) {
+                        CROWD_STATE.price.step = val;
+                    }
+                }
             } else if (dim === 'height') {
                 const minEl = document.getElementById('crowd-min-height');
                 const maxEl = document.getElementById('crowd-max-height');
                 const stepEl = document.getElementById('crowd-step-height');
-                if (minEl && minEl.value !== '') CROWD_STATE.height.min = Math.max(0, Number(minEl.value));
-                if (maxEl && maxEl.value !== '') CROWD_STATE.height.max = Math.max(5, Number(maxEl.value));
-                if (stepEl && stepEl.value !== '') CROWD_STATE.height.step = Math.max(1, Number(stepEl.value));
+                if (minEl && minEl.value !== '') CROWD_STATE.height.min = Math.max(0, parseFloat(minEl.value) || 0);
+                if (maxEl && maxEl.value !== '') CROWD_STATE.height.max = Math.max(1, parseFloat(maxEl.value) || 30);
+                if (stepEl && stepEl.value !== '') {
+                    const val = parseFloat(stepEl.value);
+                    if (!isNaN(val) && val > 0) {
+                        CROWD_STATE.height.step = val;
+                    }
+                }
             } else if (dim === 'rank') {
                 const minEl = document.getElementById('crowd-min-rank');
                 const maxEl = document.getElementById('crowd-max-rank');
                 const stepEl = document.getElementById('crowd-step-rank');
-                if (minEl && minEl.value !== '') CROWD_STATE.rank.min = Math.max(1, Number(minEl.value));
-                if (maxEl && maxEl.value !== '') CROWD_STATE.rank.max = Math.max(10, Number(maxEl.value));
-                if (stepEl && stepEl.value !== '') CROWD_STATE.rank.step = Math.max(5, Number(stepEl.value));
+                if (minEl && minEl.value !== '') CROWD_STATE.rank.min = Math.max(1, parseInt(minEl.value) || 1);
+                if (maxEl && maxEl.value !== '') CROWD_STATE.rank.max = Math.max(1, parseInt(maxEl.value) || 300);
+                if (stepEl && stepEl.value !== '') {
+                    const val = parseInt(stepEl.value);
+                    if (!isNaN(val) && val > 0) {
+                        CROWD_STATE.rank.step = val;
+                    }
+                }
             }
 
             if (lastCompareResults && lastCompareResults.length > 0) {
@@ -4543,16 +4561,16 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const curStep = CROWD_STATE.price.step;
                 inputsHtml = `
                     <div class="crowd-ctrl-inputs">
-                        <span><b>价格区间:</b></span>
-                        <input type="number" id="crowd-min-price" class="crowd-input" value="${CROWD_STATE.price.min}" oninput="onCrowdParamChange()">
+                        <span><b>价格范围:</b></span>
+                        <input type="number" id="crowd-min-price" class="crowd-input" value="${CROWD_STATE.price.min}" oninput="onCrowdParamChange()" title="起始价格">
                         <span>至</span>
-                        <input type="number" id="crowd-max-price" class="crowd-input" value="${CROWD_STATE.price.max}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-max-price" class="crowd-input" value="${CROWD_STATE.price.max}" oninput="onCrowdParamChange()" title="截止价格">
                         <span>元 ｜ <b>间隔档位:</b></span>
-                        <input type="number" id="crowd-step-price" class="crowd-input" value="${curStep}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-step-price" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意正数" title="可输入任意数值，如10、50、100、500等">
                         <span>元/档</span>
                         <div class="crowd-quick-steps">
-                            <span style="font-size: 11px; color: var(--text-dim);">快捷档位:</span>
-                            ${[300, 500, 800, 1000, 1500].map(s => `
+                            <span style="font-size: 11px; color: var(--text-dim);">快捷步长:</span>
+                            ${[100, 300, 500, 800, 1000, 1500].map(s => `
                                 <button class="crowd-step-pill ${curStep === s ? 'active' : ''}" onclick="setCrowdStep(${s})">${s}元</button>
                             `).join('')}
                         </div>
@@ -4563,15 +4581,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 inputsHtml = `
                     <div class="crowd-ctrl-inputs">
                         <span><b>厚度范围:</b></span>
-                        <input type="number" id="crowd-min-height" class="crowd-input" value="${CROWD_STATE.height.min}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-min-height" class="crowd-input" value="${CROWD_STATE.height.min}" oninput="onCrowdParamChange()" title="起始厚度">
                         <span>至</span>
-                        <input type="number" id="crowd-max-height" class="crowd-input" value="${CROWD_STATE.height.max}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-max-height" class="crowd-input" value="${CROWD_STATE.height.max}" oninput="onCrowdParamChange()" title="截止厚度">
                         <span>cm ｜ <b>间隔档位:</b></span>
-                        <input type="number" id="crowd-step-height" class="crowd-input" value="${curStep}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-step-height" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值" title="可输入任意厚度步长，如1、2、3、4、5等">
                         <span>cm/档</span>
                         <div class="crowd-quick-steps">
-                            <span style="font-size: 11px; color: var(--text-dim);">快捷档位:</span>
-                            ${[2, 3, 4, 5, 6].map(s => `
+                            <span style="font-size: 11px; color: var(--text-dim);">快捷步长:</span>
+                            ${[2, 3, 4, 5, 6, 8].map(s => `
                                 <button class="crowd-step-pill ${curStep === s ? 'active' : ''}" onclick="setCrowdStep(${s})">${s}cm</button>
                             `).join('')}
                         </div>
@@ -4582,15 +4600,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 inputsHtml = `
                     <div class="crowd-ctrl-inputs">
                         <span><b>榜单名次:</b></span>
-                        <input type="number" id="crowd-min-rank" class="crowd-input" value="${CROWD_STATE.rank.min}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-min-rank" class="crowd-input" value="${CROWD_STATE.rank.min}" oninput="onCrowdParamChange()" title="起始名次">
                         <span>至</span>
-                        <input type="number" id="crowd-max-rank" class="crowd-input" value="${CROWD_STATE.rank.max}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-max-rank" class="crowd-input" value="${CROWD_STATE.rank.max}" oninput="onCrowdParamChange()" title="截止名次">
                         <span>名 ｜ <b>间隔档位:</b></span>
-                        <input type="number" id="crowd-step-rank" class="crowd-input" value="${curStep}" oninput="onCrowdParamChange()">
+                        <input type="number" id="crowd-step-rank" class="crowd-input" style="width: 75px;" value="${curStep}" oninput="onCrowdParamChange()" placeholder="任意数值" title="可输入任意名次步长">
                         <span>名/档</span>
                         <div class="crowd-quick-steps">
-                            <span style="font-size: 11px; color: var(--text-dim);">快捷档位:</span>
-                            ${[20, 30, 50, 100].map(s => `
+                            <span style="font-size: 11px; color: var(--text-dim);">快捷步长:</span>
+                            ${[10, 20, 30, 50, 100].map(s => `
                                 <button class="crowd-step-pill ${curStep === s ? 'active' : ''}" onclick="setCrowdStep(${s})">${s}名</button>
                             `).join('')}
                         </div>
@@ -4600,7 +4618,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 inputsHtml = `
                     <div class="crowd-ctrl-inputs">
                         <span><b>材质细分模式:</b> 核心用料在各对比分类中的集中渗透率与重叠密度</span>
-                        <span style="color: var(--text-dim); font-size: 12px;">(涵盖 乳胶 / 黄麻 / 椰棕 / 记忆棉 / 独立弹簧 / 0胶水 / 空气纤维 / 3D材料 等)</span>
+                        <span style="color: var(--text-dim); font-size: 12px;">(涵盖 天然乳胶 / S型黄麻 / 环保椰棕 / 记忆棉 / 独立弹簧 / 0胶水 / 空气纤维 / 高密海绵)</span>
                     </div>
                 `;
             }
@@ -4617,86 +4635,124 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             container.innerHTML = inputsHtml + metricModesHtml;
         }
 
-        // 生成各维度的分段 Bins
+        // 生成各维度的分段 Bins (彻底修复闭包变量捕获 Bug)
         function generateCrowdBins() {
             const dim = CROWD_STATE.dim;
             const bins = [];
+            const MAX_ALLOWED_BINS = 60; // 档位数安全上限，防止微小步长卡死
 
             if (dim === 'price') {
-                const min = CROWD_STATE.price.min;
-                const max = CROWD_STATE.price.max;
-                const step = CROWD_STATE.price.step;
+                const min = Math.max(0, CROWD_STATE.price.min);
+                const max = Math.max(min + 1, CROWD_STATE.price.max);
+                const step = Math.max(1, CROWD_STATE.price.step || 500);
+
                 let cur = min;
-                while (cur < max) {
+                let iter = 0;
+                while (cur < max && iter < MAX_ALLOWED_BINS) {
+                    iter++;
                     const next = Math.min(cur + step, max);
+                    const binMin = cur;
+                    const binMax = next;
+                    const isLastBin = (next >= max);
+
                     bins.push({
-                        id: `p_${cur}_${next}`,
-                        label: `￥${cur} ~ ￥${next}`,
-                        shortLabel: `${cur}-${next}元`,
-                        min: cur,
-                        max: next,
+                        id: `p_${binMin}_${binMax}`,
+                        label: `￥${binMin} ~ ￥${binMax}`,
+                        shortLabel: `${binMin}-${binMax}元`,
+                        min: binMin,
+                        max: binMax,
                         matchFn: (p) => {
-                            const pVal = p.median_price !== null ? p.median_price : p.min_price;
+                            const pVal = (p.median_price !== null && !isNaN(p.median_price)) ? p.median_price : 
+                                         ((p.min_price !== null && !isNaN(p.min_price)) ? p.min_price : null);
                             if (pVal === null) return false;
-                            return pVal >= cur && (next === max ? pVal <= next : pVal < next);
+                            return pVal >= binMin && (isLastBin ? pVal <= binMax : pVal < binMax);
                         }
                     });
                     cur = next;
                 }
+
                 // 超出上限的收拢段
+                const capMax = max;
                 bins.push({
-                    id: `p_${max}_plus`,
-                    label: `> ￥${max} 以上`,
-                    shortLabel: `>${max}元`,
-                    min: max,
+                    id: `p_${capMax}_plus`,
+                    label: `> ￥${capMax} 以上`,
+                    shortLabel: `>${capMax}元`,
+                    min: capMax,
                     max: Infinity,
                     matchFn: (p) => {
-                        const pVal = p.median_price !== null ? p.median_price : p.min_price;
-                        return pVal !== null && pVal > max;
+                        const pVal = (p.median_price !== null && !isNaN(p.median_price)) ? p.median_price : 
+                                     ((p.min_price !== null && !isNaN(p.min_price)) ? p.min_price : null);
+                        return pVal !== null && pVal > capMax;
                     }
                 });
             } else if (dim === 'height') {
-                const min = CROWD_STATE.height.min;
-                const max = CROWD_STATE.height.max;
-                const step = CROWD_STATE.height.step;
+                const min = Math.max(0, CROWD_STATE.height.min);
+                const max = Math.max(min + 1, CROWD_STATE.height.max);
+                const step = Math.max(0.5, CROWD_STATE.height.step || 4);
+
                 let cur = min;
-                while (cur < max) {
+                let iter = 0;
+                while (cur < max && iter < MAX_ALLOWED_BINS) {
+                    iter++;
                     const next = Math.min(cur + step, max);
+                    const binMin = cur;
+                    const binMax = next;
+                    const isLastBin = (next >= max);
+
                     bins.push({
-                        id: `h_${cur}_${next}`,
-                        label: cur === 0 ? `≤ ${next} cm` : `${cur} ~ ${next} cm`,
-                        shortLabel: `${cur}-${next}cm`,
-                        min: cur,
-                        max: next,
+                        id: `h_${binMin}_${binMax}`,
+                        label: binMin === 0 ? `≤ ${binMax} cm` : `${binMin} ~ ${binMax} cm`,
+                        shortLabel: `${binMin}-${binMax}cm`,
+                        min: binMin,
+                        max: binMax,
                         matchFn: (p) => {
-                            if (p.height === null) return false;
-                            return p.height >= cur && (next === max ? p.height <= next : p.height < next);
+                            if (p.height === null || isNaN(p.height)) return false;
+                            return p.height >= binMin && (isLastBin ? p.height <= binMax : p.height < binMax);
                         }
                     });
                     cur = next;
                 }
+
+                // 超出厚度上限收拢段
+                const capMaxH = max;
                 bins.push({
-                    id: `h_${max}_plus`,
-                    label: `> ${max} cm (超厚)`,
-                    shortLabel: `>${max}cm`,
-                    min: max,
+                    id: `h_${capMaxH}_plus`,
+                    label: `> ${capMaxH} cm (豪华加厚)`,
+                    shortLabel: `>${capMaxH}cm`,
+                    min: capMaxH,
                     max: Infinity,
-                    matchFn: (p) => p.height !== null && p.height > max
+                    matchFn: (p) => p.height !== null && !isNaN(p.height) && p.height > capMaxH
+                });
+
+                // 未明确厚度或特殊智能款收拢段
+                bins.push({
+                    id: `h_unspecified`,
+                    label: `未标明厚度 / 智能款`,
+                    shortLabel: `未标厚度`,
+                    min: null,
+                    max: null,
+                    matchFn: (p) => p.height === null || isNaN(p.height)
                 });
             } else if (dim === 'rank') {
-                const min = CROWD_STATE.rank.min;
-                const max = CROWD_STATE.rank.max;
-                const step = CROWD_STATE.rank.step;
+                const min = Math.max(1, CROWD_STATE.rank.min);
+                const max = Math.max(min, CROWD_STATE.rank.max);
+                const step = Math.max(1, CROWD_STATE.rank.step || 30);
+
                 let cur = min;
-                while (cur <= max) {
+                let iter = 0;
+                while (cur <= max && iter < MAX_ALLOWED_BINS) {
+                    iter++;
                     const next = Math.min(cur + step - 1, max);
+                    const binMin = cur;
+                    const binMax = next;
+
                     bins.push({
-                        id: `r_${cur}_${next}`,
-                        label: `Top ${cur} ~ ${next} 名`,
-                        shortLabel: `${cur}-${next}名`,
-                        min: cur,
-                        max: next,
-                        matchFn: (p) => p.rank >= cur && p.rank <= next
+                        id: `r_${binMin}_${binMax}`,
+                        label: `Top ${binMin} ~ ${binMax} 名`,
+                        shortLabel: `${binMin}-${binMax}名`,
+                        min: binMin,
+                        max: binMax,
+                        matchFn: (p) => p.rank >= binMin && p.rank <= binMax
                     });
                     cur = next + 1;
                 }
@@ -4760,7 +4816,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     let heatColor = 'rgba(255, 255, 255, 0.02)';
 
                     if (count === 0) {
-                        if (benchCount >= 8) {
+                        if (benchCount >= 5) {
                             status = 'blue_ocean';
                             badgeLabel = '💎 蓝海真空';
                             badgeClass = 'tag-void-blueocean';
@@ -4853,7 +4909,6 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 results.forEach((r, gIdx) => {
                     const cell = groupBinData[gIdx][bIdx];
                     const fillWidth = Math.min(100, Math.max(cell.ratio, cell.count > 0 ? 6 : 0));
-                    const isBlueOceanMode = CROWD_STATE.metric === 'blue_ocean';
 
                     let displayHtml = '';
                     if (CROWD_STATE.metric === 'density') {
