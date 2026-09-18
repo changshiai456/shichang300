@@ -2420,6 +2420,59 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             }
         }
 
+        
+        // 排除关键词匹配逻辑：判定整品或 SKU 是否命中排除词
+        function isProductMatchExclude(p, excludeKwStr, scope) {
+            if (!excludeKwStr || !excludeKwStr.trim()) {
+                return { prodExcluded: false, isSkuExcluded: () => false };
+            }
+            const excludeTokens = excludeKwStr.trim().toLowerCase().split(/[\s,，|/／]+/).filter(Boolean);
+            if (excludeTokens.length === 0) {
+                return { prodExcluded: false, isSkuExcluded: () => false };
+            }
+
+            const imgData = p.main_image || (typeof MAIN_IMAGE_DATA !== 'undefined' && MAIN_IMAGE_DATA[p.rank]) || {};
+            const ocrText = ((imgData.ocr_raw || '') + ' ' + 
+                            (imgData.selling_points || []).join(' ') + ' ' + 
+                            (imgData.marketing_text || []).join(' ') + ' ' + 
+                            (imgData.visual_format || []).join(' ')).toLowerCase();
+            const titleShopText = ((p.title || '') + ' ' + (p.shop || '')).toLowerCase();
+            const allProdText = (titleShopText + ' ' + ocrText);
+
+            if (scope === 'main_image') {
+                const prodExcluded = excludeTokens.some(t => ocrText.includes(t));
+                return {
+                    prodExcluded: prodExcluded,
+                    isSkuExcluded: () => prodExcluded
+                };
+            } else if (scope === 'title') {
+                const prodExcluded = excludeTokens.some(t => titleShopText.includes(t));
+                return {
+                    prodExcluded: prodExcluded,
+                    isSkuExcluded: () => prodExcluded
+                };
+            } else if (scope === 'sku') {
+                return {
+                    prodExcluded: false,
+                    isSkuExcluded: (s) => {
+                        const lowerSku = (s.name || '').toLowerCase();
+                        return excludeTokens.some(t => lowerSku.includes(t));
+                    }
+                };
+            } else {
+                // 'all' 全域去重范围：如果标题或主图包含排除词，则整款排除；如果SKU包含排除词，则该SKU排除
+                const prodExcluded = excludeTokens.some(t => allProdText.includes(t));
+                return {
+                    prodExcluded: prodExcluded,
+                    isSkuExcluded: (s) => {
+                        if (prodExcluded) return true;
+                        const lowerSku = (s.name || '').toLowerCase();
+                        return excludeTokens.some(t => lowerSku.includes(t));
+                    }
+                };
+            }
+        }
+
         function updateTab1PillState(tokens) {
             const container = document.getElementById('feature-pills-container');
             if (!container) return;
@@ -3426,9 +3479,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
 
         let compareInitialized = false;
         let compareGroups = [
-            { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-            { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-            { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true }
+            { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+            { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+            { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true }
         ];
         let nextCompareGroupId = 4;
         let currentDrillDownGroupId = 1;
@@ -3436,16 +3495,28 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         let debounceCompareTimer = null;
 
         // 根据设置的价格区间、排名范围、关键词、床垫高度智能自动化生成对比组名称
-        function getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, groupIndex) {
+        function getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, groupIndex, excludeKw) {
             const letter = groupIndex <= 26 ? String.fromCharCode(64 + groupIndex) : `${groupIndex}`;
             const prefix = `组${letter}`;
             const parts = [];
 
-            // 1. 关键词特征
+            // 1. 关键词与排除词
             if (kw && kw.trim()) {
                 const cleanTokens = kw.trim().split(/[\s,，|/／]+/).filter(Boolean);
+                let kwDesc = cleanTokens.join('/');
+                if (excludeKw && excludeKw.trim()) {
+                    const cleanEx = excludeKw.trim().split(/[\s,，|/／]+/).filter(Boolean);
+                    if (cleanEx.length > 0) {
+                        kwDesc += `(不含${cleanEx.join('/')})`;
+                    }
+                }
                 if (cleanTokens.length > 0) {
-                    parts.push(cleanTokens.join('/'));
+                    parts.push(kwDesc);
+                }
+            } else if (excludeKw && excludeKw.trim()) {
+                const cleanEx = excludeKw.trim().split(/[\s,，|/／]+/).filter(Boolean);
+                if (cleanEx.length > 0) {
+                    parts.push(`不含${cleanEx.join('/')}`);
                 }
             }
 
@@ -3588,6 +3659,16 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                             </select>
                         </div>
 
+                        <!-- 排除关键词过滤 -->
+                        <div class="group-field-row" style="margin-top: 6px;">
+                            <span class="group-field-lbl" style="color: #f87171;" title="排除含有以下词汇的商品或SKU">排除词:</span>
+                            <input type="text" id="cg-exclude-kw-${g.id}" class="group-input-box" 
+                                placeholder="排除词，如: 椰棕/黄麻/棕" value="${escapeHtml(g.excludeKeyword || '')}" oninput="onGroupConditionChange(${g.id})" 
+                                style="flex: 1; border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.06);"
+                                title="支持多词以空格、逗号或斜杠隔开，如: 椰棕/黄麻">
+                            <span style="font-size: 11px; color: #f87171; white-space: nowrap; margin-left: 6px;" title="排除命中这些词的商品">🚫 不含</span>
+                        </div>
+
                         <!-- 快捷特征药丸标签 -->
                         <div class="pill-group" style="margin-top: 8px;">
                             ${pillsHtml}
@@ -3611,6 +3692,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const minHEl = document.getElementById(`cg-min-height-${groupId}`);
             const maxHEl = document.getElementById(`cg-max-height-${groupId}`);
             const kwEl = document.getElementById(`cg-kw-${groupId}`);
+            const excludeKwEl = document.getElementById(`cg-exclude-kw-${groupId}`);
             const nameEl = document.getElementById(`cg-name-${groupId}`);
 
             const minP = minPEl ? minPEl.value.trim() : '';
@@ -3620,6 +3702,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const minH = minHEl ? minHEl.value.trim() : '';
             const maxH = maxHEl ? maxHEl.value.trim() : '';
             const kw = kwEl ? kwEl.value.trim() : '';
+            const excludeKw = excludeKwEl ? excludeKwEl.value.trim() : '';
 
             // 保持数据模型同步
             g.minPrice = minP !== '' ? parseFloat(minP) : null;
@@ -3629,6 +3712,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             g.minHeight = minH !== '' ? parseFloat(minH) : null;
             g.maxHeight = maxH !== '' ? parseFloat(maxH) : null;
             g.keyword = kw;
+            g.excludeKeyword = excludeKw;
 
             // 同步卡片内的药丸高亮状态
             const kwTokens = kw.split(/[\s,，|/／]+/).filter(Boolean);
@@ -3638,7 +3722,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             if (g.autoName !== false || (nameEl && !nameEl.value.trim())) {
                 g.autoName = true;
                 const idx = compareGroups.indexOf(g);
-                const autoName = getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, idx + 1);
+                const autoName = getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, idx + 1, excludeKw);
                 g.name = autoName;
                 if (nameEl) {
                     nameEl.value = autoName;
@@ -3720,6 +3804,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 minHeight: null,
                 maxHeight: null,
                 keyword: '',
+                excludeKeyword: '',
                 autoName: true
             });
             renderCompareGroupInputs();
@@ -3761,9 +3846,11 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 if (maxHEl) g.maxHeight = maxHEl.value.trim() !== '' ? parseFloat(maxHEl.value) : null;
                 const kwEl = document.getElementById(`cg-kw-${g.id}`);
                 if (kwEl) g.keyword = kwEl.value.trim();
+                const excludeKwEl = document.getElementById(`cg-exclude-kw-${g.id}`);
+                if (excludeKwEl) g.excludeKeyword = excludeKwEl.value.trim();
 
                 if (g.autoName !== false) {
-                    g.name = getAutoGroupName(g.minPrice, g.maxPrice, g.minRank, g.maxRank, g.keyword, g.minHeight, g.maxHeight, idx + 1);
+                    g.name = getAutoGroupName(g.minPrice, g.maxPrice, g.minRank, g.maxRank, g.keyword, g.minHeight, g.maxHeight, idx + 1, g.excludeKeyword);
                     if (nameEl) nameEl.value = g.name;
                 } else if (nameEl && nameEl.value.trim()) {
                     g.name = nameEl.value.trim();
@@ -3774,18 +3861,34 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         function applyComparePreset(presetType) {
             if (presetType === 'price_levels') {
                 compareGroups = [
-                    { id: 1, name: '组A: 300元以下', minPrice: 0, maxPrice: 300, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 2, name: '组B: 300-1000元', minPrice: 300, maxPrice: 1000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 3, name: '组C: 1000-2500元', minPrice: 1000, maxPrice: 2500, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 4, name: '组D: 2500元以上', minPrice: 2500, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true }
+                    { id: 1, name: '组A: 300元以下', minPrice: 0, maxPrice: 300, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 2, name: '组B: 300-1000元', minPrice: 300, maxPrice: 1000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 3, name: '组C: 1000-2500元', minPrice: 1000, maxPrice: 2500, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 4, name: '组D: 2500元以上', minPrice: 2500, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true }
                 ];
                 nextCompareGroupId = 5;
             } else if (presetType === 'height_tiers') {
                 compareGroups = [
-                    { id: 1, name: '组A: ≤10cm薄垫', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: 10, keyword: '', autoName: true },
-                    { id: 2, name: '组B: 11-18cm偏薄款', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 11, maxHeight: 18, keyword: '', autoName: true },
-                    { id: 3, name: '组C: 19-25cm主流厚度', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 19, maxHeight: 25, keyword: '', autoName: true },
-                    { id: 4, name: '组D: ≥26cm加厚豪华', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 26, maxHeight: null, keyword: '', autoName: true }
+                    { id: 1, name: '组A: ≤10cm薄垫', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: 10, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 2, name: '组B: 11-18cm偏薄款', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 11, maxHeight: 18, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 3, name: '组C: 19-25cm主流厚度', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 19, maxHeight: 25, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 4, name: '组D: ≥26cm加厚豪华', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 26, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true }
                 ];
                 nextCompareGroupId = 5;
             } else if (presetType === 'materials') {
@@ -3798,9 +3901,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 nextCompareGroupId = 5;
             } else if (presetType === 'rank_tiers') {
                 compareGroups = [
-                    { id: 1, name: '组A: Top 1-30', minPrice: null, maxPrice: null, minRank: 1, maxRank: 30, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 2, name: '组B: Top 31-100', minPrice: null, maxPrice: null, minRank: 31, maxRank: 100, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 3, name: '组C: Top 101-300', minPrice: null, maxPrice: null, minRank: 101, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true }
+                    { id: 1, name: '组A: Top 1-30', minPrice: null, maxPrice: null, minRank: 1, maxRank: 30, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 2, name: '组B: Top 31-100', minPrice: null, maxPrice: null, minRank: 31, maxRank: 100, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 3, name: '组C: Top 101-300', minPrice: null, maxPrice: null, minRank: 101, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true }
                 ];
                 nextCompareGroupId = 4;
             } else if (presetType === 'brands') {
@@ -3814,9 +3923,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 nextCompareGroupId = 6;
             } else {
                 compareGroups = [
-                    { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true },
-                    { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', autoName: true }
+                    { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true },
+                    { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                excludeKeyword: '',
+                autoName: true }
                 ];
                 nextCompareGroupId = 4;
             }
@@ -3840,6 +3955,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const maxH = (g.maxHeight !== null && !isNaN(g.maxHeight)) ? g.maxHeight : null;
                 const hasHeightFilter = (minH !== null || maxH !== null);
                 const kw = g.keyword;
+                const excludeKw = g.excludeKeyword;
 
                 const matchedProducts = [];
                 const matchedPrices = [];
@@ -3859,12 +3975,17 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
 
                     const groupScope = g.scope || 'all';
                     const matchResult = isProductMatchKeyword(p, kw, groupScope);
+                    const excludeResult = isProductMatchExclude(p, excludeKw, groupScope);
+                    // 若整品命中排除词，直接排除该款商品
+                    if (excludeResult.prodExcluded) return;
                     const matchedSkus = [];
                     const otherSkus = [];
 
                     p.skus.forEach(s => {
                         const skuPrice = s.price;
                         const inPrice = (skuPrice !== null) && (skuPrice >= minP && skuPrice <= maxP);
+                        // 若具体 SKU 命中排除词，跳过该 SKU
+                        if (excludeResult.isSkuExcluded(s)) return;
                         const skuKwMatch = matchResult.matchSkuFunc(s);
 
                         let inHeight = true;
@@ -3978,7 +4099,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                                     <div style="font-size: 11px; color: var(--text-dim); margin-top: 2px;">
                                         价格: ${r.group.minPrice !== null ? '￥' + r.group.minPrice : '0'} ~ ${r.group.maxPrice !== null ? '￥' + r.group.maxPrice : '不限'} | 排名: ${r.group.minRank || 1}-${r.group.maxRank || 300}
                                         ${(r.group.minHeight !== null || r.group.maxHeight !== null) ? ` | 高度: ${r.group.minHeight !== null ? r.group.minHeight + 'cm' : '0'} ~ ${r.group.maxHeight !== null ? r.group.maxHeight + 'cm' : '不限'}` : ''}
-                                        ${r.group.keyword ? ` | 词: "${escapeHtml(r.group.keyword)}"` : ''}
+                                        ${r.group.keyword ? ` | 词: "${escapeHtml(r.group.keyword)}"` : ''}${r.group.excludeKeyword ? ` | <span style="color:#f87171;">🚫排除: "${escapeHtml(r.group.excludeKeyword)}"</span>` : ''}
                                     </div>
                                 </th>
                             `).join('')}
@@ -4403,6 +4524,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             csv += "条件-排名范围," + lastCompareResults.map(r => `"${r.group.minRank || 1} ~ ${r.group.maxRank || 300}"`).join(',') + "\n";
             csv += "条件-床垫高度," + lastCompareResults.map(r => `"${(r.group.minHeight !== null || r.group.maxHeight !== null) ? ((r.group.minHeight || 0) + ' ~ ' + (r.group.maxHeight || '不限') + 'cm') : '不限'}"`).join(',') + "\n";
             csv += "条件-关键词," + lastCompareResults.map(r => `"${(r.group.keyword || '无').replace(/"/g, '""')}"`).join(',') + "\n";
+            csv += "条件-排除词," + lastCompareResults.map(r => `"${(r.group.excludeKeyword || '无').replace(/"/g, '""')}"`).join(',') + "\n";
             csv += "命中商品规模(款)," + lastCompareResults.map(r => r.prodCount).join(',') + "\n";
             csv += "全盘商品占比(%)," + lastCompareResults.map(r => r.prodPct + '%').join(',') + "\n";
             csv += "命中1.8m SKU规模(个)," + lastCompareResults.map(r => r.skuCount).join(',') + "\n";
