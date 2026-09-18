@@ -631,6 +631,129 @@
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
             border-color: #38bdf8 !important;
         }
+
+        /* 表头可排序交互样式 (截图1) */
+        .crowd-sortable-th {
+            cursor: pointer !important;
+            user-select: none !important;
+            position: relative;
+            transition: background 0.2s, color 0.2s;
+        }
+        .crowd-sortable-th:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+        }
+        .crowd-sortable-th.active-sorted {
+            background: rgba(255, 255, 255, 0.06) !important;
+        }
+        .crowd-sortable-th .sort-badge {
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.2s;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .crowd-sortable-th:hover .sort-badge {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+        .crowd-sortable-th .sort-badge.active {
+            font-weight: 700;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
+        /* 鼠标悬停名词解释卡片样式 (截图2) */
+        .combo-help-popover-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+        }
+        .combo-help-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11.5px;
+            color: #c084fc;
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            padding: 3px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        .combo-help-btn:hover {
+            background: rgba(168, 85, 247, 0.25);
+            color: #f3e8ff;
+            border-color: #a855f7;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+        }
+        .combo-help-card {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            width: 380px;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.2);
+            border-radius: 10px;
+            padding: 14px;
+            z-index: 9999;
+            pointer-events: auto;
+        }
+        .combo-help-popover-wrapper:hover .combo-help-card {
+            display: block;
+            animation: fadeInPopover 0.2s ease-out;
+        }
+        @keyframes fadeInPopover {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .combo-help-card .help-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+        .combo-help-card .help-badge {
+            font-size: 10px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-weight: 700;
+        }
+        .combo-help-card .help-badge.l1 { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+        .combo-help-card .help-badge.l2 { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+        .combo-help-card .help-badge.l3 { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+        .combo-help-card .help-badge.l4 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+        .crowd-help-badge {
+            font-size: 11px;
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 4px;
+            padding: 1px 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .crowd-help-badge:hover {
+            background: rgba(56, 189, 248, 0.25);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
         .crowd-cell-top {
             display: flex;
             justify-content: space-between;
@@ -1951,29 +2074,32 @@
         <div class="crowd-matrix-card" id="compare-crowd-matrix-card">
             <div class="crowd-header">
                 <div>
-                    <div class="crowd-title">
-                        <span>🔥 多组分类动态分段拥挤度全景矩阵</span>
-                        <span style="font-size: 12px; color: var(--text-dim); font-weight: normal;">* 探测各分类在不同区间的集中堆叠度(红海)与结构性空白(蓝海)</span>
+                    <div class="crowd-title" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                        <span style="font-size: 16px; font-weight: 800; color: #fff;">🔥 多组分类动态分段拥挤度全景矩阵</span>
+                        <span class="crowd-help-badge" title="拥挤度矩阵原理：将天猫大盘300款商品属性切分为细颗粒度档位，对比各对比组在每个档位的款数与集中度占比。帮助产品经理精准定位【极度扎堆的红海】与【结构性空白的蓝海赛道】。">
+                            ⓘ 核心原理说明
+                        </span>
+                        <span style="font-size: 12px; color: var(--text-dim); font-weight: normal;" title="红海：款数多、占比高，竞争白热化；蓝海：行业有需求但当前分类空白，存在结构性入局机会">* 探测各分类在不同区间的集中堆叠度(红海)与结构性空白(蓝海)</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">
-                        支持自由切换 <b>💰 价格段 / 📏 厚度段 / 🌿 材质分类 / 🏆 排名段</b> 4大维度，自由定义范围与间隔步长
+                        支持自由切换 <b>💰 价格段 / 📏 厚度段 / 🌿 材质分类 / 🏆 排名段 / 🧬 全维度组合</b> 5大维度，自由定义范围与间隔步长
                     </div>
                 </div>
-                <!-- 4大拥挤度维度切换选项卡 -->
+                <!-- 5大拥挤度维度切换选项卡 -->
                 <div class="crowd-nav-pills">
-                    <button class="crowd-nav-btn active" id="btn-crowd-dim-price" onclick="switchCrowdDim('price')">
+                    <button class="crowd-nav-btn active" id="btn-crowd-dim-price" onclick="switchCrowdDim('price')" title="【价格段拥挤度】：自定义价格范围与步长（如每500元一档），分析各对比分类在不同价格带的商品聚集密度与价格壁垒">
                         <span>💰</span> 价格段拥挤度
                     </button>
-                    <button class="crowd-nav-btn" id="btn-crowd-dim-height" onclick="switchCrowdDim('height')">
+                    <button class="crowd-nav-btn" id="btn-crowd-dim-height" onclick="switchCrowdDim('height')" title="【厚度段拥挤度】：自定义床垫厚度（cm）区间与步长，透视薄垫(≤10cm)、偏薄款(11-18cm)、主流(19-25cm)、加厚豪华(≥26cm)的规格竞争分布">
                         <span>📏</span> 厚度段拥挤度
                     </button>
-                    <button class="crowd-nav-btn" id="btn-crowd-dim-material" onclick="switchCrowdDim('material')">
+                    <button class="crowd-nav-btn" id="btn-crowd-dim-material" onclick="switchCrowdDim('material')" title="【材质分类拥挤度】：统计天然乳胶、S型黄麻、环保椰棕、记忆棉、独立弹簧等用料在各组中的渗透率与集中堆叠度">
                         <span>🌿</span> 材质分类拥挤度
                     </button>
-                    <button class="crowd-nav-btn" id="btn-crowd-dim-rank" onclick="switchCrowdDim('rank')">
+                    <button class="crowd-nav-btn" id="btn-crowd-dim-rank" onclick="switchCrowdDim('rank')" title="【排名段拥挤度】：自定义榜单排位区间（如Top 1-30头部、Top 31-100腰部），对比各分类在行业头腰尾部的爆发力">
                         <span>🏆</span> 排名段拥挤度
                     </button>
-                    <button class="crowd-nav-btn" id="btn-crowd-dim-combo" onclick="switchCrowdDim('combo')" style="border-color: #a855f7; color: #d8b4fe;">
+                    <button class="crowd-nav-btn" id="btn-crowd-dim-combo" onclick="switchCrowdDim('combo')" style="border-color: #a855f7; color: #d8b4fe;" title="【全维度排列组合】：全息矩阵！将价格、厚度、用料与排名自动进行多级交叉组合，全方位无死角排查红海扎堆点与蓝海真空点">
                         <span>🧬</span> 全维度排列组合 (精准度从低到高)
                     </button>
                 </div>
@@ -4592,6 +4718,11 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             height: { min: 0, max: 35, step: 4 },
             rank: { min: 1, max: 300, step: 30 },
             material: { crossDim: 'price', step: 800 },
+            tableSort: {
+                colType: null, // null (默认自然序) | 'bin' | 'benchmark' | 'group'
+                groupId: null,
+                order: 'desc' // 'desc' | 'asc'
+            },
             combo: {
                 levelFilter: 'all', // 'all' | '1' | '2' | '3' | '4'
                 sortBy: 'precision_asc', // 'precision_asc' (精准度从低到高) | 'precision_desc' | 'count_desc' | 'blue_ocean'
@@ -4599,8 +4730,38 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             }
         };
 
+        // 切换表格排序列状态 (截图1：支持对各表头升降序排列)
+        function toggleCrowdTableSort(colType, groupId = null) {
+            const ts = CROWD_STATE.tableSort;
+            if (!colType) {
+                // 重置为自然序
+                ts.colType = null;
+                ts.groupId = null;
+                ts.order = 'desc';
+            } else if (ts.colType === colType && (colType !== 'group' || ts.groupId === groupId)) {
+                // 已在按该列排序：降序 -> 升序 -> 恢复默认
+                if (ts.order === 'desc') {
+                    ts.order = 'asc';
+                } else if (ts.order === 'asc') {
+                    ts.colType = null;
+                    ts.groupId = null;
+                    ts.order = 'desc';
+                }
+            } else {
+                // 新列：首次点击设为降序 desc (款数从多到少)
+                ts.colType = colType;
+                ts.groupId = groupId;
+                ts.order = 'desc';
+            }
+            if (typeof lastCompareResults !== 'undefined' && lastCompareResults && lastCompareResults.length > 0) {
+                renderCrowdMatrix(lastCompareResults);
+            }
+        }
+
         function switchCrowdDim(dim) {
             CROWD_STATE.dim = dim;
+            // 切换维度时重置表格内部排序列，恢复该维度的默认自然序
+            CROWD_STATE.tableSort = { colType: null, groupId: null, order: 'desc' };
             document.querySelectorAll('.crowd-nav-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById(`btn-crowd-dim-${dim}`);
             if (activeBtn) activeBtn.classList.add('active');
@@ -4762,33 +4923,81 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     </div>
                 `;
             } else if (dim === 'combo') {
-                // 全维度排列组合控制栏
+                // 全维度排列组合控制栏 (增强悬停解释与业务速查)
                 const curLvl = CROWD_STATE.combo.levelFilter;
                 const curSort = CROWD_STATE.combo.sortBy;
                 const curMat = CROWD_STATE.combo.matFilter;
                 inputsHtml = `
-                    <div class="crowd-ctrl-inputs">
-                        <span><b>精准度阶梯:</b></span>
+                    <div class="crowd-ctrl-inputs" style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <span title="精准度阶梯 (L1~L4)：按维度交叉的精细程度分级。阶梯等级越高（星级越多），交叉的特征维度越丰富，市场切片越精细。">
+                            <b>精准度阶梯: <span style="color: #a855f7; font-size: 11px; cursor: help;">ⓘ</span></b>
+                        </span>
                         <div class="crowd-quick-steps">
                             ${[
-                                { id: 'all', label: '全部阶梯 (L1~L4)' },
-                                { id: '1', label: '⭐ L1 单维基础' },
-                                { id: '2', label: '⭐⭐ L2 双维交叉' },
-                                { id: '3', label: '⭐⭐⭐ L3 三维深度' },
-                                { id: '4', label: '⭐⭐⭐⭐ L4 四维全息' }
+                                { 
+                                    id: 'all', 
+                                    label: '全部阶梯 (L1~L4)', 
+                                    tip: '【全部阶梯 (L1~L4)】：全景视角！同时展示单维(L1)、双维(L2)、三维(L3)、四维(L4)全量细分赛道，全方位透视红海扎堆与蓝海真空。' 
+                                },
+                                { 
+                                    id: '1', 
+                                    label: '⭐ L1 单维基础', 
+                                    tip: '【⭐ L1 单维基础】：按单一核心属性切片（如纯价格带、纯材质等）。宏观盘子大、颗粒度粗，适合把握行业大盘主销基本面。' 
+                                },
+                                { 
+                                    id: '2', 
+                                    label: '⭐⭐ L2 双维交叉', 
+                                    tip: '【⭐⭐ L2 双维交叉】：双维度交叉切片（如【价格×材质】、【价格×排名】）。透视不同材质在特定价格带的集中渗透率，锁定主力品类竞争圈。' 
+                                },
+                                { 
+                                    id: '3', 
+                                    label: '⭐⭐⭐ L3 三维深度', 
+                                    tip: '【⭐⭐⭐ L3 三维深度】：三维度立体分析（如【价格×材质×厚度】）。精准穿透到具体产品形态规格，洞察各品牌主力打法与配置落点。' 
+                                },
+                                { 
+                                    id: '4', 
+                                    label: '⭐⭐⭐⭐ L4 四维全息', 
+                                    tip: '【⭐⭐⭐⭐ L4 四维全息】：四维度极细微生态（【价格×材质×厚度×排名】）。定位极度精准的单一细分市场微赛道，排查绝对垄断或极窄真空点。' 
+                                }
                             ].map(l => `
-                                <button class="crowd-step-pill ${curLvl === l.id ? 'active' : ''}" onclick="setComboLevelFilter('${l.id}')">${l.label}</button>
+                                <button class="crowd-step-pill ${curLvl === l.id ? 'active' : ''}" 
+                                    onclick="setComboLevelFilter('${l.id}')"
+                                    title="${escapeHtml(l.tip)}">
+                                    ${l.label}
+                                </button>
                             `).join('')}
                         </div>
-                        <span style="margin-left: 8px;"><b>排列排序:</b></span>
-                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" onchange="setComboSortBy(this.value)">
-                            <option value="precision_asc" ${curSort === 'precision_asc' ? 'selected' : ''}>📈 精准度: 从低到高 (L1 → L4 推荐)</option>
-                            <option value="precision_desc" ${curSort === 'precision_desc' ? 'selected' : ''}>📉 精准度: 从高到低 (L4 → L1)</option>
-                            <option value="count_desc" ${curSort === 'count_desc' ? 'selected' : ''}>🔥 行业规模: 从多到少 (红海集中度)</option>
-                            <option value="blue_ocean" ${curSort === 'blue_ocean' ? 'selected' : ''}>💎 蓝海机会: 优先真空机会点</option>
+                        <span style="margin-left: 8px;" title="排列排序规则：控制各组合特征在矩阵表格中的展示先后次序，方便您按分析目的快速发现业务洞察。">
+                            <b>排列排序: <span style="color: #a855f7; font-size: 11px; cursor: help;">ⓘ</span></b>
+                        </span>
+                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" 
+                            onchange="setComboSortBy(this.value)"
+                            title="选择组合排列顺序规则">
+                            <option value="precision_asc" ${curSort === 'precision_asc' ? 'selected' : ''} 
+                                title="【精准度: 从低到高 (L1 → L4)】由浅入深层级式排列。先看行业大类宏观盘子，再逐级下钻到细分黄金交叉赛道，逻辑最清晰，系统推荐。">
+                                📈 精准度: 从低到高 (L1 → L4 推荐)
+                            </option>
+                            <option value="precision_desc" ${curSort === 'precision_desc' ? 'selected' : ''}
+                                title="【精准度: 从高到低 (L4 → L1)】倒金字塔排列。优先将条件最严苛、定位最精细的 L4/L3 四维/三维深度微生态推到最前，直击极深赛道。">
+                                📉 精准度: 从高到低 (L4 → L1)
+                            </option>
+                            <option value="count_desc" ${curSort === 'count_desc' ? 'selected' : ''}
+                                title="【行业规模: 从多到少 (红海集中度)】按全盘商品款数绝对量降序排列。商家扎堆最多、竞争最激烈的热门红海区间排在最前。">
+                                🔥 行业规模: 从多到少 (红海集中度)
+                            </option>
+                            <option value="blue_ocean" ${curSort === 'blue_ocean' ? 'selected' : ''}
+                                title="【蓝海机会: 优先真空机会点】智能算法优先筛选全行业大盘有基础规模、但当前选中对比组款数极少或为 0 的真空结构性高潜蓝海！">
+                                💎 蓝海机会: 优先真空机会点
+                            </option>
                         </select>
-                        <span style="margin-left: 8px;"><b>聚焦材质:</b></span>
-                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" onchange="setComboMatFilter(this.value)">
+
+                        <!-- 材质过滤快捷筛选 -->
+                        <span style="margin-left: 8px;" title="仅查看包含特定核心用料的组合特征赛道">
+                            <b>聚焦材质:</b>
+                        </span>
+                        <select class="group-input-box" style="padding: 3px 8px; font-size: 12px; background: rgba(0,0,0,0.3); border-color: var(--border); color: #fff;" 
+                            onchange="setComboMatFilter(this.value)"
+                            title="过滤仅显示包含该材质的组合赛道">
                             <option value="all" ${curMat === 'all' ? 'selected' : ''}>全部材质组合</option>
                             <option value="乳胶" ${curMat === '乳胶' ? 'selected' : ''}>仅含 天然乳胶</option>
                             <option value="黄麻" ${curMat === '黄麻' ? 'selected' : ''}>仅含 S型黄麻</option>
@@ -4796,6 +5005,41 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                             <option value="椰棕" ${curMat === '椰棕' ? 'selected' : ''}>仅含 环保椰棕</option>
                             <option value="0胶" ${curMat === '0胶' ? 'selected' : ''}>仅含 0胶水/纯物理</option>
                         </select>
+
+                        <!-- 名词速查悬停气泡卡片 (截图2悬停说明) -->
+                        <div class="combo-help-popover-wrapper">
+                            <span class="combo-help-btn" title="将鼠标悬停在此，随时查看精准度阶梯与排序规则的业务深度释义">
+                                💡 阶梯与排序名词速查
+                            </span>
+                            <div class="combo-help-card">
+                                <div style="font-weight: 700; color: #d8b4fe; margin-bottom: 8px; font-size: 13px; border-bottom: 1px solid rgba(168,85,247,0.25); padding-bottom: 6px;">
+                                    🧬 精准度阶梯与排列规则业务释义
+                                </div>
+                                <div class="help-item">
+                                    <span class="help-badge l1">⭐ L1 单维基础</span>
+                                    <span>按单一属性切片（如纯价格带、纯材质），宏观盘子大、颗粒度粗，把控行业基本面与主销带。</span>
+                                </div>
+                                <div class="help-item">
+                                    <span class="help-badge l2">⭐⭐ L2 双维交叉</span>
+                                    <span>【价格 × 材质】、【价格 × 排名】，洞悉核心价格带中哪类用料最扎堆，锁定主流品类竞争圈。</span>
+                                </div>
+                                <div class="help-item">
+                                    <span class="help-badge l3">⭐⭐⭐ L3 三维深度</span>
+                                    <span>【价格 × 材质 × 厚度】，立体穿透到具体主力产品的规格配置与品牌打法，检验主流形态。</span>
+                                </div>
+                                <div class="help-item">
+                                    <span class="help-badge l4">⭐⭐⭐⭐ L4 四维全息</span>
+                                    <span>【价格 × 材质 × 厚度 × 排名】，四维严苛交集，极精准定位单一细分微赛道的寡头垄断或空白点。</span>
+                                </div>
+                                <div style="margin-top: 8px; padding-top: 6px; border-top: 1px dashed rgba(255,255,255,0.1); font-size: 11.5px; color: #94a3b8; line-height: 1.6;">
+                                    <b style="color: #cbd5e1;">📌 排列排序逻辑：</b><br>
+                                    • <span style="color: #60a5fa;">L1→L4</span>：层级递进由浅入深，宏观到微观逻辑最顺（推荐）；<br>
+                                    • <span style="color: #f87171;">L4→L1</span>：倒金字塔倒排，直击深水区微赛道；<br>
+                                    • <span style="color: #fbbf24;">红海集中度</span>：按行业款数绝对量降序排，看商家扎堆最惨烈的战场；<br>
+                                    • <span style="color: #34d399;">蓝海机会点</span>：优先筛选行业有需求但当前分类为 0 的真空结构性机会！
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `;
             }
@@ -5256,35 +5500,106 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 });
             });
 
-            // 渲染矩阵表格
+            // 渲染矩阵表格 (支持截图1各表头升降序排列)
+            const ts = CROWD_STATE.tableSort || { colType: null, groupId: null, order: 'desc' };
+
+            // 依据当前排序列构建行排序索引
+            let rowIndices = bins.map((_, i) => i);
+            if (ts.colType) {
+                if (ts.colType === 'group' && ts.groupId !== null) {
+                    const gIdx = results.findIndex(r => r.group.id === ts.groupId);
+                    if (gIdx !== -1) {
+                        rowIndices.sort((a, b) => {
+                            const cA = groupBinData[gIdx][a].count;
+                            const cB = groupBinData[gIdx][b].count;
+                            if (cA !== cB) {
+                                return ts.order === 'asc' ? cA - cB : cB - cA;
+                            }
+                            return benchmarkCounts[b] - benchmarkCounts[a];
+                        });
+                    }
+                } else if (ts.colType === 'benchmark') {
+                    rowIndices.sort((a, b) => {
+                        const cA = benchmarkCounts[a];
+                        const cB = benchmarkCounts[b];
+                        if (cA !== cB) {
+                            return ts.order === 'asc' ? cA - cB : cB - cA;
+                        }
+                        return a - b;
+                    });
+                } else if (ts.colType === 'bin') {
+                    rowIndices.sort((a, b) => {
+                        const lA = bins[a].label || '';
+                        const lB = bins[b].label || '';
+                        return ts.order === 'asc' ? lA.localeCompare(lB, 'zh-CN') : lB.localeCompare(lA, 'zh-CN');
+                    });
+                }
+            }
+
             let tableHtml = `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 12px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: 6px; margin-bottom: 8px; font-size: 11.5px; color: #94a3b8;">
+                    <span>💡 <b>表头排序提示：</b>点击下方表格中任意表头列（各对比组、全盘基准或分段区间），可对各档位进行款数升降序排列 (首击降序 🔽，再击升序 🔼，三击恢复自然序 🔀)。</span>
+                    ${ts.colType ? `
+                        <button onclick="toggleCrowdTableSort(null)" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 4px; padding: 1px 8px; font-size: 11px; cursor: pointer;">
+                            ✕ 恢复默认区间序
+                        </button>
+                    ` : ''}
+                </div>
                 <table class="crowd-table">
                     <thead>
                         <tr>
-                            <th style="${isCombo ? 'width: 320px;' : 'width: 170px;'} background: rgba(0,0,0,0.3);">
-                                <b>${isCombo ? '🧬 全维度组合特征 (精准度阶梯 L1 → L4)' : '分段区间 / 档位'}</b>
+                            <th onclick="toggleCrowdTableSort('bin')" class="crowd-sortable-th ${ts.colType === 'bin' ? 'active-sorted' : ''}"
+                                style="${isCombo ? 'width: 320px;' : 'width: 170px;'} background: rgba(0,0,0,0.3); cursor: pointer; user-select: none;"
+                                title="点击按【${isCombo ? '组合特征' : '分段区间'}】名称升降序排列 (首击升序 🔼，再击降序 🔽，三击恢复 🔀)">
+                                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                                    <b>${isCombo ? '🧬 全维度组合特征 (L1 → L4)' : '分段区间 / 档位'}</b>
+                                    <span class="sort-badge ${ts.colType === 'bin' ? 'active' : ''}">
+                                        ${ts.colType === 'bin' ? (ts.order === 'desc' ? '🔽 降序' : '🔼 升序') : '⇅ 排序'}
+                                    </span>
+                                </div>
                             </th>
-                            ${results.map(r => `
-                                <th style="border-top: 3px solid ${r.palette.color};">
-                                    <div style="display: flex; align-items: center; gap: 6px;">
-                                        <span class="group-color-dot" style="background: ${r.palette.color};"></span>
-                                        <span style="color: #fff; font-size: 13.5px;">${escapeHtml(r.group.name)}</span>
-                                    </div>
-                                    <div style="font-size: 11px; color: var(--text-dim); margin-top: 2px;">
-                                        命中共 ${r.prodCount} 款 ｜ 全盘占比 ${r.prodPct}%
-                                    </div>
-                                </th>
-                            `).join('')}
-                            <th style="width: 140px; border-top: 3px solid #64748b; background: rgba(255,255,255,0.02);">
-                                <div>🌐 全盘 300 款基准</div>
-                                <div style="font-size: 11px; color: var(--text-dim);">全行业整体规模参考</div>
+                            ${results.map((r, gIdx) => {
+                                const isSorted = (ts.colType === 'group' && ts.groupId === r.group.id);
+                                const sortLabel = isSorted ? (ts.order === 'desc' ? '🔽 从多到少' : '🔼 从少到多') : '⇅ 排序';
+                                return `
+                                    <th onclick="toggleCrowdTableSort('group', ${r.group.id})" 
+                                        class="crowd-sortable-th ${isSorted ? 'active-sorted' : ''}" 
+                                        style="border-top: 3px solid ${r.palette.color}; cursor: pointer; user-select: none;"
+                                        title="点击按【${escapeHtml(r.group.name)}】命中款数升降序排列 (首击降序 🔽，再击升序 🔼，三击恢复 🔀)">
+                                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                                            <div style="display: flex; align-items: center; gap: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                <span class="group-color-dot" style="background: ${r.palette.color}; flex-shrink: 0;"></span>
+                                                <span style="color: #fff; font-size: 13.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(r.group.name)}</span>
+                                            </div>
+                                            <span class="sort-badge ${isSorted ? 'active' : ''}" style="${isSorted ? `background: ${r.palette.color}; color: #000; font-weight: 700; border-color: ${r.palette.color};` : ''}">
+                                                ${sortLabel}
+                                            </span>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--text-dim); margin-top: 2px;">
+                                            命中共 ${r.prodCount} 款 ｜ 全盘占比 ${r.prodPct}%
+                                        </div>
+                                    </th>
+                                `;
+                            }).join('')}
+                            <th onclick="toggleCrowdTableSort('benchmark')" 
+                                class="crowd-sortable-th ${ts.colType === 'benchmark' ? 'active-sorted' : ''}" 
+                                style="width: 140px; border-top: 3px solid #64748b; background: rgba(255,255,255,0.02); cursor: pointer; user-select: none;"
+                                title="点击按【全盘 300 款基准】商品款数升降序排列 (首击降序 🔽，再击升序 🔼，三击恢复 🔀)">
+                                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                                    <div style="font-weight: 700; color: #fff;">🌐 全盘基准</div>
+                                    <span class="sort-badge ${ts.colType === 'benchmark' ? 'active' : ''}" style="${ts.colType === 'benchmark' ? 'background: #94a3b8; color: #0f172a; font-weight: 700; border-color: #94a3b8;' : ''}">
+                                        ${ts.colType === 'benchmark' ? (ts.order === 'desc' ? '🔽 降序' : '🔼 升序') : '⇅ 排序'}
+                                    </span>
+                                </div>
+                                <div style="font-size: 11px; color: var(--text-dim); margin-top: 2px;">全行业整体规模参考</div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
             `;
 
-            bins.forEach((bin, bIdx) => {
+            rowIndices.forEach(bIdx => {
+                const bin = bins[bIdx];
                 const bCount = benchmarkCounts[bIdx];
                 const bPct = ((bCount / totalBenchmarkProds) * 100).toFixed(1);
 
