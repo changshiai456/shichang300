@@ -2502,7 +2502,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 return { matchProd: true, matchSkuFunc: () => true };
             }
 
-            const imgData = p.main_image || MAIN_IMAGE_DATA[p.rank] || {};
+            const imgData = p.main_image || (typeof MAIN_IMAGE_DATA !== 'undefined' && MAIN_IMAGE_DATA[p.rank]) || {};
             const ocrText = (imgData.ocr_raw || '') + ' ' + 
                             (imgData.selling_points || []).join(' ') + ' ' + 
                             (imgData.marketing_text || []).join(' ') + ' ' + 
@@ -3606,12 +3606,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         let compareInitialized = false;
         let compareGroups = [
             { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
             { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
             { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true }
         ];
@@ -3620,16 +3623,20 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         let lastCompareResults = [];
         let debounceCompareTimer = null;
 
-        // 根据设置的价格区间、排名范围、关键词、床垫高度智能自动化生成对比组名称
-        function getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, groupIndex, excludeKw) {
+        // 根据设置的价格区间、排名范围、关键词、床垫高度及作用域智能自动化生成对比组名称
+        function getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, groupIndex, excludeKw, scope) {
             const letter = groupIndex <= 26 ? String.fromCharCode(64 + groupIndex) : `${groupIndex}`;
             const prefix = `组${letter}`;
             const parts = [];
 
-            // 1. 关键词与排除词
+            // 1. 关键词与排除词及作用域
             if (kw && kw.trim()) {
                 const cleanTokens = kw.trim().split(/[\s,，|/／]+/).filter(Boolean);
                 let kwDesc = cleanTokens.join('/');
+                if (scope === 'sku') kwDesc += '[仅SKU]';
+                else if (scope === 'main_image') kwDesc += '[仅主图]';
+                else if (scope === 'title') kwDesc += '[仅标题]';
+
                 if (excludeKw && excludeKw.trim()) {
                     const cleanEx = excludeKw.trim().split(/[\s,，|/／]+/).filter(Boolean);
                     if (cleanEx.length > 0) {
@@ -3818,6 +3825,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const minHEl = document.getElementById(`cg-min-height-${groupId}`);
             const maxHEl = document.getElementById(`cg-max-height-${groupId}`);
             const kwEl = document.getElementById(`cg-kw-${groupId}`);
+            const scopeEl = document.getElementById(`cg-scope-${groupId}`);
             const excludeKwEl = document.getElementById(`cg-exclude-kw-${groupId}`);
             const nameEl = document.getElementById(`cg-name-${groupId}`);
 
@@ -3828,6 +3836,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const minH = minHEl ? minHEl.value.trim() : '';
             const maxH = maxHEl ? maxHEl.value.trim() : '';
             const kw = kwEl ? kwEl.value.trim() : '';
+            const scope = scopeEl ? scopeEl.value : 'all';
             const excludeKw = excludeKwEl ? excludeKwEl.value.trim() : '';
 
             // 保持数据模型同步
@@ -3838,6 +3847,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             g.minHeight = minH !== '' ? parseFloat(minH) : null;
             g.maxHeight = maxH !== '' ? parseFloat(maxH) : null;
             g.keyword = kw;
+            g.scope = scope;
             g.excludeKeyword = excludeKw;
 
             // 同步卡片内的药丸高亮状态
@@ -3848,7 +3858,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             if (g.autoName !== false || (nameEl && !nameEl.value.trim())) {
                 g.autoName = true;
                 const idx = compareGroups.indexOf(g);
-                const autoName = getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, idx + 1, excludeKw);
+                const autoName = getAutoGroupName(minP, maxP, minR, maxR, kw, minH, maxH, idx + 1, excludeKw, scope);
                 g.name = autoName;
                 if (nameEl) {
                     nameEl.value = autoName;
@@ -3919,7 +3929,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             syncCompareInputsToData();
             const newId = nextCompareGroupId++;
             const groupIndex = compareGroups.length + 1;
-            const autoName = getAutoGroupName(null, null, 1, 300, '', null, null, groupIndex);
+            const autoName = getAutoGroupName(null, null, 1, 300, '', null, null, groupIndex, '', 'all');
             compareGroups.push({
                 id: newId,
                 name: autoName,
@@ -3930,6 +3940,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 minHeight: null,
                 maxHeight: null,
                 keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true
             });
@@ -3972,11 +3983,13 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 if (maxHEl) g.maxHeight = maxHEl.value.trim() !== '' ? parseFloat(maxHEl.value) : null;
                 const kwEl = document.getElementById(`cg-kw-${g.id}`);
                 if (kwEl) g.keyword = kwEl.value.trim();
+                const scopeEl = document.getElementById(`cg-scope-${g.id}`);
+                if (scopeEl) g.scope = scopeEl.value;
                 const excludeKwEl = document.getElementById(`cg-exclude-kw-${g.id}`);
                 if (excludeKwEl) g.excludeKeyword = excludeKwEl.value.trim();
 
                 if (g.autoName !== false) {
-                    g.name = getAutoGroupName(g.minPrice, g.maxPrice, g.minRank, g.maxRank, g.keyword, g.minHeight, g.maxHeight, idx + 1, g.excludeKeyword);
+                    g.name = getAutoGroupName(g.minPrice, g.maxPrice, g.minRank, g.maxRank, g.keyword, g.minHeight, g.maxHeight, idx + 1, g.excludeKeyword, g.scope);
                     if (nameEl) nameEl.value = g.name;
                 } else if (nameEl && nameEl.value.trim()) {
                     g.name = nameEl.value.trim();
@@ -3988,15 +4001,19 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             if (presetType === 'price_levels') {
                 compareGroups = [
                     { id: 1, name: '组A: 300元以下', minPrice: 0, maxPrice: 300, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 2, name: '组B: 300-1000元', minPrice: 300, maxPrice: 1000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 3, name: '组C: 1000-2500元', minPrice: 1000, maxPrice: 2500, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 4, name: '组D: 2500元以上', minPrice: 2500, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true }
                 ];
@@ -4004,58 +4021,68 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             } else if (presetType === 'height_tiers') {
                 compareGroups = [
                     { id: 1, name: '组A: ≤10cm薄垫', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: 10, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 2, name: '组B: 11-18cm偏薄款', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 11, maxHeight: 18, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 3, name: '组C: 19-25cm主流厚度', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 19, maxHeight: 25, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 4, name: '组D: ≥26cm加厚豪华', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: 26, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true }
                 ];
                 nextCompareGroupId = 5;
             } else if (presetType === 'materials') {
                 compareGroups = [
-                    { id: 1, name: '组A: 乳胶', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '乳胶', autoName: true },
-                    { id: 2, name: '组B: 黄麻/棕', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '黄麻/棕', autoName: true },
-                    { id: 3, name: '组C: 记忆棉/0压/压缩', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '记忆棉/0压/压缩', autoName: true },
-                    { id: 4, name: '组D: 0胶/可拆洗', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '0胶/可拆洗', autoName: true }
+                    { id: 1, name: '组A: 乳胶', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '乳胶', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 2, name: '组B: 黄麻/棕', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '黄麻/棕', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 3, name: '组C: 记忆棉/0压/压缩', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '记忆棉/0压/压缩', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 4, name: '组D: 0胶/可拆洗', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '0胶/可拆洗', scope: 'all', excludeKeyword: '', autoName: true }
                 ];
                 nextCompareGroupId = 5;
             } else if (presetType === 'rank_tiers') {
                 compareGroups = [
                     { id: 1, name: '组A: Top 1-30', minPrice: null, maxPrice: null, minRank: 1, maxRank: 30, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 2, name: '组B: Top 31-100', minPrice: null, maxPrice: null, minRank: 31, maxRank: 100, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 3, name: '组C: Top 101-300', minPrice: null, maxPrice: null, minRank: 101, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true }
                 ];
                 nextCompareGroupId = 4;
             } else if (presetType === 'brands') {
                 compareGroups = [
-                    { id: 1, name: '组A: 喜临门', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '喜临门', autoName: true },
-                    { id: 2, name: '组B: 蓝盒子', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '蓝盒子', autoName: true },
-                    { id: 3, name: '组C: 源氏木语', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '源氏木语', autoName: true },
-                    { id: 4, name: '组D: 梦百合', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '梦百合', autoName: true },
-                    { id: 5, name: '组E: 金可儿', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '金可儿', autoName: true }
+                    { id: 1, name: '组A: 喜临门', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '喜临门', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 2, name: '组B: 蓝盒子', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '蓝盒子', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 3, name: '组C: 源氏木语', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '源氏木语', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 4, name: '组D: 梦百合', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '梦百合', scope: 'all', excludeKeyword: '', autoName: true },
+                    { id: 5, name: '组E: 金可儿', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '金可儿', scope: 'all', excludeKeyword: '', autoName: true }
                 ];
                 nextCompareGroupId = 6;
             } else {
                 compareGroups = [
                     { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true },
                     { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
+                scope: 'all',
                 excludeKeyword: '',
                 autoName: true }
                 ];
@@ -4225,7 +4252,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                                     <div style="font-size: 11px; color: var(--text-dim); margin-top: 2px;">
                                         价格: ${r.group.minPrice !== null ? '￥' + r.group.minPrice : '0'} ~ ${r.group.maxPrice !== null ? '￥' + r.group.maxPrice : '不限'} | 排名: ${r.group.minRank || 1}-${r.group.maxRank || 300}
                                         ${(r.group.minHeight !== null || r.group.maxHeight !== null) ? ` | 高度: ${r.group.minHeight !== null ? r.group.minHeight + 'cm' : '0'} ~ ${r.group.maxHeight !== null ? r.group.maxHeight + 'cm' : '不限'}` : ''}
-                                        ${r.group.keyword ? ` | 词: "${escapeHtml(r.group.keyword)}"` : ''}${r.group.excludeKeyword ? ` | <span style="color:#f87171;">🚫排除: "${escapeHtml(r.group.excludeKeyword)}"</span>` : ''}
+                                        ${r.group.keyword ? ` | 词: "${escapeHtml(r.group.keyword)}" [${r.group.scope === 'main_image' ? '主图' : (r.group.scope === 'title' ? '标题' : (r.group.scope === 'sku' ? 'SKU' : '全域'))}]` : ''}${r.group.excludeKeyword ? ` | <span style="color:#f87171;">🚫排除: "${escapeHtml(r.group.excludeKeyword)}"</span>` : ''}
                                     </div>
                                 </th>
                             `).join('')}
