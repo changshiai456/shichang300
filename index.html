@@ -1679,6 +1679,107 @@
             border-color: #64748b;
         }
 
+        /* 收藏与专项对比样式 */
+        .btn-fav {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            user-select: none;
+        }
+        .btn-fav:hover {
+            background: rgba(251, 191, 36, 0.15);
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        .btn-fav.active {
+            background: rgba(251, 191, 36, 0.22);
+            border-color: #fbbf24;
+            color: #fbbf24;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.25);
+        }
+        .product-card.is-favorite {
+            border-left: 3px solid #fbbf24 !important;
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.03) 0%, rgba(22, 32, 50, 0.7) 100%);
+        }
+        .fav-compare-bar {
+            background: rgba(251, 191, 36, 0.07);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .fav-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .fav-modal-box {
+            background: #111827;
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 960px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        .fav-modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #162032;
+        }
+        .fav-modal-body {
+            padding: 16px 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .fav-modal-footer {
+            padding: 12px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #162032;
+        }
+        .fav-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-radius: 6px;
+            margin-bottom: 6px;
+            background: rgba(255,255,255,0.02);
+            transition: background 0.15s;
+        }
+        .fav-item-row:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
     </style>
 </head>
 <body>
@@ -1705,6 +1806,10 @@
             <div class="stat-badge">
                 <div class="num">￥1,583.87</div>
                 <div class="lbl">全盘价格均值</div>
+            </div>
+            <div class="stat-badge" onclick="showFavoritesModal()" style="cursor: pointer; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.08);" title="点击管理与查看已收藏的候选商品列表">
+                <div class="num" id="header-fav-cnt" style="color: #fbbf24;">⭐ 0 款</div>
+                <div class="lbl" style="color: #fde68a;">我的收藏 (可专项对比)</div>
             </div>
         </div>
     </div>
@@ -1820,6 +1925,9 @@
                     </button>
                     <button class="scope-btn" id="scope-btn-sku" onclick="setSearchScope('sku', this)" title="仅检索1.8米具体SKU规格名称与睡感材质说明">
                         🏷️ 仅SKU规格 (仅规格分析)
+                    </button>
+                    <button class="scope-btn" id="scope-btn-fav-only" onclick="toggleTab1FavOnly(this)" style="border-color: rgba(251, 191, 36, 0.45); color: #fbbf24;" title="开启后仅在已收藏的商品中进行过滤与分析">
+                        ⭐ 仅看已收藏 (<span id="tab1-fav-cnt">0</span>款)
                     </button>
                 </div>
                 <span style="font-size: 11px; color: #94a3b8; margin-left: 6px;">💡 切换后上方 KPI 看板与商品列表将实时动态重算中位数、均价与命中商品！</span>
@@ -2030,7 +2138,23 @@
             <button class="preset-btn" onclick="applyComparePreset('materials')">🌿 核心材质与功能PK (乳胶 vs 黄麻 vs 记忆棉 vs 0胶)</button>
             <button class="preset-btn" onclick="applyComparePreset('rank_tiers')">🏆 排名梯队PK (头部Top1-30 vs 腰部Top31-100 vs 尾部Top101-300)</button>
             <button class="preset-btn" onclick="applyComparePreset('brands')">🏬 头部核心大牌PK (喜临门 vs 蓝盒子 vs 源氏木语 vs 梦百合 vs 金可儿)</button>
+            <button class="preset-btn" onclick="applyComparePreset('favorites')" style="border-color: rgba(251, 191, 36, 0.6); color: #fbbf24; background: rgba(251, 191, 36, 0.08);">⭐ 已收藏商品各组PK</button>
             <button class="preset-btn" onclick="applyComparePreset('custom_init')">🔄 恢复默认对比</button>
+        </div>
+
+        <!-- 收藏商品专属对比过滤控制栏 -->
+        <div class="fav-compare-bar" id="fav-compare-panel">
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <label style="display: inline-flex; align-items: center; cursor: pointer; user-select: none; gap: 8px;">
+                    <input type="checkbox" id="chk-fav-only-compare" onchange="toggleFavOnlyCompare(this.checked)" style="width: 17px; height: 17px; cursor: pointer; accent-color: #fbbf24;">
+                    <span style="font-weight: 700; color: #fbbf24; font-size: 14px;">⭐ 仅限对比已收藏商品</span>
+                </label>
+                <span id="badge-fav-count-compare" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.35); padding: 2px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600;">已收藏 0 款</span>
+                <button onclick="showFavoritesModal()" style="background: rgba(255,255,255,0.06); border: 1px solid #475569; color: #cbd5e1; padding: 3px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;">👁️ 管理/查看收藏列表</button>
+            </div>
+            <div style="font-size: 12px; color: #94a3b8;">
+                💡 勾选后，所有对比组（组A/组B/组C等）、横向对比指标、排名梯度及拥挤度矩阵将<b>仅在您收藏的目标商品集合</b>内进行精准筛选与深度PK！
+            </div>
         </div>
 
         <!-- 对比条件组卡片网格容器 -->
@@ -2369,6 +2493,224 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         let selectedClusterRankId = null;
         let selectedClusterShop = null;
 
+        // ======================= 收藏系统与专项对比数据中心 =======================
+        const FAV_STORAGE_KEY = 'mat300_fav_ranks';
+        let favRankSet = new Set();
+        let isCompareOnlyFavorites = false; // 是否在Tab 5仅对比已收藏商品
+        let isTab1FavOnly = false; // 是否在Tab 1仅看已收藏商品
+
+        function loadFavorites() {
+            try {
+                const raw = localStorage.getItem(FAV_STORAGE_KEY);
+                if (raw) {
+                    const arr = JSON.parse(raw);
+                    if (Array.isArray(arr)) {
+                        favRankSet = new Set(arr.map(r => parseInt(r, 10)).filter(r => !isNaN(r)));
+                    }
+                }
+            } catch (e) {
+                console.error('加载收藏数据失败:', e);
+                favRankSet = new Set();
+            }
+            updateFavBadges();
+        }
+
+        function saveFavorites() {
+            try {
+                localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(Array.from(favRankSet)));
+            } catch (e) {
+                console.error('保存收藏数据失败:', e);
+            }
+            updateFavBadges();
+            updateAllFavButtonsOnScreen();
+        }
+
+        function updateFavBadges() {
+            const count = favRankSet.size;
+            const headerEl = document.getElementById('header-fav-cnt');
+            if (headerEl) headerEl.innerText = `⭐ ${count} 款`;
+            
+            const tab1FavCntEl = document.getElementById('tab1-fav-cnt');
+            if (tab1FavCntEl) tab1FavCntEl.innerText = count;
+
+            const badgeCompareEl = document.getElementById('badge-fav-count-compare');
+            if (badgeCompareEl) badgeCompareEl.innerText = `已收藏 ${count} 款`;
+
+            const modalCountEl = document.getElementById('fav-modal-count');
+            if (modalCountEl) modalCountEl.innerText = count;
+        }
+
+        function updateAllFavButtonsOnScreen() {
+            document.querySelectorAll('.btn-fav').forEach(btn => {
+                const rank = parseInt(btn.getAttribute('data-rank'), 10);
+                const isFav = favRankSet.has(rank);
+                if (isFav) {
+                    btn.classList.add('active');
+                    btn.innerHTML = '⭐ 已收藏';
+                    btn.title = '已收藏（点击取消）';
+                } else {
+                    btn.classList.remove('active');
+                    btn.innerHTML = '☆ 收藏';
+                    btn.title = '收藏此商品，加入专项对比候选池';
+                }
+            });
+            document.querySelectorAll('.product-card').forEach(card => {
+                const idMatch = card.id && card.id.match(/^prod-card-(\d+)$/);
+                if (idMatch) {
+                    const rank = parseInt(idMatch[1], 10);
+                    if (favRankSet.has(rank)) {
+                        card.classList.add('is-favorite');
+                    } else {
+                        card.classList.remove('is-favorite');
+                    }
+                }
+            });
+        }
+
+        function toggleFavorite(rank, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            rank = parseInt(rank, 10);
+            if (favRankSet.has(rank)) {
+                favRankSet.delete(rank);
+            } else {
+                favRankSet.add(rank);
+            }
+            saveFavorites();
+
+            // 如果当前处于“仅看收藏”模式，联动刷新当前Tab
+            if (isTab1FavOnly && currentTab === 'tab-custom') {
+                runCustomFilter();
+            }
+            if (isCompareOnlyFavorites && currentTab === 'tab-compare') {
+                runComparisonAnalysis();
+            }
+
+            // 如果收藏弹窗正处于打开状态，同步更新弹窗列表
+            const modal = document.getElementById('fav-modal');
+            if (modal && modal.style.display === 'flex') {
+                renderFavoritesModalList();
+            }
+        }
+
+        function toggleTab1FavOnly(btn) {
+            isTab1FavOnly = !isTab1FavOnly;
+            if (btn) {
+                if (isTab1FavOnly) {
+                    btn.classList.add('active');
+                    btn.style.background = 'rgba(251, 191, 36, 0.22)';
+                    btn.style.boxShadow = '0 0 8px rgba(251, 191, 36, 0.3)';
+                } else {
+                    btn.classList.remove('active');
+                    btn.style.background = '';
+                    btn.style.boxShadow = '';
+                }
+            }
+            runCustomFilter();
+        }
+
+        function toggleFavOnlyCompare(checked) {
+            isCompareOnlyFavorites = checked;
+            const chkBox = document.getElementById('chk-fav-only-compare');
+            if (chkBox) chkBox.checked = isCompareOnlyFavorites;
+            runComparisonAnalysis();
+        }
+
+        function showFavoritesModal() {
+            const modal = document.getElementById('fav-modal');
+            if (!modal) return;
+            renderFavoritesModalList();
+            modal.style.display = 'flex';
+        }
+
+        function closeFavoritesModal() {
+            const modal = document.getElementById('fav-modal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function clearAllFavorites() {
+            if (favRankSet.size === 0) return;
+            if (!confirm(`确定要清空全部 ${favRankSet.size} 款已收藏的商品吗？`)) return;
+            favRankSet.clear();
+            saveFavorites();
+            if (isTab1FavOnly && currentTab === 'tab-custom') runCustomFilter();
+            if (isCompareOnlyFavorites && currentTab === 'tab-compare') runComparisonAnalysis();
+            renderFavoritesModalList();
+        }
+
+        function copyFavoriteLinks() {
+            if (favRankSet.size === 0) {
+                alert('当前暂无已收藏商品！');
+                return;
+            }
+            const favProducts = DB.products.filter(p => favRankSet.has(p.rank));
+            const textLines = favProducts.map(p => `No.${p.rank} | ${p.shop} | ${p.title} | 价格:￥${p.median_price} | 链接: ${p.link}`);
+            navigator.clipboard.writeText(textLines.join('\n')).then(() => {
+                alert(`已成功复制 ${favProducts.length} 款收藏商品的标题与天猫原链接到剪贴板！`);
+            }).catch(err => {
+                alert('复制失败，请手动在列表复制。');
+            });
+        }
+
+        function startFavoritesCompare() {
+            closeFavoritesModal();
+            switchNav('tab-compare');
+            isCompareOnlyFavorites = true;
+            const chk = document.getElementById('chk-fav-only-compare');
+            if (chk) chk.checked = true;
+            applyComparePreset('favorites');
+        }
+
+        function renderFavoritesModalList() {
+            const container = document.getElementById('fav-modal-list');
+            if (!container) return;
+            updateFavBadges();
+
+            if (favRankSet.size === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 48px 20px; color: #94a3b8;">
+                        <div style="font-size: 42px; margin-bottom: 12px; opacity: 0.7;">⭐</div>
+                        <div style="font-size: 16px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px;">候选对比池空空如也</div>
+                        <div style="font-size: 13px;">请在任意商品卡片顶部点击【☆ 收藏】按钮，即可把意向产品加入此候选池，用于专属横向对比！</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const favProducts = DB.products.filter(p => favRankSet.has(p.rank));
+            favProducts.sort((a, b) => a.rank - b.rank);
+
+            let html = '';
+            favProducts.forEach(p => {
+                html += `
+                    <div class="fav-item-row" id="fav-row-${p.rank}">
+                        <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0;">
+                            <span class="rank-badge ${p.rank <= 3 ? 'top-' + p.rank : (p.rank <= 10 ? 'top-10' : '')}" style="font-size: 12px; min-width: 54px; text-align: center;">No.${p.rank}</span>
+                            <div style="min-width: 0; flex: 1;">
+                                <div style="font-size: 13px; font-weight: 600; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${escapeHtml(p.title)}">
+                                    <span style="color: #60a5fa; margin-right: 6px;">[${escapeHtml(p.shop)}]</span>${escapeHtml(p.title)}
+                                </div>
+                                <div style="display: flex; gap: 14px; font-size: 12px; color: #94a3b8; margin-top: 4px; flex-wrap: wrap;">
+                                    <span>区间: <b style="color: #f1f5f9;">￥${p.min_price} ~ ￥${p.max_price}</b></span>
+                                    <span>中位价: <b style="color: #10b981;">￥${p.median_price}</b></span>
+                                    ${p.height ? `<span>厚度: <b style="color: #38bdf8;">${p.height}cm</b></span>` : ''}
+                                    <span>1.8m SKU: <b>${p.sku_count}个</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-left: 14px; flex-shrink: 0;">
+                            <a href="${p.link}" target="_blank" class="btn-link" style="padding: 4px 8px; font-size: 11px;">天猫 ↗</a>
+                            <button onclick="toggleFavorite(${p.rank}, event)" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); color: #fca5a5; padding: 4px 10px; border-radius: 5px; font-size: 12px; cursor: pointer;" title="从收藏池中移除">
+                                ✕ 移除
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
         function switchNav(tabId) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -2662,11 +3004,43 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             const tokens = kw.split(/[\s,，|/／]+/).filter(Boolean);
             updateTab1PillState(tokens);
 
+            // 检查是否开启了“⭐ 仅看已收藏”
+            if (isTab1FavOnly && favRankSet.size === 0) {
+                document.getElementById('kpi-prod-cnt').innerText = 0;
+                document.getElementById('kpi-prod-pct').innerText = '0%';
+                document.getElementById('kpi-sku-cnt').innerText = 0;
+                document.getElementById('kpi-sku-pct').innerText = '0%';
+                document.getElementById('kpi-price-med').innerText = '￥0';
+                document.getElementById('kpi-price-mean').innerText = '￥0';
+                document.getElementById('kpi-rank-med').innerText = '-';
+                document.getElementById('kpi-rank-mean').innerText = '-';
+                const container = document.getElementById('custom-results-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #162032; border: 1px dashed rgba(251, 191, 36, 0.4); border-radius: 12px; margin-top: 16px;">
+                            <div style="font-size: 40px; margin-bottom: 10px;">⭐</div>
+                            <div style="font-size: 16px; font-weight: 700; color: #fbbf24; margin-bottom: 6px;">您当前尚未收藏任何商品</div>
+                            <div style="font-size: 13px; color: #cbd5e1; max-width: 500px; margin: 0 auto 16px;">
+                                您已开启【仅看已收藏】筛选，但候选池为空。请先关闭此开关，或在下方商品卡片上点击【☆ 收藏】将意向商品加入收藏池。
+                            </div>
+                            <button onclick="toggleTab1FavOnly(document.getElementById('scope-btn-fav-only'))" style="background: rgba(251, 191, 36, 0.2); border: 1px solid #fbbf24; color: #fbbf24; padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 600;">
+                                显示全部 300 款商品
+                            </button>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
             const matchedProducts = [];
             const matchedPrices = [];
             const matchedRanks = [];
 
-            DB.products.forEach(p => {
+            const sourceProds = isTab1FavOnly
+                ? DB.products.filter(p => favRankSet.has(p.rank))
+                : DB.products;
+
+            sourceProds.forEach(p => {
                 if (p.rank < minRank || p.rank > maxRank) return;
 
                 if (hasHeightFilter) {
@@ -3031,11 +3405,15 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 </div>
             `;
 
+            const isFav = (typeof favRankSet !== 'undefined') && favRankSet.has(p.rank);
             return `
-                <div class="product-card">
+                <div class="product-card ${isFav ? 'is-favorite' : ''}" id="prod-card-${p.rank}">
                     <div class="product-card-header">
                         <div class="prod-left">
                             <span class="rank-badge ${rankClass}">No.${p.rank}</span>
+                            <button class="btn-fav ${isFav ? 'active' : ''}" data-rank="${p.rank}" onclick="toggleFavorite(${p.rank}, event)" title="${isFav ? '已收藏（点击取消）' : '收藏此商品，加入专项对比候选池'}">
+                                ${isFav ? '⭐ 已收藏' : '☆ 收藏'}
+                            </button>
                             <span class="prod-shop">${p.shop}</span>
                             <span class="prod-title">${p.title}</span>
                         </div>
@@ -4071,6 +4449,25 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                     { id: 5, name: '组E: 金可儿', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '金可儿', scope: 'all', excludeKeyword: '', autoName: true }
                 ];
                 nextCompareGroupId = 6;
+            } else if (presetType === 'favorites') {
+                isCompareOnlyFavorites = true;
+                const chkBox = document.getElementById('chk-fav-only-compare');
+                if (chkBox) chkBox.checked = true;
+
+                // 计算收藏品中位价进行智能切分
+                let favProds = DB.products.filter(p => favRankSet.has(p.rank));
+                let midP = 1500;
+                if (favProds.length > 0) {
+                    const sortedPrices = favProds.map(p => p.median_price).sort((a, b) => a - b);
+                    midP = Math.round(sortedPrices[Math.floor(sortedPrices.length / 2)] || 1500);
+                }
+
+                compareGroups = [
+                    { id: 1, name: `组A: 收藏高性价比款 (≤￥${midP})`, minPrice: 0, maxPrice: midP, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: false },
+                    { id: 2, name: `组B: 收藏中高端品质款 (>￥${midP})`, minPrice: midP, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: false },
+                    { id: 3, name: '组C: 全部已收藏候选池', minPrice: null, maxPrice: null, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: false }
+                ];
+                nextCompareGroupId = 4;
             } else {
                 compareGroups = [
                     { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '',
@@ -4093,8 +4490,59 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
             runComparisonAnalysis();
         }
 
+        function renderEmptyFavoritesCompareState() {
+            const tableBox = document.getElementById('compare-matrix-table-box');
+            if (tableBox) {
+                tableBox.innerHTML = `
+                    <div style="text-align: center; padding: 50px 20px; background: #162032; border: 1px dashed rgba(251, 191, 36, 0.4); border-radius: 12px;">
+                        <div style="font-size: 38px; margin-bottom: 8px;">⭐</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #fbbf24; margin-bottom: 6px;">当前已开启【⭐ 仅限对比已收藏商品】，但您的收藏池暂无商品</div>
+                        <div style="font-size: 13px; color: #cbd5e1; max-width: 540px; margin: 0 auto 16px;">
+                            请在商品列表卡片上点击【☆ 收藏】将关注的床垫加入候选池，或者取消勾选上方的“仅限对比已收藏商品”开关，即可恢复全盘大盘对比！
+                        </div>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <button onclick="toggleFavOnlyCompare(false)" style="background: rgba(251, 191, 36, 0.2); border: 1px solid #fbbf24; color: #fbbf24; padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 600;">
+                                取消仅限收藏，对比全盘商品
+                            </button>
+                            <button onclick="switchNav('tab-custom')" style="background: rgba(255,255,255,0.08); border: 1px solid #475569; color: #cbd5e1; padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer;">
+                                前往商品列表挑选收藏 ↗
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            const rankDist = document.getElementById('compare-rank-distribution');
+            if (rankDist) rankDist.innerHTML = '';
+            const drillDownTabs = document.getElementById('compare-drilldown-tabs');
+            if (drillDownTabs) drillDownTabs.innerHTML = '';
+            const drillDownResults = document.getElementById('compare-drilldown-results');
+            if (drillDownResults) drillDownResults.innerHTML = '';
+            const crowdHeatmap = document.getElementById('crowd-heatmap-container');
+            if (crowdHeatmap) crowdHeatmap.innerHTML = '';
+            const crowdInsights = document.getElementById('crowd-insights-container');
+            if (crowdInsights) crowdInsights.innerHTML = '';
+        }
+
         function runComparisonAnalysis() {
             syncCompareInputsToData();
+
+            const chkBox = document.getElementById('chk-fav-only-compare');
+            if (chkBox) {
+                isCompareOnlyFavorites = chkBox.checked;
+            }
+
+            // 如果勾选了仅对比收藏商品，但收藏为空
+            if (isCompareOnlyFavorites && favRankSet.size === 0) {
+                renderEmptyFavoritesCompareState();
+                return;
+            }
+
+            const candidateProducts = (isCompareOnlyFavorites)
+                ? DB.products.filter(p => favRankSet.has(p.rank))
+                : DB.products;
+
+            const totalProdsBase = isCompareOnlyFavorites ? favRankSet.size : DB.total_products;
+            const totalSkusBase = isCompareOnlyFavorites ? candidateProducts.reduce((sum, p) => sum + p.sku_count, 0) : DB.total_skus;
 
             const results = [];
 
@@ -4116,7 +4564,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 const matchedHeights = [];
                 const tierCounts = { t1: 0, t2: 0, t3: 0, t4: 0, t5: 0, t6: 0 };
 
-                DB.products.forEach(p => {
+                candidateProducts.forEach(p => {
                     if (p.rank < minR || p.rank > maxR) return;
 
                     // 高度过滤：如果设置了高度范围，产品的最高高度 p.height 必须符合区间
@@ -4174,9 +4622,9 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
                 });
 
                 const prodCount = matchedProducts.length;
-                const prodPct = ((prodCount / DB.total_products) * 100).toFixed(1);
+                const prodPct = totalProdsBase > 0 ? ((prodCount / totalProdsBase) * 100).toFixed(1) : '0.0';
                 const skuCount = matchedPrices.length;
-                const skuPct = ((skuCount / DB.total_skus) * 100).toFixed(1);
+                const skuPct = totalSkusBase > 0 ? ((skuCount / totalSkusBase) * 100).toFixed(1) : '0.0';
 
                 const bestRank = matchedRanks.length ? Math.min(...matchedRanks) : '-';
                 const worstRank = matchedRanks.length ? Math.max(...matchedRanks) : '-';
@@ -5796,6 +6244,7 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
 
         // ======================= 全局初始化 =======================
         initProductHeights();
+        loadFavorites();
         initPriceClusters();
         initRankClusters();
         initBrandClusters();
@@ -5803,5 +6252,38 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         initCompareTab();
 
 </script>
+
+    <!-- 收藏商品管理模态框 -->
+    <div id="fav-modal" class="fav-modal-overlay" onclick="if(event.target === this) closeFavoritesModal()">
+        <div class="fav-modal-box">
+            <div class="fav-modal-header">
+                <div style="font-size: 16px; font-weight: 700; color: #fbbf24; display: flex; align-items: center; gap: 8px;">
+                    <span>⭐</span> 我的已收藏商品候选池 (<span id="fav-modal-count">0</span> 款)
+                </div>
+                <button onclick="closeFavoritesModal()" style="background: none; border: none; font-size: 20px; color: #94a3b8; cursor: pointer; padding: 4px 8px; line-height: 1;">✕</button>
+            </div>
+            <div class="fav-modal-body" id="fav-modal-list">
+                <!-- 动态渲染收藏商品行 -->
+            </div>
+            <div class="fav-modal-footer">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="clearAllFavorites()" style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: #f87171; padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer;">
+                        🗑️ 清空所有收藏
+                    </button>
+                    <button onclick="copyFavoriteLinks()" style="background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer;">
+                        📋 复制商品链接
+                    </button>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="startFavoritesCompare()" style="background: linear-gradient(135deg, #f59e0b, #d97706); border: none; color: #000; font-weight: 700; padding: 7px 18px; border-radius: 6px; font-size: 13px; cursor: pointer; box-shadow: 0 0 12px rgba(245,158,11,0.35);">
+                        ⚡ 立即进入仅对比收藏模式 (Tab 5)
+                    </button>
+                    <button onclick="closeFavoritesModal()" style="background: rgba(255,255,255,0.08); border: 1px solid #475569; color: #cbd5e1; padding: 7px 16px; border-radius: 6px; font-size: 13px; cursor: pointer;">
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
