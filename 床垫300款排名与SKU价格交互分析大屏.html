@@ -2788,7 +2788,7 @@
         </div>
 
         <!-- 收藏商品专属对比过滤控制栏 -->
-        <div class="fav-compare-bar" id="fav-compare-panel">
+        <div class="fav-compare-bar" id="fav-compare-panel" style="display: none;">
             <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                 <label style="display: inline-flex; align-items: center; cursor: pointer; user-select: none; gap: 8px;">
                     <input type="checkbox" id="chk-fav-only-compare" onchange="toggleFavOnlyCompare(this.checked)" style="width: 17px; height: 17px; cursor: pointer; accent-color: #fbbf24;">
@@ -2819,6 +2819,9 @@
                 <button class="btn-secondary-action" onclick="resetCompareGroups()">
                     <span>↺</span> 重置所有条件
                 </button>
+                <button id="btn-toggle-macro-view" class="btn-secondary-action" onclick="toggleCompareMacroView()" style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34d399; font-weight: 600; cursor: pointer;" title="点击可在【纯净SKU明细模式】与【全景宏观分析模式】之间切换">
+                    <span>📊</span> 展开大盘宏观分析大表与热力图 (当前已隐藏4项)
+                </button>
             </div>
             <div>
                 <button class="btn-export" onclick="exportCompareSummaryCSV()">
@@ -2828,7 +2831,7 @@
         </div>
 
         <!-- 结果 A: 横向核心指标对比矩阵总表 -->
-        <div class="matrix-table-card">
+        <div class="matrix-table-card" id="compare-matrix-table-card" style="display: none;">
             <div class="matrix-table-title">
                 <span>📊 多组横向对比核心指标全景矩阵</span>
                 <span style="font-size: 12px; color: var(--text-dim); font-weight: normal;">* 标绿/绿色标签代表该项在对比组中表现突出</span>
@@ -2840,7 +2843,7 @@
 
         
         <!-- 结果 A2: 多组分类多维动态拥挤度全景矩阵 (Crowding & Density Matrix) -->
-        <div class="crowd-matrix-card" id="compare-crowd-matrix-card">
+        <div class="crowd-matrix-card" id="compare-crowd-matrix-card" style="display: none;">
             <div class="crowd-header">
                 <div>
                     <div class="crowd-title" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
@@ -2891,7 +2894,7 @@
         </div>
 
         <!-- 结果 B: 排名阶梯分布透视直方图 -->
-        <div class="rank-dist-card">
+        <div class="rank-dist-card" id="compare-rank-dist-card" style="display: none;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
                 <div>
                     <h4 style="font-size: 15px; color: #fff; font-weight: 700;">📈 排名阶梯分布透视</h4>
@@ -4801,10 +4804,48 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             return `${prefix}: ${parts.join(' · ')}`;
         }
 
+        window._COMPARE_VIEW_MODE = 'sku_only'; // 默认纯净模式：隐藏 4 大宏观大表
+
+        function setCompareMacroView(isMacroVisible) {
+            window._COMPARE_VIEW_MODE = isMacroVisible ? 'macro' : 'sku_only';
+            
+            const p1 = document.getElementById('fav-compare-panel');
+            const p2 = document.getElementById('compare-matrix-table-card');
+            const p3 = document.getElementById('compare-crowd-matrix-card');
+            const p4 = document.getElementById('compare-rank-dist-card');
+            const btn = document.getElementById('btn-toggle-macro-view');
+            
+            const displayStyle = isMacroVisible ? 'block' : 'none';
+            if (p1) p1.style.display = displayStyle;
+            if (p2) p2.style.display = displayStyle;
+            if (p3) p3.style.display = displayStyle;
+            if (p4) p4.style.display = displayStyle;
+            
+            if (btn) {
+                if (isMacroVisible) {
+                    btn.innerHTML = '<span>👁️</span> 切换为纯净SKU对比模式 (隐藏大盘宏观图表)';
+                    btn.style.borderColor = 'rgba(255,255,255,0.2)';
+                    btn.style.color = '#94a3b8';
+                    btn.style.background = 'rgba(255,255,255,0.06)';
+                } else {
+                    btn.innerHTML = '<span>📊</span> 展开大盘宏观分析大表与热力图 (当前已隐藏4项)';
+                    btn.style.borderColor = '#10b981';
+                    btn.style.color = '#34d399';
+                    btn.style.background = 'rgba(16, 185, 129, 0.15)';
+                }
+            }
+        }
+
+        function toggleCompareMacroView() {
+            const isCurrentlyMacro = (window._COMPARE_VIEW_MODE === 'macro');
+            setCompareMacroView(!isCurrentlyMacro);
+        }
+
         function initCompareTab() {
             compareInitialized = true;
             renderCompareGroupInputs();
             runComparisonAnalysis();
+            setCompareMacroView(false); // 默认进入纯净SKU对比模式，隐藏4项宏观模块
         }
 
         function debounceCompare() {
