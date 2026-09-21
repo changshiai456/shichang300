@@ -210,6 +210,39 @@
             flex: 1;
             min-width: 300px;
         }
+        .badge-filter-progress {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 8px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.22) 0%, rgba(59, 130, 246, 0.18) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            border-radius: 6px;
+            color: #38bdf8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Consolas", monospace, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            white-space: nowrap;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.18);
+            flex-shrink: 0;
+            letter-spacing: 0.2px;
+        }
+        .badge-filter-progress .progress-idx {
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 800;
+        }
+        .badge-filter-progress .progress-sep {
+            color: #64748b;
+            margin: 0 2px;
+            font-size: 11px;
+        }
+        .badge-filter-progress .progress-total {
+            color: #94a3b8;
+            font-size: 11px;
+            font-weight: 600;
+        }
         .rank-badge {
             display: inline-flex;
             align-items: center;
@@ -4022,7 +4055,7 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
         
 
         // ======================= 通用产品卡片渲染引擎 (含主图全景解析与引流度透视) =======================
-        function buildProductCardHtml(item, isFilteredMode) {
+        function buildProductCardHtml(item, isFilteredMode, progressInfo) {
             const p = item.product;
             const mSkus = item.matchedSkus || [];
             const oSkus = item.otherSkus || [];
@@ -4096,6 +4129,11 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                 <div class="product-card ${isFav ? 'is-favorite' : ''} ${p.is_company ? 'is-company-card' : ''}" id="prod-card-${p.unique_id || p.rank}">
                     <div class="product-card-header">
                         <div class="prod-left">
+                            ${progressInfo ? `
+                                <span class="badge-filter-progress" title="当前筛选结果序号: 第 ${progressInfo.current} 款 / 共 ${progressInfo.total} 款">
+                                    <span class="progress-idx">${progressInfo.current}</span><span class="progress-sep">/</span><span class="progress-total">${progressInfo.total}</span>
+                                </span>
+                            ` : ''}
                             ${p.is_company ? `
                                 <span class="badge-company">🏢 公司自营</span>
                                 <span class="rank-badge" style="background: rgba(168,85,247,0.2); color: #c084fc; border: 1px solid #a855f7;">自营 #${p.rank}</span>
@@ -4202,9 +4240,13 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                 return;
             }
 
+            const isTab1 = (containerId === 'custom-results-container');
             const initialCount = 20; // 首次极速渲染 20 款
             const displayedItems = list.slice(0, initialCount);
-            let html = displayedItems.map(item => buildProductCardHtml(item, isFilteredMode)).join('');
+            let html = displayedItems.map((item, idx) => {
+                const progressInfo = isTab1 ? { current: idx + 1, total: list.length } : null;
+                return buildProductCardHtml(item, isFilteredMode, progressInfo);
+            }).join('');
 
             // 保存状态供“加载更多”使用
             window._RENDER_STATE[containerId] = {
@@ -4240,9 +4282,14 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             const currentCount = state.renderedCount;
             const nextCount = Math.min(currentCount + count, list.length);
             const newItems = list.slice(currentCount, nextCount);
+            const isTab1 = (containerId === 'custom-results-container');
 
             // 生成新增卡片 HTML
-            const newCardsHtml = newItems.map(item => buildProductCardHtml(item, isFilteredMode)).join('');
+            const newCardsHtml = newItems.map((item, idx) => {
+                const globalIdx = currentCount + idx + 1;
+                const progressInfo = isTab1 ? { current: globalIdx, total: list.length } : null;
+                return buildProductCardHtml(item, isFilteredMode, progressInfo);
+            }).join('');
             
             // 移除旧的控制条
             const oldBar = document.getElementById(`load-bar-${containerId}`);
