@@ -3697,12 +3697,6 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             sourceProds.forEach(p => {
                 if (p.rank < minRank || p.rank > maxRank) return;
 
-                if (hasHeightFilter) {
-                    if (p.height === null) return;
-                    if (minHeight !== null && p.height < minHeight) return;
-                    if (maxHeight !== null && p.height > maxHeight) return;
-                }
-
                 const matchResult = isProductMatchKeyword(p, kw, currentSearchScope);
                 const matchedSkus = [];
                 const otherSkus = [];
@@ -3717,9 +3711,14 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                     const skuKwMatch = matchResult.matchSkuFunc(s);
 
                     let inHeight = true;
-                    if (hasHeightFilter && s.height !== null) {
-                        if (minHeight !== null && s.height < minHeight) inHeight = false;
-                        if (maxHeight !== null && s.height > maxHeight) inHeight = false;
+                    if (hasHeightFilter) {
+                        const sH = (s.height !== null && s.height !== undefined) ? s.height : p.height;
+                        if (sH === null) {
+                            inHeight = false;
+                        } else {
+                            if (minHeight !== null && sH < minHeight) inHeight = false;
+                            if (maxHeight !== null && sH > maxHeight) inHeight = false;
+                        }
                     }
 
                     if (inPrice && skuKwMatch && inHeight) {
@@ -5282,13 +5281,6 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                         if (p.rank < minR || p.rank > maxR) return;
                     }
 
-                    // 高度过滤：如果设置了高度范围，产品的最高高度 p.height 必须符合区间
-                    if (hasHeightFilter) {
-                        if (p.height === null) return;
-                        if (minH !== null && p.height < minH) return;
-                        if (maxH !== null && p.height > maxH) return;
-                    }
-
                     const groupScope = g.scope || 'all';
                     const matchResult = isProductMatchKeyword(p, kw, groupScope);
                     const excludeResult = isProductMatchExclude(p, excludeKw, groupScope);
@@ -5305,9 +5297,14 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                         const skuKwMatch = matchResult.matchSkuFunc(s);
 
                         let inHeight = true;
-                        if (hasHeightFilter && s.height !== null) {
-                            if (minH !== null && s.height < minH) inHeight = false;
-                            if (maxH !== null && s.height > maxH) inHeight = false;
+                        if (hasHeightFilter) {
+                            const sH = (s.height !== null && s.height !== undefined) ? s.height : p.height;
+                            if (sH === null) {
+                                inHeight = false;
+                            } else {
+                                if (minH !== null && sH < minH) inHeight = false;
+                                if (maxH !== null && sH > maxH) inHeight = false;
+                            }
                         }
 
                         if (inPrice && skuKwMatch && inHeight) {
@@ -5320,7 +5317,10 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
 
                     if (matchedSkus.length > 0) {
                         matchedRanks.push(p.rank);
-                        if (p.height !== null) matchedHeights.push(p.height);
+                        matchedSkus.forEach(s => {
+                            const sH = (s.height !== null && s.height !== undefined) ? s.height : p.height;
+                            if (sH !== null && !isNaN(sH)) matchedHeights.push(sH);
+                        });
                         matchedProducts.push({
                             product: p,
                             matchedSkus: matchedSkus,
