@@ -317,18 +317,26 @@
             color: #fbbf24;
             border: 1px solid rgba(245, 158, 11, 0.25);
         }
-        .other-skus-toggle {
-            padding: 8px 18px;
-            background: rgba(255,255,255,0.02);
-            border-top: 1px dashed rgba(255,255,255,0.06);
+        .sku-toggle, .other-skus-toggle {
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.03);
+            border: 1px dashed rgba(255,255,255,0.12);
+            border-radius: 6px;
             font-size: 12px;
-            color: var(--text-sub);
+            color: #94a3b8;
             cursor: pointer;
+            margin-top: 8px;
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.2s;
+            user-select: none;
         }
-        .other-skus-toggle:hover { color: #60a5fa; }
+        .sku-toggle:hover, .other-skus-toggle:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: rgba(56, 189, 248, 0.35);
+            color: #38bdf8;
+        }
 
         /* 自动化归类大卡片网格 (强化统计展示) */
         .cluster-cards-grid {
@@ -2565,7 +2573,8 @@
                 <div class="metric-val-main">No.<span id="kpi-rank-med" style="color: #f59e0b;">0</span></div>
                 <div class="metric-val-sub">平均排名: No.<b id="kpi-rank-mean">0</b></div>
             </div>
-            <div style="display: flex; align-items: center; justify-content: flex-end;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap;">
+                <button class="btn-export" id="btn-toggle-all-skus" onclick="toggleExpandAllSkus()" style="background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.35); color: #38bdf8;" title="在当前筛选结果中一次性展开或折叠全部商品的次要SKU">👁️ 展开全部商品次要SKU</button>
                 <button class="btn-export" onclick="exportCurrentCSV()">📥 导出当前结果为 CSV</button>
             </div>
         </div>
@@ -3642,9 +3651,13 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                 const matchedSkus = [];
                 const otherSkus = [];
 
+                const hasPriceFilter = (minPVal !== '' || maxPVal !== '');
                 p.skus.forEach(s => {
                     const skuPrice = s.price;
-                    const inPrice = (skuPrice !== null) && (skuPrice >= minPrice && skuPrice <= maxPrice);
+                    let inPrice = true;
+                    if (hasPriceFilter) {
+                        inPrice = (skuPrice !== null && !isNaN(skuPrice)) && (skuPrice >= minPrice && skuPrice <= maxPrice);
+                    }
                     const skuKwMatch = matchResult.matchSkuFunc(s);
 
                     let inHeight = true;
@@ -3655,7 +3668,9 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
 
                     if (inPrice && skuKwMatch && inHeight) {
                         matchedSkus.push(s);
-                        matchedPrices.push(skuPrice);
+                        if (skuPrice !== null && !isNaN(skuPrice)) {
+                            matchedPrices.push(skuPrice);
+                        }
                     } else {
                         otherSkus.push(s);
                     }
@@ -3671,11 +3686,14 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                 }
             });
 
-            // 动态计算中位数、均数与占比
+            // 动态计算中位数、均数与占比 (根据当前数据源动态自适应分母)
+            const baseProdTotal = currentSourceFilter === 'company' ? (DB.meta.total_company_products || 95) : (currentSourceFilter === 'market' ? (DB.meta.total_market_products || 300) : DB.total_products);
+            const baseSkuTotal = currentSourceFilter === 'company' ? (DB.meta.total_company_skus || 1283) : (currentSourceFilter === 'market' ? (DB.meta.total_market_skus || 4594) : DB.total_skus);
+
             const prodCnt = matchedProducts.length;
-            const prodPct = ((prodCnt / DB.total_products) * 100).toFixed(1);
+            const prodPct = ((prodCnt / baseProdTotal) * 100).toFixed(1);
             const skuCnt = matchedPrices.length;
-            const skuPct = ((skuCnt / DB.total_skus) * 100).toFixed(1);
+            const skuPct = ((skuCnt / baseSkuTotal) * 100).toFixed(1);
 
             const pMed = calcMedian(matchedPrices).toFixed(2);
             const pMean = calcMean(matchedPrices).toFixed(2);
@@ -4015,9 +4033,6 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                             <button class="btn-compare-add ${isCompared(p.unique_id) ? 'active' : ''}" data-uid="${p.unique_id}" onclick="toggleCompareProduct('${p.unique_id}', event)" title="加入横向对比工作台">
                                 ${isCompared(p.unique_id) ? '✓ 已加入对比' : '⚖️ 加入对比'}
                             </button>
-                            <button class="btn-fav ${isFav ? 'active' : ''}" data-rank="${p.rank}" onclick="toggleFavorite(${p.rank}, event)" title="${isFav ? '已收藏（点击取消）' : '收藏此商品，加入专项对比候选池'}">
-                                ${isFav ? '⭐ 已收藏' : '☆ 收藏'}
-                            </button>
                             <span class="prod-shop">${p.shop}</span>
                             <span class="prod-title">${p.title}</span>
                         </div>
@@ -4035,11 +4050,10 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                     ${mainImageStripHtml}
 
                     <div class="sku-section">
-                        ${isFilteredMode ? `
-                            <div style="font-size: 12px; color: #10b981; font-weight: 600; margin-bottom: 8px;">
-                                ✓ 符合当前条件的 1.8米具体 SKU (共 ${mSkus.length} 个):
-                            </div>
-                        ` : ''}
+                        <div style="font-size: 12px; color: ${oSkus.length === 0 ? '#38bdf8' : '#10b981'}; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <span>${oSkus.length === 0 ? `📋 该床垫 1.8米全量 SKU 规格明细 (共 ${mSkus.length} 个):` : `✓ 符合当前筛选条件的 1.8米 SKU (共 ${mSkus.length} 个 / 全款共 ${mSkus.length + oSkus.length} 个):`}</span>
+                            ${(oSkus.length > 0) ? `<span style="font-size: 11px; color: #94a3b8; font-weight: normal;">(其余 ${oSkus.length} 个非目标SKU已收纳)</span>` : ''}
+                        </div>
                         <table class="sku-table">
                             <thead>
                                 <tr>
@@ -4061,18 +4075,18 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             ￥${s.price !== null ? s.price.toFixed(2) : '无报价'} <span class="sku-anchor-tag">🎯对标</span>
         </button>
     </td>
-                                        <td><span class="sku-origin-price">${s.origin_price ? '￥' + s.origin_price : '-'}</span></td>
+                                        <td><span class="sku-origin-price">${(s.orig || s.origin_price) ? '￥' + (s.orig || s.origin_price) : '-'}</span></td>
                                         <td><span class="sku-tag">${s.tag || '无'}</span></td>
                                     </tr>
                                 `).join('')}
                             </tbody>
                         </table>
 
-                        ${(isFilteredMode && oSkus.length > 0) ? `
+                        ${(oSkus.length > 0) ? `
                             <div class="sku-toggle" onclick="toggleOtherSkus(this)">
-                                ▶ 查看该商品其余不符合条件的 1.8m SKU (${oSkus.length} 个)
+                                ${window._EXPAND_ALL_SKUS ? '▼ 收起该商品其余 1.8m SKU' : '▶ 查看该商品其余不符合条件的 1.8m SKU'} (${oSkus.length} 个)
                             </div>
-                            <div class="other-skus-container" style="display: none; margin-top: 8px;">
+                            <div class="other-skus-container" style="display: ${window._EXPAND_ALL_SKUS ? 'block' : 'none'}; margin-top: 8px;">
                                 <table class="sku-table">
                                     <tbody>
                                         ${oSkus.map(s => `
@@ -4081,8 +4095,12 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                                                     ${s.height ? `<span style="display: inline-block; background: rgba(148,163,184,0.12); color: #94a3b8; border: 1px solid rgba(148,163,184,0.2); border-radius: 3px; font-size: 11px; padding: 1px 5px; margin-right: 6px;">${s.height}cm</span>` : ''}
                                                     <span class="sku-name">${escapeHtml(s.name)}</span>
                                                 </td>
-                                                <td><span class="sku-price">￥${s.price !== null ? s.price : '无报价'}</span></td>
-                                                <td><span class="sku-origin-price">${s.origin_price ? '￥' + s.origin_price : '-'}</span></td>
+                                                <td>
+                                                    <button class="sku-price-anchor-btn" onclick="activateSkuRadar('${escapeJs(s.name)}', ${s.price}, ${s.height !== null ? s.height : 'null'}, '${escapeJs(p.shop)}', '${escapeJs(p.title)}', '${p.unique_id}', ${p.is_company})" title="以此SKU为基准进行全域同频横向对标">
+                                                        ￥${s.price !== null ? s.price.toFixed(2) : '无报价'} <span class="sku-anchor-tag">🎯对标</span>
+                                                    </button>
+                                                </td>
+                                                <td><span class="sku-origin-price">${(s.orig || s.origin_price) ? '￥' + (s.orig || s.origin_price) : '-'}</span></td>
                                                 <td><span class="sku-tag">${s.tag || '无'}</span></td>
                                             </tr>
                                         `).join('')}
@@ -4181,9 +4199,26 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
         }
         
 
+        window._EXPAND_ALL_SKUS = false;
+        function toggleExpandAllSkus() {
+            window._EXPAND_ALL_SKUS = !window._EXPAND_ALL_SKUS;
+            const btn = document.getElementById('btn-toggle-all-skus');
+            if (btn) {
+                btn.innerHTML = window._EXPAND_ALL_SKUS ? '📁 折叠次要 SKU 明细' : '👁️ 展开全部商品次要SKU';
+            }
+            document.querySelectorAll('.other-skus-container').forEach(c => {
+                c.style.display = window._EXPAND_ALL_SKUS ? 'block' : 'none';
+            });
+            document.querySelectorAll('.sku-toggle').forEach(t => {
+                t.innerText = t.innerText.replace(window._EXPAND_ALL_SKUS ? '▶' : '▼', window._EXPAND_ALL_SKUS ? '▼' : '▶');
+            });
+        }
+
         function toggleOtherSkus(el) {
             const container = el.nextElementSibling;
-            if (container.style.display === 'none') {
+            if (!container) return;
+            const isHidden = (container.style.display === 'none' || !container.style.display);
+            if (isHidden) {
                 container.style.display = 'block';
                 el.innerText = el.innerText.replace('▶', '▼');
             } else {
@@ -4232,7 +4267,7 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
                         p.max_price,
                         `"${(s.name || '').replace(/"/g, '""')}"`,
                         s.price !== null ? s.price : '',
-                        s.origin_price || '',
+                        (s.orig || s.origin_price || ''),
                         `"${(s.tag || '').replace(/"/g, '""')}"`,
                         p.link
                     ];
