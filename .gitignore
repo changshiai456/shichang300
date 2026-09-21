@@ -7,3 +7,6 @@
 Thumbs.db
 __pycache__/
 *.pyc
+tmall_chrome_profile/
+debug_sku_data.json
+probe_result_clean.json
