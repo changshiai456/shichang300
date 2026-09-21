@@ -12,16 +12,32 @@ import os
 import math
 
 def extract_height(sku_name, title=''):
-    text = f"{sku_name} {title}"
-    matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:cm|CM|厘米|公分|厚)', text)
+    s_text = sku_name or ''
+    # 优先从 SKU 名称中匹配所有 cm/CM/厘米/公分/厚 前的数值
+    matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:cm|CM|厘米|公分|厚)', s_text)
     if matches:
-        valid_nums = [float(x) for x in matches if 3 <= float(x) <= 45]
+        valid_nums = [float(x) for x in matches if 2 <= float(x) <= 55]
+        if valid_nums:
+            h = max(valid_nums)  # 存在多个cm时取最大数值，如 2cm乳胶+2cm黄麻 24cm 取24
+            return int(h) if h.is_integer() else h
+    m2 = re.findall(r'(?:厚度|厚|高|总高)\s*[:：]?\s*(\d+(?:\.\d+)?)', s_text)
+    if m2:
+        valid_nums = [float(x) for x in m2 if 2 <= float(x) <= 55]
         if valid_nums:
             h = max(valid_nums)
             return int(h) if h.is_integer() else h
-    m2 = re.findall(r'(?:厚度|厚|高|总高)\s*[:：]?\s*(\d+(?:\.\d+)?)', text)
-    if m2:
-        valid_nums = [float(x) for x in m2 if 3 <= float(x) <= 45]
+
+    # 若 SKU 文本无厚度，回退至商品标题中提取
+    t_text = title or ''
+    t_matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:cm|CM|厘米|公分|厚)', t_text)
+    if t_matches:
+        valid_nums = [float(x) for x in t_matches if 2 <= float(x) <= 55]
+        if valid_nums:
+            h = max(valid_nums)
+            return int(h) if h.is_integer() else h
+    t_m2 = re.findall(r'(?:厚度|厚|高|总高)\s*[:：]?\s*(\d+(?:\.\d+)?)', t_text)
+    if t_m2:
+        valid_nums = [float(x) for x in t_m2 if 2 <= float(x) <= 55]
         if valid_nums:
             h = max(valid_nums)
             return int(h) if h.is_integer() else h
@@ -130,9 +146,9 @@ def main():
 
         skus = []
         for s in p.get('skus', []):
-            h = s.get('height')
-            if h is None:
-                h = extract_height(s.get('name', ''), p.get('title', ''))
+            h = extract_height(s.get('name', ''), p.get('title', ''))
+            if h is None and s.get('height') is not None:
+                h = s.get('height')
             skus.append({
                 'name': s.get('name', ''),
                 'price': float(s.get('price', 0.0)),
@@ -247,26 +263,72 @@ def main():
             'price_mean': p_mean
         })
 
-    # 店铺品牌排行
+    # 排名梯队统计 (按大盘300款排名梯队划分)
+    rank_tier_defs = [
+        ('tier_1_10', 'Top 1 - 10', '头部顶流标杆 (GMV核心支柱)', 1, 10),
+        ('tier_11_30', 'Top 11 - 30', '腰部领头爆款 (主卧核心成交盘)', 11, 30),
+        ('tier_31_50', 'Top 31 - 50', '腰部主力品牌款 (高质价比截流)', 31, 50),
+        ('tier_51_100', 'Top 51 - 100', '潜力腰部黑马 (细分功能突围)', 51, 100),
+        ('tier_101_200', 'Top 101 - 200', '中长尾密集竞争区 (活动大促混战)', 101, 200),
+        ('tier_201_300', 'Top 201 - 300', '长尾基底白牌盘 (机海参数轰炸)', 201, 300)
+    ]
+    rank_tiers_stats = []
+    total_mkt_skus = len([s for p in processed_mkt for s in p['skus']])
+    for r_id, r_lbl, r_sub, r_min, r_max in rank_tier_defs:
+        t_prods = [p for p in processed_mkt if r_min <= p['rank'] <= r_max]
+        t_skus = [s for p in t_prods for s in p['skus']]
+        t_prices = sorted([s['price'] for s in t_skus if s['price'] > 0])
+        t_ranks = [p['rank'] for p in t_prods]
+
+        t_p_med = t_prices[len(t_prices)//2] if t_prices else 0
+        t_p_mean = round(sum(t_prices)/len(t_prices), 2) if t_prices else 0
+        t_r_med = t_ranks[len(t_ranks)//2] if t_ranks else 0
+        t_r_mean = round(sum(t_ranks)/len(t_ranks), 1) if t_ranks else 0
+
+        rank_tiers_stats.append({
+            'id': r_id,
+            'label': r_lbl,
+            'sub': r_sub,
+            'min_rank': r_min,
+            'max_rank': r_max,
+            'sku_count': len(t_skus),
+            'sku_pct': round(len(t_skus)/total_mkt_skus*100, 1) if total_mkt_skus else 0,
+            'prod_count': len(t_prods),
+            'prod_pct': round(len(t_prods)/len(processed_mkt)*100, 1) if processed_mkt else 0,
+            'price_median': t_p_med,
+            'price_mean': t_p_mean,
+            'rank_median': t_r_med,
+            'rank_mean': t_r_mean
+        })
+
+    # 店铺品牌排行 (含完整兼容字段)
     shop_counts = {}
     for p in all_products:
         s = p['shop']
         if s not in shop_counts:
-            shop_counts[s] = {'shop': s, 'prod_count': 0, 'sku_count': 0, 'prices': [], 'is_company': p['is_company']}
+            shop_counts[s] = {'shop': s, 'prod_count': 0, 'sku_count': 0, 'prices': [], 'ranks': [], 'is_company': p['is_company']}
         shop_counts[s]['prod_count'] += 1
         shop_counts[s]['sku_count'] += len(p['skus'])
-        shop_counts[s]['prices'].extend([x['price'] for x in p['skus']])
+        shop_counts[s]['prices'].extend([x['price'] for x in p['skus'] if x.get('price')])
+        if p.get('rank'):
+            shop_counts[s]['ranks'].append(p['rank'])
 
     top_shops = []
     for s_info in sorted(shop_counts.values(), key=lambda x: x['prod_count'], reverse=True):
         sp = sorted(s_info['prices'])
+        sr = sorted(s_info['ranks'])
         top_shops.append({
             'shop': s_info['shop'],
             'is_company': s_info['is_company'],
+            'count': s_info['prod_count'],
             'prod_count': s_info['prod_count'],
+            'prod_pct': round(s_info['prod_count']/len(all_products)*100, 1),
             'sku_count': s_info['sku_count'],
+            'sku_pct': round(s_info['sku_count']/len(all_skus)*100, 1),
             'price_median': sp[len(sp)//2] if sp else 0,
             'price_mean': round(sum(sp)/len(sp), 2) if sp else 0,
+            'rank_median': sr[len(sr)//2] if sr else 0,
+            'rank_mean': round(sum(sr)/len(sr), 1) if sr else 0,
             'min_price': sp[0] if sp else 0,
             'max_price': sp[-1] if sp else 0
         })
@@ -285,7 +347,12 @@ def main():
             'overall_price_mean': mean_price,
             'height_resolved_pct': round(len(resolved_skus)/len(all_skus)*100, 1)
         },
+        'total_products': len(all_products),
+        'total_skus': len(all_skus),
+        'overall_price_median': med_price,
+        'overall_price_mean': mean_price,
         'price_bands_stats': price_bands_stats,
+        'rank_tiers_stats': rank_tiers_stats,
         'top_shops_stats': top_shops,
         'products': all_products
     }

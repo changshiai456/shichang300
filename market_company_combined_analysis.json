@@ -10,8 +10,12 @@
     "total_company_skus": 1283,
     "overall_price_median": 867.85,
     "overall_price_mean": 1486.71,
-    "height_resolved_pct": 93.0
+    "height_resolved_pct": 93.2
   },
+  "total_products": 395,
+  "total_skus": 5877,
+  "overall_price_median": 867.85,
+  "overall_price_mean": 1486.71,
   "price_bands_stats": [
     {
       "id": "band_under_300",
@@ -142,1384 +146,2166 @@
       "price_mean": 21076.08
     }
   ],
+  "rank_tiers_stats": [
+    {
+      "id": "tier_1_10",
+      "label": "Top 1 - 10",
+      "sub": "头部顶流标杆 (GMV核心支柱)",
+      "min_rank": 1,
+      "max_rank": 10,
+      "sku_count": 95,
+      "sku_pct": 2.1,
+      "prod_count": 10,
+      "prod_pct": 3.3,
+      "price_median": 2720.0,
+      "price_mean": 4891.79,
+      "rank_median": 6,
+      "rank_mean": 5.5
+    },
+    {
+      "id": "tier_11_30",
+      "label": "Top 11 - 30",
+      "sub": "腰部领头爆款 (主卧核心成交盘)",
+      "min_rank": 11,
+      "max_rank": 30,
+      "sku_count": 167,
+      "sku_pct": 3.6,
+      "prod_count": 20,
+      "prod_pct": 6.7,
+      "price_median": 1848.75,
+      "price_mean": 2305.85,
+      "rank_median": 21,
+      "rank_mean": 20.5
+    },
+    {
+      "id": "tier_31_50",
+      "label": "Top 31 - 50",
+      "sub": "腰部主力品牌款 (高质价比截流)",
+      "min_rank": 31,
+      "max_rank": 50,
+      "sku_count": 285,
+      "sku_pct": 6.2,
+      "prod_count": 20,
+      "prod_pct": 6.7,
+      "price_median": 786.2,
+      "price_mean": 1104.29,
+      "rank_median": 41,
+      "rank_mean": 40.5
+    },
+    {
+      "id": "tier_51_100",
+      "label": "Top 51 - 100",
+      "sub": "潜力腰部黑马 (细分功能突围)",
+      "min_rank": 51,
+      "max_rank": 100,
+      "sku_count": 749,
+      "sku_pct": 16.3,
+      "prod_count": 50,
+      "prod_pct": 16.7,
+      "price_median": 724.2,
+      "price_mean": 1564.69,
+      "rank_median": 76,
+      "rank_mean": 75.5
+    },
+    {
+      "id": "tier_101_200",
+      "label": "Top 101 - 200",
+      "sub": "中长尾密集竞争区 (活动大促混战)",
+      "min_rank": 101,
+      "max_rank": 200,
+      "sku_count": 1567,
+      "sku_pct": 34.1,
+      "prod_count": 100,
+      "prod_pct": 33.3,
+      "price_median": 679.0,
+      "price_mean": 1759.67,
+      "rank_median": 151,
+      "rank_mean": 150.5
+    },
+    {
+      "id": "tier_201_300",
+      "label": "Top 201 - 300",
+      "sub": "长尾基底白牌盘 (机海参数轰炸)",
+      "min_rank": 201,
+      "max_rank": 300,
+      "sku_count": 1731,
+      "sku_pct": 37.7,
+      "prod_count": 100,
+      "prod_pct": 33.3,
+      "price_median": 776.05,
+      "price_mean": 1261.31,
+      "rank_median": 251,
+      "rank_mean": 250.5
+    }
+  ],
   "top_shops_stats": [
     {
       "shop": "喜临门官方旗舰店",
       "is_company": false,
+      "count": 32,
       "prod_count": 32,
+      "prod_pct": 8.1,
       "sku_count": 184,
+      "sku_pct": 3.1,
       "price_median": 2804.15,
       "price_mean": 4480.62,
+      "rank_median": 140,
+      "rank_mean": 131.8,
       "min_price": 560.15,
       "max_price": 17999.0
     },
     {
       "shop": "源氏木语官方旗舰店",
       "is_company": false,
+      "count": 20,
       "prod_count": 20,
+      "prod_pct": 5.1,
       "sku_count": 109,
+      "sku_pct": 1.9,
       "price_median": 2151.7,
       "price_mean": 2425.73,
+      "rank_median": 53,
+      "rank_mean": 97.1,
       "min_price": 786.2,
       "max_price": 6930.2
     },
     {
       "shop": "林氏家居官方旗舰店",
       "is_company": false,
+      "count": 16,
       "prod_count": 16,
+      "prod_pct": 4.1,
       "sku_count": 101,
+      "sku_pct": 1.7,
       "price_median": 1057.2,
       "price_mean": 1359.78,
+      "rank_median": 171,
+      "rank_mean": 153.0,
       "min_price": 433.33,
       "max_price": 3698.52
     },
     {
       "shop": "铂马仕旗舰店",
       "is_company": false,
+      "count": 16,
       "prod_count": 16,
+      "prod_pct": 4.1,
       "sku_count": 241,
+      "sku_pct": 4.1,
       "price_median": 1170.45,
       "price_mean": 1168.59,
+      "rank_median": 65,
+      "rank_mean": 68.3,
       "min_price": 549.95,
       "max_price": 2332.4
     },
     {
       "shop": "moonlightfamily旗舰店",
       "is_company": false,
+      "count": 15,
       "prod_count": 15,
+      "prod_pct": 3.8,
       "sku_count": 189,
+      "sku_pct": 3.2,
       "price_median": 1448.4,
       "price_mean": 1479.93,
+      "rank_median": 48,
+      "rank_mean": 56.7,
       "min_price": 258.4,
       "max_price": 2899.0
     },
     {
       "shop": "睡眠骑士床垫企业店",
       "is_company": true,
+      "count": 14,
       "prod_count": 14,
+      "prod_pct": 3.5,
       "sku_count": 158,
+      "sku_pct": 2.7,
       "price_median": 1491.75,
       "price_mean": 1512.0,
+      "rank_median": 29,
+      "rank_mean": 36.1,
       "min_price": 689.35,
       "max_price": 2160.7
     },
     {
       "shop": "梦百合官方旗舰店",
       "is_company": false,
+      "count": 11,
       "prod_count": 11,
+      "prod_pct": 2.8,
       "sku_count": 44,
+      "sku_pct": 0.7,
       "price_median": 4391.02,
       "price_mean": 5788.28,
+      "rank_median": 124,
+      "rank_mean": 127.1,
       "min_price": 927.35,
       "max_price": 15326.0
     },
     {
       "shop": "蓝盒子官方旗舰店",
       "is_company": false,
+      "count": 9,
       "prod_count": 9,
+      "prod_pct": 2.3,
       "sku_count": 19,
+      "sku_pct": 0.3,
       "price_median": 3926.15,
       "price_mean": 4005.69,
+      "rank_median": 30,
+      "rank_mean": 71.7,
       "min_price": 483.65,
       "max_price": 7649.15
     },
     {
       "shop": "慕思官方旗舰店",
       "is_company": false,
+      "count": 9,
       "prod_count": 9,
+      "prod_pct": 2.3,
       "sku_count": 43,
+      "sku_pct": 0.7,
       "price_median": 3241.0,
       "price_mean": 3410.07,
+      "rank_median": 129,
+      "rank_mean": 153.6,
       "min_price": 1028.5,
       "max_price": 6521.2
     },
     {
       "shop": "yarges悠梦思旗舰店",
       "is_company": false,
+      "count": 9,
       "prod_count": 9,
+      "prod_pct": 2.3,
       "sku_count": 125,
+      "sku_pct": 2.1,
       "price_median": 906.95,
       "price_mean": 890.21,
+      "rank_median": 70,
+      "rank_mean": 61.8,
       "min_price": 573.43,
       "max_price": 1324.3
     },
     {
       "shop": "麻师傅家具旗舰店",
       "is_company": false,
+      "count": 9,
       "prod_count": 9,
+      "prod_pct": 2.3,
       "sku_count": 216,
+      "sku_pct": 3.7,
       "price_median": 897.6,
       "price_mean": 994.09,
+      "rank_median": 60,
+      "rank_mean": 82.0,
       "min_price": 555.05,
       "max_price": 2243.15
     },
     {
       "shop": "雅兰官方旗舰店",
       "is_company": false,
+      "count": 8,
       "prod_count": 8,
+      "prod_pct": 2.0,
       "sku_count": 47,
+      "sku_pct": 0.8,
       "price_median": 2174.3,
       "price_mean": 2467.46,
+      "rank_median": 101,
+      "rank_mean": 127.5,
       "min_price": 0.98,
       "max_price": 6080.9
     },
     {
       "shop": "金可儿旗舰店",
       "is_company": false,
+      "count": 8,
       "prod_count": 8,
+      "prod_pct": 2.0,
       "sku_count": 51,
+      "sku_pct": 0.9,
       "price_median": 8968.0,
       "price_mean": 9189.1,
+      "rank_median": 218,
+      "rank_mean": 178.6,
       "min_price": 4929.15,
       "max_price": 14999.0
     },
     {
       "shop": "全友家居官方旗舰店",
       "is_company": false,
+      "count": 7,
       "prod_count": 7,
+      "prod_pct": 1.8,
       "sku_count": 50,
+      "sku_pct": 0.9,
       "price_median": 990.25,
       "price_mean": 1002.49,
+      "rank_median": 172,
+      "rank_mean": 144.4,
       "min_price": 543.76,
       "max_price": 1537.65
     },
     {
       "shop": "麻大师旗舰店",
       "is_company": false,
+      "count": 7,
       "prod_count": 7,
+      "prod_pct": 1.8,
       "sku_count": 74,
+      "sku_pct": 1.3,
       "price_median": 1913.54,
       "price_mean": 2077.3,
+      "rank_median": 158,
+      "rank_mean": 134.0,
       "min_price": 852.64,
       "max_price": 4410.99
     },
     {
       "shop": "香港海马家具国际集团有限公司",
       "is_company": false,
+      "count": 5,
       "prod_count": 5,
+      "prod_pct": 1.3,
       "sku_count": 89,
+      "sku_pct": 1.5,
       "price_median": 1013.2,
       "price_mean": 1263.59,
+      "rank_median": 119,
+      "rank_mean": 116.0,
       "min_price": 505.75,
       "max_price": 3000.0
     },
     {
       "shop": "派乐熊儿童床垫品牌店",
       "is_company": false,
+      "count": 5,
       "prod_count": 5,
+      "prod_pct": 1.3,
       "sku_count": 94,
+      "sku_pct": 1.6,
       "price_median": 1059.95,
       "price_mean": 1029.56,
+      "rank_median": 47,
+      "rank_mean": 72.6,
       "min_price": 537.2,
       "max_price": 1697.45
     },
     {
       "shop": "金橡树官方旗舰店",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 51,
+      "sku_pct": 0.9,
       "price_median": 1761.2,
       "price_mean": 1984.69,
+      "rank_median": 175,
+      "rank_mean": 131.5,
       "min_price": 393.97,
       "max_price": 4239.8
     },
     {
       "shop": "栖作官方旗舰店",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 5340.0,
       "price_mean": 5660.35,
+      "rank_median": 93,
+      "rank_mean": 121.2,
       "min_price": 1581.85,
       "max_price": 19299.0
     },
     {
       "shop": "峻泽旗舰店",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 148,
+      "sku_pct": 2.5,
       "price_median": 340.0,
       "price_mean": 362.93,
+      "rank_median": 226,
+      "rank_mean": 151.5,
       "min_price": 181.86,
       "max_price": 620.53
     },
     {
       "shop": "海马亦言床垫企业店",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 63,
+      "sku_pct": 1.1,
       "price_median": 932.45,
       "price_mean": 945.86,
+      "rank_median": 206,
+      "rank_mean": 156.2,
       "min_price": 506.6,
       "max_price": 1507.9
     },
     {
       "shop": "佰舒顿BOIRSDOL家具",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 96,
+      "sku_pct": 1.6,
       "price_median": 438.0,
       "price_mean": 489.19,
+      "rank_median": 95,
+      "rank_mean": 76.0,
       "min_price": 335.0,
       "max_price": 925.0
     },
     {
       "shop": "宝康杰家居旗舰店",
       "is_company": false,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 146,
+      "sku_pct": 2.5,
       "price_median": 459.87,
       "price_mean": 482.18,
+      "rank_median": 252,
+      "rank_mean": 183.0,
       "min_price": 221.17,
       "max_price": 1150.9
     },
     {
       "shop": "派乐熊旗舰店",
       "is_company": true,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 64,
+      "sku_pct": 1.1,
       "price_median": 997.05,
       "price_mean": 1056.63,
+      "rank_median": 38,
+      "rank_mean": 28.2,
       "min_price": 537.2,
       "max_price": 1757.8
     },
     {
       "shop": "PARELER BEAR旗舰店",
       "is_company": true,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 70,
+      "sku_pct": 1.2,
       "price_median": 889.1,
       "price_mean": 839.74,
+      "rank_median": 33,
+      "rank_mean": 39.8,
       "min_price": 174.25,
       "max_price": 1188.3
     },
     {
       "shop": "甜蜜睡眠旗舰店",
       "is_company": true,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 25,
+      "sku_pct": 0.4,
       "price_median": 1696.6,
       "price_mean": 1942.28,
+      "rank_median": 68,
+      "rank_mean": 52.5,
       "min_price": 0.01,
       "max_price": 2793.95
     },
     {
       "shop": "rozo家具旗舰店",
       "is_company": true,
+      "count": 4,
       "prod_count": 4,
+      "prod_pct": 1.0,
       "sku_count": 48,
+      "sku_pct": 0.8,
       "price_median": 1045.5,
       "price_mean": 1023.6,
+      "rank_median": 66,
+      "rank_mean": 54.2,
       "min_price": 496.4,
       "max_price": 1633.7
     },
     {
       "shop": "芝华仕官方旗舰店",
       "is_company": false,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 13,
+      "sku_pct": 0.2,
       "price_median": 1396.55,
       "price_mean": 1515.16,
+      "rank_median": 138,
+      "rank_mean": 106.0,
       "min_price": 1021.7,
       "max_price": 2455.65
     },
     {
       "shop": "Serta舒达官方旗舰店",
       "is_company": false,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 21,
+      "sku_pct": 0.4,
       "price_median": 6543.16,
       "price_mean": 6974.31,
+      "rank_median": 63,
+      "rank_mean": 129.0,
       "min_price": 4332.7,
       "max_price": 10282.7
     },
     {
       "shop": "睡眠骑士床垫官方店",
       "is_company": false,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 38,
+      "sku_pct": 0.6,
       "price_median": 1469.65,
       "price_mean": 1464.04,
+      "rank_median": 247,
+      "rank_mean": 185.0,
       "min_price": 1229.1,
       "max_price": 1798.6
     },
     {
       "shop": "Royal vip泰国乳胶总部",
       "is_company": false,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 110,
+      "sku_pct": 1.9,
       "price_median": 602.91,
       "price_mean": 671.08,
+      "rank_median": 92,
+      "rank_mean": 120.3,
       "min_price": 148.9,
       "max_price": 1446.05
     },
     {
       "shop": "品味布帆家居旗舰店",
       "is_company": true,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 23,
+      "sku_pct": 0.4,
       "price_median": 807.5,
       "price_mean": 811.9,
+      "rank_median": 83,
+      "rank_mean": 69.7,
       "min_price": 597.55,
       "max_price": 1037.85
     },
     {
       "shop": "CEFALU旗舰店",
       "is_company": true,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 40,
+      "sku_pct": 0.7,
       "price_median": 980.9,
       "price_mean": 976.14,
+      "rank_median": 58,
+      "rank_mean": 60.3,
       "min_price": 659.6,
       "max_price": 1377.0
     },
     {
       "shop": "布莱轩尼旗舰店",
       "is_company": true,
+      "count": 3,
       "prod_count": 3,
+      "prod_pct": 0.8,
       "sku_count": 53,
+      "sku_pct": 0.9,
       "price_median": 1166.2,
       "price_mean": 1110.68,
+      "rank_median": 86,
+      "rank_mean": 76.3,
       "min_price": 522.75,
       "max_price": 1608.2
     },
     {
       "shop": "亚朵星球官方旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 3,
+      "sku_pct": 0.1,
       "price_median": 3359.0,
       "price_mean": 3859.0,
+      "rank_median": 65,
+      "rank_mean": 37.5,
       "min_price": 2719.0,
       "max_price": 5499.0
     },
     {
       "shop": "顾家家居卧室家具旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 2,
+      "sku_pct": 0.0,
       "price_median": NaN,
       "price_mean": NaN,
+      "rank_median": 181,
+      "rank_mean": 102.5,
       "min_price": NaN,
       "max_price": NaN
     },
     {
       "shop": "SMAN森眠旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 38,
+      "sku_pct": 0.6,
       "price_median": 1037.27,
       "price_mean": 1035.7,
+      "rank_median": 134,
+      "rank_mean": 87.0,
       "min_price": 351.3,
       "max_price": 2203.47
     },
     {
       "shop": "岶兰海马家具直销店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 729.0,
       "price_mean": 683.3,
+      "rank_median": 164,
+      "rank_mean": 104.5,
       "min_price": 456.0,
       "max_price": 916.0
     },
     {
       "shop": "龙凤床垫旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 54,
+      "sku_pct": 0.9,
       "price_median": 1722.95,
       "price_mean": 1802.38,
+      "rank_median": 136,
+      "rank_mean": 97.5,
       "min_price": 914.6,
       "max_price": 3904.05
     },
     {
       "shop": "乐吾手工床垫企业店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 12,
+      "sku_pct": 0.2,
       "price_median": 6880.0,
       "price_mean": 7477.83,
+      "rank_median": 100,
+      "rank_mean": 83.0,
       "min_price": 3780.0,
       "max_price": 11800.0
     },
     {
       "shop": "香港海马集团商城企业店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 22,
+      "sku_pct": 0.4,
       "price_median": 641.75,
       "price_mean": 662.73,
+      "rank_median": 106,
+      "rank_mean": 97.0,
       "min_price": 492.15,
       "max_price": 1119.45
     },
     {
       "shop": "海德兰床垫品牌店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 51,
+      "sku_pct": 0.9,
       "price_median": 808.0,
       "price_mean": 815.1,
+      "rank_median": 260,
+      "rank_mean": 179.0,
       "min_price": 391.0,
       "max_price": 1662.0
     },
     {
       "shop": "香榭柏兰床垫",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 62,
+      "sku_pct": 1.1,
       "price_median": 807.0,
       "price_mean": 819.37,
+      "rank_median": 227,
+      "rank_mean": 165.5,
       "min_price": 398.02,
       "max_price": 1458.0
     },
     {
       "shop": "大自然家具官方旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 11,
+      "sku_pct": 0.2,
       "price_median": 4179.45,
       "price_mean": 4491.86,
+      "rank_median": 264,
+      "rank_mean": 186.5,
       "min_price": 1681.3,
       "max_price": 7608.35
     },
     {
       "shop": "林芃家品旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 12,
+      "sku_pct": 0.2,
       "price_median": 2736.5,
       "price_mean": 2881.93,
+      "rank_median": 128,
+      "rank_mean": 119.0,
       "min_price": 2028.95,
       "max_price": 4428.53
     },
     {
       "shop": "爱舒旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 33,
+      "sku_pct": 0.6,
       "price_median": 2111.4,
       "price_mean": 2199.45,
+      "rank_median": 299,
+      "rank_mean": 207.0,
       "min_price": 1252.9,
       "max_price": 5143.0
     },
     {
       "shop": "顾家家居官方旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 17,
+      "sku_pct": 0.3,
       "price_median": 1999.0,
       "price_mean": 2630.21,
+      "rank_median": 151,
+      "rank_mean": 134.0,
       "min_price": 1227.4,
       "max_price": 5816.0
     },
     {
       "shop": "林里Sleep手工床垫",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 6,
+      "sku_pct": 0.1,
       "price_median": 3282.0,
       "price_mean": 3653.5,
+      "rank_median": 135,
+      "rank_mean": 133.5,
       "min_price": 2760.0,
       "max_price": 4998.0
     },
     {
       "shop": "栀眠旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 107,
+      "sku_pct": 1.8,
       "price_median": 564.4,
       "price_mean": 650.16,
+      "rank_median": 283,
+      "rank_mean": 208.0,
       "min_price": 260.0,
       "max_price": 1598.0
     },
     {
       "shop": "Shimes品牌商城",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 22,
+      "sku_pct": 0.4,
       "price_median": 526.0,
       "price_mean": 566.77,
+      "rank_median": 265,
+      "rank_mean": 202.0,
       "min_price": 419.0,
       "max_price": 846.0
     },
     {
       "shop": "城市爱情家具旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 7,
+      "sku_pct": 0.1,
       "price_median": 1223.15,
       "price_mean": 1195.22,
+      "rank_median": 150,
+      "rank_mean": 147.5,
       "min_price": 1027.65,
       "max_price": 1393.15
     },
     {
       "shop": "Hey Sleep家具旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 13,
+      "sku_pct": 0.2,
       "price_median": 7249.0,
       "price_mean": 48541.31,
+      "rank_median": 176,
+      "rank_mean": 164.5,
       "min_price": 2969.0,
       "max_price": 99999.0
     },
     {
       "shop": "月光岛旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 7,
+      "sku_pct": 0.1,
       "price_median": 4199.0,
       "price_mean": 5756.14,
+      "rank_median": 254,
+      "rank_mean": 204.5,
       "min_price": 3199.0,
       "max_price": 8499.0
     },
     {
       "shop": "RL皇室品牌乳胶直销店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 66,
+      "sku_pct": 1.1,
       "price_median": 711.81,
       "price_mean": 777.18,
+      "rank_median": 276,
+      "rank_mean": 221.0,
       "min_price": 170.8,
       "max_price": 1602.81
     },
     {
       "shop": "海马集盒官方店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 38,
+      "sku_pct": 0.6,
       "price_median": 864.45,
       "price_mean": 903.74,
+      "rank_median": 263,
+      "rank_mean": 215.0,
       "min_price": 652.1,
       "max_price": 1263.1
     },
     {
       "shop": "sweetnight甜秘密官方旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 1840.68,
       "price_mean": 2140.02,
+      "rank_median": 292,
+      "rank_mean": 233.0,
       "min_price": 1482.48,
       "max_price": 6400.0
     },
     {
       "shop": "穗宝官方旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 3246.15,
       "price_mean": 3733.33,
+      "rank_median": 220,
+      "rank_mean": 199.5,
       "min_price": 2672.4,
       "max_price": 7769.0
     },
     {
       "shop": "全友旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 16,
+      "sku_pct": 0.3,
       "price_median": 1002.15,
       "price_mean": 920.34,
+      "rank_median": 213,
+      "rank_mean": 202.5,
       "min_price": 670.65,
       "max_price": 1206.15
     },
     {
       "shop": "朗漫德旗舰店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 90,
+      "sku_pct": 1.5,
       "price_median": 668.0,
       "price_mean": 663.56,
+      "rank_median": 255,
+      "rank_mean": 225.0,
       "min_price": 308.0,
       "max_price": 1144.0
     },
     {
       "shop": "Shimes床垫品牌店",
       "is_company": false,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 12,
+      "sku_pct": 0.2,
       "price_median": 707.0,
       "price_mean": 681.5,
+      "rank_median": 300,
+      "rank_mean": 268.0,
       "min_price": 457.0,
       "max_price": 949.0
     },
     {
       "shop": "凯菲露家具旗舰店",
       "is_company": true,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 23,
+      "sku_pct": 0.4,
       "price_median": 843.2,
       "price_mean": 873.32,
+      "rank_median": 64,
+      "rank_mean": 44.0,
       "min_price": 665.55,
       "max_price": 1129.65
     },
     {
       "shop": "麻师傅诺隆专卖店",
       "is_company": true,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 770.1,
       "price_mean": 770.82,
+      "rank_median": 63,
+      "rank_mean": 44.5,
       "min_price": 486.2,
       "max_price": 974.95
     },
     {
       "shop": "麻师傅舒梦专卖店",
       "is_company": true,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 31,
+      "sku_pct": 0.5,
       "price_median": 828.75,
       "price_mean": 853.56,
+      "rank_median": 91,
+      "rank_mean": 60.5,
       "min_price": 578.85,
       "max_price": 1096.5
     },
     {
       "shop": "棕葆王国品牌店",
       "is_company": true,
+      "count": 2,
       "prod_count": 2,
+      "prod_pct": 0.5,
       "sku_count": 29,
+      "sku_pct": 0.5,
       "price_median": 907.8,
       "price_mean": 931.39,
+      "rank_median": 69,
+      "rank_mean": 56.5,
       "min_price": 607.75,
       "max_price": 1395.7
     },
     {
       "shop": "三足鸟品牌家居自营",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 24,
+      "sku_pct": 0.4,
       "price_median": 250.2,
       "price_mean": 241.67,
+      "rank_median": 20,
+      "rank_mean": 20.0,
       "min_price": 120.0,
       "max_price": 403.6
     },
     {
       "shop": "思骄旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 80,
+      "sku_pct": 1.4,
       "price_median": 321.75,
       "price_mean": 343.86,
+      "rank_median": 31,
+      "rank_mean": 31.0,
       "min_price": 170.98,
       "max_price": 668.0
     },
     {
       "shop": "居然之家床垫企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 1,
+      "sku_pct": 0.0,
       "price_median": 2259.3,
       "price_mean": 2259.3,
+      "rank_median": 38,
+      "rank_mean": 38.0,
       "min_price": 2259.3,
       "max_price": 2259.3
     },
     {
       "shop": "喜临门家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 5,
+      "sku_pct": 0.1,
       "price_median": 1231.65,
       "price_mean": 1223.15,
+      "rank_median": 50,
+      "rank_mean": 50.0,
       "min_price": 1036.15,
       "max_price": 1401.65
     },
     {
       "shop": "韩悦旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 62,
+      "sku_pct": 1.1,
       "price_median": 405.04,
       "price_mean": 392.57,
+      "rank_median": 74,
+      "rank_mean": 74.0,
       "min_price": 147.58,
       "max_price": 644.19
     },
     {
       "shop": "丝涟旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 13,
+      "sku_pct": 0.2,
       "price_median": 8590.1,
       "price_mean": 10618.89,
+      "rank_median": 77,
+      "rank_mean": 77.0,
       "min_price": 5990.8,
       "max_price": 21189.0
     },
     {
       "shop": "乐仕家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 78,
+      "sku_pct": 1.3,
       "price_median": 427.0,
       "price_mean": 496.36,
+      "rank_median": 85,
+      "rank_mean": 85.0,
       "min_price": 186.2,
       "max_price": 1524.0
     },
     {
       "shop": "香港床垫家俱佛山直销",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 548.1,
       "price_mean": 563.5,
+      "rank_median": 86,
+      "rank_mean": 86.0,
       "min_price": 432.99,
       "max_price": 802.43
     },
     {
       "shop": "床垫工厂企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 461.4,
       "price_mean": 467.72,
+      "rank_median": 89,
+      "rank_mean": 89.0,
       "min_price": 323.8,
       "max_price": 609.5
     },
     {
       "shop": "香港(國際)海马锐景企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 9,
+      "sku_pct": 0.2,
       "price_median": 599.0,
       "price_mean": 562.78,
+      "rank_median": 111,
+      "rank_mean": 111.0,
       "min_price": 150.0,
       "max_price": 741.0
     },
     {
       "shop": "香港国际家具工厂",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 16,
+      "sku_pct": 0.3,
       "price_median": 497.0,
       "price_mean": 564.74,
+      "rank_median": 112,
+      "rank_mean": 112.0,
       "min_price": 349.0,
       "max_price": 930.0
     },
     {
       "shop": "香港岶兰海马家具床垫",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 9,
+      "sku_pct": 0.2,
       "price_median": 597.0,
       "price_mean": 617.89,
+      "rank_median": 114,
+      "rank_mean": 114.0,
       "min_price": 458.0,
       "max_price": 801.0
     },
     {
       "shop": "帕沙曼官方旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 13,
+      "sku_pct": 0.2,
       "price_median": 1116.05,
       "price_mean": 1162.34,
+      "rank_median": 118,
+      "rank_mean": 118.0,
       "min_price": 815.15,
       "max_price": 2074.0
     },
     {
       "shop": "棕大叔床垫品牌店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 58,
+      "sku_pct": 1.0,
       "price_median": 371.44,
       "price_mean": 392.3,
+      "rank_median": 120,
+      "rank_mean": 120.0,
       "min_price": 236.0,
       "max_price": 844.01
     },
     {
       "shop": "棕二叔",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 14,
+      "sku_pct": 0.2,
       "price_median": 1034.0,
       "price_mean": 1174.43,
+      "rank_median": 121,
+      "rank_mean": 121.0,
       "min_price": 235.0,
       "max_price": 3080.0
     },
     {
       "shop": "KBN家居13年老店品质第一",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 3,
+      "sku_pct": 0.1,
       "price_median": 2405.5,
       "price_mean": 2405.5,
+      "rank_median": 125,
+      "rank_mean": 125.0,
       "min_price": 2405.5,
       "max_price": 2405.5
     },
     {
       "shop": "居品商贸公司",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 567.54,
       "price_mean": 559.97,
+      "rank_median": 126,
+      "rank_mean": 126.0,
       "min_price": 358.39,
       "max_price": 792.2
     },
     {
       "shop": "云赞床垫品牌店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 46,
+      "sku_pct": 0.8,
       "price_median": 639.4,
       "price_mean": 655.5,
+      "rank_median": 131,
+      "rank_mean": 131.0,
       "min_price": 373.62,
       "max_price": 1088.35
     },
     {
       "shop": "彤景旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 60,
+      "sku_pct": 1.0,
       "price_median": 283.0,
       "price_mean": 302.62,
+      "rank_median": 144,
+      "rank_mean": 144.0,
       "min_price": 150.0,
       "max_price": 631.5
     },
     {
       "shop": "KNOWHOW旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 29,
+      "sku_pct": 0.5,
       "price_median": 1148.0,
       "price_mean": 1298.12,
+      "rank_median": 146,
+      "rank_mean": 146.0,
       "min_price": 397.39,
       "max_price": 2744.46
     },
     {
       "shop": "sessile家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 16,
+      "sku_pct": 0.3,
       "price_median": 6139.55,
       "price_mean": 6822.5,
+      "rank_median": 149,
+      "rank_mean": 149.0,
       "min_price": 3353.25,
       "max_price": 11638.0
     },
     {
       "shop": "芭蕉果旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 7,
+      "sku_pct": 0.1,
       "price_median": 2711.5,
       "price_mean": 2830.07,
+      "rank_median": 152,
+      "rank_mean": 152.0,
       "min_price": 2434.5,
       "max_price": 3249.5
     },
     {
       "shop": "海马喵师傅床垫商城企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 16,
+      "sku_pct": 0.3,
       "price_median": 619.0,
       "price_mean": 614.16,
+      "rank_median": 154,
+      "rank_mean": 154.0,
       "min_price": 409.3,
       "max_price": 889.0
     },
     {
       "shop": "森诺斯家居",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 70,
+      "sku_pct": 1.2,
       "price_median": 238.0,
       "price_mean": 260.04,
+      "rank_median": 156,
+      "rank_mean": 156.0,
       "min_price": 101.25,
       "max_price": 442.0
     },
     {
       "shop": "佰家新尚床垫企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 48,
+      "sku_pct": 0.8,
       "price_median": 424.0,
       "price_mean": 469.68,
+      "rank_median": 159,
+      "rank_mean": 159.0,
       "min_price": 325.42,
       "max_price": 794.0
     },
     {
       "shop": "眠博士家居",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 4,
+      "sku_pct": 0.1,
       "price_median": 324.5,
       "price_mean": 319.62,
+      "rank_median": 160,
+      "rank_mean": 160.0,
       "min_price": 314.5,
       "max_price": 325.0
     },
     {
       "shop": "shims席夢思品牌床垫生活馆",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 668.0,
       "price_mean": 647.14,
+      "rank_median": 163,
+      "rank_mean": 163.0,
       "min_price": 490.0,
       "max_price": 769.0
     },
     {
       "shop": "冰兰家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 66,
+      "sku_pct": 1.1,
       "price_median": 429.0,
       "price_mean": 493.55,
+      "rank_median": 165,
+      "rank_mean": 165.0,
       "min_price": 198.0,
       "max_price": 1002.0
     },
     {
       "shop": "香港海马家具国际商城",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 17,
+      "sku_pct": 0.3,
       "price_median": 745.45,
       "price_mean": 756.99,
+      "rank_median": 170,
+      "rank_mean": 170.0,
       "min_price": 383.82,
       "max_price": 1261.4
     },
     {
       "shop": "苏老伯乳胶 18年宝藏老店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 23,
+      "sku_pct": 0.4,
       "price_median": 1152.0,
       "price_mean": 1292.51,
+      "rank_median": 173,
+      "rank_mean": 173.0,
       "min_price": 596.0,
       "max_price": 2070.99
     },
     {
       "shop": "芝华仕睡眠旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 5,
+      "sku_pct": 0.1,
       "price_median": 1677.05,
       "price_mean": 1719.97,
+      "rank_median": 177,
+      "rank_mean": 177.0,
       "min_price": 1299.22,
       "max_price": 2455.65
     },
     {
       "shop": "环保棕垫厂家",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 64,
+      "sku_pct": 1.1,
       "price_median": 285.0,
       "price_mean": 279.2,
+      "rank_median": 183,
+      "rank_mean": 183.0,
       "min_price": 119.0,
       "max_price": 566.0
     },
     {
       "shop": "晶爷床垫嘎嘎香",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 23,
+      "sku_pct": 0.4,
       "price_median": 9999.0,
       "price_mean": 9999.0,
+      "rank_median": 186,
+      "rank_mean": 186.0,
       "min_price": 9999.0,
       "max_price": 9999.0
     },
     {
       "shop": "海马兰冠家具生活馆",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 44,
+      "sku_pct": 0.7,
       "price_median": 729.0,
       "price_mean": 896.14,
+      "rank_median": 194,
+      "rank_mean": 194.0,
       "min_price": 439.0,
       "max_price": 1751.0
     },
     {
       "shop": "SLEEMON喜临门家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 6,
+      "sku_pct": 0.1,
       "price_median": 1231.65,
       "price_mean": 1189.15,
+      "rank_median": 196,
+      "rank_mean": 196.0,
       "min_price": 1036.15,
       "max_price": 1316.65
     },
     {
       "shop": "品藕家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 60,
+      "sku_pct": 1.0,
       "price_median": 271.0,
       "price_mean": 268.43,
+      "rank_median": 199,
+      "rank_mean": 199.0,
       "min_price": 157.0,
       "max_price": 391.0
     },
     {
       "shop": "香港海马酒店床垫",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 44,
+      "sku_pct": 0.7,
       "price_median": 729.0,
       "price_mean": 894.25,
+      "rank_median": 200,
+      "rank_mean": 200.0,
       "min_price": 439.0,
       "max_price": 1751.0
     },
     {
       "shop": "全友现代风旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 7,
+      "sku_pct": 0.1,
       "price_median": 849.15,
       "price_mean": 879.51,
+      "rank_median": 205,
+      "rank_mean": 205.0,
       "min_price": 670.65,
       "max_price": 1087.15
     },
     {
       "shop": "nedenkev旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 1766.9,
       "price_mean": 1765.39,
+      "rank_median": 214,
+      "rank_mean": 214.0,
       "min_price": 587.33,
       "max_price": 3190.6
     },
     {
       "shop": "广州嘉保床垫厂家",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 22,
+      "sku_pct": 0.4,
       "price_median": 460.0,
       "price_mean": 487.63,
+      "rank_median": 216,
+      "rank_mean": 216.0,
       "min_price": 327.0,
       "max_price": 799.76
     },
     {
       "shop": "梦王家具",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 42,
+      "sku_pct": 0.7,
       "price_median": 465.0,
       "price_mean": 494.29,
+      "rank_median": 217,
+      "rank_mean": 217.0,
       "min_price": 325.0,
       "max_price": 780.0
     },
     {
       "shop": "香港海馬家俱(國際)企业店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 561.61,
       "price_mean": 558.74,
+      "rank_median": 219,
+      "rank_mean": 219.0,
       "min_price": 413.31,
       "max_price": 770.21
     },
     {
       "shop": "床垫工厂直发店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 569.95,
       "price_mean": 552.39,
+      "rank_median": 222,
+      "rank_mean": 222.0,
       "min_price": 307.21,
       "max_price": 789.75
     },
     {
       "shop": "宝珀旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 15,
+      "sku_pct": 0.3,
       "price_median": 2079.1,
       "price_mean": 2114.01,
+      "rank_median": 223,
+      "rank_mean": 223.0,
       "min_price": 561.0,
       "max_price": 3559.8
     },
     {
       "shop": "眠美人品牌店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 34,
+      "sku_pct": 0.6,
       "price_median": 457.0,
       "price_mean": 487.53,
+      "rank_median": 228,
+      "rank_mean": 228.0,
       "min_price": 265.24,
       "max_price": 744.67
     },
     {
       "shop": "d[s320666867]",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 16,
+      "sku_pct": 0.3,
       "price_median": 1392.0,
       "price_mean": 1310.12,
+      "rank_median": 230,
+      "rank_mean": 230.0,
       "min_price": 1077.0,
       "max_price": 1518.0
     },
     {
       "shop": "西嘉家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 28,
+      "sku_pct": 0.5,
       "price_median": 627.3,
       "price_mean": 619.29,
+      "rank_median": 231,
+      "rank_mean": 231.0,
       "min_price": 415.65,
       "max_price": 839.8
     },
     {
       "shop": "诗享迦",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 21,
+      "sku_pct": 0.4,
       "price_median": 3809.0,
       "price_mean": 3740.71,
+      "rank_median": 232,
+      "rank_mean": 232.0,
       "min_price": 2426.0,
       "max_price": 5381.0
     },
     {
       "shop": "香榭柏兰旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 32,
+      "sku_pct": 0.5,
       "price_median": 1218.05,
       "price_mean": 1158.41,
+      "rank_median": 235,
+      "rank_mean": 235.0,
       "min_price": 539.82,
       "max_price": 1728.05
     },
     {
       "shop": "香港海马家具工厂体验店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 24,
+      "sku_pct": 0.4,
       "price_median": 711.0,
       "price_mean": 680.12,
+      "rank_median": 237,
+      "rank_mean": 237.0,
       "min_price": 440.0,
       "max_price": 979.0
     },
     {
       "shop": "进林旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 33,
+      "sku_pct": 0.6,
       "price_median": 1956.0,
       "price_mean": 2123.58,
+      "rank_median": 238,
+      "rank_mean": 238.0,
       "min_price": 793.0,
       "max_price": 5550.0
     },
     {
       "shop": "他米乐旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 46,
+      "sku_pct": 0.8,
       "price_median": 997.9,
       "price_mean": 996.39,
+      "rank_median": 239,
+      "rank_mean": 239.0,
       "min_price": 403.75,
       "max_price": 1316.65
     },
     {
       "shop": "伊梦莲旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 72,
+      "sku_pct": 1.2,
       "price_median": 523.08,
       "price_mean": 551.29,
+      "rank_median": 240,
+      "rank_mean": 240.0,
       "min_price": 182.19,
       "max_price": 949.22
     },
     {
       "shop": "诺沐旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 82,
+      "sku_pct": 1.4,
       "price_median": 1086.72,
       "price_mean": 1114.27,
+      "rank_median": 241,
+      "rank_mean": 241.0,
       "min_price": 360.4,
       "max_price": 1865.32
     },
     {
       "shop": "拙璞家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 15,
+      "sku_pct": 0.3,
       "price_median": 1016.0,
       "price_mean": 1288.27,
+      "rank_median": 244,
+      "rank_mean": 244.0,
       "min_price": 336.0,
       "max_price": 2609.0
     },
     {
       "shop": "Latex乳胶寝具",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 10,
+      "sku_pct": 0.2,
       "price_median": 689.6,
       "price_mean": 678.26,
+      "rank_median": 249,
+      "rank_mean": 249.0,
       "min_price": 229.89,
       "max_price": 1254.04
     },
     {
       "shop": "腾麟木家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 532.95,
       "price_mean": 554.97,
+      "rank_median": 257,
+      "rank_mean": 257.0,
       "min_price": 400.35,
       "max_price": 667.25
     },
     {
       "shop": "sths舒坦豪氏旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 13,
+      "sku_pct": 0.2,
       "price_median": 2429.64,
       "price_mean": 2311.84,
+      "rank_median": 258,
+      "rank_mean": 258.0,
       "min_price": 1919.64,
       "max_price": 2779.84
     },
     {
       "shop": "弗洛玛工厂直销店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 22,
+      "sku_pct": 0.4,
       "price_median": 579.1,
       "price_mean": 873.56,
+      "rank_median": 261,
+      "rank_mean": 261.0,
       "min_price": 424.58,
       "max_price": 3824.62
     },
     {
       "shop": "木趣家居生活馆",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 24,
+      "sku_pct": 0.4,
       "price_median": 468.82,
       "price_mean": 473.07,
+      "rank_median": 262,
+      "rank_mean": 262.0,
       "min_price": 320.19,
       "max_price": 686.07
     },
     {
       "shop": "乔治巴斯家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 30,
+      "sku_pct": 0.5,
       "price_median": 1235.0,
       "price_mean": 1230.07,
+      "rank_median": 268,
+      "rank_mean": 268.0,
       "min_price": 924.0,
       "max_price": 1807.0
     },
     {
       "shop": "妙涵家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 50,
+      "sku_pct": 0.9,
       "price_median": 812.6,
       "price_mean": 842.73,
+      "rank_median": 271,
+      "rank_mean": 271.0,
       "min_price": 418.17,
       "max_price": 1576.75
     },
     {
       "shop": "David正品",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 10,
+      "sku_pct": 0.2,
       "price_median": 7399.0,
       "price_mean": 6569.7,
+      "rank_median": 274,
+      "rank_mean": 274.0,
       "min_price": 1000.0,
       "max_price": 9999.0
     },
     {
       "shop": "御木堂家居",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 50,
+      "sku_pct": 0.9,
       "price_median": 220.4,
       "price_mean": 259.76,
+      "rank_median": 275,
+      "rank_mean": 275.0,
       "min_price": 94.0,
       "max_price": 566.0
     },
     {
       "shop": "强力家具旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 3,
+      "sku_pct": 0.1,
       "price_median": 1993.0,
       "price_mean": 1932.33,
+      "rank_median": 277,
+      "rank_mean": 277.0,
       "min_price": 1723.0,
       "max_price": 2081.0
     },
     {
       "shop": "大森林家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 24,
+      "sku_pct": 0.4,
       "price_median": 1435.65,
       "price_mean": 1626.23,
+      "rank_median": 278,
+      "rank_mean": 278.0,
       "min_price": 755.65,
       "max_price": 3427.0
     },
     {
       "shop": "西屋家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 2,
+      "sku_pct": 0.0,
       "price_median": 6998.9,
       "price_mean": 6998.9,
+      "rank_median": 281,
+      "rank_mean": 281.0,
       "min_price": 6998.9,
       "max_price": 6998.9
     },
     {
       "shop": "眠骑士六星级睡眠",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 6,
+      "sku_pct": 0.1,
       "price_median": 898.0,
       "price_mean": 859.66,
+      "rank_median": 289,
+      "rank_mean": 289.0,
       "min_price": 687.99,
       "max_price": 1058.0
     },
     {
       "shop": "金席梦家居旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 20,
+      "sku_pct": 0.3,
       "price_median": 1249.12,
       "price_mean": 1323.89,
+      "rank_median": 293,
+      "rank_mean": 293.0,
       "min_price": 857.29,
       "max_price": 1909.59
     },
     {
       "shop": "爱梦罗旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 52,
+      "sku_pct": 0.9,
       "price_median": 275.0,
       "price_mean": 277.97,
+      "rank_median": 297,
+      "rank_mean": 297.0,
       "min_price": 140.04,
       "max_price": 446.0
     },
     {
       "shop": "圣磊旗舰店",
       "is_company": false,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 62,
+      "sku_pct": 1.1,
       "price_median": 439.88,
       "price_mean": 411.63,
+      "rank_median": 298,
+      "rank_mean": 298.0,
       "min_price": 168.83,
       "max_price": 680.27
     },
     {
       "shop": "优群家居正品商城",
       "is_company": true,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 5,
+      "sku_pct": 0.1,
       "price_median": 1297.1,
       "price_mean": 1297.44,
+      "rank_median": 36,
+      "rank_mean": 36.0,
       "min_price": 1097.35,
       "max_price": 1497.7
     },
     {
       "shop": "梦织葆家居品牌店",
       "is_company": true,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 21,
+      "sku_pct": 0.4,
       "price_median": 622.0,
       "price_mean": 642.86,
+      "rank_median": 54,
+      "rank_mean": 54.0,
       "min_price": 456.0,
       "max_price": 896.0
     },
     {
       "shop": "佛山享睡床垫品牌店",
       "is_company": true,
+      "count": 1,
       "prod_count": 1,
+      "prod_pct": 0.3,
       "sku_count": 24,
+      "sku_pct": 0.4,
       "price_median": 1664.3,
       "price_mean": 1645.17,
+      "rank_median": 72,
+      "rank_mean": 72.0,
       "min_price": 496.4,
       "max_price": 2852.6
     }
@@ -9857,18 +10643,23 @@
       "mean_price": 1476.18,
       "sku_count": 16,
       "heights": [
+        22,
+        23,
+        24,
+        26,
+        28,
         30
       ],
-      "height_min": 30,
+      "height_min": 22,
       "height_max": 30,
-      "height_display": "30cm",
+      "height_display": "22~30cm",
       "skus": [
         {
           "name": "五星G 适中单面【2cm乳胶+酒店专利弹簧】22cm",
           "price": 1236.75,
           "orig": 1858.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -9876,7 +10667,7 @@
           "price": 1296.25,
           "orig": 1938.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -9884,7 +10675,7 @@
           "price": 1379.55,
           "orig": 2118.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -9892,7 +10683,7 @@
           "price": 1469.65,
           "orig": 2238.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -9900,7 +10691,7 @@
           "price": 1522.35,
           "orig": 2308.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -9908,7 +10699,7 @@
           "price": 1603.95,
           "orig": 2418.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -9916,7 +10707,7 @@
           "price": 1701.7,
           "orig": 2548.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -9932,7 +10723,7 @@
           "price": 1229.1,
           "orig": 1848.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -9940,7 +10731,7 @@
           "price": 1326.0,
           "orig": 1978.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 23,
           "isStart": false
         },
         {
@@ -9948,7 +10739,7 @@
           "price": 1394.85,
           "orig": 2138.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -9956,7 +10747,7 @@
           "price": 1491.75,
           "orig": 2268.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -9964,7 +10755,7 @@
           "price": 1296.25,
           "orig": 1938.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -9972,7 +10763,7 @@
           "price": 1469.65,
           "orig": 2238.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -9980,7 +10771,7 @@
           "price": 1603.95,
           "orig": 2418.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -10029,14 +10820,17 @@
       "mean_price": 528.12,
       "sku_count": 24,
       "heights": [
+        12,
+        14,
+        15,
         20,
         22,
         23,
         25
       ],
-      "height_min": 20,
+      "height_min": 12,
       "height_max": 25,
-      "height_display": "20~25cm",
+      "height_display": "12~25cm",
       "skus": [
         {
           "name": "租房经济:羊绒+加固防塌簧 适中20cm",
@@ -10147,7 +10941,7 @@
           "price": 380.0,
           "orig": 459.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -10155,7 +10949,7 @@
           "price": 425.0,
           "orig": 512.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -10163,7 +10957,7 @@
           "price": 425.0,
           "orig": 512.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -10171,7 +10965,7 @@
           "price": 523.0,
           "orig": 628.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -11959,19 +12753,23 @@
       "mean_price": 671.1,
       "sku_count": 40,
       "heights": [
+        2.5,
+        3.5,
+        5,
+        7.5,
         10,
         15
       ],
-      "height_min": 10,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "10~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "【泰国进口一代款95D】2.5cm (送内套+防螨外套)",
           "price": 325.0,
           "orig": 501.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -11979,7 +12777,7 @@
           "price": 407.0,
           "orig": 597.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -11987,7 +12785,7 @@
           "price": 489.0,
           "orig": 693.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -11995,7 +12793,7 @@
           "price": 631.0,
           "orig": 861.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12019,7 +12817,7 @@
           "price": 375.0,
           "orig": 559.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -12027,7 +12825,7 @@
           "price": 509.0,
           "orig": 717.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -12035,7 +12833,7 @@
           "price": 550.0,
           "orig": 765.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12043,7 +12841,7 @@
           "price": 733.0,
           "orig": 981.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12067,7 +12865,7 @@
           "price": 468.0,
           "orig": 669.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -12075,7 +12873,7 @@
           "price": 542.0,
           "orig": 756.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -12083,7 +12881,7 @@
           "price": 602.0,
           "orig": 826.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12091,7 +12889,7 @@
           "price": 738.0,
           "orig": 987.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12123,7 +12921,7 @@
           "price": 489.0,
           "orig": 693.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12131,7 +12929,7 @@
           "price": 325.0,
           "orig": 501.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -12139,7 +12937,7 @@
           "price": 407.0,
           "orig": 597.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -12147,7 +12945,7 @@
           "price": 489.0,
           "orig": 693.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12155,7 +12953,7 @@
           "price": 631.0,
           "orig": 861.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12179,7 +12977,7 @@
           "price": 375.0,
           "orig": 559.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -12187,7 +12985,7 @@
           "price": 509.0,
           "orig": 717.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -12195,7 +12993,7 @@
           "price": 550.0,
           "orig": 765.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12203,7 +13001,7 @@
           "price": 733.0,
           "orig": 981.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12227,7 +13025,7 @@
           "price": 468.0,
           "orig": 669.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -12235,7 +13033,7 @@
           "price": 542.0,
           "orig": 756.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -12243,7 +13041,7 @@
           "price": 602.0,
           "orig": 826.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -12251,7 +13049,7 @@
           "price": 738.0,
           "orig": 987.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -12283,7 +13081,7 @@
           "price": 309.0,
           "orig": 482.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         }
       ],
@@ -14463,18 +15261,19 @@
       "mean_price": 1669.4,
       "sku_count": 2,
       "heights": [
+        6,
         10
       ],
-      "height_min": 10,
+      "height_min": 6,
       "height_max": 10,
-      "height_display": "10cm",
+      "height_display": "6~10cm",
       "skus": [
         {
           "name": "【四季柔软-双面可睡】-6cm",
           "price": 1478.15,
           "orig": 2139.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -16665,12 +17464,16 @@
       "mean_price": 711.47,
       "sku_count": 36,
       "heights": [
+        2.5,
+        3.5,
+        5,
+        7.5,
         10,
         15
       ],
-      "height_min": 10,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "10~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "【可定制任意尺寸】 联系客服定制专拍",
@@ -16685,7 +17488,7 @@
           "price": 324.05,
           "orig": 512.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -16693,7 +17496,7 @@
           "price": 386.2,
           "orig": 585.2,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -16701,7 +17504,7 @@
           "price": 469.1,
           "orig": 683.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16709,7 +17512,7 @@
           "price": 635.35,
           "orig": 878.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16733,7 +17536,7 @@
           "price": 417.05,
           "orig": 622.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -16741,7 +17544,7 @@
           "price": 479.2,
           "orig": 695.2,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -16749,7 +17552,7 @@
           "price": 563.1,
           "orig": 793.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16757,7 +17560,7 @@
           "price": 728.35,
           "orig": 988.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16781,7 +17584,7 @@
           "price": 646.0,
           "orig": 891.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16789,7 +17592,7 @@
           "price": 812.25,
           "orig": 1086.25,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16813,7 +17616,7 @@
           "price": 469.1,
           "orig": 683.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16829,7 +17632,7 @@
           "price": 324.05,
           "orig": 512.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -16837,7 +17640,7 @@
           "price": 386.2,
           "orig": 585.2,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -16845,7 +17648,7 @@
           "price": 469.1,
           "orig": 683.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16853,7 +17656,7 @@
           "price": 635.35,
           "orig": 878.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16877,7 +17680,7 @@
           "price": 417.05,
           "orig": 622.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -16885,7 +17688,7 @@
           "price": 479.2,
           "orig": 695.2,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -16893,7 +17696,7 @@
           "price": 563.1,
           "orig": 793.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16901,7 +17704,7 @@
           "price": 728.35,
           "orig": 988.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16925,7 +17728,7 @@
           "price": 646.0,
           "orig": 891.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -16933,7 +17736,7 @@
           "price": 812.25,
           "orig": 1086.25,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -16957,7 +17760,7 @@
           "price": 303.0,
           "orig": 488.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         }
       ],
@@ -17318,13 +18121,15 @@
       "mean_price": 490.12,
       "sku_count": 24,
       "heights": [
+        10,
+        14,
         20,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 10,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "10~23cm",
       "skus": [
         {
           "name": "特惠款:碳钢加密弹簧 20cm适中",
@@ -17475,7 +18280,7 @@
           "price": 399.36,
           "orig": 482.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 10,
           "isStart": false
         },
         {
@@ -17483,7 +18288,7 @@
           "price": 460.0,
           "orig": 553.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -17491,7 +18296,7 @@
           "price": 460.0,
           "orig": 553.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -17664,20 +18469,22 @@
       "mean_price": 950.66,
       "sku_count": 19,
       "heights": [
+        9,
+        12,
         15,
         20,
         22
       ],
-      "height_min": 15,
+      "height_min": 9,
       "height_max": 22,
-      "height_display": "15~22cm",
+      "height_display": "9~22cm",
       "skus": [
         {
           "name": "柔软款【厚度约12CM】独立弹簧+高弹棉",
           "price": 700.4,
           "orig": 999.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -17685,7 +18492,7 @@
           "price": 760.75,
           "orig": 1097.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -17693,7 +18500,7 @@
           "price": 835.55,
           "orig": 1237.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -17701,7 +18508,7 @@
           "price": 1102.45,
           "orig": 1594.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -17773,7 +18580,7 @@
           "price": 1219.75,
           "orig": 1751.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 9,
           "isStart": false
         },
         {
@@ -17781,7 +18588,7 @@
           "price": 1110.1,
           "orig": 1604.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 9,
           "isStart": false
         },
         {
@@ -17789,7 +18596,7 @@
           "price": 1000.45,
           "orig": 1457.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 9,
           "isStart": false
         },
         {
@@ -18431,11 +19238,12 @@
       "mean_price": 2145.97,
       "sku_count": 3,
       "heights": [
+        12,
         15
       ],
-      "height_min": 15,
+      "height_min": 12,
       "height_max": 15,
-      "height_display": "15cm",
+      "height_display": "12~15cm",
       "skus": [
         {
           "name": "梦谣【15cm独立弹簧薄垫】双面可拆洗",
@@ -18450,7 +19258,7 @@
           "price": 2089.3,
           "orig": 3699.0,
           "tag": "秒杀价",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -19207,19 +20015,20 @@
       "mean_price": 589.9,
       "sku_count": 12,
       "heights": [
+        12,
         15,
         20
       ],
-      "height_min": 15,
+      "height_min": 12,
       "height_max": 20,
-      "height_display": "15~20cm",
+      "height_display": "12~20cm",
       "skus": [
         {
           "name": "A柔软款 厚≈12CM 实用之选",
           "price": 492.15,
           "orig": 788.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -19227,7 +20036,7 @@
           "price": 543.15,
           "orig": 858.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -19235,7 +20044,7 @@
           "price": 641.75,
           "orig": 1159.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -19243,7 +20052,7 @@
           "price": 682.55,
           "orig": 1228.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -19968,14 +20777,16 @@
       "mean_price": 564.74,
       "sku_count": 16,
       "heights": [
+        12,
+        15,
         20,
         22,
         24,
         25
       ],
-      "height_min": 20,
+      "height_min": 12,
       "height_max": 25,
-      "height_display": "20~25cm",
+      "height_display": "12~25cm",
       "skus": [
         {
           "name": "特惠款：防螨面料+加密弹簧+环保棉 软硬适中20cm",
@@ -20046,7 +20857,7 @@
           "price": 419.9,
           "orig": 519.9,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -20054,7 +20865,7 @@
           "price": 487.0,
           "orig": 587.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -20062,7 +20873,7 @@
           "price": 487.0,
           "orig": 587.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -20169,14 +20980,15 @@
       "mean_price": 976.53,
       "sku_count": 9,
       "heights": [
+        15,
         20,
         21,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 15,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "15~23cm",
       "skus": [
         {
           "name": "(1)【大白垫Lite】脊椎不适 强力撑腰|硬|20cm",
@@ -20215,7 +21027,7 @@
           "price": 947.51,
           "orig": 1114.72,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -20326,18 +21138,25 @@
       "mean_price": 617.89,
       "sku_count": 9,
       "heights": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
         30
       ],
-      "height_min": 30,
+      "height_min": 20,
       "height_max": 30,
-      "height_display": "30cm",
+      "height_display": "20~30cm",
       "skus": [
         {
           "name": "希尔顿基础款20CM【适中稍硬】 卷包",
           "price": 458.0,
           "orig": 841.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 20,
           "isStart": false
         },
         {
@@ -20345,7 +21164,7 @@
           "price": 485.0,
           "orig": 879.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -20353,7 +21172,7 @@
           "price": 514.0,
           "orig": 920.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -20361,7 +21180,7 @@
           "price": 559.0,
           "orig": 985.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 25,
           "isStart": false
         },
         {
@@ -20369,7 +21188,7 @@
           "price": 597.0,
           "orig": 1039.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 27,
           "isStart": false
         },
         {
@@ -20385,7 +21204,7 @@
           "price": 670.0,
           "orig": 1144.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 21,
           "isStart": false
         },
         {
@@ -20393,7 +21212,7 @@
           "price": 754.0,
           "orig": 1264.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 23,
           "isStart": false
         },
         {
@@ -20401,7 +21220,7 @@
           "price": 801.0,
           "orig": 1331.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 25,
           "isStart": false
         }
       ],
@@ -24270,19 +25089,20 @@
       "mean_price": 3600.67,
       "sku_count": 3,
       "heights": [
+        12,
         25,
         37
       ],
-      "height_min": 25,
+      "height_min": 12,
       "height_max": 37,
-      "height_display": "25~37cm",
+      "height_display": "12~37cm",
       "skus": [
         {
           "name": "羊驼绒顶垫-12cm-柔软舒适",
           "price": 2760.0,
           "orig": 2760.0,
           "tag": "",
-          "height": 25,
+          "height": 12,
           "isStart": false
         },
         {
@@ -24696,19 +25516,21 @@
       "mean_price": 1430.12,
       "sku_count": 12,
       "heights": [
+        10,
+        12,
         15,
         20
       ],
-      "height_min": 15,
+      "height_min": 10,
       "height_max": 20,
-      "height_display": "15~20cm",
+      "height_display": "10~20cm",
       "skus": [
         {
           "name": "舒豆A款=10cm【适中】2cm乳胶+迷你独立袋",
           "price": 1298.8,
           "orig": 1907.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 10,
           "isStart": false
         },
         {
@@ -24716,7 +25538,7 @@
           "price": 1328.55,
           "orig": 1947.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -24740,7 +25562,7 @@
           "price": 1268.2,
           "orig": 1866.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 10,
           "isStart": false
         },
         {
@@ -24748,7 +25570,7 @@
           "price": 1298.8,
           "orig": 1907.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -24772,7 +25594,7 @@
           "price": 1518.1,
           "orig": 2257.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -26141,12 +26963,15 @@
       "mean_price": 1298.12,
       "sku_count": 29,
       "heights": [
+        2.5,
+        5,
+        7.5,
         10,
         15
       ],
-      "height_min": 10,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "10~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "【榻榻米、定制尺寸】下单前后请务必联系客服",
@@ -26161,7 +26986,7 @@
           "price": 492.55,
           "orig": 879.64,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -26169,7 +26994,7 @@
           "price": 707.55,
           "orig": 1260.49,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26177,7 +27002,7 @@
           "price": 926.74,
           "orig": 1644.08,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26201,7 +27026,7 @@
           "price": 474.4,
           "orig": 848.45,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -26209,7 +27034,7 @@
           "price": 673.28,
           "orig": 1199.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26217,7 +27042,7 @@
           "price": 880.99,
           "orig": 1563.88,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26241,7 +27066,7 @@
           "price": 483.36,
           "orig": 863.88,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -26249,7 +27074,7 @@
           "price": 832.44,
           "orig": 1478.39,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26257,7 +27082,7 @@
           "price": 1148.0,
           "orig": 2031.95,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26281,7 +27106,7 @@
           "price": 510.58,
           "orig": 913.48,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -26289,7 +27114,7 @@
           "price": 880.96,
           "orig": 1563.84,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26297,7 +27122,7 @@
           "price": 1214.48,
           "orig": 2149.28,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26321,7 +27146,7 @@
           "price": 931.79,
           "orig": 1652.48,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26329,7 +27154,7 @@
           "price": 1341.27,
           "orig": 2371.21,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26353,7 +27178,7 @@
           "price": 967.55,
           "orig": 1716.04,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -26361,7 +27186,7 @@
           "price": 1392.94,
           "orig": 2462.41,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -26668,11 +27493,12 @@
       "heights": [
         22,
         23,
-        31
+        31,
+        53
       ],
       "height_min": 22,
-      "height_max": 31,
-      "height_display": "22~31cm",
+      "height_max": 53,
+      "height_display": "22~53cm",
       "skus": [
         {
           "name": "22cm·智睡舒爽款 已接入小米生态",
@@ -26727,7 +27553,7 @@
           "price": 7842.1,
           "orig": 9353.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 53,
           "isStart": false
         },
         {
@@ -26735,7 +27561,7 @@
           "price": 8182.95,
           "orig": 9754.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 53,
           "isStart": false
         },
         {
@@ -26743,7 +27569,7 @@
           "price": 8182.95,
           "orig": 9754.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 53,
           "isStart": false
         },
         {
@@ -27564,18 +28390,19 @@
       "mean_price": 6349.0,
       "sku_count": 4,
       "heights": [
+        28,
         30
       ],
-      "height_min": 30,
+      "height_min": 28,
       "height_max": 30,
-      "height_display": "30cm",
+      "height_display": "28~30cm",
       "skus": [
         {
           "name": "PRO支撑版【28cm厚】适中偏硬",
           "price": 4199.0,
           "orig": 4940.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -28790,20 +29617,21 @@
       "mean_price": 1563.1,
       "sku_count": 7,
       "heights": [
+        13,
         15,
         19,
         21
       ],
-      "height_min": 15,
+      "height_min": 13,
       "height_max": 21,
-      "height_display": "15~21cm",
+      "height_display": "13~21cm",
       "skus": [
         {
           "name": "豆腐块高箱专用/13cm厚:高支撑绵+10cm独立袋装弹簧",
           "price": 1184.24,
           "orig": 1799.0,
           "tag": "秒杀价",
-          "height": 15,
+          "height": 13,
           "isStart": false
         },
         {
@@ -28902,13 +29730,15 @@
       "mean_price": 469.68,
       "sku_count": 48,
       "heights": [
+        12,
+        14,
         20,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 12,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "12~23cm",
       "skus": [
         {
           "name": "经济基础:升级碳钢加固弹簧 20cm适中",
@@ -29091,7 +29921,7 @@
           "price": 379.12,
           "orig": 494.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -29099,7 +29929,7 @@
           "price": 424.0,
           "orig": 547.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -29283,7 +30113,7 @@
           "price": 379.12,
           "orig": 494.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -29291,7 +30121,7 @@
           "price": 424.0,
           "orig": 547.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         }
       ],
@@ -29959,18 +30789,25 @@
       "mean_price": 683.3,
       "sku_count": 10,
       "heights": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
         30
       ],
-      "height_min": 30,
+      "height_min": 20,
       "height_max": 30,
-      "height_display": "30cm",
+      "height_display": "20~30cm",
       "skus": [
         {
           "name": "A希尔顿基础客房款 20CM厚【适中微软】 卷包",
           "price": 456.0,
           "orig": 629.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 20,
           "isStart": false
         },
         {
@@ -29978,7 +30815,7 @@
           "price": 526.0,
           "orig": 659.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -29986,7 +30823,7 @@
           "price": 556.0,
           "orig": 690.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -29994,7 +30831,7 @@
           "price": 597.0,
           "orig": 739.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 25,
           "isStart": false
         },
         {
@@ -30002,7 +30839,7 @@
           "price": 629.0,
           "orig": 779.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 27,
           "isStart": false
         },
         {
@@ -30018,7 +30855,7 @@
           "price": 729.0,
           "orig": 858.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 21,
           "isStart": false
         },
         {
@@ -30026,7 +30863,7 @@
           "price": 805.0,
           "orig": 948.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 23,
           "isStart": false
         },
         {
@@ -30034,7 +30871,7 @@
           "price": 882.0,
           "orig": 1038.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -30042,7 +30879,7 @@
           "price": 916.0,
           "orig": 1078.0,
           "tag": "店铺优惠后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         }
       ],
@@ -30721,22 +31558,23 @@
       "mean_price": 803.34,
       "sku_count": 32,
       "heights": [
+        2.5,
         3.5,
         5,
         7.5,
         10,
         15
       ],
-      "height_min": 3.5,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "3.5~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "母婴级全乳胶95D厚度2.5cm *经济实惠",
           "price": 375.21,
           "orig": 416.9,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -30784,7 +31622,7 @@
           "price": 474.21,
           "orig": 526.9,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -30864,7 +31702,7 @@
           "price": 318.51,
           "orig": 416.9,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -30912,7 +31750,7 @@
           "price": 397.71,
           "orig": 526.9,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -31751,14 +32589,15 @@
       "mean_price": 976.53,
       "sku_count": 9,
       "heights": [
+        15,
         20,
         21,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 15,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "15~23cm",
       "skus": [
         {
           "name": "(1)【大白垫Lite】脊椎不适 强力撑腰|硬|20cm",
@@ -31797,7 +32636,7 @@
           "price": 947.51,
           "orig": 1114.72,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -31954,13 +32793,14 @@
       "mean_price": 1292.51,
       "sku_count": 23,
       "heights": [
+        3,
         5,
         7.5,
         10
       ],
-      "height_min": 5,
+      "height_min": 3,
       "height_max": 10,
-      "height_display": "5~10cm",
+      "height_display": "3~10cm",
       "skus": [
         {
           "name": "✅4代推广价【5CM】【中检溯源】泰国原装进口鲜胶系列【95D柔韧】配防氧化内",
@@ -32119,7 +32959,7 @@
           "price": 1033.0,
           "orig": 1222.0,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 3,
           "isStart": false
         },
         {
@@ -32127,7 +32967,7 @@
           "price": 1448.21,
           "orig": 1699.21,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 3,
           "isStart": false
         },
         {
@@ -32135,7 +32975,7 @@
           "price": 1032.95,
           "orig": 1221.95,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 3,
           "isStart": false
         },
         {
@@ -32143,7 +32983,7 @@
           "price": 596.0,
           "orig": 709.0,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 3,
           "isStart": false
         }
       ],
@@ -33220,21 +34060,25 @@
       "mean_price": 279.2,
       "sku_count": 64,
       "heights": [
+        6,
+        7,
+        8,
+        9,
         10,
         11,
         12,
         15
       ],
-      "height_min": 10,
+      "height_min": 6,
       "height_max": 15,
-      "height_display": "10~15cm",
+      "height_display": "6~15cm",
       "skus": [
         {
           "name": "6cm云舒白一体（0胶水3E椰棕+质保20年）",
           "price": 120.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33242,7 +34086,7 @@
           "price": 120.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33250,7 +34094,7 @@
           "price": 120.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33258,7 +34102,7 @@
           "price": 120.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33266,7 +34110,7 @@
           "price": 179.0,
           "orig": 678.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33274,7 +34118,7 @@
           "price": 180.0,
           "orig": 678.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33282,7 +34126,7 @@
           "price": 176.0,
           "orig": 674.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33290,7 +34134,7 @@
           "price": 176.0,
           "orig": 674.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33346,7 +34190,7 @@
           "price": 165.0,
           "orig": 663.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33354,7 +34198,7 @@
           "price": 230.0,
           "orig": 908.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33362,7 +34206,7 @@
           "price": 285.0,
           "orig": 963.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33370,7 +34214,7 @@
           "price": 300.0,
           "orig": 978.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -33394,7 +34238,7 @@
           "price": 165.0,
           "orig": 663.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33402,7 +34246,7 @@
           "price": 230.0,
           "orig": 908.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33410,7 +34254,7 @@
           "price": 285.0,
           "orig": 963.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33418,7 +34262,7 @@
           "price": 300.0,
           "orig": 978.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -33442,7 +34286,7 @@
           "price": 200.0,
           "orig": 698.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33450,7 +34294,7 @@
           "price": 266.0,
           "orig": 944.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33458,7 +34302,7 @@
           "price": 315.0,
           "orig": 993.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33490,7 +34334,7 @@
           "price": 119.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33498,7 +34342,7 @@
           "price": 119.0,
           "orig": 595.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33506,7 +34350,7 @@
           "price": 119.0,
           "orig": 595.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33514,7 +34358,7 @@
           "price": 119.0,
           "orig": 618.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33522,7 +34366,7 @@
           "price": 180.0,
           "orig": 678.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33530,7 +34374,7 @@
           "price": 180.0,
           "orig": 678.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33538,7 +34382,7 @@
           "price": 176.0,
           "orig": 674.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33546,7 +34390,7 @@
           "price": 176.0,
           "orig": 674.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33602,7 +34446,7 @@
           "price": 165.0,
           "orig": 663.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33610,7 +34454,7 @@
           "price": 230.0,
           "orig": 908.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33618,7 +34462,7 @@
           "price": 285.0,
           "orig": 963.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33626,7 +34470,7 @@
           "price": 300.0,
           "orig": 978.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -33650,7 +34494,7 @@
           "price": 165.0,
           "orig": 663.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33658,7 +34502,7 @@
           "price": 230.0,
           "orig": 908.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33666,7 +34510,7 @@
           "price": 285.0,
           "orig": 963.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -33674,7 +34518,7 @@
           "price": 300.0,
           "orig": 978.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -33698,7 +34542,7 @@
           "price": 200.0,
           "orig": 698.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -33706,7 +34550,7 @@
           "price": 266.0,
           "orig": 944.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -33714,7 +34558,7 @@
           "price": 315.0,
           "orig": 993.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -37390,18 +38234,22 @@
       "mean_price": 628.3,
       "sku_count": 34,
       "heights": [
+        2.5,
+        3.5,
+        5,
+        7.5,
         10
       ],
-      "height_min": 10,
+      "height_min": 2.5,
       "height_max": 10,
-      "height_display": "10cm",
+      "height_display": "2.5~10cm",
       "skus": [
         {
           "name": "【95D舒适偏软】厚2.5cm (送内套+防螨外套)",
           "price": 438.07,
           "orig": 486.75,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37409,7 +38257,7 @@
           "price": 514.8,
           "orig": 572.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37417,7 +38265,7 @@
           "price": 602.91,
           "orig": 669.9,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37425,7 +38273,7 @@
           "price": 767.74,
           "orig": 853.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37441,7 +38289,7 @@
           "price": 504.9,
           "orig": 561.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37449,7 +38297,7 @@
           "price": 603.9,
           "orig": 671.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37457,7 +38305,7 @@
           "price": 658.84,
           "orig": 732.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37465,7 +38313,7 @@
           "price": 845.46,
           "orig": 939.4,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37481,7 +38329,7 @@
           "price": 592.51,
           "orig": 658.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37489,7 +38337,7 @@
           "price": 680.62,
           "orig": 756.25,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37497,7 +38345,7 @@
           "price": 768.73,
           "orig": 854.15,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37505,7 +38353,7 @@
           "price": 921.69,
           "orig": 1024.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37537,7 +38385,7 @@
           "price": 438.07,
           "orig": 486.75,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37545,7 +38393,7 @@
           "price": 514.8,
           "orig": 572.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37553,7 +38401,7 @@
           "price": 403.2,
           "orig": 669.9,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37561,7 +38409,7 @@
           "price": 537.75,
           "orig": 853.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37577,7 +38425,7 @@
           "price": 504.9,
           "orig": 561.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37585,7 +38433,7 @@
           "price": 603.9,
           "orig": 671.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37593,7 +38441,7 @@
           "price": 448.65,
           "orig": 732.05,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37601,7 +38449,7 @@
           "price": 601.2,
           "orig": 939.4,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37617,7 +38465,7 @@
           "price": 592.51,
           "orig": 658.35,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -37625,7 +38473,7 @@
           "price": 680.62,
           "orig": 756.25,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -37633,7 +38481,7 @@
           "price": 538.65,
           "orig": 854.15,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -37641,7 +38489,7 @@
           "price": 921.69,
           "orig": 1024.1,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 7.5,
           "isStart": false
         },
         {
@@ -37781,14 +38629,16 @@
       "mean_price": 1045.76,
       "sku_count": 46,
       "heights": [
+        6,
+        8,
         10,
         12,
         15,
         20
       ],
-      "height_min": 10,
+      "height_min": 6,
       "height_max": 20,
-      "height_display": "10~20cm",
+      "height_display": "6~20cm",
       "skus": [
         {
           "name": "A款不可拆，请拍A6~A12",
@@ -37803,7 +38653,7 @@
           "price": 555.05,
           "orig": 743.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -37811,7 +38661,7 @@
           "price": 711.45,
           "orig": 952.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -37843,7 +38693,7 @@
           "price": 799.85,
           "orig": 1070.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -37891,7 +38741,7 @@
           "price": 799.85,
           "orig": 1070.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -37939,7 +38789,7 @@
           "price": 799.85,
           "orig": 1070.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -37987,7 +38837,7 @@
           "price": 613.7,
           "orig": 821.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -37995,7 +38845,7 @@
           "price": 750.55,
           "orig": 1004.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -38027,7 +38877,7 @@
           "price": 848.3,
           "orig": 1135.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -38075,7 +38925,7 @@
           "price": 848.3,
           "orig": 1135.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -38123,7 +38973,7 @@
           "price": 848.3,
           "orig": 1135.0,
           "tag": "平台加补后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -38361,13 +39211,14 @@
       "mean_price": 879.51,
       "sku_count": 7,
       "heights": [
+        15,
         20,
         21,
         22
       ],
-      "height_min": 20,
+      "height_min": 15,
       "height_max": 22,
-      "height_display": "20~22cm",
+      "height_display": "15~22cm",
       "skus": [
         {
           "name": "(1)椰岛0胶【经典护脊 双效支撑】床垫（21cm厚）",
@@ -38406,7 +39257,7 @@
           "price": 670.65,
           "orig": 1142.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -38473,15 +39324,16 @@
       "mean_price": 1049.71,
       "sku_count": 14,
       "heights": [
+        15,
         20,
         22,
         23,
         24,
         25
       ],
-      "height_min": 20,
+      "height_min": 15,
       "height_max": 25,
-      "height_display": "20~25cm",
+      "height_display": "15~25cm",
       "skus": [
         {
           "name": "经济款：精钢弹簧+硬质棉+羊绒 厚度约20CM H贝丝",
@@ -38576,7 +39428,7 @@
           "price": 919.7,
           "orig": 1310.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -38584,7 +39436,7 @@
           "price": 1053.15,
           "orig": 1488.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -39850,13 +40702,16 @@
       "mean_price": 487.63,
       "sku_count": 22,
       "heights": [
+        10,
+        12,
+        15,
         20,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 10,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "10~23cm",
       "skus": [
         {
           "name": "租房经济（白色） 软硬适中【20CM】",
@@ -39951,7 +40806,7 @@
           "price": 439.0,
           "orig": 658.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 10,
           "isStart": false
         },
         {
@@ -39959,7 +40814,7 @@
           "price": 409.0,
           "orig": 634.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -39967,7 +40822,7 @@
           "price": 471.0,
           "orig": 705.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -39975,7 +40830,7 @@
           "price": 480.0,
           "orig": 705.0,
           "tag": "店铺优惠后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -40097,13 +40952,16 @@
       "mean_price": 494.29,
       "sku_count": 42,
       "heights": [
+        12,
+        14,
+        15,
         20,
         22,
         23
       ],
-      "height_min": 20,
+      "height_min": 12,
       "height_max": 23,
-      "height_display": "20~23cm",
+      "height_display": "12~23cm",
       "skus": [
         {
           "name": "升级碳钢加固弹簧+羊绒棉 约20cm软硬适中",
@@ -40214,7 +41072,7 @@
           "price": 440.0,
           "orig": 960.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -40222,7 +41080,7 @@
           "price": 485.0,
           "orig": 1050.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40230,7 +41088,7 @@
           "price": 485.0,
           "orig": 1050.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40238,7 +41096,7 @@
           "price": 565.0,
           "orig": 1210.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -40382,7 +41240,7 @@
           "price": 440.0,
           "orig": 960.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -40390,7 +41248,7 @@
           "price": 485.0,
           "orig": 1050.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40398,7 +41256,7 @@
           "price": 485.0,
           "orig": 1050.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40406,7 +41264,7 @@
           "price": 565.0,
           "orig": 1210.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -40637,14 +41495,16 @@
       "mean_price": 558.74,
       "sku_count": 20,
       "heights": [
+        12,
+        14,
         20,
         21,
         22,
         25
       ],
-      "height_min": 20,
+      "height_min": 12,
       "height_max": 25,
-      "height_display": "20~25cm",
+      "height_display": "12~25cm",
       "skus": [
         {
           "name": "A袋装-柔软款（厚度20CM）实用之选 卷包发货",
@@ -40683,7 +41543,7 @@
           "price": 614.01,
           "orig": 799.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 22,
           "isStart": false
         },
         {
@@ -40699,7 +41559,7 @@
           "price": 491.41,
           "orig": 659.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -40707,7 +41567,7 @@
           "price": 534.91,
           "orig": 709.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40715,7 +41575,7 @@
           "price": 561.61,
           "orig": 739.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40723,7 +41583,7 @@
           "price": 614.01,
           "orig": 799.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40763,7 +41623,7 @@
           "price": 614.01,
           "orig": 799.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 22,
           "isStart": false
         },
         {
@@ -40779,7 +41639,7 @@
           "price": 491.41,
           "orig": 659.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 12,
           "isStart": false
         },
         {
@@ -40787,7 +41647,7 @@
           "price": 534.91,
           "orig": 709.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40795,7 +41655,7 @@
           "price": 561.61,
           "orig": 739.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         },
         {
@@ -40803,7 +41663,7 @@
           "price": 614.01,
           "orig": 799.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 14,
           "isStart": false
         }
       ],
@@ -47169,20 +48029,23 @@
       "mean_price": 1454.21,
       "sku_count": 12,
       "heights": [
+        15,
+        16,
+        17,
         20,
         22,
         24
       ],
-      "height_min": 20,
+      "height_min": 15,
       "height_max": 24,
-      "height_display": "20~24cm",
+      "height_display": "15~24cm",
       "skus": [
         {
           "name": "五星G【2cm乳胶+五星专利弹簧】15cm适中",
           "price": 1236.75,
           "orig": 1858.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -47190,7 +48053,7 @@
           "price": 1296.25,
           "orig": 1938.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 17,
           "isStart": false
         },
         {
@@ -47198,7 +48061,7 @@
           "price": 1379.55,
           "orig": 2118.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 16,
           "isStart": false
         },
         {
@@ -47246,7 +48109,7 @@
           "price": 1229.1,
           "orig": 1848.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -47254,7 +48117,7 @@
           "price": 1326.0,
           "orig": 1978.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 16,
           "isStart": false
         },
         {
@@ -47262,7 +48125,7 @@
           "price": 1394.85,
           "orig": 2138.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 15,
           "isStart": false
         },
         {
@@ -47270,7 +48133,7 @@
           "price": 1491.75,
           "orig": 2268.0,
           "tag": "平台加补后",
-          "height": 20,
+          "height": 17,
           "isStart": false
         }
       ],
@@ -47587,21 +48450,22 @@
       "mean_price": 678.26,
       "sku_count": 10,
       "heights": [
+        2.5,
         5,
         7.5,
         10,
         15
       ],
-      "height_min": 5,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "5~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "一体2.5cm(配内套)95D 【品质升级，免费试用】",
           "price": 229.89,
           "orig": 311.89,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -47609,7 +48473,7 @@
           "price": 329.24,
           "orig": 429.24,
           "tag": "店铺优惠后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -47725,20 +48589,22 @@
       "mean_price": 1125.69,
       "sku_count": 7,
       "heights": [
+        5,
+        8,
         10,
         15,
         20
       ],
-      "height_min": 10,
+      "height_min": 5,
       "height_max": 20,
-      "height_display": "10~20cm",
+      "height_display": "5~20cm",
       "skus": [
         {
           "name": "(1)【S型黄麻】护脊透气|5cm",
           "price": 618.24,
           "orig": 897.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -47746,7 +48612,7 @@
           "price": 818.96,
           "orig": 1188.0,
           "tag": "店铺优惠后",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -48292,19 +49158,23 @@
       "mean_price": 1456.39,
       "sku_count": 10,
       "heights": [
+        9,
+        10,
+        11,
+        12,
         15,
         17
       ],
-      "height_min": 15,
+      "height_min": 9,
       "height_max": 17,
-      "height_display": "15~17cm",
+      "height_display": "9~17cm",
       "skus": [
         {
           "name": "五星G款 9cm【2cm乳胶+酒店专利弹簧】适中单面",
           "price": 1236.75,
           "orig": 1858.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 9,
           "isStart": false
         },
         {
@@ -48312,7 +49182,7 @@
           "price": 1296.25,
           "orig": 1938.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 11,
           "isStart": false
         },
         {
@@ -48320,7 +49190,7 @@
           "price": 1379.55,
           "orig": 2118.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 10,
           "isStart": false
         },
         {
@@ -48328,7 +49198,7 @@
           "price": 1469.65,
           "orig": 2238.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -48336,7 +49206,7 @@
           "price": 1522.35,
           "orig": 2308.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 12,
           "isStart": false
         },
         {
@@ -48368,7 +49238,7 @@
           "price": 1229.1,
           "orig": 1848.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 10,
           "isStart": false
         },
         {
@@ -48376,7 +49246,7 @@
           "price": 1326.0,
           "orig": 1978.0,
           "tag": "平台加补后",
-          "height": 15,
+          "height": 11,
           "isStart": false
         }
       ],
@@ -48925,18 +49795,22 @@
       "mean_price": 554.97,
       "sku_count": 20,
       "heights": [
+        22,
+        24,
+        26,
+        28,
         30
       ],
-      "height_min": 30,
+      "height_min": 22,
       "height_max": 30,
-      "height_display": "30cm",
+      "height_display": "22~30cm",
       "skus": [
         {
           "name": "五星酒店标准款22厘米【柔软舒适】卷包发货",
           "price": 400.35,
           "orig": 531.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -48944,7 +49818,7 @@
           "price": 503.2,
           "orig": 652.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -48952,7 +49826,7 @@
           "price": 504.9,
           "orig": 654.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -48960,7 +49834,7 @@
           "price": 513.4,
           "orig": 664.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -48976,7 +49850,7 @@
           "price": 502.35,
           "orig": 651.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -48984,7 +49858,7 @@
           "price": 638.35,
           "orig": 811.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -48992,7 +49866,7 @@
           "price": 639.2,
           "orig": 812.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -49000,7 +49874,7 @@
           "price": 647.7,
           "orig": 822.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -49016,7 +49890,7 @@
           "price": 400.35,
           "orig": 531.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -49024,7 +49898,7 @@
           "price": 503.2,
           "orig": 652.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -49032,7 +49906,7 @@
           "price": 504.9,
           "orig": 654.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -49040,7 +49914,7 @@
           "price": 513.4,
           "orig": 664.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -49056,7 +49930,7 @@
           "price": 502.35,
           "orig": 651.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 22,
           "isStart": false
         },
         {
@@ -49064,7 +49938,7 @@
           "price": 638.35,
           "orig": 811.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 24,
           "isStart": false
         },
         {
@@ -49072,7 +49946,7 @@
           "price": 639.2,
           "orig": 812.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 26,
           "isStart": false
         },
         {
@@ -49080,7 +49954,7 @@
           "price": 647.7,
           "orig": 822.0,
           "tag": "平台加补后",
-          "height": 30,
+          "height": 28,
           "isStart": false
         },
         {
@@ -52406,21 +53280,26 @@
       "mean_price": 259.76,
       "sku_count": 50,
       "heights": [
+        5,
+        6,
+        7,
+        8,
+        9,
         10,
         11,
         12,
         15
       ],
-      "height_min": 10,
+      "height_min": 5,
       "height_max": 15,
-      "height_display": "10~15cm",
+      "height_display": "5~15cm",
       "skus": [
         {
           "name": "【偏硬】5cm厚★含3cm棕芯【一体款】",
           "price": 94.0,
           "orig": 145.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52428,7 +53307,7 @@
           "price": 128.4,
           "orig": 188.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52436,7 +53315,7 @@
           "price": 182.0,
           "orig": 255.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52444,7 +53323,7 @@
           "price": 99.6,
           "orig": 152.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52452,7 +53331,7 @@
           "price": 134.0,
           "orig": 195.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52460,7 +53339,7 @@
           "price": 187.6,
           "orig": 262.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52492,7 +53371,7 @@
           "price": 168.4,
           "orig": 238.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52500,7 +53379,7 @@
           "price": 177.2,
           "orig": 249.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -52508,7 +53387,7 @@
           "price": 251.6,
           "orig": 342.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -52532,7 +53411,7 @@
           "price": 131.6,
           "orig": 192.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52540,7 +53419,7 @@
           "price": 166.0,
           "orig": 235.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52548,7 +53427,7 @@
           "price": 220.4,
           "orig": 303.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52580,7 +53459,7 @@
           "price": 200.4,
           "orig": 278.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52588,7 +53467,7 @@
           "price": 209.2,
           "orig": 289.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -52596,7 +53475,7 @@
           "price": 283.6,
           "orig": 382.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -52620,7 +53499,7 @@
           "price": 94.0,
           "orig": 145.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52628,7 +53507,7 @@
           "price": 128.4,
           "orig": 188.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52636,7 +53515,7 @@
           "price": 182.0,
           "orig": 255.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52644,7 +53523,7 @@
           "price": 99.6,
           "orig": 152.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52652,7 +53531,7 @@
           "price": 134.0,
           "orig": 195.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52660,7 +53539,7 @@
           "price": 187.6,
           "orig": 262.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52692,7 +53571,7 @@
           "price": 168.4,
           "orig": 238.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52700,7 +53579,7 @@
           "price": 177.2,
           "orig": 249.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -52708,7 +53587,7 @@
           "price": 251.6,
           "orig": 342.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -52732,7 +53611,7 @@
           "price": 131.6,
           "orig": 192.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 5,
           "isStart": false
         },
         {
@@ -52740,7 +53619,7 @@
           "price": 166.0,
           "orig": 235.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52748,7 +53627,7 @@
           "price": 220.4,
           "orig": 303.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 8,
           "isStart": false
         },
         {
@@ -52780,7 +53659,7 @@
           "price": 200.4,
           "orig": 278.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 6,
           "isStart": false
         },
         {
@@ -52788,7 +53667,7 @@
           "price": 209.2,
           "orig": 289.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 7,
           "isStart": false
         },
         {
@@ -52796,7 +53675,7 @@
           "price": 283.6,
           "orig": 382.0,
           "tag": "秒杀价",
-          "height": 10,
+          "height": 9,
           "isStart": false
         },
         {
@@ -52880,14 +53759,16 @@
       "mean_price": 752.55,
       "sku_count": 34,
       "heights": [
+        2.5,
+        3.5,
         5,
         7.5,
         10,
         15
       ],
-      "height_min": 5,
+      "height_min": 2.5,
       "height_max": 15,
-      "height_display": "5~15cm",
+      "height_display": "2.5~15cm",
       "skus": [
         {
           "name": "改价/定制尺寸/直邮/专拍 支持任意尺寸定制",
@@ -52902,7 +53783,7 @@
           "price": 337.9,
           "orig": 416.9,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -52910,7 +53791,7 @@
           "price": 403.0,
           "orig": 495.0,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -52950,7 +53831,7 @@
           "price": 429.9,
           "orig": 526.9,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -52958,7 +53839,7 @@
           "price": 496.0,
           "orig": 605.0,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -53038,7 +53919,7 @@
           "price": 337.9,
           "orig": 416.9,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -53046,7 +53927,7 @@
           "price": 403.0,
           "orig": 495.0,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -53086,7 +53967,7 @@
           "price": 429.9,
           "orig": 526.9,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 2.5,
           "isStart": false
         },
         {
@@ -53094,7 +53975,7 @@
           "price": 496.0,
           "orig": 605.0,
           "tag": "平台加补后",
-          "height": 5,
+          "height": 3.5,
           "isStart": false
         },
         {
@@ -61609,15 +62490,16 @@
       "mean_price": 1216.89,
       "sku_count": 22,
       "heights": [
+        2,
         6,
         8,
         10,
         12,
         15
       ],
-      "height_min": 6,
+      "height_min": 2,
       "height_max": 15,
-      "height_display": "6~15cm",
+      "height_display": "2~15cm",
       "skus": [
         {
           "name": "内材：S黄麻⬇️偏硬护脊",
@@ -61656,7 +62538,7 @@
           "price": 1363.4,
           "orig": 2198.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2,
           "isStart": false
         },
         {
@@ -61728,7 +62610,7 @@
           "price": 1363.4,
           "orig": 2198.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2,
           "isStart": false
         },
         {
@@ -66408,14 +67290,15 @@
       "mean_price": 1522.2,
       "sku_count": 11,
       "heights": [
+        2,
         21,
         22,
         24,
         25
       ],
-      "height_min": 21,
+      "height_min": 2,
       "height_max": 25,
-      "height_display": "21~25cm",
+      "height_display": "2~25cm",
       "skus": [
         {
           "name": "风尚plus-A【固边防塌加固独立袋弹簧】中硬 2cm黄麻:21cm",
@@ -66502,7 +67385,7 @@
           "price": 1798.6,
           "orig": 2632.0,
           "tag": "平台加补后",
-          "height": null,
+          "height": 2,
           "isStart": false
         }
       ],
