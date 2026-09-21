@@ -7157,6 +7157,60 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
 
             // 6. 执行过滤重算
             runCustomFilter();
+
+            // 7. 智能联动：将 Tab 5 多组对比也同步替换为该 SKU 的专属对标组 (彻底消除不相关的 300-800元与金橡树)
+            const cleanShop = (shop || '').replace('旗舰店', '').replace('官方', '');
+            const skuKw = cleanShop.toLowerCase().includes('moon') ? 'moon' : cleanShop.slice(0, 4);
+            compareGroups = [
+                {
+                    id: 1,
+                    name: `组A: 本品基准 (${cleanShop} · ￥${pNum.toFixed(0)} · ${hNum ? hNum + 'cm' : ''})`,
+                    minPrice: minP,
+                    maxPrice: maxP,
+                    minRank: 1,
+                    maxRank: 300,
+                    minHeight: hNum,
+                    maxHeight: hNum,
+                    keyword: skuKw,
+                    scope: 'all',
+                    excludeKeyword: '',
+                    autoName: false
+                },
+                {
+                    id: 2,
+                    name: `组B: 全网同规格竞品 (${minP}-${maxP}元 · ${hNum ? hNum + 'cm' : '同厚度'})`,
+                    minPrice: minP,
+                    maxPrice: maxP,
+                    minRank: 1,
+                    maxRank: 300,
+                    minHeight: hNum,
+                    maxHeight: hNum,
+                    keyword: '',
+                    scope: 'all',
+                    excludeKeyword: '',
+                    autoName: false
+                },
+                {
+                    id: 3,
+                    name: `组C: 邻近价位参考档 (${Math.max(0, minP - 400)}-${minP}元 · ${hNum ? hNum + 'cm' : '同厚度'})`,
+                    minPrice: Math.max(0, minP - 400),
+                    maxPrice: minP,
+                    minRank: 1,
+                    maxRank: 300,
+                    minHeight: hNum,
+                    maxHeight: hNum,
+                    keyword: '',
+                    scope: 'all',
+                    excludeKeyword: '',
+                    autoName: false
+                }
+            ];
+            if (typeof renderCompareGroupInputs === 'function') {
+                renderCompareGroupInputs();
+            }
+            if (typeof runComparisonAnalysis === 'function') {
+                runComparisonAnalysis();
+            }
         }
 
         // 快捷函数：单独点击 SKU 行的厚度标签时，仅将厚度填入【床垫高度】
@@ -7280,6 +7334,19 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
 
             flashInputs(['cust-min-price', 'cust-max-price', 'cust-min-height', 'cust-max-height']);
             runCustomFilter();
+
+            // 恢复 Tab 5 默认大盘对比组
+            compareGroups = [
+                { id: 1, name: '组A: 300-800元', minPrice: 300, maxPrice: 800, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: true },
+                { id: 2, name: '组B: 800-2000元', minPrice: 800, maxPrice: 2000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: true },
+                { id: 3, name: '组C: 2000-5000元', minPrice: 2000, maxPrice: 5000, minRank: 1, maxRank: 300, minHeight: null, maxHeight: null, keyword: '', scope: 'all', excludeKeyword: '', autoName: true }
+            ];
+            if (typeof renderCompareGroupInputs === 'function') {
+                renderCompareGroupInputs();
+            }
+            if (typeof runComparisonAnalysis === 'function') {
+                runComparisonAnalysis();
+            }
         }
 
         // 保持向下兼容
