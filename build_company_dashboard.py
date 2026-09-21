@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-生成公司旗下 95 款床垫全量 1.8m SKU 与主图视觉交互分析大屏
+=============================================================================
+生成公司旗下 95 款床垫全量 1.8m SKU 与主图视觉交互分析大屏 (带 SKU 智能同频对标雷达)
+=============================================================================
 """
 import os
 import sys
@@ -170,6 +172,131 @@ def build_dashboard():
             font-weight: 600;
         }}
 
+        /* 🎯 SKU 智能同频对标雷达悬浮/固定控制台 */
+        .sku-anchor-radar-box {{
+            display: none;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 45px rgba(239, 68, 68, 0.25);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }}
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateY(-8px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
+        }}
+        .radar-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+        }}
+        .radar-title {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }}
+        .radar-pulse {{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            animation: pulse 1.5s infinite;
+        }}
+        @keyframes pulse {{
+            0% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }}
+            70% {{ box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }}
+        }}
+        .radar-target-pill {{
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }}
+        .radar-badge {{
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }}
+        .radar-close-btn {{
+            background: #334155;
+            border: 1px solid #475569;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .radar-close-btn:hover {{ background: #ef4444; border-color: #ef4444; }}
+
+        .radar-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 12px;
+        }}
+        .radar-item {{
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+        }}
+        .radar-item-title {{
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }}
+        .delta-btn-group {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }}
+        .delta-btn {{
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }}
+        .delta-btn:hover {{ border-color: #f87171; color: #fff; }}
+        .delta-btn.active {{
+            background: #ef4444;
+            border-color: #ef4444;
+            color: #fff;
+            font-weight: 700;
+        }}
+
+        .radar-footer {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 10px;
+            font-size: 13px;
+        }}
+
         /* KPI 汇总卡片 */
         .kpi-grid {{
             display: grid;
@@ -265,7 +392,49 @@ def build_dashboard():
             color: #fff;
         }}
 
-        /* SKU 展开面板 */
+        /* 可点击的 SKU 价格对标按钮 */
+        .sku-price-anchor-btn {{
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #f87171;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        .sku-price-anchor-btn:hover {{
+            background: #ef4444;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+            transform: scale(1.03);
+        }}
+        .sku-anchor-tag {{
+            background: rgba(0,0,0,0.35);
+            color: #fca5a5;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }}
+        .sku-price-anchor-btn:hover .sku-anchor-tag {{
+            background: #fff;
+            color: #ef4444;
+            font-weight: bold;
+        }}
+
+        /* 对标命中的高亮行 */
+        .tr-matched-sku {{
+            background: rgba(239, 68, 68, 0.12) !important;
+            border-left: 3px solid #ef4444;
+        }}
+        .tr-dimmed-sku {{
+            opacity: 0.4;
+        }}
+
+        /* SKU 抽屉面板 */
         .sku-drawer {{
             display: none;
             background: #0f172a;
@@ -343,6 +512,7 @@ def build_dashboard():
         }}
         .tag-mat {{ background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }}
         .tag-mkt {{ background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }}
+        .tag-hit {{ background: #ef4444; color: #fff; font-weight: bold; border: 1px solid #dc2626; }}
         
         .progress-bar {{
             height: 8px;
@@ -363,7 +533,7 @@ def build_dashboard():
     <div class="app-header">
         <div class="header-title">
             <h1>🏷️ 公司旗下床垫 95 款 1.8米全量 SKU 与主图深度分析大屏</h1>
-            <p>规格限定: 1800mm*2000mm (sku_properties=21433:50753460) | 核心指标: 平台加补后到手价 | 数据源: 生意参谋+天猫详情实时采集+RapidOCR</p>
+            <p>规格限定: 1800mm*2000mm (sku_properties=21433:50753460) | 核心指标: 平台加补后到手价 | 支持【点击任意SKU价格实时对标同频竞品】</p>
         </div>
         <div class="header-stats">
             <div class="stat-badge">
@@ -395,8 +565,93 @@ def build_dashboard():
     <!-- TAB 1: 自定义价格段与 SKU 检索 -->
     <!-- ========================================== -->
     <div class="tab-content active" id="tab-0">
-        <!-- 筛选器 -->
-        <div class="filter-panel">
+
+        <!-- 🎯 SKU 智能同频对标雷达控制面板 -->
+        <div id="sku-anchor-radar" class="sku-anchor-radar-box">
+            <div class="radar-header">
+                <div class="radar-title">
+                    <span class="radar-pulse"></span>
+                    <b style="color: #fff; font-size: 15px;">🎯 SKU 智能同频对标雷达</b>
+                    <span class="radar-target-pill" id="radar-target-name">已锁定基准 SKU</span>
+                    <span class="radar-badge" id="radar-target-shop">月光之家旗舰店</span>
+                    <span class="radar-badge" style="color: #f87171; font-weight: 700;" id="radar-target-price">基准到手价: ￥1,268.20</span>
+                    <span class="radar-badge" style="color: #fbbf24;" id="radar-target-height">基准厚度: 21cm</span>
+                </div>
+                <button class="radar-close-btn" onclick="exitSkuAnchorMode()">✕ 退出对标模式</button>
+            </div>
+            <div class="radar-grid">
+                <!-- 价格公差控制 (正负任意元) -->
+                <div class="radar-item">
+                    <div class="radar-item-title">
+                        <span>💰 价格公差范围 (正负任意元)</span>
+                        <span style="color: #34d399; font-weight: 700;" id="radar-price-range-lbl">￥1168.2 ~ ￥1368.2</span>
+                    </div>
+                    <div class="delta-btn-group">
+                        <button class="delta-btn" onclick="setAnchorDelta(50)">±50元</button>
+                        <button class="delta-btn active" id="delta-btn-100" onclick="setAnchorDelta(100)">±100元 (默认)</button>
+                        <button class="delta-btn" onclick="setAnchorDelta(150)">±150元</button>
+                        <button class="delta-btn" onclick="setAnchorDelta(200)">±200元</button>
+                        <button class="delta-btn" onclick="setAnchorDelta(300)">±300元</button>
+                        <div style="display: flex; align-items: center; gap: 4px; margin-left: 6px;">
+                            <span style="color: var(--text-dim); font-size: 11px;">自定义±:</span>
+                            <input type="number" id="radar-custom-delta" value="100" class="filter-input" style="width: 70px; padding: 2px 6px; height: 26px;" oninput="onCustomDeltaInput(this.value)">
+                            <span style="color: var(--text-dim); font-size: 11px;">元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 床垫总高 (厚度) 筛选 -->
+                <div class="radar-item">
+                    <div class="radar-item-title">
+                        <span>📐 床垫总高 (厚度) 筛选模式</span>
+                        <span style="color: #fbbf24;" id="radar-height-desc">锁定本SKU厚度</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px;">
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            <input type="radio" name="radar-h-mode" value="exact" checked onchange="onRadarHeightModeChange()">
+                            <span>精确匹配 (<b id="radar-h-exact-val" style="color: #fbbf24;">21</b>cm)</span>
+                        </label>
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            <input type="radio" name="radar-h-mode" value="range" onchange="onRadarHeightModeChange()">
+                            <span>相近厚度 (±2cm: <span id="radar-h-near-val">19~23cm</span>)</span>
+                        </label>
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            <input type="radio" name="radar-h-mode" value="all" onchange="onRadarHeightModeChange()">
+                            <span>不限厚度</span>
+                        </label>
+                        <div style="display: flex; align-items: center; gap: 4px; margin-left: auto;">
+                            <span style="color: var(--text-dim); font-size: 11px;">指定:</span>
+                            <input type="number" id="radar-custom-height-input" value="21" class="filter-input" style="width: 55px; padding: 2px 6px; height: 26px;" oninput="onCustomHeightInput(this.value)">
+                            <span style="color: var(--text-dim); font-size: 11px;">cm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 关键词联动过滤 -->
+                <div class="radar-item">
+                    <div class="radar-item-title">
+                        <span>🔤 关键词/材质微调过滤</span>
+                        <span style="color: var(--text-dim); font-size: 11px;">支持搜索同频材质/工艺</span>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="text" id="radar-kw-input" class="filter-input" style="width: 100%; padding: 3px 8px; height: 26px;" placeholder="可输入如：黄麻、乳胶、独立袋、偏硬..." oninput="onRadarKwInput(this.value)">
+                        <button class="sku-expand-btn" onclick="clearRadarKw()" style="padding: 3px 8px;">清除</button>
+                    </div>
+                </div>
+            </div>
+            <div class="radar-footer">
+                <div>
+                    <span>⚡ 实时对标结果：已匹配到 <b id="radar-hit-prods" style="color: #60a5fa; font-size: 15px;">0</b> 款商品，包含 <b id="radar-hit-skus" style="color: #f87171; font-size: 15px;">0</b> 个同频款式</span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="sku-expand-btn" onclick="exportRadarMatchedSkus()">📥 导出对标匹配清单 (CSV)</button>
+                    <button class="sku-expand-btn" onclick="copyRadarLinks()">📋 复制对标商品直达链接</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 常规多维筛选器 -->
+        <div class="filter-panel" id="main-filter-panel">
             <div class="filter-row">
                 <div class="filter-label">1.8m加补价</div>
                 <div style="display: flex; align-items: center; gap: 8px;">
@@ -409,6 +664,24 @@ def build_dashboard():
                 <div class="filter-label" style="margin-left: 20px;">关键词搜索</div>
                 <input type="text" id="filter-kw" class="filter-input" style="width: 220px;" placeholder="搜索款式、材质、店铺、标题..." oninput="applyTab1Filter()">
             </div>
+            
+            <!-- 床垫总高 (厚度) 筛选行 -->
+            <div class="filter-row">
+                <div class="filter-label">床垫总高(厚度)</div>
+                <div class="pill-group" id="height-pills">
+                    <div class="pill active" onclick="setGeneralHeightFilter('all', this)">全部厚度</div>
+                    <div class="pill" onclick="setGeneralHeightFilter('thin_10', this)">≤10cm (极薄/折叠/宿舍)</div>
+                    <div class="pill" onclick="setGeneralHeightFilter('thin_15', this)">11~15cm (中薄垫/榻榻米)</div>
+                    <div class="pill" onclick="setGeneralHeightFilter('std_23', this)">16~23cm (常规家用主打)</div>
+                    <div class="pill" onclick="setGeneralHeightFilter('thick_30', this)">24~30cm+ (超厚五星酒店/尊耀)</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; margin-left: 10px;">
+                    <span style="color: var(--text-dim); font-size: 11px;">精确:</span>
+                    <input type="number" id="filter-h-exact" class="filter-input" style="width: 60px; padding: 3px 6px; height: 26px;" placeholder="如22" oninput="applyTab1Filter()">
+                    <span style="color: var(--text-dim); font-size: 11px;">cm</span>
+                </div>
+            </div>
+
             <div class="filter-row">
                 <div class="filter-label">核心店铺</div>
                 <div class="pill-group" id="shop-pills"></div>
@@ -418,7 +691,7 @@ def build_dashboard():
                 <div class="pill-group" id="mat-pills">
                     <div class="pill" onclick="toggleMatPill(this, '黄麻')">黄麻</div>
                     <div class="pill" onclick="toggleMatPill(this, '乳胶')">乳胶</div>
-                    <div class="pill" onclick="toggleMatPill(this, '弹簧')">独立袋弹簧</div>
+                    <div class="pill" onclick="toggleMatPill(this, '独立袋')">独立袋弹簧</div>
                     <div class="pill" onclick="toggleMatPill(this, '全拆')">全拆洗</div>
                     <div class="pill" onclick="toggleMatPill(this, '双面')">双面睡感</div>
                     <div class="pill" onclick="toggleMatPill(this, '护脊')">护脊加硬</div>
@@ -461,13 +734,13 @@ def build_dashboard():
                     <tr>
                         <th style="width: 50px;">排名</th>
                         <th style="width: 60px;">主图</th>
-                        <th style="width: 140px;">所属店铺</th>
-                        <th>商品标题与核心卖点</th>
-                        <th style="width: 130px;">1.8m起步到手价</th>
-                        <th style="width: 140px;">1.8m款式价格区间</th>
+                        <th style="width: 130px;">所属店铺</th>
+                        <th>商品标题与床垫总高</th>
+                        <th style="width: 140px;">1.8m起步到手价</th>
+                        <th style="width: 130px;">1.8m价格区间</th>
                         <th style="width: 90px;">款式数量</th>
-                        <th style="width: 110px;">昨日销售额</th>
-                        <th style="width: 100px;">操作</th>
+                        <th style="width: 100px;">昨日销售额</th>
+                        <th style="width: 110px;">操作</th>
                     </tr>
                 </thead>
                 <tbody id="tab1-tbody"></tbody>
@@ -591,16 +864,6 @@ def build_dashboard():
     <!-- TAB 6: 主图视觉卖点与到手价透视 -->
     <!-- ========================================== -->
     <div class="tab-content" id="tab-5">
-        <div class="filter-panel">
-            <div class="filter-row">
-                <div class="filter-label">主图高频卖点</div>
-                <div class="pill-group" id="ocr-selling-pills"></div>
-            </div>
-            <div class="filter-row">
-                <div class="filter-label">大促利益点</div>
-                <div class="pill-group" id="ocr-mkt-pills"></div>
-            </div>
-        </div>
         <div class="table-wrap">
             <table>
                 <thead>
@@ -645,6 +908,14 @@ def build_dashboard():
         let activeTab = 0;
         let selectedShops = new Set();
         let selectedMats = new Set();
+        let generalHeightFilter = 'all';
+
+        // 🎯 智能对标雷达状态
+        let anchorTarget = null; // {{ itemId, skuName, price, height, shop, title }}
+        let anchorDelta = 100;   // 默认正负100元
+        let anchorHeightMode = 'exact'; // 'exact' (精确本SKU厚度), 'range' (±2cm), 'all' (不限)
+        let anchorCustomHeight = null;
+        let anchorKeyword = '';
 
         function switchTab(idx) {{
             document.querySelectorAll('.tab-btn').forEach((b, i) => {{
@@ -693,40 +964,240 @@ def build_dashboard():
             applyTab1Filter();
         }}
 
+        function setGeneralHeightFilter(mode, el) {{
+            generalHeightFilter = mode;
+            document.querySelectorAll('#height-pills .pill').forEach(p => p.classList.remove('active'));
+            if (el) el.classList.add('active');
+            applyTab1Filter();
+        }}
+
         function resetTab1Filter() {{
             document.getElementById('filter-pmin').value = '0';
             document.getElementById('filter-pmax').value = '3000';
             document.getElementById('filter-kw').value = '';
+            document.getElementById('filter-h-exact').value = '';
             selectedShops.clear();
             selectedMats.clear();
+            generalHeightFilter = 'all';
             document.querySelectorAll('#tab-0 .pill').forEach(p => p.classList.remove('active'));
+            const defaultAllPill = document.querySelector('#height-pills .pill');
+            if (defaultAllPill) defaultAllPill.classList.add('active');
+            exitSkuAnchorMode();
+        }}
+
+        // ==========================================
+        // 🎯 智能对标雷达核心动作与状态控制
+        // ==========================================
+        function activateSkuRadar(itemId, skuName, price, height, shop, title) {{
+            anchorTarget = {{
+                itemId: String(itemId),
+                skuName: skuName,
+                price: parseFloat(price),
+                height: (height !== null && !isNaN(height)) ? parseFloat(height) : null,
+                shop: shop,
+                title: title
+            }};
+
+            anchorDelta = 100; // 默认增加100，和减少100这个区间
+            anchorHeightMode = anchorTarget.height ? 'exact' : 'all'; // 默认就是用本sku的厚度
+            anchorCustomHeight = anchorTarget.height;
+            anchorKeyword = '';
+
+            // 更新雷达面板 UI
+            document.getElementById('radar-target-name').innerText = anchorTarget.skuName;
+            document.getElementById('radar-target-shop').innerText = anchorTarget.shop;
+            document.getElementById('radar-target-price').innerText = `基准到手价: ￥${{anchorTarget.price.toFixed(2)}}`;
+            document.getElementById('radar-target-height').innerText = `基准厚度: ${{anchorTarget.height ? anchorTarget.height + 'cm' : '未标明'}}`;
+
+            updateRadarControlsUI();
+
+            // 显示雷达面板并切到 Tab 1
+            const radarBox = document.getElementById('sku-anchor-radar');
+            radarBox.style.display = 'block';
+            switchTab(0);
+
+            // 平滑滚动到雷达位置
+            radarBox.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+
             applyTab1Filter();
         }}
 
-        function applyTab1Filter() {{
-            const pmin = parseFloat(document.getElementById('filter-pmin').value) || 0;
-            const pmax = parseFloat(document.getElementById('filter-pmax').value) || 999999;
-            const kw = document.getElementById('filter-kw').value.trim().toLowerCase();
+        function updateRadarControlsUI() {{
+            if (!anchorTarget) return;
 
-            const matched = DB.products.filter(p => {{
-                const price = p.min_price || 0;
-                if (price < pmin || price > pmax) return false;
-                if (selectedShops.size > 0 && !selectedShops.has(p.shop)) return false;
-                
-                if (selectedMats.size > 0) {{
-                    const fullText = (p.title + ' ' + (p.selling_points || []).join(' ')).toLowerCase();
-                    for (let m of selectedMats) {{
-                        if (!fullText.includes(m.toLowerCase())) return false;
-                    }}
-                }}
+            // 价格公差显示
+            const minP = Math.max(0, anchorTarget.price - anchorDelta).toFixed(2);
+            const maxP = (anchorTarget.price + anchorDelta).toFixed(2);
+            document.getElementById('radar-price-range-lbl').innerText = `￥${{minP}} ~ ￥${{maxP}} (±${{anchorDelta}}元)`;
+            document.getElementById('radar-custom-delta').value = anchorDelta;
 
-                if (kw) {{
-                    const skuNames = (p.skus || []).map(s => s.name).join(' ');
-                    const searchCorpus = (p.title + ' ' + p.shop + ' ' + skuNames).toLowerCase();
-                    if (!searchCorpus.includes(kw)) return false;
-                }}
-                return true;
+            document.querySelectorAll('.delta-btn').forEach(btn => {{
+                const txt = btn.innerText;
+                btn.classList.toggle('active', txt.includes(`±${{anchorDelta}}元`));
             }});
+
+            // 厚度显示
+            const h = anchorCustomHeight;
+            document.getElementById('radar-h-exact-val').innerText = h !== null ? h : '-';
+            document.getElementById('radar-h-near-val').innerText = h !== null ? `${{Math.max(1, h-2)}}~${{h+2}}cm` : '-';
+            document.getElementById('radar-custom-height-input').value = h !== null ? h : '';
+
+            const radios = document.getElementsByName('radar-h-mode');
+            radios.forEach(r => {{
+                r.checked = (r.value === anchorHeightMode);
+            }});
+
+            let hDesc = '不限厚度';
+            if (anchorHeightMode === 'exact') hDesc = `锁定精确 ${{h}}cm`;
+            else if (anchorHeightMode === 'range') hDesc = `相近厚度 ±2cm (${{Math.max(1, h-2)}}~${{h+2}}cm)`;
+            document.getElementById('radar-height-desc').innerText = hDesc;
+
+            document.getElementById('radar-kw-input').value = anchorKeyword;
+        }}
+
+        function setAnchorDelta(val) {{
+            anchorDelta = parseFloat(val) || 100;
+            updateRadarControlsUI();
+            applyTab1Filter();
+        }}
+
+        function onCustomDeltaInput(val) {{
+            const num = parseFloat(val);
+            if (!isNaN(num) && num >= 0) {{
+                anchorDelta = num;
+                document.querySelectorAll('.delta-btn').forEach(b => b.classList.remove('active'));
+                const minP = Math.max(0, anchorTarget.price - anchorDelta).toFixed(2);
+                const maxP = (anchorTarget.price + anchorDelta).toFixed(2);
+                document.getElementById('radar-price-range-lbl').innerText = `￥${{minP}} ~ ￥${{maxP}} (±${{anchorDelta}}元)`;
+                applyTab1Filter();
+            }}
+        }}
+
+        function onRadarHeightModeChange() {{
+            const radios = document.getElementsByName('radar-h-mode');
+            for (let r of radios) {{
+                if (r.checked) {{
+                    anchorHeightMode = r.value;
+                    break;
+                }}
+            }}
+            updateRadarControlsUI();
+            applyTab1Filter();
+        }}
+
+        function onCustomHeightInput(val) {{
+            const num = parseFloat(val);
+            if (!isNaN(num) && num > 0) {{
+                anchorCustomHeight = num;
+                anchorHeightMode = 'exact';
+                updateRadarControlsUI();
+                applyTab1Filter();
+            }}
+        }}
+
+        function onRadarKwInput(val) {{
+            anchorKeyword = (val || '').trim().toLowerCase();
+            applyTab1Filter();
+        }}
+
+        function clearRadarKw() {{
+            anchorKeyword = '';
+            document.getElementById('radar-kw-input').value = '';
+            applyTab1Filter();
+        }}
+
+        function exitSkuAnchorMode() {{
+            anchorTarget = null;
+            document.getElementById('sku-anchor-radar').style.display = 'none';
+            applyTab1Filter();
+        }}
+
+        // ==========================================
+        // 核心过滤筛选引擎 (支持常规筛选 + 对标雷达双模)
+        // ==========================================
+        function applyTab1Filter() {{
+            let matched = [];
+            let radarTotalHitSkus = 0;
+
+            if (anchorTarget) {{
+                // 🎯 处于对标雷达模式：按照基准价格 ± anchorDelta，以及厚度和关键词严格筛选同频 SKU
+                const pMin = Math.max(0, anchorTarget.price - anchorDelta);
+                const pMax = anchorTarget.price + anchorDelta;
+
+                DB.products.forEach(p => {{
+                    // 检查该商品下有哪些 SKU 命中
+                    const matchedSkus = [];
+                    (p.skus || []).forEach(s => {{
+                        if (!s.price || s.price <= 0) return;
+                        // 1. 价格判断
+                        if (s.price < pMin || s.price > pMax) return;
+                        // 2. 厚度判断 (默认就是用本sku的厚度)
+                        if (anchorHeightMode === 'exact' && anchorCustomHeight !== null) {{
+                            if (s.height !== anchorCustomHeight) return;
+                        }} else if (anchorHeightMode === 'range' && anchorCustomHeight !== null) {{
+                            if (s.height === null || s.height < anchorCustomHeight - 2 || s.height > anchorCustomHeight + 2) return;
+                        }}
+                        // 3. 关键词判断
+                        if (anchorKeyword) {{
+                            const searchScope = (s.name + ' ' + p.title + ' ' + (p.selling_points || []).join(' ')).toLowerCase();
+                            if (!searchScope.includes(anchorKeyword)) return;
+                        }}
+                        matchedSkus.push(s);
+                    }});
+
+                    if (matchedSkus.length > 0) {{
+                        radarTotalHitSkus += matchedSkus.length;
+                        // 浅拷贝对象并附加命中信息
+                        matched.push({{
+                            ...p,
+                            isAnchorHit: true,
+                            matchedSkuCount: matchedSkus.length,
+                            matchedSkuNames: new Set(matchedSkus.map(s => s.name))
+                        }});
+                    }}
+                }});
+
+                document.getElementById('radar-hit-prods').innerText = matched.length;
+                document.getElementById('radar-hit-skus').innerText = radarTotalHitSkus;
+
+            }} else {{
+                // 常规全景过滤
+                const pmin = parseFloat(document.getElementById('filter-pmin').value) || 0;
+                const pmax = parseFloat(document.getElementById('filter-pmax').value) || 999999;
+                const kw = document.getElementById('filter-kw').value.trim().toLowerCase();
+                const exactH = parseFloat(document.getElementById('filter-h-exact').value) || null;
+
+                matched = DB.products.filter(p => {{
+                    const price = p.min_price || 0;
+                    if (price < pmin || price > pmax) return false;
+                    if (selectedShops.size > 0 && !selectedShops.has(p.shop)) return false;
+                    
+                    if (selectedMats.size > 0) {{
+                        const fullText = (p.title + ' ' + (p.selling_points || []).join(' ')).toLowerCase();
+                        for (let m of selectedMats) {{
+                            if (!fullText.includes(m.toLowerCase())) return false;
+                        }}
+                    }}
+
+                    // 厚度过滤
+                    if (exactH !== null) {{
+                        if (!(p.heights || []).includes(exactH)) return false;
+                    }} else if (generalHeightFilter !== 'all') {{
+                        const ph = p.heights || [];
+                        if (generalHeightFilter === 'thin_10' && !ph.some(h => h <= 10)) return false;
+                        if (generalHeightFilter === 'thin_15' && !ph.some(h => h >= 11 && h <= 15)) return false;
+                        if (generalHeightFilter === 'std_23' && !ph.some(h => h >= 16 && h <= 23)) return false;
+                        if (generalHeightFilter === 'thick_30' && !ph.some(h => h >= 24)) return false;
+                    }}
+
+                    if (kw) {{
+                        const skuNames = (p.skus || []).map(s => s.name).join(' ');
+                        const searchCorpus = (p.title + ' ' + p.shop + ' ' + skuNames).toLowerCase();
+                        if (!searchCorpus.includes(kw)) return false;
+                    }}
+                    return true;
+                }});
+            }}
 
             renderTab1Table(matched);
         }}
@@ -750,6 +1221,14 @@ def build_dashboard():
                 const tagsHtml = (p.selling_points || []).map(t => `<span class="tag tag-mat">${{t}}</span>`).join('') +
                                  (p.marketing_text || []).map(t => `<span class="tag tag-mkt">${{t}}</span>`).join('');
 
+                const isAnchorTargetSelf = (anchorTarget && anchorTarget.itemId === String(p.itemId));
+                let hitBadge = '';
+                if (p.isAnchorHit) {{
+                    hitBadge = isAnchorTargetSelf ? 
+                        `<span class="tag tag-hit" style="background: #3b82f6; border-color: #2563eb;">🎯 锚定基准源品</span>` : 
+                        `<span class="tag tag-hit">🎯 命中 ${{p.matchedSkuCount}} 款同频配置</span>`;
+                }}
+
                 tr.innerHTML = `
                     <td><span class="rank-badge ${{rankCls}}">${{p.rank}}</span></td>
                     <td>
@@ -758,12 +1237,24 @@ def build_dashboard():
                     </td>
                     <td><span class="shop-pill">${{p.shop}}</span></td>
                     <td>
-                        <a href="${{p.link}}" target="_blank" style="color: #fff; text-decoration: none; font-weight: 500;" title="点击直达天猫1.8m详情页">
-                            ${{p.title}} ↗
-                        </a>
-                        <div style="margin-top: 4px;">${{tagsHtml}}</div>
+                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                            ${{hitBadge}}
+                            <a href="${{p.link}}" target="_blank" style="color: #fff; text-decoration: none; font-weight: 500;" title="点击直达天猫1.8m详情页">
+                                ${{p.title}} ↗
+                            </a>
+                        </div>
+                        <div style="margin-top: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <span class="tag tag-mat" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">
+                                📐 总高: ${{p.height_display || '未标明'}}
+                            </span>
+                            ${{tagsHtml}}
+                        </div>
                     </td>
-                    <td><b class="price-hl">￥${{p.min_price ? p.min_price.toFixed(2) : '-'}}</b></td>
+                    <td>
+                        <button class="sku-price-anchor-btn" onclick="activateSkuRadar('${{p.itemId}}', '${{escapeJs(p.title)}} (起步配置)', ${{p.min_price || 0}}, ${{p.height_min || 'null'}}, '${{p.shop}}', '${{escapeJs(p.title)}}')" title="点击以此起步价对标同频竞品 (正负任意元 & 厚度)">
+                            ￥${{p.min_price ? p.min_price.toFixed(2) : '-'}} <span class="sku-anchor-tag">🎯对标</span>
+                        </button>
+                    </td>
                     <td>￥${{p.min_price ? p.min_price.toFixed(0) : '-'}} ~ ￥${{p.max_price ? p.max_price.toFixed(0) : '-'}}</td>
                     <td><span style="background: #334155; padding: 2px 8px; border-radius: 4px; font-weight: 600;">${{p.sku_count}} 款</span></td>
                     <td style="color: #34d399; font-weight: 600;">￥${{p.sales_amount.toLocaleString()}}</td>
@@ -772,19 +1263,60 @@ def build_dashboard():
                     </td>
                 `;
 
-                // SKU 抽屉行
+                // SKU 抽屉行 (若处于对标模式且命中，则默认展开)
                 const trDrawer = document.createElement('tr');
                 trDrawer.id = `drawer-row-${{p.itemId}}`;
-                trDrawer.style.display = 'none';
+                trDrawer.style.display = (anchorTarget && p.isAnchorHit) ? 'table-row' : 'none';
 
                 let skuRowsHtml = '';
                 (p.skus || []).forEach((s, idx) => {{
                     const saveAmt = s.orig && s.price ? (s.orig - s.price).toFixed(1) : '-';
+                    
+                    // 判断该 SKU 是否命中对标雷达
+                    let isSkuHit = false;
+                    let diffText = '';
+                    if (anchorTarget && s.price) {{
+                        const pMin = Math.max(0, anchorTarget.price - anchorDelta);
+                        const pMax = anchorTarget.price + anchorDelta;
+                        const pMatch = (s.price >= pMin && s.price <= pMax);
+                        
+                        let hMatch = true;
+                        if (anchorHeightMode === 'exact' && anchorCustomHeight !== null) {{
+                            hMatch = (s.height === anchorCustomHeight);
+                        }} else if (anchorHeightMode === 'range' && anchorCustomHeight !== null) {{
+                            hMatch = (s.height !== null && s.height >= anchorCustomHeight - 2 && s.height <= anchorCustomHeight + 2);
+                        }}
+
+                        let kwMatch = true;
+                        if (anchorKeyword) {{
+                            kwMatch = (s.name.toLowerCase().includes(anchorKeyword));
+                        }}
+
+                        isSkuHit = pMatch && hMatch && kwMatch;
+                        const diff = s.price - anchorTarget.price;
+                        diffText = (diff === 0) ? '<span style="color:#38bdf8;">[基准/同价]</span>' : (diff > 0 ? `<span style="color:#f87171;">[+￥${{diff.toFixed(1)}}]</span>` : `<span style="color:#34d399;">[-￥${{Math.abs(diff).toFixed(1)}}]</span>`);
+                    }}
+
+                    const rowClass = anchorTarget ? (isSkuHit ? 'tr-matched-sku' : 'tr-dimmed-sku') : '';
+                    const hitLabel = isSkuHit ? `<span class="tag tag-hit">✓ 对标命中 ${{diffText}}</span>` : '';
+
                     skuRowsHtml += `
-                        <tr>
+                        <tr class="${{rowClass}}">
                             <td style="width: 30px; color: var(--text-dim);">${{idx + 1}}</td>
-                            <td><b>${{s.name}}</b></td>
-                            <td style="color: #f87171; font-weight: 700;">￥${{s.price}}</td>
+                            <td>
+                                <b>${{s.name}}</b>
+                                ${{hitLabel}}
+                            </td>
+                            <td>
+                                <span style="background: #1e293b; color: #fbbf24; padding: 2px 6px; border-radius: 4px; font-size: 11px;">
+                                    ${{s.height ? s.height + 'cm' : '未标明'}}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="sku-price-anchor-btn" onclick="activateSkuRadar('${{p.itemId}}', '${{escapeJs(s.name)}}', ${{s.price}}, ${{s.height || 'null'}}, '${{p.shop}}', '${{escapeJs(p.title)}}')" title="点击以此价格自动对标同频竞品 (正负任意元 & 此厚度)">
+                                    ￥${{s.price}} <span class="sku-anchor-tag">🎯对标</span>
+                                </button>
+                            </td>
                             <td style="color: var(--text-sub); text-decoration: line-through;">￥${{s.orig || '-'}}</td>
                             <td style="color: #34d399;">省 ￥${{saveAmt}}</td>
                             <td><span class="tag tag-mkt">${{s.tag || '平台加补后'}}</span></td>
@@ -795,15 +1327,16 @@ def build_dashboard():
                 trDrawer.innerHTML = `
                     <td colspan="9" style="padding: 0 14px 14px 14px;">
                         <div class="sku-drawer open">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <b style="color: #f87171;">📋 1800mm*2000mm 规格下全部款式与平台加补价明细 (共 ${{p.sku_count}} 款)</b>
-                                <span style="font-size: 11px; color: var(--text-sub);">直达链接: <a href="${{p.link}}" target="_blank" style="color: #38bdf8;">${{p.link}}</a></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <b style="color: #f87171;">📋 1800mm*2000mm 规格下全部款式明细 (共 ${{p.sku_count}} 款) <span style="color:var(--text-sub); font-size:12px; font-weight:normal;">(提示：点击任意款式的价格即可秒级开启对标)</span></b>
+                                <span style="font-size: 11px; color: var(--text-sub);">直达详情页: <a href="${{p.link}}" target="_blank" style="color: #38bdf8;">${{p.link}}</a></span>
                             </div>
                             <table class="sku-table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>款式/配置名称</th>
+                                        <th>床垫总高(厚度)</th>
                                         <th>平台加补后到手价</th>
                                         <th>优惠前原价</th>
                                         <th>优惠差额</th>
@@ -839,6 +1372,84 @@ def build_dashboard():
             }}
         }}
 
+        function escapeJs(str) {{
+            if (!str) return '';
+            return String(str).replace(/'/g, "\\\\'").replace(/"/g, '&quot;');
+        }}
+
+        // 导出对标匹配结果 CSV
+        function exportRadarMatchedSkus() {{
+            if (!anchorTarget) return alert('当前未处于对标模式');
+            const pMin = Math.max(0, anchorTarget.price - anchorDelta);
+            const pMax = anchorTarget.price + anchorDelta;
+
+            const rows = [
+                ['基准商品', anchorTarget.title],
+                ['基准SKU款式', anchorTarget.skuName],
+                ['基准到手价', anchorTarget.price],
+                ['基准厚度', anchorTarget.height ? anchorTarget.height + 'cm' : ''],
+                ['对标公差', `±${{anchorDelta}}元`],
+                ['对标价格区间', `${{pMin}} ~ ${{pMax}}`],
+                [],
+                ['排名', '商品ID', '所属店铺', '商品标题', 'SKU款式名称', '床垫总高(cm)', '加补到手价(元)', '优惠前原价(元)', '与基准价差额(元)', '直达链接']
+            ];
+
+            DB.products.forEach(p => {{
+                (p.skus || []).forEach(s => {{
+                    if (!s.price || s.price <= 0) return;
+                    if (s.price < pMin || s.price > pMax) return;
+                    if (anchorHeightMode === 'exact' && anchorCustomHeight !== null && s.height !== anchorCustomHeight) return;
+                    if (anchorHeightMode === 'range' && anchorCustomHeight !== null && (s.height === null || s.height < anchorCustomHeight - 2 || s.height > anchorCustomHeight + 2)) return;
+                    if (anchorKeyword && !(s.name + ' ' + p.title).toLowerCase().includes(anchorKeyword)) return;
+
+                    const diff = (s.price - anchorTarget.price).toFixed(2);
+                    rows.push([
+                        p.rank,
+                        p.itemId,
+                        p.shop,
+                        `"${{p.title.replace(/"/g, '""')}}"`,
+                        `"${{s.name.replace(/"/g, '""')}}"`,
+                        s.height || '',
+                        s.price,
+                        s.orig || '',
+                        diff,
+                        p.link
+                    ]);
+                }});
+            }});
+
+            const csvContent = "\\uFEFF" + rows.map(e => e.join(",")).join("\\n");
+            const blob = new Blob([csvContent], {{ type: 'text/csv;charset=utf-8;' }});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `SKU同频对标匹配清单_${{anchorTarget.price}}元_±${{anchorDelta}}元.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }}
+
+        function copyRadarLinks() {{
+            if (!anchorTarget) return;
+            const pMin = Math.max(0, anchorTarget.price - anchorDelta);
+            const pMax = anchorTarget.price + anchorDelta;
+            const links = [];
+
+            DB.products.forEach(p => {{
+                const hasHit = (p.skus || []).some(s => {{
+                    if (!s.price || s.price < pMin || s.price > pMax) return false;
+                    if (anchorHeightMode === 'exact' && anchorCustomHeight !== null && s.height !== anchorCustomHeight) return false;
+                    if (anchorHeightMode === 'range' && anchorCustomHeight !== null && (s.height === null || s.height < anchorCustomHeight - 2 || s.height > anchorCustomHeight + 2)) return false;
+                    return true;
+                }});
+                if (hasHit) links.push(`[#${{p.rank}} ${{p.shop}}] ${{p.title}} => ${{p.link}}`);
+            }});
+
+            navigator.clipboard.writeText(links.join('\\n')).then(() => {{
+                alert(`📋 已成功复制 ${{links.length}} 款同频对标商品链接至剪贴板！`);
+            }});
+        }}
+
         // 渲染 Tab 2 价格带
         function renderTab2() {{
             const grid = document.getElementById('band-kpi-grid');
@@ -857,7 +1468,6 @@ def build_dashboard():
                 `;
                 grid.appendChild(card);
 
-                // 找代表爆款
                 const prodsInBand = DB.products.filter(p => p.min_price >= b.min && p.min_price <= b.max);
                 const sampleTitles = prodsInBand.slice(0, 2).map(p => `• [#${{p.rank}} ${{p.shop}}] ${{p.title.slice(0, 18)}}...`).join('<br>');
 
@@ -1036,7 +1646,11 @@ def build_dashboard():
                     </td>
                     <td><span class="shop-pill">${{p.shop}}</span></td>
                     <td><a href="${{p.link}}" target="_blank" style="color:#fff; text-decoration:none;">${{p.title}} ↗</a></td>
-                    <td><b class="price-hl">￥${{p.min_price ? p.min_price.toFixed(2) : '-'}}</b></td>
+                    <td>
+                        <button class="sku-price-anchor-btn" onclick="activateSkuRadar('${{p.itemId}}', '${{escapeJs(p.title)}} (起步配置)', ${{p.min_price || 0}}, ${{p.height_min || 'null'}}, '${{p.shop}}', '${{escapeJs(p.title)}}')" title="点击以此起步价对标同频竞品 (正负任意元 & 厚度)">
+                            ￥${{p.min_price ? p.min_price.toFixed(2) : '-'}} <span class="sku-anchor-tag">🎯对标</span>
+                        </button>
+                    </td>
                     <td>${{sellTags}}</td>
                     <td>${{mktTags}}</td>
                     <td style="font-size: 11px; color: #94a3b8; max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${{p.ocr_raw}}">
@@ -1091,7 +1705,7 @@ def build_dashboard():
 """
     with open(OUT_HTML, "w", encoding="utf-8") as f:
         f.write(html_template)
-    print(f"🎉 成功生成公司旗下 95 款床垫全量 SKU 交互分析大屏: {OUT_HTML}")
+    print(f"🎉 成功生成公司旗下 95 款床垫全量 SKU 交互分析大屏 (已集成智能同频对标雷达): {OUT_HTML}")
 
 if __name__ == "__main__":
     build_dashboard()

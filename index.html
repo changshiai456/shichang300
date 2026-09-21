@@ -1780,6 +1780,162 @@
             background: rgba(255,255,255,0.05);
         }
 
+    
+        /* 🎯 SKU 智能同频对标雷达控制面板 */
+        .sku-anchor-radar-box {
+            display: none;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 45px rgba(239, 68, 68, 0.25);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .radar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .radar-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .radar-pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .radar-target-pill {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .radar-badge {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .radar-close-btn {
+            background: #334155;
+            border: 1px solid #475569;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .radar-close-btn:hover { background: #ef4444; border-color: #ef4444; }
+
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .radar-item {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+        }
+        .radar-item-title {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+        .delta-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+        .delta-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .delta-btn:hover { border-color: #f87171; color: #fff; }
+        .delta-btn.active {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: #fff;
+            font-weight: 700;
+        }
+        .radar-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 10px;
+            font-size: 13px;
+        }
+        .sku-price-anchor-btn {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #f87171;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .sku-price-anchor-btn:hover {
+            background: #ef4444;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+            transform: scale(1.02);
+        }
+        .sku-anchor-tag {
+            background: rgba(0,0,0,0.35);
+            color: #fca5a5;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+        .sku-price-anchor-btn:hover .sku-anchor-tag {
+            background: #fff;
+            color: #ef4444;
+            font-weight: bold;
+        }
+    
     </style>
 </head>
 <body>
@@ -6251,7 +6407,184 @@ const DB = {"total_products": 300, "total_skus": 4594, "overall_price_median": 7
         runCustomFilter();
         initCompareTab();
 
-</script>
+
+        // ==========================================
+        // 🎯 智能同频对标雷达核心动作 (300款大盘)
+        // ==========================================
+        let anchorTarget = null;
+        let anchorDelta = 100;
+        let anchorHeightMode = 'exact';
+        let anchorCustomHeight = null;
+        let anchorKeyword = '';
+
+        function escapeJs(str) {
+            if (!str) return '';
+            return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        function activateSkuRadar(skuName, price, height, shop, title) {
+            if (price === null || isNaN(price) || price <= 0) return alert('该SKU暂无有效价格');
+
+            anchorTarget = {
+                skuName: skuName,
+                price: parseFloat(price),
+                height: (height !== null && !isNaN(height)) ? parseFloat(height) : null,
+                shop: shop,
+                title: title
+            };
+
+            anchorDelta = 100;
+            anchorHeightMode = anchorTarget.height ? 'exact' : 'all';
+            anchorCustomHeight = anchorTarget.height;
+            anchorKeyword = '';
+
+            document.getElementById('radar-target-name').innerText = anchorTarget.skuName;
+            document.getElementById('radar-target-shop').innerText = anchorTarget.shop;
+            document.getElementById('radar-target-price').innerText = `基准到手价: ￥${anchorTarget.price.toFixed(2)}`;
+            document.getElementById('radar-target-height').innerText = `基准厚度: ${anchorTarget.height ? anchorTarget.height + 'cm' : '未标明'}`;
+
+            updateRadarControlsUI();
+
+            const radarBox = document.getElementById('sku-anchor-radar');
+            if (radarBox) {
+                radarBox.style.display = 'block';
+                switchNav('tab-filter');
+                radarBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            syncRadarToFilters();
+        }
+
+        function updateRadarControlsUI() {
+            if (!anchorTarget) return;
+            const minP = Math.max(0, anchorTarget.price - anchorDelta).toFixed(2);
+            const maxP = (anchorTarget.price + anchorDelta).toFixed(2);
+            document.getElementById('radar-price-range-lbl').innerText = `￥${minP} ~ ￥${maxP} (±${anchorDelta}元)`;
+            document.getElementById('radar-custom-delta').value = anchorDelta;
+
+            document.querySelectorAll('.delta-btn').forEach(btn => {
+                const txt = btn.innerText;
+                btn.classList.toggle('active', txt.includes(`±${anchorDelta}元`));
+            });
+
+            const h = anchorCustomHeight;
+            document.getElementById('radar-h-exact-val').innerText = h !== null ? h : '-';
+            document.getElementById('radar-h-near-val').innerText = h !== null ? `${Math.max(1, h-2)}~${h+2}cm` : '-';
+            document.getElementById('radar-custom-height-input').value = h !== null ? h : '';
+
+            const radios = document.getElementsByName('radar-h-mode');
+            radios.forEach(r => {
+                r.checked = (r.value === anchorHeightMode);
+            });
+
+            let hDesc = '不限厚度';
+            if (anchorHeightMode === 'exact') hDesc = `锁定精确 ${h}cm`;
+            else if (anchorHeightMode === 'range') hDesc = `相近厚度 ±2cm (${Math.max(1, h-2)}~${h+2}cm)`;
+            document.getElementById('radar-height-desc').innerText = hDesc;
+
+            document.getElementById('radar-kw-input').value = anchorKeyword;
+        }
+
+        function setAnchorDelta(val) {
+            anchorDelta = parseFloat(val) || 100;
+            updateRadarControlsUI();
+            syncRadarToFilters();
+        }
+
+        function onCustomDeltaInput(val) {
+            const num = parseFloat(val);
+            if (!isNaN(num) && num >= 0) {
+                anchorDelta = num;
+                document.querySelectorAll('.delta-btn').forEach(b => b.classList.remove('active'));
+                updateRadarControlsUI();
+                syncRadarToFilters();
+            }
+        }
+
+        function onRadarHeightModeChange() {
+            const radios = document.getElementsByName('radar-h-mode');
+            for (let r of radios) {
+                if (r.checked) {
+                    anchorHeightMode = r.value;
+                    break;
+                }
+            }
+            updateRadarControlsUI();
+            syncRadarToFilters();
+        }
+
+        function onCustomHeightInput(val) {
+            const num = parseFloat(val);
+            if (!isNaN(num) && num > 0) {
+                anchorCustomHeight = num;
+                anchorHeightMode = 'exact';
+                updateRadarControlsUI();
+                syncRadarToFilters();
+            }
+        }
+
+        function onRadarKwInput(val) {
+            anchorKeyword = (val || '').trim();
+            syncRadarToFilters();
+        }
+
+        function clearRadarKw() {
+            anchorKeyword = '';
+            document.getElementById('radar-kw-input').value = '';
+            syncRadarToFilters();
+        }
+
+        function exitSkuAnchorMode() {
+            anchorTarget = null;
+            const radarBox = document.getElementById('sku-anchor-radar');
+            if (radarBox) radarBox.style.display = 'none';
+
+            document.getElementById('cust-min-price').value = '';
+            document.getElementById('cust-max-price').value = '';
+            document.getElementById('cust-min-height').value = '';
+            document.getElementById('cust-max-height').value = '';
+            document.getElementById('cust-keyword').value = '';
+            runCustomFilter();
+        }
+
+        function syncRadarToFilters() {
+            if (!anchorTarget) return;
+            const minP = Math.max(0, anchorTarget.price - anchorDelta);
+            const maxP = anchorTarget.price + anchorDelta;
+            document.getElementById('cust-min-price').value = minP;
+            document.getElementById('cust-max-price').value = maxP;
+
+            if (anchorHeightMode === 'exact' && anchorCustomHeight !== null) {
+                document.getElementById('cust-min-height').value = anchorCustomHeight;
+                document.getElementById('cust-max-height').value = anchorCustomHeight;
+            } else if (anchorHeightMode === 'range' && anchorCustomHeight !== null) {
+                document.getElementById('cust-min-height').value = Math.max(1, anchorCustomHeight - 2);
+                document.getElementById('cust-max-height').value = anchorCustomHeight + 2;
+            } else {
+                document.getElementById('cust-min-height').value = '';
+                document.getElementById('cust-max-height').value = '';
+            }
+
+            document.getElementById('cust-keyword').value = anchorKeyword;
+            runCustomFilter();
+        }
+
+        function copyRadarFilteredLinks() {
+            if (!anchorTarget) return;
+            const links = [];
+            document.querySelectorAll('#filter-results-list .product-card').forEach(card => {
+                const titleEl = card.querySelector('.product-title');
+                const linkEl = card.querySelector('a[href*="detail.tmall.com"], a[href*="item.taobao.com"]');
+                if (linkEl) {
+                    links.push((titleEl ? titleEl.innerText.trim() : '') + ' => ' + linkEl.href);
+                }
+            });
+            navigator.clipboard.writeText(links.join('\n')).then(() => {
+                alert(`📋 已成功复制 ${links.length} 款同频对标商品链接至剪贴板！`);
+            });
+        }
+    
+    </script>
 
     <!-- 收藏商品管理模态框 -->
     <div id="fav-modal" class="fav-modal-overlay" onclick="if(event.target === this) closeFavoritesModal()">

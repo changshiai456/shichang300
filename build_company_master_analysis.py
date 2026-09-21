@@ -21,6 +21,17 @@ OUT_MASTER_JSON = os.path.join(BASE_DIR, "company_mattress_full_integrated_analy
 OUT_MASTER_CSV = os.path.join(BASE_DIR, "company_mattress_full_integrated_analysis.csv")
 OUT_HTML = os.path.join(BASE_DIR, "公司旗下床垫95款全量SKU与主图分析交互大屏.html")
 
+def extract_height(sku_name, title=''):
+    matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:cm|CM|厘米|公分|厚)', sku_name)
+    if not matches:
+        matches = re.findall(r'(\d+(?:\.\d+)?)\s*(?:cm|CM|厘米|公分|厚)', title)
+    if matches:
+        nums = [float(x) for x in matches if 3 <= float(x) <= 45]
+        if nums:
+            total_h = max(nums)
+            return int(total_h) if total_h.is_integer() else total_h
+    return None
+
 def main():
     print("=" * 70)
     print("🚀 正在整合公司旗下 95 款床垫全量 1.8m SKU、主图视觉与销售数据...")
@@ -78,6 +89,8 @@ def main():
         mean_p = p.get("mean_price")
         
         for s in skus:
+            h = extract_height(s.get("name", ""), title)
+            s["height"] = h
             if isinstance(s.get("price"), (int, float)) and s["price"] > 1:
                 all_prices.append(s["price"])
                 
@@ -91,6 +104,7 @@ def main():
                 "1.8米款式中位价(元)": median_p,
                 "款式总数": len(skus),
                 "SKU款型名称": s.get("name"),
+                "床垫总高(cm)": h if h is not None else "",
                 "平台加补后到手价(元)": s.get("price"),
                 "优惠前原价(元)": s.get("orig"),
                 "价格标签": s.get("tag", "平台加补后"),
@@ -106,6 +120,11 @@ def main():
                 "主图链接": main_img_url,
                 "本地主图路径": local_img_path
             })
+
+        heights = sorted(list(set([s["height"] for s in skus if s.get("height") is not None])))
+        h_min = min(heights) if heights else None
+        h_max = max(heights) if heights else None
+        h_disp = f"{h_min}~{h_max}cm" if (h_min and h_max and h_min != h_max) else (f"{h_min}cm" if h_min else "未标明")
 
         prod_record = {
             "rank": rank,
@@ -125,6 +144,10 @@ def main():
             "max_price": max_p,
             "median_price": median_p,
             "mean_price": mean_p,
+            "heights": heights,
+            "height_min": h_min,
+            "height_max": h_max,
+            "height_display": h_disp,
             "sku_count": len(skus),
             "skus": skus,
             "ocr_raw": ocr_raw,
