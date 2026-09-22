@@ -8155,6 +8155,514 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             syncRadarToFilters();
         }
 
+    
+        // =========================================================================
+        // TAB 1 全量 SKU 扁平透视宽表引擎 (默认单行 · 数值强化 · 拖拽列宽 · 悬浮放大)
+        // =========================================================================
+        window.tab1ViewType = 'table'; // 'table' (透视大宽表) | 'card' (传统大卡片)
+        window.tab1ShowRichTags = false; // 默认紧凑纯净单行
+        window.tab1SortCol = 'rank';
+        window.tab1SortAsc = true;
+        window.tab1RenderLimit = 60;
+        window.tab1FlatSkusCache = [];
+
+        function toggleTab1ViewMode() {
+            window.tab1ShowRichTags = !window.tab1ShowRichTags;
+            const btn = document.getElementById('btn-tab1-view-mode');
+            if (btn) btn.innerText = window.tab1ShowRichTags ? '🏷️ 模式：多标签展开' : '⚡ 模式：紧凑纯净宽表';
+            if (window._LAST_FILTERED) {
+                renderCustomSkuTable(window._LAST_FILTERED, 'custom-results-container');
+            }
+        }
+
+        function toggleTab1CardMode() {
+            window.tab1ViewType = (window.tab1ViewType === 'table' ? 'card' : 'table');
+            const btn = document.getElementById('btn-tab1-card-toggle');
+            if (btn) btn.innerText = (window.tab1ViewType === 'card' ? '📑 切换为透视大宽表' : '🗂️ 切换为传统大卡片');
+            const modeBtn = document.getElementById('btn-tab1-view-mode');
+            if (modeBtn) modeBtn.style.display = (window.tab1ViewType === 'card' ? 'none' : 'inline-flex');
+            runCustomFilter();
+        }
+
+        function copyItemId(itemId, e) {
+            if (e) e.stopPropagation();
+            navigator.clipboard.writeText(itemId).then(() => {
+                const originalText = e.target.innerText;
+                e.target.innerText = '✓ 已复制';
+                setTimeout(() => { e.target.innerText = originalText; }, 1200);
+            }).catch(() => {
+                prompt('请复制商品ID:', itemId);
+            });
+        }
+
+        function sortTab1Table(col) {
+            if (window.tab1SortCol === col) {
+                window.tab1SortAsc = !window.tab1SortAsc;
+            } else {
+                window.tab1SortCol = col;
+                window.tab1SortAsc = true;
+            }
+            if (window._LAST_FILTERED) {
+                renderCustomSkuTable(window._LAST_FILTERED, 'custom-results-container');
+            }
+        }
+
+        function loadMoreTab1Skus(step) {
+            if (step === 99999) {
+                window.tab1RenderLimit = 99999;
+            } else {
+                window.tab1RenderLimit += step;
+            }
+            if (window._LAST_FILTERED) {
+                renderCustomSkuTable(window._LAST_FILTERED, 'custom-results-container');
+            }
+        }
+
+        function handleThumbEnter(e, imgEl) {
+            const skuId = imgEl.getAttribute('data-sku-id');
+            const s = (window.tab1FlatSkusCache || []).find(item => item.id === skuId);
+            if (!s) return;
+
+            const preview = document.getElementById('hover-img-preview');
+            const pImg = document.getElementById('hover-preview-img');
+            const pTitle = document.getElementById('hover-preview-title');
+            const pShop = document.getElementById('hover-preview-shop');
+            const pRank = document.getElementById('hover-preview-rank');
+            if (!preview || !pImg) return;
+
+            pImg.src = s.prod_img || 'https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg';
+            pTitle.innerText = s.prod_title;
+            pShop.innerText = s.shop;
+            pRank.innerText = (s.source === 'company' ? '自营 #' : '大盘 #') + s.rank;
+
+            preview.classList.add('active');
+            handleThumbMove(e);
+        }
+
+        function handleThumbMove(e) {
+            const preview = document.getElementById('hover-img-preview');
+            if (!preview || !preview.classList.contains('active')) return;
+
+            const boxW = 320;
+            const boxH = 370;
+            let left = e.clientX + 16;
+            let top = e.clientY - 40;
+
+            if (left + boxW > window.innerWidth) {
+                left = e.clientX - boxW - 16;
+            }
+            if (top + boxH > window.innerHeight) {
+                top = window.innerHeight - boxH - 12;
+            }
+            if (top < 10) top = 10;
+
+            preview.style.left = left + 'px';
+            preview.style.top = top + 'px';
+        }
+
+        function handleThumbLeave() {
+            const preview = document.getElementById('hover-img-preview');
+            if (preview) preview.classList.remove('active');
+        }
+
+        function openOcrModal(skuId) {
+            const s = (window.tab1FlatSkusCache || []).find(item => item.id === skuId);
+            if (!s) return;
+            const modal = document.getElementById('ocr-modal');
+            const content = document.getElementById('modal-content');
+            if (!modal || !content) return;
+
+            content.innerHTML = `
+                <div style="display: flex; gap: 14px; margin-bottom: 14px;">
+                    <img src="${s.prod_img}" style="width: 110px; height: 110px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border);" onerror="this.src='https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg'">
+                    <div>
+                        <div style="font-weight: 700; color: #fff; font-size: 14px;">${escapeHtml(s.prod_title)}</div>
+                        <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">
+                            ${escapeHtml(s.shop)} · 商品ID: <b style="color: #60a5fa;">${s.itemId}</b> · 排名: #${s.rank}
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <a href="${s.prod_link}" target="_blank" class="btn-export" style="font-size: 11px; text-decoration: none; display: inline-block;">天猫直达 ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+                    <div style="font-size: 12px; font-weight: 700; color: #38bdf8; margin-bottom: 6px;">🎯 材质与规格卖点 (${s.selling_points.length}项):</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        ${s.selling_points.length ? s.selling_points.map(t => `<span class="tag-sp">🎯 ${escapeHtml(t)}</span>`).join('') : '<span style="color: var(--text-dim); font-size: 12px;">未提炼</span>'}
+                    </div>
+
+                    <div style="font-size: 12px; font-weight: 700; color: #fb7185; margin: 10px 0 6px;">🎁 营销促销背书 (${s.marketing_text.length}项):</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        ${s.marketing_text.length ? s.marketing_text.map(t => `<span class="tag-mkt">🎁 ${escapeHtml(t)}</span>`).join('') : '<span style="color: var(--text-dim); font-size: 12px;">无</span>'}
+                    </div>
+
+                    <div style="font-size: 12px; font-weight: 700; color: #c084fc; margin: 10px 0 6px;">🎨 视觉呈现形式:</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        ${s.visual_format.length ? s.visual_format.map(t => `<span class="tag-vis">🎨 ${escapeHtml(t)}</span>`).join('') : '<span style="color: var(--text-dim); font-size: 12px;">标准实拍</span>'}
+                    </div>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 8px; padding: 12px;">
+                    <div style="font-size: 12px; font-weight: 700; color: #e2e8f0; margin-bottom: 6px;">📝 RapidOCR 提取原始文字全文：</div>
+                    <div style="font-size: 12px; color: #cbd5e1; line-height: 1.6; white-space: pre-wrap; max-height: 180px; overflow-y: auto;">${escapeHtml(s.ocr_raw || '无识别文本')}</div>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+
+        function closeOcrModal(e) {
+            if (e && e.target && e.target.id !== 'ocr-modal' && !e.target.classList.contains('btn-export')) return;
+            const modal = document.getElementById('ocr-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        // =========================================================================
+        // 自定义列宽调节引擎 (可左右拖拽表头边缘 + localStorage 记住宽度)
+        // =========================================================================
+        function makeTableResizable(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            const ths = table.querySelectorAll('thead th');
+
+            ths.forEach((th, i) => {
+                const old = th.querySelector('.col-resizer');
+                if (old) old.remove();
+
+                const resizer = document.createElement('div');
+                resizer.className = 'col-resizer';
+                th.appendChild(resizer);
+
+                let startX, startWidth;
+
+                resizer.addEventListener('mousedown', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    resizer.classList.add('is-resizing');
+                    startX = e.clientX;
+                    startWidth = th.offsetWidth;
+                    document.body.style.cursor = 'col-resize';
+                    document.body.style.userSelect = 'none';
+
+                    function onMouseMove(e) {
+                        const diff = e.clientX - startX;
+                        const newW = Math.max(45, startWidth + diff);
+                        th.style.width = newW + 'px';
+                    }
+
+                    function onMouseUp() {
+                        resizer.classList.remove('is-resizing');
+                        document.removeEventListener('mousemove', onMouseMove);
+                        document.removeEventListener('mouseup', onMouseUp);
+                        document.body.style.cursor = '';
+                        document.body.style.userSelect = '';
+                        saveColumnWidths();
+                    }
+
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+                });
+            });
+        }
+
+        function saveColumnWidths() {
+            const ths = document.querySelectorAll('#v2-table thead th');
+            const widths = Array.from(ths).map(th => th.style.width || (th.offsetWidth + 'px'));
+            localStorage.setItem('sku_table_widths_prod', JSON.stringify(widths));
+        }
+
+        function restoreColumnWidths() {
+            try {
+                const saved = JSON.parse(localStorage.getItem('sku_table_widths_prod'));
+                if (Array.isArray(saved)) {
+                    const ths = document.querySelectorAll('#v2-table thead th');
+                    ths.forEach((th, i) => {
+                        if (saved[i]) {
+                            th.style.width = saved[i];
+                        }
+                    });
+                }
+            } catch(e) {}
+        }
+
+        function resetColumnWidths() {
+            localStorage.removeItem('sku_table_widths_prod');
+            const defaultWidths = [
+                '55px', '140px', '125px', '190px', '250px', 
+                '80px', '110px', '120px', '100px', '160px', 
+                '200px', '110px', '105px', '75px'
+            ];
+            const ths = document.querySelectorAll('#v2-table thead th');
+            ths.forEach((th, i) => {
+                if (defaultWidths[i]) th.style.width = defaultWidths[i];
+            });
+        }
+
+        function renderCustomSkuTable(matchedProducts, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            if (!matchedProducts || matchedProducts.length === 0) {
+                container.innerHTML = `<div class="empty-hint">🔍 没有找到符合当前条件的商品及 SKU。</div>`;
+                window.tab1FlatSkusCache = [];
+                return;
+            }
+
+            // 扁平化提取当前命中的 SKU 列表
+            const flatSkus = [];
+            matchedProducts.forEach(item => {
+                const p = item.product;
+                const imgData = p.main_image || (typeof MAIN_IMAGE_DATA !== 'undefined' ? MAIN_IMAGE_DATA[p.rank] : null) || {};
+                const pAn = imgData.price_analysis || {};
+                const mSkus = item.matchedSkus || [];
+
+                mSkus.forEach((s, sIdx) => {
+                    const h = (s.height !== null && s.height !== undefined) ? s.height : p.height;
+                    const price = s.price;
+                    const orig = s.orig || s.origin_price || 0;
+                    const unitP = (h && h > 0 && price) ? (price / h).toFixed(1) : null;
+                    const disc = (orig && orig > price) ? Math.round((1 - price / orig) * 100) : 0;
+
+                    flatSkus.push({
+                        id: `${p.unique_id || p.rank}_sku_${sIdx}`,
+                        unique_id: p.unique_id || p.rank,
+                        rank: p.rank,
+                        shop: p.shop,
+                        itemId: p.itemId || (p.unique_id ? p.unique_id.split('_').pop() : ''),
+                        prod_title: p.title,
+                        prod_img: p.main_img_url || '',
+                        prod_link: p.link || `https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=${p.itemId}`,
+                        source: p.is_company ? 'company' : 'market',
+                        sku_name: s.name,
+                        price: price,
+                        orig: orig,
+                        height: h,
+                        unit_price: unitP,
+                        discount: disc,
+                        tag: s.tag || '',
+                        img_price: pAn.main_image_price,
+                        attr_ratio: pAn.attraction_ratio,
+                        attr_level: pAn.attraction_level || '',
+                        closest_tgt: pAn.closest_target || '',
+                        price_diff: pAn.price_diff,
+                        selling_points: imgData.selling_points || [],
+                        marketing_text: imgData.marketing_text || [],
+                        visual_format: imgData.visual_format || [],
+                        ocr_raw: imgData.ocr_raw || ''
+                    });
+                });
+            });
+
+            // 排序
+            flatSkus.sort((a, b) => {
+                let valA = a[window.tab1SortCol];
+                let valB = b[window.tab1SortCol];
+                if (valA === null || valA === undefined) valA = 999999;
+                if (valB === null || valB === undefined) valB = 999999;
+                if (typeof valA === 'string') {
+                    return window.tab1SortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                }
+                return window.tab1SortAsc ? valA - valB : valB - valA;
+            });
+
+            window.tab1FlatSkusCache = flatSkus;
+
+            // 分页/分块极速加载
+            const totalCount = flatSkus.length;
+            const displayed = flatSkus.slice(0, window.tab1RenderLimit);
+
+            const minP = flatSkus.length ? Math.min(...flatSkus.map(s => (s.price || 0))) : 0;
+            const maxP = flatSkus.length ? Math.max(...flatSkus.map(s => (s.price || 0))) : 1;
+
+            let html = `
+                <div class="v2-table-wrapper">
+                    <table class="v2-table" id="v2-table">
+                        <thead>
+                            <tr>
+                                <th data-col="rank" style="width: 55px;" onclick="sortTab1Table('rank')">排名 ↕</th>
+                                <th data-col="shop" style="width: 140px;" onclick="sortTab1Table('shop')">品牌 / 店铺 ↕</th>
+                                <th data-col="itemId" style="width: 125px;" onclick="sortTab1Table('itemId')">商品ID ↕</th>
+                                <th data-col="prod" style="width: 190px;">所属商品 (悬停放大)</th>
+                                <th data-col="sku" style="width: 250px;">SKU 规格名称</th>
+                                <th data-col="height" style="width: 80px;" onclick="sortTab1Table('height')">厚度 ↕</th>
+                                <th data-col="price" style="width: 110px;" onclick="sortTab1Table('price')">券后价 ↕</th>
+                                <th data-col="minibar" style="width: 120px;">价格分布 (MiniBar)</th>
+                                <th data-col="unit_price" style="width: 100px;" onclick="sortTab1Table('unit_price')">厘米单价 ↕</th>
+                                <th data-col="img_price" style="width: 160px;">🖼️ 主图标价与引流度</th>
+                                <th data-col="ocr_tags" style="width: 200px;">🏷️ 主图分类文字标注</th>
+                                <th data-col="discount" style="width: 110px;" onclick="sortTab1Table('discount')">优惠幅度 ↕</th>
+                                <th data-col="source" style="width: 105px;" onclick="event.stopPropagation()">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px;">
+                                        <span onclick="sortTab1Table('source')">类型 ↕</span>
+                                        <select class="th-filter-select" id="v2-source-filter" onchange="setSourceFilter(this.value)" onclick="event.stopPropagation()">
+                                            <option value="all" ${currentSourceFilter === 'all' ? 'selected' : ''}>全部</option>
+                                            <option value="company" ${currentSourceFilter === 'company' ? 'selected' : ''}>自营</option>
+                                            <option value="market" ${currentSourceFilter === 'market' ? 'selected' : ''}>大盘</option>
+                                        </select>
+                                    </div>
+                                </th>
+                                <th data-col="action" style="width: 75px;">天猫直达</th>
+                            </tr>
+                        </thead>
+                        <tbody id="v2-tbody">
+            `;
+
+            html += displayed.map((s, idx) => {
+                const pct = Math.round(((s.price - minP) / (maxP - minP || 1)) * 100);
+
+                // 主图标价 HTML
+                let imgPriceHtml = '';
+                if (s.img_price) {
+                    imgPriceHtml = `
+                        <div style="display: flex; align-items: center; gap: 5px; overflow: hidden;" title="主图标价 ￥${s.img_price} · 引流 ${s.attr_ratio}% · 差 ${s.price_diff > 0 ? '+' : ''}${s.price_diff}元 (对标${escapeHtml(s.closest_tgt)})">
+                            <span style="color: #f87171; font-weight: 800; font-size: 14px; font-family: ui-monospace, monospace;">¥${s.img_price}</span>
+                            <span class="badge" style="background: rgba(248,113,113,0.15); color: #f87171; font-size: 11px; font-weight: 700; padding: 1px 4px;">引流${s.attr_ratio}%</span>
+                            <span style="font-size: 11px; color: var(--text-dim); font-family: ui-monospace, monospace;">(${s.price_diff > 0 ? '+' : ''}${s.price_diff})</span>
+                        </div>
+                    `;
+                } else {
+                    imgPriceHtml = `<span style="color: var(--text-dim); font-size: 11px;">无标价(纯视觉)</span>`;
+                }
+
+                // 主图分类文字 HTML
+                let categorizedTextHtml = '';
+                if (!window.tab1ShowRichTags) {
+                    categorizedTextHtml = `
+                        <div style="display: flex; align-items: center; gap: 4px; overflow: hidden;">
+                            ${s.selling_points.length ? `<span class="tag-sp" title="材质卖点: ${escapeHtml(s.selling_points.join('、'))}">🎯${escapeHtml(s.selling_points[0])}</span>` : ''}
+                            ${s.marketing_text.length ? `<span class="tag-mkt" title="营销促销: ${escapeHtml(s.marketing_text.join('、'))}">🎁${escapeHtml(s.marketing_text[0])}</span>` : ''}
+                            ${(s.selling_points.length + s.marketing_text.length > 2) ? `<span style="font-size: 10px; color: var(--text-dim);" title="共有 ${s.selling_points.length + s.marketing_text.length} 项卖点">+${s.selling_points.length + s.marketing_text.length - 2}</span>` : ''}
+                            <button class="btn-export" style="font-size: 10px; padding: 1px 5px; height: 18px; line-height: 16px; margin-left: auto;" onclick="openOcrModal('${s.id}')">详情</button>
+                        </div>
+                    `;
+                } else {
+                    categorizedTextHtml = `
+                        <div style="display: flex; align-items: center; gap: 4px; overflow: hidden;">
+                            ${s.selling_points.slice(0, 2).map(t => `<span class="tag-sp" title="${escapeHtml(t)}">🎯${escapeHtml(t)}</span>`).join('')}
+                            ${s.marketing_text.slice(0, 2).map(t => `<span class="tag-mkt" title="${escapeHtml(t)}">🎁${escapeHtml(t)}</span>`).join('')}
+                            <button class="btn-export" style="font-size: 10px; padding: 1px 5px; height: 18px; line-height: 16px; margin-left: auto;" onclick="openOcrModal('${s.id}')">详情</button>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <tr>
+                        <!-- 排名 -->
+                        <td style="color: var(--text-dim); text-align: center; font-weight: 700; font-size: 13px; font-family: ui-monospace, monospace;">
+                            #${s.rank}
+                        </td>
+                        
+                        <!-- 品牌 / 店铺 -->
+                        <td title="${escapeHtml(s.shop)}">
+                            <b style="color: #fff;">${escapeHtml(s.shop)}</b>
+                        </td>
+
+                        <!-- 商品ID -->
+                        <td>
+                            <span class="item-id-badge" onclick="copyItemId('${s.itemId}', event)" title="点击复制商品ID">
+                                📋 ${s.itemId}
+                            </span>
+                        </td>
+
+                        <!-- 所属商品 (悬停自动放大) -->
+                        <td title="${escapeHtml(s.prod_title)} (悬停查看主图原图)">
+                            <div style="display: flex; align-items: center; gap: 6px; overflow: hidden;">
+                                <img src="${s.prod_img}" 
+                                     class="thumb-img-trigger" 
+                                     data-sku-id="${s.id}"
+                                     onmouseenter="handleThumbEnter(event, this)"
+                                     onmousemove="handleThumbMove(event)"
+                                     onmouseleave="handleThumbLeave()"
+                                     onerror="this.src='https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg'">
+                                <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(s.prod_title)}</span>
+                            </div>
+                        </td>
+
+                        <!-- SKU 规格名称 -->
+                        <td title="${escapeHtml(s.sku_name)}">
+                            <span style="color: #f1f5f9; font-weight: 500;">${escapeHtml(s.sku_name)}</span>
+                        </td>
+
+                        <!-- 厚度数值强化 (13px 醒目黄) -->
+                        <td>
+                            ${s.height ? `<span class="v2-badge-height">${s.height}cm</span>` : '<span style="color: var(--text-dim);">-</span>'}
+                        </td>
+
+                        <!-- 券后到手价强化 (16px 醒目绿大字号) -->
+                        <td>
+                            <span class="v2-badge-price"><span class="v2-price-symbol">¥</span>${s.price !== null ? s.price : '无报价'}</span>
+                        </td>
+
+                        <!-- 价格分布 MiniBar 强化 (比例数值 13px) -->
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <div class="v2-price-bar-box" title="在全网前 ${pct}% 价格档位">
+                                    <div class="v2-price-bar-fill" style="width: ${Math.max(8, pct)}%;"></div>
+                                </div>
+                                <span class="v2-val-pct">${pct}%</span>
+                            </div>
+                        </td>
+
+                        <!-- 厘米单价强化 (14px 醒目天蓝) -->
+                        <td>
+                            ${s.unit_price ? `<span class="v2-badge-unit"><span class="v2-unit-symbol">¥</span>${s.unit_price}</span>` : '<span style="color: var(--text-dim);">-</span>'}
+                        </td>
+
+                        <!-- 主图标价与引流度 (单行) -->
+                        <td>
+                            ${imgPriceHtml}
+                        </td>
+
+                        <!-- 主图分类文字 (单行) -->
+                        <td>
+                            ${categorizedTextHtml}
+                        </td>
+
+                        <!-- 优惠幅度强化 (14px 醒目红) -->
+                        <td>
+                            ${s.discount > 0 ? `<span class="v2-badge-discount">-${s.discount}%</span> <span style="text-decoration: line-through; color: var(--text-dim); font-size: 11px; font-family: ui-monospace, monospace; margin-left: 2px;">¥${s.orig}</span>` : '<span style="color: var(--text-dim);">-</span>'}
+                        </td>
+
+                        <!-- 类型 -->
+                        <td>
+                            <span class="badge ${s.source === 'company' ? 'badge-company' : 'badge-market'}">${s.source === 'company' ? '自营' : '大盘'}</span>
+                        </td>
+
+                        <!-- 天猫直达 -->
+                        <td>
+                            <a href="${s.prod_link}" target="_blank" class="btn-export" style="font-size: 11px; padding: 2px 7px; text-decoration: none; display: inline-block;">天猫 ↗</a>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            if (totalCount > window.tab1RenderLimit) {
+                html += `
+                    <div class="load-more-bar" style="margin-top: 10px;">
+                        <div class="load-more-info">
+                            已极速渲染 <b>${displayed.length}</b> 款 SKU (当前共 <b>${totalCount}</b> 款符合条件)
+                        </div>
+                        <div class="load-more-actions">
+                            <button class="btn-load-more" onclick="loadMoreTab1Skus(60)">👇 继续加载 60 款</button>
+                            <button class="btn-load-all" onclick="loadMoreTab1Skus(99999)">⚡ 显示全部 (${totalCount}款)</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+
+            // 恢复列宽与拖拽挂载
+            restoreColumnWidths();
+            makeTableResizable('v2-table');
+        }
+
     </script>
 
     <!-- 收藏商品管理模态框 -->
