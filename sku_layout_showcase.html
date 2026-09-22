@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【自定义筛选结果布局升级】主图悬浮自动放大 · 类型筛选(自营/大盘) · 自定义列宽 · 纯净单行</title>
+    <title>【自定义筛选结果布局升级】核心数值放大 · 主图悬浮放大 · 类型筛选 · 自定义列宽 · 纯净单行</title>
     <style>
         :root {
             --bg: #090d16;
@@ -70,24 +70,87 @@
         .badge {
             display: inline-flex;
             align-items: center;
-            padding: 1px 5px;
-            border-radius: 3px;
+            padding: 2px 6px;
+            border-radius: 4px;
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 600;
             white-space: nowrap;
         }
         .badge-company { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
         .badge-market { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.25); }
-        .badge-height { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-        .badge-price { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 700; color: #34d399; white-space: nowrap; }
-        .badge-unit { font-family: ui-monospace, monospace; font-size: 11px; color: #38bdf8; background: rgba(56, 189, 248, 0.12); padding: 1px 4px; border-radius: 3px; white-space: nowrap; }
+        
+        /* 核心数值强化：厚度数值 */
+        .badge-height {
+            background: rgba(245, 158, 11, 0.18);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 2px 6px;
+        }
+
+        /* 核心数值强化：券后价大字号 */
+        .badge-price {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-weight: 800;
+            font-size: 16px;
+            color: #34d399;
+            white-space: nowrap;
+            letter-spacing: -0.3px;
+        }
+        .price-symbol {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-right: 1px;
+        }
+
+        /* 核心数值强化：厘米单价大字号 */
+        .badge-unit {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 2px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1px;
+        }
+        .unit-symbol {
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* 核心数值强化：价格分布占比大字号 */
+        .val-pct {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: #cbd5e1;
+            white-space: nowrap;
+        }
+
+        /* 核心数值强化：优惠折扣大字号 */
+        .badge-discount {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 14px;
+            font-weight: 800;
+            color: #f87171;
+            white-space: nowrap;
+        }
 
         .tag-sp {
             background: rgba(56, 189, 248, 0.12);
             color: #38bdf8;
             border: 1px solid rgba(56, 189, 248, 0.25);
             font-size: 10px;
-            padding: 1px 4px;
+            padding: 1px 5px;
             border-radius: 3px;
             white-space: nowrap;
         }
@@ -96,7 +159,7 @@
             color: #fb7185;
             border: 1px solid rgba(244, 63, 94, 0.25);
             font-size: 10px;
-            padding: 1px 4px;
+            padding: 1px 5px;
             border-radius: 3px;
             white-space: nowrap;
         }
@@ -105,7 +168,7 @@
             color: #c084fc;
             border: 1px solid rgba(168, 85, 247, 0.25);
             font-size: 10px;
-            padding: 1px 4px;
+            padding: 1px 5px;
             border-radius: 3px;
             white-space: nowrap;
         }
@@ -115,7 +178,7 @@
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid var(--border);
             color: #94a3b8;
-            padding: 1px 5px;
+            padding: 2px 6px;
             border-radius: 4px;
             font-size: 11px;
             cursor: pointer;
@@ -186,14 +249,14 @@
             border-collapse: collapse;
             font-size: 12px;
             table-layout: fixed;
-            min-width: 1620px;
+            min-width: 1650px;
         }
         .v2-table th {
             position: sticky;
             top: 0;
             background: #131b29;
             color: var(--text-sub);
-            padding: 8px 10px;
+            padding: 9px 10px;
             text-align: left;
             border-bottom: 2px solid var(--border-light);
             border-right: 1px solid rgba(43, 56, 78, 0.4);
@@ -218,7 +281,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 38px;
+            height: 42px; /* 略微提升行高，适配更大字号 */
         }
         .v2-table tr:hover {
             background: rgba(30, 41, 59, 0.6);
@@ -258,8 +321,8 @@
 
         /* 主图缩略图样式与悬停效果 */
         .thumb-img-trigger {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             border-radius: 4px;
             object-fit: cover;
             flex-shrink: 0;
@@ -268,7 +331,7 @@
             transition: transform 0.15s, border-color 0.15s;
         }
         .thumb-img-trigger:hover {
-            transform: scale(1.2);
+            transform: scale(1.25);
             border-color: #3b82f6;
         }
 
@@ -321,13 +384,13 @@
         }
 
         .v2-price-bar-box {
-            width: 50px;
-            height: 5px;
-            background: rgba(255,255,255,0.08);
+            width: 55px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
             border-radius: 3px;
             overflow: hidden;
             display: inline-block;
-            margin-right: 4px;
+            margin-right: 6px;
             vertical-align: middle;
         }
         .v2-price-bar-fill {
@@ -374,8 +437,8 @@
     <!-- 顶部导航 -->
     <div class="top-nav">
         <div class="top-title">
-            <h1>📊 SKU 横向直接对比·自定义筛选重构 (主图放大 · 类型筛选 · 自定义列宽)</h1>
-            <p>已满足：<b>【鼠标悬停主图自动放大原图】</b>、<b>【类型列支持自营/大盘筛选】</b>、<b>【纯净单行不换行】</b>、<b>【自由拖拽列宽并记忆】</b></p>
+            <h1>📊 SKU 横向直接对比·自定义筛选重构 (数值强化醒目版)</h1>
+            <p>已满足：<b>【券后价/厘米单价/厚度等数值全面放大清晰呈现】</b>、<b>【主图悬停放大】</b>、<b>【类型快速筛选】</b>、<b>【纯净单行】</b></p>
         </div>
         <div style="font-size: 12px; color: #60a5fa; display: flex; align-items: center; gap: 8px;">
             <span>🔍 鼠标移到商品小图上即可查看清晰大图</span>
@@ -413,15 +476,15 @@
                     <th data-col="itemId" style="width: 125px;" onclick="sortV2('itemId')">商品ID ↕</th>
                     <th data-col="prod" style="width: 190px;">所属商品 (悬停放大)</th>
                     <th data-col="sku" style="width: 250px;">SKU 规格名称</th>
-                    <th data-col="height" style="width: 75px;" onclick="sortV2('height')">厚度 ↕</th>
-                    <th data-col="price" style="width: 95px;" onclick="sortV2('price')">券后价 ↕</th>
-                    <th data-col="minibar" style="width: 110px;">价格分布 (MiniBar)</th>
-                    <th data-col="unit_price" style="width: 90px;" onclick="sortV2('unit_price')">厘米单价 ↕</th>
+                    <th data-col="height" style="width: 80px;" onclick="sortV2('height')">厚度 ↕</th>
+                    <th data-col="price" style="width: 110px;" onclick="sortV2('price')">券后价 ↕</th>
+                    <th data-col="minibar" style="width: 120px;">价格分布 (MiniBar)</th>
+                    <th data-col="unit_price" style="width: 100px;" onclick="sortV2('unit_price')">厘米单价 ↕</th>
                     <th data-col="img_price" style="width: 160px;">🖼️ 主图标价与引流度</th>
                     <th data-col="ocr_tags" style="width: 200px;">🏷️ 主图分类文字标注</th>
                     <th data-col="discount" style="width: 110px;" onclick="sortV2('discount')">优惠幅度 ↕</th>
                     
-                    <!-- 用户要求：类型这列要能筛选 自营还是大盘 -->
+                    <!-- 类型筛选 -->
                     <th data-col="source" style="width: 105px;" onclick="event.stopPropagation()">
                         <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px;">
                             <span onclick="sortV2('source')">类型 ↕</span>
@@ -544,7 +607,7 @@
         }
 
         // =========================================================================
-        // 主图悬浮自动放大逻辑 (高保真原图查看)
+        // 主图悬浮自动放大逻辑
         // =========================================================================
         function handleThumbEnter(e, imgEl) {
             const skuId = imgEl.getAttribute('data-sku-id');
@@ -575,7 +638,6 @@
             let left = e.clientX + 16;
             let top = e.clientY - 40;
 
-            // 边缘防出界计算
             if (left + boxW > window.innerWidth) {
                 left = e.clientX - boxW - 16;
             }
@@ -683,21 +745,21 @@
             tbody.innerHTML = list.map((s, idx) => {
                 const pct = Math.round(((s.price - minP) / (maxP - minP || 1)) * 100);
 
-                // 主图标价 HTML (严格单行)
+                // 主图标价 HTML (大字号数值强化)
                 let imgPriceHtml = '';
                 if (s.img_price) {
                     imgPriceHtml = `
-                        <div style="display: flex; align-items: center; gap: 4px; overflow: hidden;" title="主图标价 ￥${s.img_price} · 引流 ${s.attr_ratio}% · 差 ${s.price_diff > 0 ? '+' : ''}${s.price_diff}元 (对标${s.closest_tgt})">
-                            <span style="color: #f87171; font-weight: 700;">¥${s.img_price}</span>
-                            <span class="badge" style="background: rgba(248,113,113,0.15); color: #f87171; font-size: 10px; padding: 1px 3px;">引流${s.attr_ratio}%</span>
-                            <span style="font-size: 10px; color: var(--text-dim);">(${s.price_diff > 0 ? '+' : ''}${s.price_diff})</span>
+                        <div style="display: flex; align-items: center; gap: 5px; overflow: hidden;" title="主图标价 ￥${s.img_price} · 引流 ${s.attr_ratio}% · 差 ${s.price_diff > 0 ? '+' : ''}${s.price_diff}元 (对标${s.closest_tgt})">
+                            <span style="color: #f87171; font-weight: 800; font-size: 14px; font-family: ui-monospace, monospace;">¥${s.img_price}</span>
+                            <span class="badge" style="background: rgba(248,113,113,0.15); color: #f87171; font-size: 11px; font-weight: 700; padding: 1px 4px;">引流${s.attr_ratio}%</span>
+                            <span style="font-size: 11px; color: var(--text-dim); font-family: ui-monospace, monospace;">(${s.price_diff > 0 ? '+' : ''}${s.price_diff})</span>
                         </div>
                     `;
                 } else {
                     imgPriceHtml = `<span style="color: var(--text-dim); font-size: 11px;">无标价(纯视觉)</span>`;
                 }
 
-                // 主图分类文字 HTML (严格单行)
+                // 主图分类文字 HTML
                 let categorizedTextHtml = '';
                 if (!v2ShowRichTags) {
                     categorizedTextHtml = `
@@ -720,7 +782,10 @@
 
                 return `
                     <tr>
-                        <td style="color: var(--text-dim); text-align: center; font-weight: 600;">#${idx + 1}</td>
+                        <!-- 排名 (数值加粗清晰) -->
+                        <td style="color: var(--text-dim); text-align: center; font-weight: 700; font-size: 13px; font-family: ui-monospace, monospace;">
+                            #${idx + 1}
+                        </td>
                         
                         <!-- 品牌 / 店铺 -->
                         <td title="${s.shop}">
@@ -753,29 +818,29 @@
                             <span style="color: #f1f5f9; font-weight: 500;">${s.sku_name}</span>
                         </td>
 
-                        <!-- 厚度 -->
+                        <!-- 厚度数值强化 (13px 醒目黄) -->
                         <td>
                             ${s.height ? `<span class="badge badge-height">${s.height}cm</span>` : '<span style="color: var(--text-dim);">-</span>'}
                         </td>
 
-                        <!-- 券后到手价 -->
+                        <!-- 券后到手价强化 (16px 醒目绿大字号) -->
                         <td>
-                            <span class="badge-price">¥${s.price}</span>
+                            <span class="badge-price"><span class="price-symbol">¥</span>${s.price}</span>
                         </td>
 
-                        <!-- 价格分布 MiniBar -->
+                        <!-- 价格分布 MiniBar 强化 (比例数值 13px) -->
                         <td>
-                            <div style="display: flex; align-items: center; gap: 3px;">
+                            <div style="display: flex; align-items: center; gap: 5px;">
                                 <div class="v2-price-bar-box" title="在全网前 ${pct}% 价格档位">
                                     <div class="v2-price-bar-fill" style="width: ${Math.max(8, pct)}%;"></div>
                                 </div>
-                                <span style="font-size: 10px; color: var(--text-dim);">${pct}%</span>
+                                <span class="val-pct">${pct}%</span>
                             </div>
                         </td>
 
-                        <!-- 厘米单价 -->
+                        <!-- 厘米单价强化 (14px 醒目天蓝) -->
                         <td>
-                            ${s.unit_price ? `<span class="badge-unit">¥${s.unit_price}</span>` : '<span style="color: var(--text-dim);">-</span>'}
+                            ${s.unit_price ? `<span class="badge-unit"><span class="unit-symbol">¥</span>${s.unit_price}</span>` : '<span style="color: var(--text-dim);">-</span>'}
                         </td>
 
                         <!-- 主图标价与引流度 (单行) -->
@@ -788,12 +853,12 @@
                             ${categorizedTextHtml}
                         </td>
 
-                        <!-- 优惠幅度 -->
+                        <!-- 优惠幅度强化 (14px 醒目红) -->
                         <td>
-                            ${s.discount > 0 ? `<span style="color: #f87171; font-weight: 600;">-${s.discount}%</span> <span style="text-decoration: line-through; color: var(--text-dim); font-size: 10px;">¥${s.orig}</span>` : '<span style="color: var(--text-dim);">-</span>'}
+                            ${s.discount > 0 ? `<span class="badge-discount">-${s.discount}%</span> <span style="text-decoration: line-through; color: var(--text-dim); font-size: 11px; font-family: ui-monospace, monospace; margin-left: 2px;">¥${s.orig}</span>` : '<span style="color: var(--text-dim);">-</span>'}
                         </td>
 
-                        <!-- 类型 (支持自营 / 大盘快速过滤) -->
+                        <!-- 类型 -->
                         <td>
                             <span class="badge ${s.source === 'company' ? 'badge-company' : 'badge-market'}">${s.source === 'company' ? '自营' : '大盘'}</span>
                         </td>
@@ -858,12 +923,12 @@
         function saveColumnWidths() {
             const ths = document.querySelectorAll('#v2-table thead th');
             const widths = Array.from(ths).map(th => th.style.width || (th.offsetWidth + 'px'));
-            localStorage.setItem('sku_table_widths_v3', JSON.stringify(widths));
+            localStorage.setItem('sku_table_widths_v4', JSON.stringify(widths));
         }
 
         function restoreColumnWidths() {
             try {
-                const saved = JSON.parse(localStorage.getItem('sku_table_widths_v3'));
+                const saved = JSON.parse(localStorage.getItem('sku_table_widths_v4'));
                 if (Array.isArray(saved)) {
                     const ths = document.querySelectorAll('#v2-table thead th');
                     ths.forEach((th, i) => {
@@ -876,10 +941,10 @@
         }
 
         function resetColumnWidths() {
-            localStorage.removeItem('sku_table_widths_v3');
+            localStorage.removeItem('sku_table_widths_v4');
             const defaultWidths = [
                 '55px', '140px', '125px', '190px', '250px', 
-                '75px', '95px', '110px', '90px', '160px', 
+                '80px', '110px', '120px', '100px', '160px', 
                 '200px', '110px', '105px', '75px'
             ];
             const ths = document.querySelectorAll('#v2-table thead th');
