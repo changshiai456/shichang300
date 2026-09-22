@@ -43,6 +43,15 @@ def extract_height(sku_name, title=''):
             return int(h) if h.is_integer() else h
     return None
 
+def format_item_link(item_id=None, original_link=''):
+    if not item_id and original_link:
+        m = re.search(r'id=(\d+)', str(original_link))
+        if m:
+            item_id = m.group(1)
+    if item_id:
+        return f"https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={item_id}"
+    return original_link or ""
+
 def main():
     print("[1/5] 读取两大数据源...")
     with open('company_mattress_full_integrated_analysis.json', 'r', encoding='utf-8') as f:
@@ -116,7 +125,7 @@ def main():
             'cross_badge': f"🏢 关联公司自营 #{comp_counterpart['rank']}" if is_also_comp else None,
             'shop': p.get('shop', ''),
             'title': p.get('title', ''),
-            'link': p.get('link', ''),
+            'link': format_item_link(item_id, p.get('link', '')),
             'min_price': float(p.get('min_price', 0.0)),
             'max_price': float(p.get('max_price', 0.0)),
             'median_price': float(p.get('median_price', 0.0)),
@@ -182,7 +191,7 @@ def main():
             'cross_badge': f"🔥 斩获大盘 #{mkt_counterpart['rank']}" if is_also_mkt else None,
             'shop': p.get('shop', ''),
             'title': p.get('title', ''),
-            'link': p.get('link', ''),
+            'link': format_item_link(item_id, p.get('link', '')),
             'sales_amount': p.get('sales_amount', 0.0),
             'sales_qty': p.get('sales_qty', 0),
             'buyers': p.get('buyers', 0),

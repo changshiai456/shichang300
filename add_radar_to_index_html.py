@@ -5,6 +5,9 @@
 import os
 import re
 import shutil
+import sys
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 def upgrade_market_300_dashboard():
     with open("index.html", "r", encoding="utf-8") as f:

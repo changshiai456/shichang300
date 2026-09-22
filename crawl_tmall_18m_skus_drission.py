@@ -278,7 +278,7 @@ def main():
                 "itemId": item_id,
                 "shop": shop,
                 "title": title,
-                "link": target_url,
+                "link": f"https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={item_id}",
                 "min_price": min_p,
                 "max_price": max_p,
                 "median_price": median_p,

@@ -60,7 +60,7 @@ def main():
         rank = p.get("rank")
         shop = p.get("shop")
         title = p.get("title")
-        link = p.get("link")
+        link = f"https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={item_id}"
         
         # 补充生意参谋指标
         s_info = sycm_map.get(item_id, {})
