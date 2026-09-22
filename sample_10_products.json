@@ -1,0 +1,2017 @@
+[
+  {
+    "unique_id": "mkt_1_613686385609",
+    "itemId": "613686385609",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": false,
+    "rank": 1,
+    "market_rank": 1,
+    "company_rank": null,
+    "display_rank": "大盘 #1",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": null,
+    "shop": "喜临门官方旗舰店",
+    "title": "【白骑士plus】喜临门官方家用席梦思软垫黄麻偏硬弹簧乳胶厚床垫",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=613686385609",
+    "min_price": 2294.15,
+    "max_price": 4648.65,
+    "median_price": 2804.15,
+    "mean_price": 2934.04,
+    "sku_count": 16,
+    "heights": [
+      20,
+      22,
+      25,
+      26,
+      26.5
+    ],
+    "height_min": 20,
+    "height_max": 26.5,
+    "height_display": "20~26.5cm",
+    "skus": [
+      {
+        "name": "白骑士Plus+（主推升级款）【双面睡感/25CM】四重升级主卧推荐",
+        "price": 2634.15,
+        "orig": 4099.0,
+        "tag": "平台加补后",
+        "height": 25,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Plus（主推款）【双面睡感/25CM】双面可睡经典之选",
+        "price": 2464.15,
+        "orig": 3899.0,
+        "tag": "平台加补后",
+        "height": 25,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Pros0胶（可拆洗款）【双睡感/26cm】支撑升级透气升级",
+        "price": 2974.15,
+        "orig": 4499.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Kids2.0（0胶舒脊款）【双睡感/20CM】可拆可洗整垫0胶",
+        "price": 2549.15,
+        "orig": 3999.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Lite+（基础升级款）【适中睡感/22CM】A类面料三区舒脊",
+        "price": 2379.15,
+        "orig": 3799.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Kids（青少年儿童款）【偏硬睡感/22CM】A类面料可拆可晒",
+        "price": 2294.15,
+        "orig": 3699.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "白骑士Pro（透气支撑款） 【适中睡感/26.5CM】七区支撑透气舒睡",
+        "price": 2804.15,
+        "orig": 4299.0,
+        "tag": "平台加补后",
+        "height": 26.5,
+        "isStart": false
+      },
+      {
+        "name": "白骑士喜礼（纪念款）【双面睡感/25CM】双重支撑软硬两睡",
+        "price": 2804.15,
+        "orig": 4299.0,
+        "tag": "平台加补后",
+        "height": 25,
+        "isStart": false
+      },
+      {
+        "name": "【床垫家纺套餐】小海浪枕*2（波浪型大号）+白骑士plus＋",
+        "price": 2804.15,
+        "orig": 4299.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "白骑士卷装（卷装款）【适中睡感/25CM】三区弹簧抑菌防螨",
+        "price": 2379.15,
+        "orig": 3799.0,
+        "tag": "平台加补后",
+        "height": 25,
+        "isStart": false
+      },
+      {
+        "name": "【床垫家纺套餐】空气层床笠*1+太空曲线枕*2+白骑士 plus",
+        "price": 2634.15,
+        "orig": 4099.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "【软床床垫卧室套餐】尼亚pro（云雾米）+白骑士plus",
+        "price": 3798.65,
+        "orig": 5469.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "【软床床垫卧室套餐】缓缓Pro（云雾米）+白骑士Plus",
+        "price": 3998.4,
+        "orig": 5704.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "【床垫家纺套餐】牛奶海无痕床笠*1+白骑士 plus+",
+        "price": 2804.15,
+        "orig": 4299.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "【床垫家纺套餐】牛奶海无痕床笠*1+小海浪枕*2（波浪型大号）+白骑士 plus+",
+        "price": 2974.15,
+        "orig": 4499.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "【卧室套餐】尼亚pro（云雾米）+XG2506*2+无痕床笠*1 +小海浪枕*2+白骑士plus+",
+        "price": 4648.65,
+        "orig": 6469.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "喜临门",
+      "淘宝百亿补贴",
+      "官方旗舰店",
+      "AI 陪 伴 您",
+      "全网床垫第一爆款",
+      "累计销量超92W张",
+      "48%",
+      "下单至高立减",
+      "淘金币可抵扣",
+      "100",
+      "政府补贴15%",
+      "SLEEMON",
+      "免费试睡",
+      "下拉详情领取>",
+      "详询客服",
+      "SLEEMON",
+      "咨询",
+      "下单赠",
+      "plus预估国补后到手价：￥",
+      "客服",
+      "蓬蓬枕*2",
+      "2210",
+      "（价值199元）",
+      "可享花呗免息",
+      "③送装一体",
+      "全网低价",
+      "正品保障·售后无忧"
+    ],
+    "selling_points": [
+      "AI智能电动调节"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障",
+      "免费送装一体",
+      "热销爆款背书",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
+    "image_file": "613686385609.jpg",
+    "local_img_path": ""
+  },
+  {
+    "unique_id": "mkt_2_633899833522",
+    "itemId": "633899833522",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": false,
+    "rank": 2,
+    "market_rank": 2,
+    "company_rank": null,
+    "display_rank": "大盘 #2",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": null,
+    "shop": "蓝盒子官方旗舰店",
+    "title": "蓝盒子Z1床垫独立袋装弹簧记忆棉软硬适中家用卧室单双人厚席梦思",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=633899833522",
+    "min_price": 3305.65,
+    "max_price": 5158.65,
+    "median_price": 3305.65,
+    "mean_price": 3792.54,
+    "sku_count": 6,
+    "heights": [
+      22
+    ],
+    "height_min": 22,
+    "height_max": 22,
+    "height_display": "22cm",
+    "skus": [
+      {
+        "name": "Z1经典款【软硬适中/全网热销58W+】厚22cm",
+        "price": 3305.65,
+        "orig": 4874.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "Z1经典款【软硬适中/全网热销58W+】厚22cm",
+        "price": 3305.65,
+        "orig": 4874.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "Z1小石头【偏硬支撑/承托力更足】厚22cm",
+        "price": 3305.65,
+        "orig": 4874.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "Z1小石头【偏硬支撑/承托力更足】厚22cm",
+        "price": 3305.65,
+        "orig": 4874.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "升级款Z1Pro【五星酒店睡感/两个弹簧系统】",
+        "price": 5158.65,
+        "orig": 7579.0,
+        "tag": "平台加补后",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "定制特殊尺寸【尺寸请咨询客服，制作周期15-45天】",
+        "price": 4374.0,
+        "orig": 4374.0,
+        "tag": "",
+        "height": null,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "蓝盒子",
+      "超级立减",
+      "天猫TOP1弹簧床垫",
+      "*数据来源于生意参谋弹簧床垫排行榜2025/10/01-2025/10/31",
+      "品牌代言人",
+      "郭采洁",
+      "100",
+      "免费试睡",
+      "40",
+      "W+",
+      "全网热销",
+      "蓝盒子Z1",
+      "直播间下单加赠",
+      "政府补贴再减",
+      "睡眠眼罩×1（价值￥69）",
+      "补贴到手价",
+      "15%",
+      "11.20 - 11.23",
+      "参与种草领",
+      "2635",
+      "Z字抱枕×1（价值￥129）",
+      "*需实付满1000元",
+      "(名额有限随时结束)",
+      "免费取旧",
+      "5年质保",
+      "100天保价",
+      "3期免息"
+    ],
+    "selling_points": [],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障",
+      "热销爆款背书",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "超长弹簧质保"
+    ],
+    "visual_format": [
+      "3D分层结构透视",
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
+    "image_file": "633899833522.jpg",
+    "local_img_path": ""
+  },
+  {
+    "unique_id": "mkt_5_685133214740",
+    "itemId": "685133214740",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": false,
+    "rank": 5,
+    "market_rank": 5,
+    "company_rank": null,
+    "display_rank": "大盘 #5",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": null,
+    "shop": "源氏木语官方旗舰店",
+    "title": "源氏木语进口天然乳胶0胶水床垫家用空气纤维J121卧室弹簧垫元气",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=685133214740",
+    "min_price": 3638.6,
+    "max_price": 4923.0,
+    "median_price": 3786.7,
+    "mean_price": 3901.5,
+    "sku_count": 7,
+    "heights": [
+      10,
+      24
+    ],
+    "height_min": 10,
+    "height_max": 24,
+    "height_display": "10~24cm",
+    "skus": [
+      {
+        "name": "（1）软硬适中 ▪ 门店热销款 ▪ 厚24cm",
+        "price": 3638.6,
+        "orig": 4734.0,
+        "tag": "店铺优惠后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "（2）偏硬护脊 ▪ 门店热销款 ▪ 厚24cm",
+        "price": 3638.6,
+        "orig": 4734.0,
+        "tag": "店铺优惠后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "（3）偏软包裹 ▪ 门店热销款 ▪ 厚24cm",
+        "price": 3638.6,
+        "orig": 4734.0,
+        "tag": "店铺优惠后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "（4）折叠款 ▪ 便携易收纳 ▪ 偏硬护脊/厚24cm",
+        "price": 3898.3,
+        "orig": 5067.0,
+        "tag": "店铺优惠后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "（8）适中款+一对慢回弹记忆棉枕头(10CM厚RA00537)J121",
+        "price": 4923.0,
+        "orig": 4923.0,
+        "tag": "",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "（9）偏硬款+一对慢回弹记忆棉枕头(10CM厚RA00537)J121",
+        "price": 3786.7,
+        "orig": 4923.0,
+        "tag": "店铺优惠后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "（10）偏软款+一对慢回弹记忆棉枕头(10CM厚RA00537)J121",
+        "price": 3786.7,
+        "orig": 4923.0,
+        "tag": "店铺优惠后",
+        "height": 10,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [],
+    "selling_points": [],
+    "marketing_text": [],
+    "visual_format": [
+      "标准商品主体棚拍"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
+    "image_file": "685133214740.jpg",
+    "local_img_path": ""
+  },
+  {
+    "unique_id": "mkt_7_40316470216",
+    "itemId": "40316470216",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": false,
+    "rank": 7,
+    "market_rank": 7,
+    "company_rank": null,
+    "display_rank": "大盘 #7",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": null,
+    "shop": "金橡树官方旗舰店",
+    "title": "【云端】金橡树天然乳胶床垫家用0胶水软硬垫学生宿舍床垫子定制",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=40316470216",
+    "min_price": 790.5,
+    "max_price": 4239.8,
+    "median_price": 2110.12,
+    "mean_price": 2171.54,
+    "sku_count": 24,
+    "heights": [
+      3,
+      5,
+      7.5,
+      10,
+      15
+    ],
+    "height_min": 3,
+    "height_max": 15,
+    "height_display": "3~15cm",
+    "skus": [
+      {
+        "name": "云端2.0经典升级款 厚5cm【85D软硬适中】A类抑菌面料",
+        "price": 1150.05,
+        "orig": 1603.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚5cm【95D护脊撑腰】A类抑菌面料",
+        "price": 1250.35,
+        "orig": 1742.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚7.5cm【85D软硬适中】A类抑菌面料",
+        "price": 1649.85,
+        "orig": 2295.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚7.5cm【95D护脊撑腰】A类抑菌面料",
+        "price": 1760.35,
+        "orig": 2448.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚10cm【85D软硬适中】A类抑菌面料",
+        "price": 2130.1,
+        "orig": 2960.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚10cm【95D护脊撑腰】A类抑菌面料",
+        "price": 2230.4,
+        "orig": 3098.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚15cm【85D软硬适中】A类抑菌面料",
+        "price": 3190.05,
+        "orig": 4427.0,
+        "tag": "秒杀价",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚15cm【95D护脊撑腰】A类抑菌面料",
+        "price": 3550.45,
+        "orig": 4925.0,
+        "tag": "秒杀价",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "产品对比图 （需定制请详询客服）",
+        "price": 4239.8,
+        "orig": 5880.0,
+        "tag": "秒杀价",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚5cm【85D软硬适中】A类抑菌面料",
+        "price": 1150.9,
+        "orig": 1604.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚5cm【95D护脊撑腰】A类抑菌面料",
+        "price": 1250.35,
+        "orig": 1742.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚3cm【85D软硬适中】A类抑菌面料",
+        "price": 790.5,
+        "orig": 1105.0,
+        "tag": "秒杀价",
+        "height": 3,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚7.5cm【85D软硬适中】A类抑菌面料",
+        "price": 1649.85,
+        "orig": 2295.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚7.5cm【95D护脊撑腰】A类抑菌面料",
+        "price": 1761.2,
+        "orig": 2449.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚10cm【85D软硬适中】A类抑菌面料",
+        "price": 2130.1,
+        "orig": 2960.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚10cm【95D护脊撑腰】A类抑菌面料",
+        "price": 2231.25,
+        "orig": 3100.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚15cm【85D软硬适中】A类抑菌面料",
+        "price": 3190.05,
+        "orig": 4427.0,
+        "tag": "秒杀价",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "云端2.0经典升级款 厚15cm【95D护脊撑腰】A类抑菌面料",
+        "price": 3550.45,
+        "orig": 4925.0,
+        "tag": "秒杀价",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚5cm【85D软硬适中】泰国原产一体成型工艺",
+        "price": 1550.4,
+        "orig": 2157.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚5cm【95D护脊撑腰】泰国原产一体成型工艺",
+        "price": 1670.25,
+        "orig": 2323.0,
+        "tag": "秒杀价",
+        "height": 5,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚7.5cm【85D软硬适中】泰国原产一体成型工艺",
+        "price": 2090.15,
+        "orig": 2904.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚7.5cm【95D护脊撑腰】泰国原产一体成型工艺",
+        "price": 2300.1,
+        "orig": 3195.0,
+        "tag": "秒杀价",
+        "height": 7.5,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚10cm【85D软硬适中】泰国原产一体成型工艺",
+        "price": 2720.0,
+        "orig": 3776.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "【云端3.0旗舰款】厚10cm【95D护脊撑腰】泰国原产一体成型工艺",
+        "price": 2929.95,
+        "orig": 4067.0,
+        "tag": "秒杀价",
+        "height": 10,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "喜临门",
+      "淘宝百亿补贴",
+      "官方旗舰店",
+      "AI 陪 伴 您",
+      "天猫弹簧床垫TOP1",
+      "*数据来源于生意参谋弹簧床垫排行榜2025/7/1-2025/7/31",
+      "多重睡感「抗菌防螨",
+      "43%",
+      "下单至高立减",
+      "淘金币可抵扣",
+      "SLEENON",
+      "政府补贴15%",
+      "下拉详情领取>",
+      "下单赠",
+      "咨询",
+      "预估国补后到手价：?",
+      "客服",
+      "蓬蓬枕*2",
+      "1105",
+      "（价值199元）",
+      "可享花呗免息",
+      "③送装一体",
+      "全网低价",
+      "正品保障·售后无忧"
+    ],
+    "selling_points": [
+      "母婴A类抗菌防螨",
+      "AI智能电动调节"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费送装一体",
+      "热销爆款背书",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "3D分层结构透视",
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
+    "image_file": "40316470216.jpg",
+    "local_img_path": ""
+  },
+  {
+    "unique_id": "mkt_12_596263974964",
+    "itemId": "596263974964",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": false,
+    "rank": 12,
+    "market_rank": 12,
+    "company_rank": null,
+    "display_rank": "大盘 #12",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": null,
+    "shop": "芝华仕官方旗舰店",
+    "title": "【芝华仕D026】政府补贴弹簧乳胶床垫席梦思酒店厚垫软硬卧室家用",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=596263974964",
+    "min_price": 1302.2,
+    "max_price": 2455.65,
+    "median_price": 1677.05,
+    "mean_price": 1720.57,
+    "sku_count": 5,
+    "heights": [
+      24,
+      26
+    ],
+    "height_min": 24,
+    "height_max": 26,
+    "height_display": "24~26cm",
+    "skus": [
+      {
+        "name": "26CM经典升级版|软硬适中|进口乳胶 舒适护脊",
+        "price": 1396.55,
+        "orig": 1945.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "26CM护脊升级版|偏硬支撑双重支撑 科学护脊",
+        "price": 1302.2,
+        "orig": 1815.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "24CM整垫0胶版|软硬双睡|全0胶水工艺 A类抑菌面料",
+        "price": 2455.65,
+        "orig": 3411.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "26CM双面版|软硬双睡|睡感可选 双重防螨",
+        "price": 1771.4,
+        "orig": 2464.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "26CM记忆绵版|适中偏软|一张能撑腰的记忆绵床垫",
+        "price": 1677.05,
+        "orig": 2334.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "M麻大师IMADAS",
+      "livVHOREWrrYLESS",
+      "有效支撑",
+      "进口黄麻",
+      "抑菌防螨",
+      "撑腰护脊",
+      "政府补贴",
+      "15%",
+      "M麻大师",
+      "100*",
+      "免费试睡",
+      "HOT",
+      "店铺立减24%+政府补贴15%+会员优惠券",
+      "单品直降约",
+      "返现",
+      "床架+床垫",
+      "36%",
+      "会员券",
+      "0元入会",
+      "下单返现>",
+      "详询客服",
+      "领取优惠券>",
+      "顺丰/京东免费送装",
+      "赠送大件运费险",
+      "10年质保服务",
+      "花呗三期免息"
+    ],
+    "selling_points": [
+      "天然黄麻/硬核护脊",
+      "母婴A类抗菌防螨",
+      "人体工学护腰护脊"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障",
+      "免费送装一体",
+      "热销爆款背书",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "超长弹簧质保"
+    ],
+    "visual_format": [
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
+    "image_file": "596263974964.jpg",
+    "local_img_path": ""
+  },
+  {
+    "unique_id": "mkt_14_20719504509",
+    "itemId": "20719504509",
+    "source": "market",
+    "source_name": "天猫大盘",
+    "is_company": false,
+    "is_market": true,
+    "is_cross_listed": true,
+    "rank": 14,
+    "market_rank": 14,
+    "company_rank": 1,
+    "display_rank": "大盘 #14",
+    "source_badge": "🌐 天猫大盘爆品",
+    "cross_badge": "🏢 关联公司自营 #1",
+    "shop": "moonlightfamily旗舰店",
+    "title": "月光之家乳胶床垫家用独立弹簧软垫儿童黄麻棕硬护腰席梦思1.8米",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=20719504509",
+    "min_price": 1268.2,
+    "max_price": 2899.0,
+    "median_price": 1498.55,
+    "mean_price": 1755.48,
+    "sku_count": 23,
+    "heights": [
+      21,
+      22,
+      24,
+      25,
+      26
+    ],
+    "height_min": 21,
+    "height_max": 26,
+    "height_display": "21~26cm",
+    "skus": [
+      {
+        "name": "风尚家用系列：家用床垫性价比拉满",
+        "price": 2899.0,
+        "orig": 2899.0,
+        "tag": "",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "风尚A 偏硬【固边防塌加固独立袋弹簧】2cm黄麻 21cm",
+        "price": 1268.2,
+        "orig": 1867.0,
+        "tag": "平台加补后",
+        "height": 21,
+        "isStart": false
+      },
+      {
+        "name": "风尚B 适中【固边防塌加固独立袋弹簧】2cm乳胶 22cm",
+        "price": 1268.2,
+        "orig": 1867.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "风尚C 双面【固边防塌加固独立袋弹簧】2cm乳胶+2cm黄麻 24cm",
+        "price": 1348.95,
+        "orig": 1974.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "风尚D 偏软【固边防塌加固独立袋弹簧】3cm乳胶 24cm",
+        "price": 1348.95,
+        "orig": 1974.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "风尚E 双面【固边防塌加固独立袋弹簧】3cm乳胶+2cm黄麻 25cm",
+        "price": 1398.25,
+        "orig": 2097.0,
+        "tag": "平台加补后",
+        "height": 25,
+        "isStart": false
+      },
+      {
+        "name": "轻奢护腰系列：护腰护脊专利设计 本店连续15年畅销NO.I",
+        "price": 2899.0,
+        "orig": 2899.0,
+        "tag": "",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "轻奢D 双面【升级腰臀12圈加固+双钢加固防塌】2cm乳胶+2cm黄麻 24cm",
+        "price": 1498.55,
+        "orig": 2231.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "轻奢F 偏软【升级腰臀12圈加固+双钢加固防塌】2cm乳胶+2cm记忆棉 24cm",
+        "price": 1498.55,
+        "orig": 2231.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "轻奢E 适中【升级腰臀12圈加固+双钢加固防塌】2cm乳胶 22cm",
+        "price": 1438.2,
+        "orig": 2151.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "轻奢G 偏硬【升级腰臀12圈加固+双钢加固防塌】2cm黄麻 22cm",
+        "price": 1438.2,
+        "orig": 2151.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "卷包E 适中【升级腰臀12圈加固+压缩专用弹簧】2cm乳胶 22cm",
+        "price": 1438.2,
+        "orig": 2151.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "尊耀全拆系列：升级全拆+多种软硬可调+贝纹弹簧+8D透气护腰垫",
+        "price": 2899.0,
+        "orig": 2899.0,
+        "tag": "",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀G【偏硬护脊 2cm无胶黄麻】腰不好人群 22cm",
+        "price": 1498.55,
+        "orig": 2231.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀H【软硬适中 2cm天然乳胶】青少年人群 22cm",
+        "price": 1498.55,
+        "orig": 2231.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀A【2种软硬可调 适中/微硬】青年和夫妻首选 22cm",
+        "price": 1548.7,
+        "orig": 2298.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀B【2种软硬可调 偏软/适中】柔软且兼顾护腰 22cm",
+        "price": 1648.15,
+        "orig": 2431.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀C【2种软硬可调 微硬/偏硬】怕热易出汗人群 22cm",
+        "price": 1648.15,
+        "orig": 2431.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀D【2种软硬可调 微硬/偏硬】儿童和中老年人 22cm",
+        "price": 1698.3,
+        "orig": 2498.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀E【4种软硬可调 偏软/微软/适中/微硬】全家适用 24cm",
+        "price": 1748.45,
+        "orig": 2565.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "全拆尊耀F【5种软硬可调 偏软/微软/适中/微硬/偏硬】闭眼选 26cm",
+        "price": 1848.75,
+        "orig": 2699.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "胖人专用系列：升级加粗加固弹簧，推荐体重＞180斤使用",
+        "price": 2899.0,
+        "orig": 2899.0,
+        "tag": "",
+        "height": null,
+        "isStart": false
+      },
+      {
+        "name": "胖人H 软硬双面【大体重专用弹簧 推荐＞180斤】24cm",
+        "price": 1698.3,
+        "orig": 2498.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "YESLEEPTM",
+      "淘宝",
+      "百亿补贴",
+      "源|氏|睡眠",
+      "零胶水",
+      "护脊实力派",
+      "跌系客服",
+      "店铺TOP1弹簧床垫",
+      "免费",
+      "大门取旧",
+      "100",
+      "免费试睡",
+      "零胶水认证证书",
+      "证书编号：NO4225CO0022ROM",
+      "全网比价买贵必赔",
+      "百亿补贴价：",
+      "1m0胶水床垫",
+      "日常活动价：",
+      "1656",
+      "￥/起",
+      "1199",
+      "￥/起"
+    ],
+    "selling_points": [
+      "0胶水环保",
+      "人体工学护腰护脊"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障"
+    ],
+    "visual_format": [
+      "3D分层结构透视",
+      "质检认证与绿标背书",
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/919851856/O1CN01sVHPWB5zLED32pKq_!!4611686018427384656-0-item_pic.jpg",
+    "image_file": "20719504509.jpg",
+    "local_img_path": "company_analysis/images/20719504509.jpg"
+  },
+  {
+    "unique_id": "comp_2_676435752637",
+    "itemId": "676435752637",
+    "source": "company",
+    "source_name": "公司自营",
+    "is_company": true,
+    "is_market": true,
+    "is_cross_listed": true,
+    "rank": 2,
+    "company_rank": 2,
+    "market_rank": 55,
+    "display_rank": "自营 #2",
+    "source_badge": "🏢 公司自营款",
+    "cross_badge": "🔥 斩获大盘 #55",
+    "shop": "睡眠骑士床垫企业店",
+    "title": "睡眠骑士梦舒乳胶五星级酒店床垫席梦思记忆棉加厚30cm厚家用软垫",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=676435752637",
+    "sales_amount": 0.0,
+    "sales_qty": 0,
+    "buyers": 0,
+    "pay_rate": "0%",
+    "min_price": 1229.1,
+    "max_price": 1798.6,
+    "median_price": 1469.65,
+    "mean_price": 1476.18,
+    "sku_count": 16,
+    "heights": [
+      22,
+      23,
+      24,
+      26,
+      28,
+      30
+    ],
+    "height_min": 22,
+    "height_max": 30,
+    "height_display": "22~30cm",
+    "skus": [
+      {
+        "name": "五星G 适中单面【2cm乳胶+酒店专利弹簧】22cm",
+        "price": 1236.75,
+        "orig": 1858.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "五星H 适中/偏硬双面【2cm乳胶+酒店专利弹簧+2cm黄麻】24cm",
+        "price": 1296.25,
+        "orig": 1938.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "五星A 偏软单面【3cm乳胶+酒店专利弹簧】24cm 店长主推",
+        "price": 1379.55,
+        "orig": 2118.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "五星B 偏软/偏硬双面【3cm乳胶+酒店专利弹簧+2cm黄麻】26cm",
+        "price": 1469.65,
+        "orig": 2238.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "豪华C 柔软单面【5cm乳胶+酒店专利弹簧】26cm",
+        "price": 1522.35,
+        "orig": 2308.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "豪华D 柔软/偏硬双面【5cm乳胶+酒店专利弹簧+2cm黄麻】28cm",
+        "price": 1603.95,
+        "orig": 2418.0,
+        "tag": "平台加补后",
+        "height": 28,
+        "isStart": false
+      },
+      {
+        "name": "总统E 超软单面【2cm记忆棉+5cm乳胶+酒店专利弹簧】28cm",
+        "price": 1701.7,
+        "orig": 2548.0,
+        "tag": "平台加补后",
+        "height": 28,
+        "isStart": false
+      },
+      {
+        "name": "总统F 超软/偏硬双面【2cm记忆棉+5cm乳胶+酒店专利弹簧+2cm黄麻】30cm",
+        "price": 1798.6,
+        "orig": 2678.0,
+        "tag": "平台加补后",
+        "height": 30,
+        "isStart": false
+      },
+      {
+        "name": "护脊J 偏硬单面【2cm黄麻+酒店专利弹簧】22cm",
+        "price": 1229.1,
+        "orig": 1848.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "护脊K 中硬单面【乳胶+2cm黄麻+酒店专利弹簧】23cm",
+        "price": 1326.0,
+        "orig": 1978.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "呼呼pro加厚B【软硬适中-透气】厚22cm",
+        "price": 1394.85,
+        "orig": 2138.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "呼呼pro加厚C【适中偏硬-透气】厚24cm",
+        "price": 1491.75,
+        "orig": 2268.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "透气G 适中单面【2cm乳胶+2cm透气3D+酒店专利弹簧】24cm",
+        "price": 1296.25,
+        "orig": 1938.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "透气A 偏软单面【3cm乳胶+2cm透气3D+酒店专利弹簧】26cm",
+        "price": 1469.65,
+        "orig": 2238.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "透气C 柔软单面【5cm乳胶+2cm透气3D+酒店专利弹簧】28cm",
+        "price": 1603.95,
+        "orig": 2418.0,
+        "tag": "平台加补后",
+        "height": 28,
+        "isStart": false
+      },
+      {
+        "name": "透气E 超软单面【2cm记忆棉+5cm乳胶+2cm透气3D+酒店专利弹簧】30cm",
+        "price": 1798.6,
+        "orig": 2678.0,
+        "tag": "平台加补后",
+        "height": 30,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "SLEEP°",
+      "睡眠骑士",
+      "官方优选",
+      "KNIGHT",
+      "五星级酒店专供",
+      "☆☆☆☆☆",
+      "SleepKnigh",
+      "30CM",
+      "200天免费试睡|20年超长质保",
+      "加厚超软",
+      "48小时顺丰速发",
+      "部分尺寸",
+      "及地区",
+      "花呗分期免息",
+      "365天免费仓储",
+      "免费送货到家"
+    ],
+    "selling_points": [
+      "天然乳胶",
+      "零压记忆棉"
+    ],
+    "marketing_text": [
+      "免费试睡保障",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "标准电商综合展示型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i4/720743073/O1CN01OAeAQh1YZUESKorAz_!!720743073.jpg",
+    "image_file": "676435752637.jpg",
+    "local_img_path": "company_analysis/images/676435752637.jpg"
+  },
+  {
+    "unique_id": "comp_3_746683178170",
+    "itemId": "746683178170",
+    "source": "company",
+    "source_name": "公司自营",
+    "is_company": true,
+    "is_market": true,
+    "is_cross_listed": true,
+    "rank": 3,
+    "company_rank": 3,
+    "market_rank": 70,
+    "display_rank": "自营 #3",
+    "source_badge": "🏢 公司自营款",
+    "cross_badge": "🔥 斩获大盘 #70",
+    "shop": "yarges悠梦思旗舰店",
+    "title": "悠梦思乳胶床垫独立弹簧1.5米1.8五星酒店席梦思软硬两用厚款定制",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=746683178170",
+    "sales_amount": 0.0,
+    "sales_qty": 0,
+    "buyers": 0,
+    "pay_rate": "0%",
+    "min_price": 682.55,
+    "max_price": 1078.65,
+    "median_price": 906.95,
+    "mean_price": 905.92,
+    "sku_count": 19,
+    "heights": [
+      20,
+      22,
+      23,
+      24
+    ],
+    "height_min": 20,
+    "height_max": 24,
+    "height_display": "20~24cm",
+    "skus": [
+      {
+        "name": "经济A≈20cm【防塌邦尼尔弹簧】 适中睡感 万人加购",
+        "price": 682.55,
+        "orig": 958.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "经济B≈22cm【防塌邦尼尔弹簧】 偏硬睡感",
+        "price": 757.35,
+        "orig": 1058.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "经济C≈22cm【防塌邦尼尔弹簧】 稍软睡感",
+        "price": 757.35,
+        "orig": 1058.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "经济D≈24cm【防塌邦尼尔弹簧】 两面可用",
+        "price": 824.5,
+        "orig": 1148.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "舒睡A≈20cm【防塌护脊独立弹簧】 适中护脊",
+        "price": 764.15,
+        "orig": 1068.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "舒睡B≈22cm【防塌护脊独立弹簧】 偏硬护脊",
+        "price": 832.15,
+        "orig": 1158.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "舒睡Bpro≈23cm【3cm黄麻+双线防塌独立弹簧】 偏硬护脊 店长主推",
+        "price": 906.95,
+        "orig": 1258.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "舒睡C≈22cm【防塌护脊独立弹簧】 适中偏软",
+        "price": 832.15,
+        "orig": 1158.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "舒睡Cpro≈23cm【3cm乳胶+双线防塌独立弹簧】 适中偏软",
+        "price": 906.95,
+        "orig": 1258.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "舒睡D≈24cm【防塌护脊独立弹簧】 两面可用",
+        "price": 861.9,
+        "orig": 1198.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "舒睡Epro≈23cm【3cm记忆棉+双线防塌独立弹簧】 适中贴合",
+        "price": 906.95,
+        "orig": 1258.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "升级A≈22cm【防塌九区独立袋弹簧】 静音稍软",
+        "price": 958.8,
+        "orig": 1328.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "升级Apro≈23cm【3cm乳胶+专利防塌独立袋弹簧】 静音稍软",
+        "price": 1033.6,
+        "orig": 1428.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "升级B≈22cm【防塌九区独立袋弹簧】 静音偏硬",
+        "price": 958.8,
+        "orig": 1328.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "升级Bpro≈23cm【3cm黄麻+专利防塌独立袋弹簧】 静音偏硬",
+        "price": 1033.6,
+        "orig": 1428.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "升级C≈24cm【防塌九区独立袋弹簧】 软硬两用",
+        "price": 1003.85,
+        "orig": 1388.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "升级Dpro≈23cm【3cm记忆棉+专利防塌独立袋弹簧】 静音贴合",
+        "price": 1033.6,
+        "orig": 1428.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "轻奢A≈22cm【专利防塌独立袋弹簧】 适中偏硬",
+        "price": 1078.65,
+        "orig": 1488.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "轻奢B≈22cm【专利防塌独立袋弹簧】 适中偏软",
+        "price": 1078.65,
+        "orig": 1488.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "YARGES悠梦思",
+      "官方5A质量等级认证",
+      "101天真正免费试睡",
+      "88",
+      "YARGES|悠梦思",
+      "活动下单即享",
+      "折",
+      "88消费券",
+      "（立即抢购无需凑单）",
+      "限时立享至高减150元",
+      "88VIP可用",
+      "数量有限详情咨询客服",
+      "天猫家装节",
+      "抢",
+      "政府补贴15%",
+      "因地区差异，补贴信息详情请见支付页面！",
+      "官方立减12%",
+      "下单入会“抢",
+      "99",
+      "舒睡枕x2",
+      "48小时顺丰速发",
+      "质保20年",
+      "限部分",
+      "尺寸地区",
+      "免费送货到家",
+      "分期免息",
+      "1365天免费仓储"
+    ],
+    "selling_points": [
+      "天然乳胶",
+      "双面双睡感/可拆洗"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i1/2215907225135/O1CN01UYps14fxinI2vH2e_!!4611686018427383343-0-item_pic.jpg",
+    "image_file": "746683178170.jpg",
+    "local_img_path": "company_analysis/images/746683178170.jpg"
+  },
+  {
+    "unique_id": "comp_9_40640084764",
+    "itemId": "40640084764",
+    "source": "company",
+    "source_name": "公司自营",
+    "is_company": true,
+    "is_market": true,
+    "is_cross_listed": true,
+    "rank": 9,
+    "company_rank": 9,
+    "market_rank": 294,
+    "display_rank": "自营 #9",
+    "source_badge": "🏢 公司自营款",
+    "cross_badge": "🔥 斩获大盘 #294",
+    "shop": "铂马仕旗舰店",
+    "title": "儿童护脊黄麻乳胶床垫家用环保席梦思高低床天然椰棕垫1.2m折叠",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=40640084764",
+    "sales_amount": 0.0,
+    "sales_qty": 0,
+    "buyers": 0,
+    "pay_rate": "0%",
+    "min_price": 591.6,
+    "max_price": 1426.3,
+    "median_price": 889.95,
+    "mean_price": 934.21,
+    "sku_count": 30,
+    "heights": [
+      6,
+      8,
+      10,
+      12,
+      13,
+      15,
+      18,
+      20
+    ],
+    "height_min": 6,
+    "height_max": 20,
+    "height_display": "6~20cm",
+    "skus": [
+      {
+        "name": "护脊A【6cm】A类棉麻面料+3cmS黄麻",
+        "price": 591.6,
+        "orig": 849.0,
+        "tag": "平台加补后",
+        "height": 6,
+        "isStart": false
+      },
+      {
+        "name": "护脊A【8cm】A类棉麻面料+5cmS黄麻",
+        "price": 703.8,
+        "orig": 999.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "护脊A【10cm】A类棉麻面料+7cmS黄麻",
+        "price": 804.95,
+        "orig": 1149.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "护脊A【13cm】A类棉麻面料+10cmS黄麻",
+        "price": 969.0,
+        "orig": 1399.0,
+        "tag": "平台加补后",
+        "height": 13,
+        "isStart": false
+      },
+      {
+        "name": "护脊A【18cm】A类棉麻面料+15cmS黄麻",
+        "price": 1233.35,
+        "orig": 1799.0,
+        "tag": "平台加补后",
+        "height": 18,
+        "isStart": false
+      },
+      {
+        "name": "防螨B【8cm】A类棉麻面料+2cm乳胶+3cmS黄麻",
+        "price": 696.15,
+        "orig": 989.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "防螨B【10cm】A类棉麻面料+2cm乳胶+5cmS黄麻",
+        "price": 797.3,
+        "orig": 1139.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "防螨B【12cm】A类棉麻面料+2cm乳胶+7cmS黄麻",
+        "price": 889.95,
+        "orig": 1289.0,
+        "tag": "平台加补后",
+        "height": 12,
+        "isStart": false
+      },
+      {
+        "name": "防螨B【15cm】A类棉麻面料+2cm乳胶+10cmS黄麻",
+        "price": 1045.5,
+        "orig": 1539.0,
+        "tag": "平台加补后",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "防螨B【20cm】A类棉麻面料+2cm乳胶+15cmS黄麻",
+        "price": 1426.3,
+        "orig": 2089.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "透气C【8cm】A类棉麻面料+2cm 3D透气芯+3cmS黄麻",
+        "price": 696.15,
+        "orig": 989.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "透气C【10cm】A类棉麻面料+2cm 3D透气芯+5cmS黄麻",
+        "price": 797.3,
+        "orig": 1139.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "透气C【12cm】A类棉麻面料+2cm 3D透气芯+7cmS黄麻",
+        "price": 889.95,
+        "orig": 1289.0,
+        "tag": "平台加补后",
+        "height": 12,
+        "isStart": false
+      },
+      {
+        "name": "透气C【15cm】A类棉麻面料+2cm 3D透气芯+10cmS黄麻",
+        "price": 1045.5,
+        "orig": 1539.0,
+        "tag": "平台加补后",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "透气C【20cm】A类棉麻面料+2cm 3D透气芯+15cmS黄麻",
+        "price": 1426.3,
+        "orig": 2089.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "全拆护脊A【6cm】A类棉麻面料+3cmS黄麻",
+        "price": 591.6,
+        "orig": 849.0,
+        "tag": "平台加补后",
+        "height": 6,
+        "isStart": false
+      },
+      {
+        "name": "全拆护脊A【8cm】A类棉麻面料+5cmS黄麻",
+        "price": 703.8,
+        "orig": 999.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "全拆护脊A【10cm】A类棉麻面料+7cmS黄麻",
+        "price": 804.95,
+        "orig": 1149.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "全拆护脊A【13cm】A类棉麻面料+10cmS黄麻",
+        "price": 969.0,
+        "orig": 1399.0,
+        "tag": "平台加补后",
+        "height": 13,
+        "isStart": false
+      },
+      {
+        "name": "全拆护脊A【18cm】A类棉麻面料+15cmS黄麻",
+        "price": 1233.35,
+        "orig": 1799.0,
+        "tag": "平台加补后",
+        "height": 18,
+        "isStart": false
+      },
+      {
+        "name": "全拆防螨B【8cm】A类棉麻面料+2cm乳胶+3cmS黄麻",
+        "price": 696.15,
+        "orig": 989.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "全拆防螨B【10cm】A类棉麻面料+2cm乳胶+5cmS黄麻",
+        "price": 797.3,
+        "orig": 1139.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "全拆防螨B【12cm】A类棉麻面料+2cm乳胶+7cmS黄麻",
+        "price": 889.95,
+        "orig": 1289.0,
+        "tag": "平台加补后",
+        "height": 12,
+        "isStart": false
+      },
+      {
+        "name": "全拆防螨B【15cm】A类棉麻面料+2cm乳胶+10cmS黄麻",
+        "price": 1045.5,
+        "orig": 1539.0,
+        "tag": "平台加补后",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "全拆防螨B【20cm】A类棉麻面料+2cm乳胶+15cmS黄麻",
+        "price": 1426.3,
+        "orig": 2089.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      },
+      {
+        "name": "全拆透气C【8cm】A类棉麻面料+2cm 3D透气芯+3cmS黄麻",
+        "price": 696.15,
+        "orig": 989.0,
+        "tag": "平台加补后",
+        "height": 8,
+        "isStart": false
+      },
+      {
+        "name": "全拆透气C【10cm】A类棉麻面料+2cm 3D透气芯+5cmS黄麻",
+        "price": 797.3,
+        "orig": 1139.0,
+        "tag": "平台加补后",
+        "height": 10,
+        "isStart": false
+      },
+      {
+        "name": "全拆透气C【12cm】A类棉麻面料+2cm 3D透气芯+7cmS黄麻",
+        "price": 889.95,
+        "orig": 1289.0,
+        "tag": "平台加补后",
+        "height": 12,
+        "isStart": false
+      },
+      {
+        "name": "全拆透气C【15cm】A类棉麻面料+2cm 3D透气芯+10cmS黄麻",
+        "price": 1045.5,
+        "orig": 1539.0,
+        "tag": "平台加补后",
+        "height": 15,
+        "isStart": false
+      },
+      {
+        "name": "全拆透气C【20cm】A类棉麻面料+2cm 3D透气芯+15cmS黄麻",
+        "price": 1426.3,
+        "orig": 2089.0,
+        "tag": "平台加补后",
+        "height": 20,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "铂马仕",
+      "家装节",
+      "POMOSER",
+      "儿童S黄麻床垫",
+      "A类母婴标准",
+      "拒绝胶水甲醛",
+      "双重补贴拍不立减！",
+      "惊喜红包限时抢！",
+      "政府补贴",
+      "官方补贴",
+      "惊喜红包",
+      "88折消费券",
+      "立减15%",
+      "立减12%",
+      "不止9折至高减500元",
+      "详见支付页面",
+      "可叠加店铺券",
+      "88VIP可用",
+      "送",
+      "单品直降约",
+      "现货速发顺丰到家",
+      "限部分",
+      "咨询 抢舒睡枕X2",
+      "尺寸地区",
+      "37%",
+      "200天真正免费试睡"
+    ],
+    "selling_points": [
+      "护脊偏硬支撑",
+      "天然乳胶",
+      "环保椰棕/黄麻"
+    ],
+    "marketing_text": [
+      "平台/政府大额补贴",
+      "免费试睡保障",
+      "买赠高价值赠品",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "促销大字报冲击型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i2/2165873208/O1CN01jrRP6b6X3XC2vH2e_!!4611686018427386424-0-item_pic.jpg",
+    "image_file": "40640084764.jpg",
+    "local_img_path": "company_analysis/images/40640084764.jpg"
+  },
+  {
+    "unique_id": "comp_16_616295938570",
+    "itemId": "616295938570",
+    "source": "company",
+    "source_name": "公司自营",
+    "is_company": true,
+    "is_market": false,
+    "is_cross_listed": false,
+    "rank": 16,
+    "company_rank": 16,
+    "market_rank": null,
+    "display_rank": "自营 #16",
+    "source_badge": "🏢 公司自营款",
+    "cross_badge": null,
+    "shop": "睡眠骑士床垫企业店",
+    "title": "睡眠骑士乳胶超软席梦思床垫独立弹簧30cm加厚五星级酒店软垫2米",
+    "link": "https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=616295938570",
+    "sales_amount": 0.0,
+    "sales_qty": 0,
+    "buyers": 0,
+    "pay_rate": "0%",
+    "min_price": 1229.1,
+    "max_price": 1798.6,
+    "median_price": 1469.65,
+    "mean_price": 1454.21,
+    "sku_count": 12,
+    "heights": [
+      22,
+      23,
+      24,
+      26,
+      28,
+      30
+    ],
+    "height_min": 22,
+    "height_max": 30,
+    "height_display": "22~30cm",
+    "skus": [
+      {
+        "name": "五星G【2cm乳胶+五星专利弹簧】22cm适中",
+        "price": 1236.75,
+        "orig": 1858.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "五星H【2cm乳胶+五星专利弹簧】24cm双面 千人加购",
+        "price": 1296.25,
+        "orig": 1938.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "五星A【3cm乳胶+五星专利弹簧】24cm适中 店长主推",
+        "price": 1379.55,
+        "orig": 2118.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      },
+      {
+        "name": "五星B【3cm乳胶+五星专利弹簧】26cm双面",
+        "price": 1469.65,
+        "orig": 2238.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "豪华C【5cm乳胶+五星专利弹簧】26cm柔软",
+        "price": 1522.35,
+        "orig": 2308.0,
+        "tag": "平台加补后",
+        "height": 26,
+        "isStart": false
+      },
+      {
+        "name": "豪华D【5cm乳胶+五星专利弹簧】28cm双面",
+        "price": 1603.95,
+        "orig": 2418.0,
+        "tag": "平台加补后",
+        "height": 28,
+        "isStart": false
+      },
+      {
+        "name": "总统E【2cm记忆棉+5cm乳胶+五星专利弹簧】28cm超软",
+        "price": 1701.7,
+        "orig": 2548.0,
+        "tag": "平台加补后",
+        "height": 28,
+        "isStart": false
+      },
+      {
+        "name": "总统F【2cm记忆棉+5cm乳胶+五星专利弹簧】30cm双面",
+        "price": 1798.6,
+        "orig": 2678.0,
+        "tag": "平台加补后",
+        "height": 30,
+        "isStart": false
+      },
+      {
+        "name": "护脊J【2cm黄麻+五星专利弹簧】22cm偏硬",
+        "price": 1229.1,
+        "orig": 1848.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "护脊K【乳胶+2cm黄麻+五星专利弹簧】23cm中硬",
+        "price": 1326.0,
+        "orig": 1978.0,
+        "tag": "平台加补后",
+        "height": 23,
+        "isStart": false
+      },
+      {
+        "name": "呼呼pro加厚B【软硬适中-透气】厚22cm",
+        "price": 1394.85,
+        "orig": 2138.0,
+        "tag": "平台加补后",
+        "height": 22,
+        "isStart": false
+      },
+      {
+        "name": "呼呼pro加厚C【适中偏硬-透气】厚24cm",
+        "price": 1491.75,
+        "orig": 2268.0,
+        "tag": "平台加补后",
+        "height": 24,
+        "isStart": false
+      }
+    ],
+    "ocr_lines": [
+      "SLEEP\"",
+      "睡眠骑士",
+      "官方优选",
+      "KNIGHT",
+      "五星级酒店床垫",
+      "加厚乳胶|奢享睡感",
+      "30CM",
+      "200天免费试睡|20年超长质保",
+      "加厚超软",
+      "48小时顺丰速发",
+      "部分尺寸",
+      "及地区",
+      "花呗分期免息",
+      "365天免费仓储",
+      "免费送货到家"
+    ],
+    "selling_points": [
+      "天然乳胶"
+    ],
+    "marketing_text": [
+      "免费试睡保障",
+      "买赠高价值赠品",
+      "花呗免息分期",
+      "官方正品权威背书"
+    ],
+    "visual_format": [
+      "标准电商综合展示型"
+    ],
+    "main_img_url": "https://img.alicdn.com/bao/uploaded/i3/720743073/O1CN01KVWZQp1YZUESRP0qh_!!720743073.jpg",
+    "image_file": "616295938570.jpg",
+    "local_img_path": "company_analysis/images/616295938570.jpg"
+  }
+]
