@@ -2390,6 +2390,273 @@
             margin-left: 6px;
         }
     
+    
+        /* ==========================================================================
+           TAB 1 全量 SKU 扁平透视宽表 (纯净单行 · 数值强化 · 自定义列宽 · 悬浮大图)
+           ========================================================================== */
+        .v2-table-wrapper {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-height: 760px;
+            margin-top: 10px;
+        }
+        .v2-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            table-layout: fixed;
+            min-width: 1650px;
+        }
+        .v2-table th {
+            position: sticky;
+            top: 0;
+            background: #131b29;
+            color: var(--text-sub);
+            padding: 9px 10px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-light);
+            border-right: 1px solid rgba(43, 56, 78, 0.4);
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            z-index: 10;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+        }
+        .v2-table th:hover {
+            color: #fff;
+            background: #1a2538;
+        }
+        .v2-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid rgba(43, 56, 78, 0.5);
+            border-right: 1px solid rgba(43, 56, 78, 0.3);
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 42px;
+        }
+        .v2-table tr:hover {
+            background: rgba(30, 41, 59, 0.6);
+        }
+
+        /* 拖拽列宽手柄 */
+        .col-resizer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            bottom: 0;
+            cursor: col-resize;
+            user-select: none;
+            z-index: 12;
+        }
+        .col-resizer:hover, .col-resizer.is-resizing {
+            background: #3b82f6;
+        }
+
+        /* 类型列头部的原生极简筛选框 */
+        .th-filter-select {
+            background: #1e293b;
+            border: 1px solid #3b82f6;
+            color: #60a5fa;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 1px 4px;
+            cursor: pointer;
+            outline: none;
+        }
+        .th-filter-select:hover {
+            background: #253349;
+            border-color: #60a5fa;
+        }
+
+        /* 主图缩略图样式与悬停效果 */
+        .thumb-img-trigger {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+            cursor: zoom-in;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .thumb-img-trigger:hover {
+            transform: scale(1.25);
+            border-color: #3b82f6;
+        }
+
+        /* 悬浮原图大图放大预览框 (Fixed HUD) */
+        .hover-img-preview {
+            position: fixed;
+            display: none;
+            z-index: 10000;
+            background: #111827;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+            pointer-events: none;
+            width: 300px;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.12s ease;
+        }
+        .hover-img-preview.active {
+            display: block;
+        }
+        .hover-img-preview img {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            background: #090d16;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: block;
+        }
+        .hover-preview-info {
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        .hover-preview-title {
+            color: #f1f5f9;
+            font-weight: 600;
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .hover-preview-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* 核心数值强化：厚度数值 */
+        .v2-badge-height {
+            background: rgba(245, 158, 11, 0.18);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        /* 核心数值强化：券后价大字号 */
+        .v2-badge-price {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-weight: 800;
+            font-size: 16px;
+            color: #34d399;
+            white-space: nowrap;
+            letter-spacing: -0.3px;
+        }
+        .v2-price-symbol {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-right: 1px;
+        }
+
+        /* 核心数值强化：厘米单价大字号 */
+        .v2-badge-unit {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 2px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1px;
+        }
+        .v2-unit-symbol {
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* 核心数值强化：价格分布占比大字号 */
+        .v2-val-pct {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: #cbd5e1;
+            white-space: nowrap;
+        }
+        .v2-price-bar-box {
+            width: 55px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            display: inline-block;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .v2-price-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 3px;
+        }
+
+        /* 核心数值强化：优惠折扣大字号 */
+        .v2-badge-discount {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 14px;
+            font-weight: 800;
+            color: #f87171;
+            white-space: nowrap;
+        }
+
+        /* 模态弹窗查看OCR原始文本 */
+        .v2-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .v2-modal-overlay.active { display: flex; }
+        .v2-modal-box {
+            background: #111827;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 600px;
+            max-width: 90vw;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+        .v2-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -2773,7 +3040,9 @@
                 <div class="metric-val-sub">平均排名: No.<b id="kpi-rank-mean">0</b></div>
             </div>
             <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap;">
-                <button class="btn-export" id="btn-toggle-all-skus" onclick="toggleExpandAllSkus()" style="background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.35); color: #38bdf8;" title="在当前筛选结果中一次性展开或折叠全部商品的次要SKU">👁️ 展开全部商品次要SKU</button>
+                <button class="btn-export" id="btn-tab1-view-mode" onclick="toggleTab1ViewMode()" style="background: rgba(37,99,235,0.2); border: 1px solid #3b82f6; color: #60a5fa;" title="切换紧凑单行宽表或展开主图标签">⚡ 模式：紧凑纯净宽表</button>
+                <button class="btn-export" id="btn-tab1-card-toggle" onclick="toggleTab1CardMode()" style="background: rgba(148,163,184,0.12); border: 1px solid var(--border); color: #cbd5e1;" title="在透视大宽表与传统大卡片视图间切换">🗂️ 切换为传统大卡片</button>
+                <button class="btn-export" onclick="resetColumnWidths()" style="background: rgba(15,23,42,0.8); border: 1px solid var(--border); color: #94a3b8;" title="恢复各列默认初始宽度">↔️ 恢复默认列宽</button>
                 <button class="btn-export" onclick="exportCurrentCSV()">📥 导出当前结果为 CSV</button>
             </div>
         </div>
@@ -3903,7 +4172,11 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             document.getElementById('kpi-rank-med').innerText = rMed;
             document.getElementById('kpi-rank-mean').innerText = rMean;
 
-            renderProductCards(matchedProducts, 'custom-results-container', true);
+            if (window.tab1ViewType === 'card') {
+                renderProductCards(matchedProducts, 'custom-results-container', true);
+            } else {
+                renderCustomSkuTable(matchedProducts, 'custom-results-container');
+            }
             window._LAST_FILTERED = matchedProducts;
         }
 
@@ -7588,6 +7861,9 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
             else if (src === 'company') document.getElementById('src-btn-comp')?.classList.add('active');
             else if (src === 'market') document.getElementById('src-btn-mkt')?.classList.add('active');
             
+            const srcSel = document.getElementById('v2-source-filter');
+            if (srcSel) srcSel.value = src;
+
             updateHeaderStatsUI();
             runCustomFilter();
         }
@@ -7953,5 +8229,31 @@ const DB = {"meta": {"title": "天猫市场300款与公司内部床垫全域横�
         </div>
     </div>
     
+
+    <!-- 浮层：鼠标悬浮产品主图自动放大原图 -->
+    <div class="hover-img-preview" id="hover-img-preview">
+        <img id="hover-preview-img" src="" alt="商品原图高清预览">
+        <div class="hover-preview-info">
+            <div id="hover-preview-title" class="hover-preview-title"></div>
+            <div class="hover-preview-meta">
+                <span id="hover-preview-shop" style="color: #60a5fa; font-weight: 600;"></span>
+                <span id="hover-preview-rank" class="badge" style="background: rgba(245,158,11,0.2); color: #fbbf24;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗：查看主图完整 OCR 原文与深度详情 -->
+    <div class="v2-modal-overlay" id="ocr-modal" onclick="closeOcrModal(event)">
+        <div class="v2-modal-box" onclick="event.stopPropagation()">
+            <div class="v2-modal-header">
+                <h3 style="color: #60a5fa; font-size: 15px;">📸 主图识别文字与卖点全貌详情</h3>
+                <button class="btn-export" onclick="closeOcrModal()">✕ 关闭</button>
+            </div>
+            <div id="modal-content">
+                <!-- 动态注入 -->
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
