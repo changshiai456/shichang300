@@ -140,9 +140,9 @@ def main():
             'selling_points': p.get('selling_points', []),
             'marketing_text': p.get('marketing_text', ''),
             'visual_format': p.get('visual_format', ''),
-            'main_img_url': comp_counterpart.get('main_img_url', '') if is_also_comp else f"https://img.alicdn.com/bao/uploaded/i2/item_pic.jpg",
-            'image_file': comp_counterpart.get('image_file', '') if is_also_comp else f"{item_id}.jpg",
-            'local_img_path': comp_counterpart.get('local_img_path', '') if is_also_comp else ''
+            'main_img_url': comp_counterpart.get('main_img_url', '') if is_also_comp else (p.get('main_img_url') or (f"market_images/{p['rank']}.jpg" if os.path.exists(f"market_images/{p['rank']}.jpg") else f"market_images/{p['rank']}.png")),
+            'image_file': comp_counterpart.get('image_file', '') if is_also_comp else (f"{p['rank']}.jpg" if os.path.exists(f"market_images/{p['rank']}.jpg") else f"{p['rank']}.png"),
+            'local_img_path': comp_counterpart.get('local_img_path', '') if is_also_comp else (f"market_images/{p['rank']}.jpg" if os.path.exists(f"market_images/{p['rank']}.jpg") else f"market_images/{p['rank']}.png")
         }
         processed_mkt.append(prod_dict)
 
