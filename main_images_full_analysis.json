@@ -49,7 +49,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2210.0,
+      "main_image_price": 2210,
       "sku_min_price": 2294.15,
       "sku_median_price": 2804.15,
       "sku_max_price": 4648.65,
@@ -57,7 +57,9 @@
       "price_diff": -84.15,
       "attraction_ratio": 96.3,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/387542955/O1CN01VCaBZf1XhRTyaHh1h_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/1.jpg"
   },
   "2": {
     "rank": 2,
@@ -115,12 +117,14 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2210120102867/O1CN01OEc7811X38cxIT9RA_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/2.png"
   },
   "3": {
     "rank": 3,
     "has_image": false,
-    "image_name": null,
+    "image_name": "3.jpg",
     "ocr_raw": "",
     "ocr_lines": [],
     "selling_points": [],
@@ -137,12 +141,14 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01IsUoJq1XhRTyK8hMG_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/3.jpg"
   },
   "4": {
     "rank": 4,
     "has_image": false,
-    "image_name": null,
+    "image_name": "4.jpg",
     "ocr_raw": "",
     "ocr_lines": [],
     "selling_points": [],
@@ -152,19 +158,21 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 9999.0,
-      "sku_median_price": 16499.0,
-      "sku_max_price": 17999.0,
+      "sku_min_price": 9999,
+      "sku_median_price": 16499,
+      "sku_max_price": 17999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/4.jpg",
+    "local_path": "market_images/4.jpg"
   },
   "5": {
     "rank": 5,
     "has_image": false,
-    "image_name": null,
+    "image_name": "5.jpg",
     "ocr_raw": "",
     "ocr_lines": [],
     "selling_points": [],
@@ -176,17 +184,19 @@
       "main_image_price": null,
       "sku_min_price": 3638.6,
       "sku_median_price": 3786.7,
-      "sku_max_price": 4923.0,
+      "sku_max_price": 4923,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1105025069/O1CN01c3OzRa1nJelYfSGVu_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/5.jpg"
   },
   "6": {
     "rank": 6,
     "has_image": false,
-    "image_name": null,
+    "image_name": "6.png",
     "ocr_raw": "",
     "ocr_lines": [],
     "selling_points": [],
@@ -203,7 +213,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2210120102867/O1CN01GjWSvT1X38c6uGfrb_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/6.png"
   },
   "7": {
     "rank": 7,
@@ -253,7 +265,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1105.0,
+      "main_image_price": 1105,
       "sku_min_price": 790.5,
       "sku_median_price": 2110.12,
       "sku_max_price": 4239.8,
@@ -261,7 +273,9 @@
       "price_diff": 314.5,
       "attraction_ratio": 139.8,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2126650380/O1CN01Ecaq5E1Eg5bq7hSF2_!!4611686018427386892-0-item_pic.jpg",
+    "local_path": "market_images/7.jpg"
   },
   "8": {
     "rank": 8,
@@ -292,14 +306,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 10634.0,
-      "sku_median_price": 11150.0,
-      "sku_max_price": 11666.0,
+      "sku_min_price": 10634,
+      "sku_median_price": 11150,
+      "sku_max_price": 11666,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/8.jpg",
+    "local_path": "market_images/8.jpg"
   },
   "9": {
     "rank": 9,
@@ -323,14 +339,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1889.0,
-      "sku_median_price": 1899.0,
-      "sku_max_price": 2239.0,
+      "sku_min_price": 1889,
+      "sku_median_price": 1899,
+      "sku_max_price": 2239,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN01eLJFGE1nJelA80QwB_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/9.jpg"
   },
   "10": {
     "rank": 10,
@@ -374,14 +392,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2719.0,
-      "sku_median_price": 3039.0,
-      "sku_max_price": 3359.0,
+      "sku_min_price": 2719,
+      "sku_median_price": 3039,
+      "sku_max_price": 3359,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2200672691618/O1CN015KvrcZ1Np5wTZpXI5_!!2200672691618.jpg",
+    "local_path": "market_images/10.jpg"
   },
   "11": {
     "rank": 11,
@@ -403,14 +423,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1959.0,
-      "sku_median_price": 2259.0,
-      "sku_max_price": 2589.0,
+      "sku_min_price": 1959,
+      "sku_median_price": 2259,
+      "sku_max_price": 2589,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1105025069/O1CN01mUtbPO1nJel7p3nLT_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/11.jpg"
   },
   "12": {
     "rank": 12,
@@ -471,7 +493,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/706084574/O1CN01Tc8jDW1jewiHV818E_!!706084574.jpg",
+    "local_path": "market_images/12.jpg"
   },
   "13": {
     "rank": 13,
@@ -523,7 +547,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN01a5MxaQ1nJelYztyv0_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/13.jpg"
   },
   "14": {
     "rank": 14,
@@ -571,12 +597,14 @@
       "main_image_price": null,
       "sku_min_price": 1268.2,
       "sku_median_price": 1498.55,
-      "sku_max_price": 2899.0,
+      "sku_max_price": 2899,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/919851856/O1CN01sVHPWB5zLED32pKq_!!4611686018427384656-0-item_pic.jpg",
+    "local_path": "market_images/14.jpg"
   },
   "15": {
     "rank": 15,
@@ -634,7 +662,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/828233086/O1CN012J1IFj1YfRMpo4BAn_!!4611686018427385214-0-item_pic.jpg",
+    "local_path": "market_images/15.jpg"
   },
   "16": {
     "rank": 16,
@@ -658,7 +688,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/685563493/O1CN01jHgwrs1bfqZ9Q2Zp4-685563493.png",
+    "local_path": "market_images/16.jpg"
   },
   "17": {
     "rank": 17,
@@ -716,7 +748,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/387542955/O1CN01TTt8LS1XhRU14kUxF_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/17.png"
   },
   "18": {
     "rank": 18,
@@ -757,7 +791,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214226785163/O1CN01bMcFEm1o0hyixa8Xr_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/18.jpg"
   },
   "19": {
     "rank": 19,
@@ -782,7 +818,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214226785163/O1CN01Bo9sxk1o0hyh5vfVY_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/19.jpg"
   },
   "20": {
     "rank": 20,
@@ -813,14 +851,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 120.0,
+      "sku_min_price": 120,
       "sku_median_price": 236.1,
       "sku_max_price": 403.6,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2706365284/O1CN01VnmngC1ou7oZd6hkd_!!2706365284.jpg",
+    "local_path": "market_images/20.jpg"
   },
   "21": {
     "rank": 21,
@@ -866,7 +906,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 4420.0,
+      "main_image_price": 4420,
       "sku_min_price": 3305.65,
       "sku_median_price": 3305.65,
       "sku_max_price": 3305.65,
@@ -874,7 +914,9 @@
       "price_diff": 1114.35,
       "attraction_ratio": 133.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2210120102867/O1CN01F5Gbz91X38d2u2Wtp_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/21.jpg"
   },
   "22": {
     "rank": 22,
@@ -905,15 +947,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2399.0,
+      "main_image_price": 2399,
       "sku_min_price": 3550.3,
       "sku_median_price": 3550.3,
-      "sku_max_price": 4896.0,
+      "sku_max_price": 4896,
       "closest_target": "SKU最低价",
       "price_diff": -1151.3,
       "attraction_ratio": 67.6,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN017mezTk1nJelYW6RDK_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/22.jpg"
   },
   "23": {
     "rank": 23,
@@ -937,7 +981,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/23.jpg",
+    "local_path": "market_images/23.jpg"
   },
   "24": {
     "rank": 24,
@@ -994,7 +1040,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/24.jpg",
+    "local_path": "market_images/24.jpg"
   },
   "25": {
     "rank": 25,
@@ -1052,7 +1100,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2210120102867/O1CN01dXZyJj1X38cxJGd5u_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/25.jpg"
   },
   "26": {
     "rank": 26,
@@ -1074,7 +1124,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01DqD1mW1XhRTkTzaCf_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/26.jpg"
   },
   "27": {
     "rank": 27,
@@ -1119,7 +1171,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2211983252447/O1CN01SdUtn71TwmGWw332i_!!4611686018427386847-0-item_pic.jpg",
+    "local_path": "market_images/27.jpg"
   },
   "28": {
     "rank": 28,
@@ -1154,7 +1208,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2214226785163/O1CN01sjFT571o0hzT7TYuR_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/28.jpg"
   },
   "29": {
     "rank": 29,
@@ -1213,7 +1269,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2862927971/O1CN01BoAcso28km9GMaBvG_!!4611686018427383907-0-item_pic.jpg",
+    "local_path": "market_images/29.jpg"
   },
   "30": {
     "rank": 30,
@@ -1256,7 +1314,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2210120102867/O1CN01TBSKdg1X38d3HLCUn_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/30.jpg"
   },
   "31": {
     "rank": 31,
@@ -1308,12 +1368,14 @@
       "main_image_price": null,
       "sku_min_price": 170.98,
       "sku_median_price": 320.76,
-      "sku_max_price": 668.0,
+      "sku_max_price": 668,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2201306663288/O1CN013WiFdQ1a9xJoCNZEw_!!4611686018427382136-0-item_pic.jpg",
+    "local_path": "market_images/31.jpg"
   },
   "32": {
     "rank": 32,
@@ -1363,7 +1425,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01gfLh4A1XhRTyQyopq_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/32.jpg"
   },
   "33": {
     "rank": 33,
@@ -1393,14 +1457,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1349.0,
-      "sku_median_price": 1539.0,
-      "sku_max_price": 1799.0,
+      "sku_min_price": 1349,
+      "sku_median_price": 1539,
+      "sku_max_price": 1799,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1105025069/O1CN01Fz6yik1nJekGXy6Cg_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/33.jpg"
   },
   "34": {
     "rank": 34,
@@ -1449,15 +1515,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1535.0,
+      "main_image_price": 1535,
       "sku_min_price": 897.19,
       "sku_median_price": 1252.15,
-      "sku_max_price": 1923.0,
+      "sku_max_price": 1923,
       "closest_target": "SKU中位价",
       "price_diff": 282.85,
       "attraction_ratio": 171.1,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/143584903/O1CN01URrFRY1m5d1Ek9wAO_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/34.jpg"
   },
   "35": {
     "rank": 35,
@@ -1512,7 +1580,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN01qWZkvx1TwmHFrXcs7_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/35.jpg"
   },
   "36": {
     "rank": 36,
@@ -1560,7 +1630,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 680.0,
+      "main_image_price": 680,
       "sku_min_price": 670.65,
       "sku_median_price": 883.15,
       "sku_max_price": 1206.15,
@@ -1568,7 +1638,9 @@
       "price_diff": 9.35,
       "attraction_ratio": 101.4,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "market_images/36.jpg",
+    "local_path": "market_images/36.jpg"
   },
   "37": {
     "rank": 37,
@@ -1621,7 +1693,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2219785580049/O1CN01z1AADf1CEUTbACkWA_!!4611686018427383313-0-item_pic.jpg",
+    "local_path": "market_images/37.jpg"
   },
   "38": {
     "rank": 38,
@@ -1651,7 +1725,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 4449.0,
+      "main_image_price": 4449,
       "sku_min_price": 2259.3,
       "sku_median_price": 2259.3,
       "sku_max_price": 2259.3,
@@ -1659,7 +1733,9 @@
       "price_diff": 2189.7,
       "attraction_ratio": 196.9,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "market_images/38.jpg",
+    "local_path": "market_images/38.jpg"
   },
   "39": {
     "rank": 39,
@@ -1701,7 +1777,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1019.0,
+      "main_image_price": 1019,
       "sku_min_price": 433.33,
       "sku_median_price": 814.2,
       "sku_max_price": 1394.58,
@@ -1709,7 +1785,9 @@
       "price_diff": 204.8,
       "attraction_ratio": 235.2,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/143584903/O1CN01obhYmf1m5d1FNSTkR_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/39.jpg"
   },
   "40": {
     "rank": 40,
@@ -1766,7 +1844,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2217790318253/O1CN01GMSsJh2Apvq58Ab47_!!4611686018427381421-0-item_pic.jpg",
+    "local_path": "market_images/40.jpg"
   },
   "41": {
     "rank": 41,
@@ -1820,7 +1900,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2346.0,
+      "main_image_price": 2346,
       "sku_min_price": 1784.15,
       "sku_median_price": 1954.15,
       "sku_max_price": 3314.15,
@@ -1828,7 +1908,9 @@
       "price_diff": 391.85,
       "attraction_ratio": 131.5,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01ZPdhJF1XhRTyolpjn_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/41.jpg"
   },
   "42": {
     "rank": 42,
@@ -1871,15 +1953,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 959.0,
+      "main_image_price": 959,
       "sku_min_price": 1178.8,
       "sku_median_price": 1628.2,
-      "sku_max_price": 1919.0,
+      "sku_max_price": 1919,
       "closest_target": "SKU最低价",
       "price_diff": -219.8,
       "attraction_ratio": 81.4,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1105025069/O1CN01kOhmxf1nJelWsMZxc_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/42.jpg"
   },
   "43": {
     "rank": 43,
@@ -1929,14 +2013,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 595.0,
+      "sku_min_price": 595,
       "sku_median_price": 956.25,
       "sku_max_price": 1507.9,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1046710982/O1CN01lBzCG91J7o0ICDj8Y_!!1046710982.jpg",
+    "local_path": "market_images/43.png"
   },
   "44": {
     "rank": 44,
@@ -1990,7 +2076,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2635.0,
+      "main_image_price": 2635,
       "sku_min_price": 1784.15,
       "sku_median_price": 1911.65,
       "sku_max_price": 3698.35,
@@ -1998,7 +2084,9 @@
       "price_diff": 723.35,
       "attraction_ratio": 147.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/387542955/O1CN01P2XGkB1XhRTxTROZr_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/44.jpg"
   },
   "45": {
     "rank": 45,
@@ -2025,14 +2113,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 456.0,
-      "sku_median_price": 679.0,
-      "sku_max_price": 916.0,
+      "sku_min_price": 456,
+      "sku_median_price": 679,
+      "sku_max_price": 916,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2770872977/O1CN01x1hHwr1XrWAjR1bdj_!!2770872977.jpg",
+    "local_path": "market_images/45.png"
   },
   "46": {
     "rank": 46,
@@ -2078,7 +2168,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN01DKd69s1nJelWqrct7_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/46.jpg"
   },
   "47": {
     "rank": 47,
@@ -2126,7 +2218,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01viVgsO1XhRTx8jZev_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/47.jpg"
   },
   "48": {
     "rank": 48,
@@ -2155,7 +2249,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/828233086/O1CN018x2NHW1YfRMqVbfvx_!!4611686018427385214-0-item_pic.jpg",
+    "local_path": "market_images/48.jpg"
   },
   "49": {
     "rank": 49,
@@ -2192,7 +2288,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/49.jpg",
+    "local_path": "market_images/49.jpg"
   },
   "50": {
     "rank": 50,
@@ -2233,7 +2331,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2217378250994/O1CN01pTe7m11JDImwvvfCj_!!4611686018427379954-0-item_pic.jpg",
+    "local_path": "market_images/50.jpg"
   },
   "51": {
     "rank": 51,
@@ -2260,14 +2360,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 339.0,
-      "sku_median_price": 435.0,
-      "sku_max_price": 800.0,
+      "sku_min_price": 339,
+      "sku_median_price": 435,
+      "sku_max_price": 800,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/51.jpg",
+    "local_path": "market_images/51.jpg"
   },
   "52": {
     "rank": 52,
@@ -2321,7 +2423,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 680.0,
+      "main_image_price": 680,
       "sku_min_price": 744.87,
       "sku_median_price": 1053.36,
       "sku_max_price": 1498.21,
@@ -2329,7 +2431,9 @@
       "price_diff": -64.87,
       "attraction_ratio": 91.3,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/143584903/O1CN01vKYAmZ1m5d1F8rm28_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/52.jpg"
   },
   "53": {
     "rank": 53,
@@ -2386,7 +2490,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/1105025069/O1CN01dfUloO1nJelYf7n0U_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/53.jpg"
   },
   "54": {
     "rank": 54,
@@ -2439,12 +2545,14 @@
       "main_image_price": null,
       "sku_min_price": 5609.15,
       "sku_median_price": 7999.35,
-      "sku_max_price": 8599.0,
+      "sku_max_price": 8599,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/54.jpg",
+    "local_path": "market_images/54.jpg"
   },
   "55": {
     "rank": 55,
@@ -2470,7 +2578,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/720743073/O1CN01OAeAQh1YZUESKorAz_!!720743073.jpg",
+    "local_path": "market_images/55.jpg"
   },
   "56": {
     "rank": 56,
@@ -2491,14 +2601,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 335.0,
-      "sku_median_price": 460.0,
-      "sku_max_price": 925.0,
+      "sku_min_price": 335,
+      "sku_median_price": 460,
+      "sku_max_price": 925,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2201261192286/O1CN01EM9Vhp1Sl2UrQ5Rfi_!!2201261192286.jpg",
+    "local_path": "market_images/56.jpg"
   },
   "57": {
     "rank": 57,
@@ -2544,7 +2656,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/387542955/O1CN01RhOiF51XhRTuTmtFR_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/57.jpg"
   },
   "58": {
     "rank": 58,
@@ -2590,15 +2704,17 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 2695.0,
+      "main_image_price": 2695,
       "sku_min_price": 2840.62,
-      "sku_median_price": 4802.0,
-      "sku_max_price": 8998.0,
+      "sku_median_price": 4802,
+      "sku_max_price": 8998,
       "closest_target": "SKU最低价",
       "price_diff": -145.62,
       "attraction_ratio": 94.9,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1950231285/O1CN0189jXqi1LMa3KRhdYr_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/58.jpg"
   },
   "59": {
     "rank": 59,
@@ -2652,7 +2768,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2074412022/O1CN01yiM9gD1Qo7xBGCsPn_!!4611686018427380726-0-item_pic.jpg",
+    "local_path": "market_images/59.jpg"
   },
   "60": {
     "rank": 60,
@@ -2704,7 +2822,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2126650380/O1CN01bQMt5J1Eg5br9TUVd_!!4611686018427386892-0-item_pic.jpg",
+    "local_path": "market_images/60.jpg"
   },
   "61": {
     "rank": 61,
@@ -2753,7 +2873,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 999.0,
+      "main_image_price": 999,
       "sku_min_price": 1061.65,
       "sku_median_price": 1125.4,
       "sku_max_price": 1274.15,
@@ -2761,7 +2881,9 @@
       "price_diff": -62.65,
       "attraction_ratio": 94.1,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/387542955/O1CN01kUGPJN1XhRTspdjsc_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/61.jpg"
   },
   "62": {
     "rank": 62,
@@ -2799,7 +2921,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2210120102867/O1CN01shjBz31X38d2fGGvf_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/62.jpg"
   },
   "63": {
     "rank": 63,
@@ -2853,7 +2977,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2862927971/O1CN01ptqlCi28km9GufGiL_!!4611686018427383907-0-item_pic.jpg",
+    "local_path": "market_images/63.png"
   },
   "64": {
     "rank": 64,
@@ -2909,7 +3035,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2217825132606/O1CN01vFiMg71V7bFsz1UP6_!!4611686018427379774-0-item_pic.jpg",
+    "local_path": "market_images/64.png"
   },
   "65": {
     "rank": 65,
@@ -2954,14 +3082,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 5499.0,
-      "sku_median_price": 5499.0,
-      "sku_max_price": 5499.0,
+      "sku_min_price": 5499,
+      "sku_median_price": 5499,
+      "sku_max_price": 5499,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2200672691618/O1CN017vYvHI1Np5wUs3N2E_!!2200672691618.jpg",
+    "local_path": "market_images/65.jpg"
   },
   "66": {
     "rank": 66,
@@ -3003,14 +3133,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 4618.0,
-      "sku_median_price": 5058.0,
-      "sku_max_price": 6800.0,
+      "sku_min_price": 4618,
+      "sku_median_price": 5058,
+      "sku_max_price": 6800,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2218866937907/O1CN01HMP99J28HSmffR0WA_!!2218866937907.png",
+    "local_path": "market_images/66.jpg"
   },
   "67": {
     "rank": 67,
@@ -3058,7 +3190,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2861919497/O1CN01FdzSw92K1gXc7ME30_!!2861919497.jpg",
+    "local_path": "market_images/67.jpg"
   },
   "68": {
     "rank": 68,
@@ -3086,14 +3220,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 153.0,
-      "sku_median_price": 576.0,
-      "sku_max_price": 1325.0,
+      "sku_min_price": 153,
+      "sku_median_price": 576,
+      "sku_max_price": 1325,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2451073031/O1CN01wRfNbb1YGFVMtlF94_!!2451073031.jpg",
+    "local_path": "market_images/68.jpg"
   },
   "69": {
     "rank": 69,
@@ -3149,7 +3285,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/387542955/O1CN01Kzv8x11XhRTxTD1lV_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/69.jpg"
   },
   "70": {
     "rank": 70,
@@ -3177,7 +3315,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2215907225135/O1CN01UYps14fxinI2vH2e_!!4611686018427383343-0-item_pic.jpg",
+    "local_path": "market_images/70.jpg"
   },
   "71": {
     "rank": 71,
@@ -3234,7 +3374,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/71.jpg",
+    "local_path": "market_images/71.jpg"
   },
   "72": {
     "rank": 72,
@@ -3277,7 +3419,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1700.0,
+      "main_image_price": 1700,
       "sku_min_price": 1048.05,
       "sku_median_price": 1414.82,
       "sku_max_price": 1722.95,
@@ -3285,7 +3427,9 @@
       "price_diff": -22.95,
       "attraction_ratio": 162.2,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2165873208/O1CN01OpjK0QUdjHB2vH2e_!!4611686018427386424-0-item_pic.jpg",
+    "local_path": "market_images/72.jpg"
   },
   "73": {
     "rank": 73,
@@ -3322,7 +3466,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2219785580049/O1CN01YDwtYe1CEUTyMYcHz_!!4611686018427383313-0-item_pic.jpg",
+    "local_path": "market_images/73.jpg"
   },
   "74": {
     "rank": 74,
@@ -3362,7 +3508,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2218627690890/O1CN01hvZK2f1IRfXNj4AFy_!!4611686018427384202-0-item_pic.jpg",
+    "local_path": "market_images/74.jpg"
   },
   "75": {
     "rank": 75,
@@ -3394,7 +3542,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2211983252447/O1CN01YCOr4K1TwmGWqftx9_!!4611686018427386847-0-item_pic.jpg",
+    "local_path": "market_images/75.jpg"
   },
   "76": {
     "rank": 76,
@@ -3429,7 +3579,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1950231285/O1CN01DwZJoy1LMa2eOxeUw_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/76.jpg"
   },
   "77": {
     "rank": 77,
@@ -3452,12 +3604,14 @@
       "main_image_price": null,
       "sku_min_price": 5990.8,
       "sku_median_price": 8590.1,
-      "sku_max_price": 21189.0,
+      "sku_max_price": 21189,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2436676752/O1CN01QXHlsD1zkTIV4Xo9b_!!4611686018427387024-0-item_pic.jpg",
+    "local_path": "market_images/77.jpg"
   },
   "78": {
     "rank": 78,
@@ -3495,14 +3649,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2091.0,
+      "sku_min_price": 2091,
       "sku_median_price": 3253.68,
       "sku_max_price": 4820.35,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1950231285/O1CN01AEzMsm1LMa259gGSV_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/78.jpg"
   },
   "79": {
     "rank": 79,
@@ -3545,7 +3701,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN01YEc6mY1TwmDiiEhOA_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/79.jpg"
   },
   "80": {
     "rank": 80,
@@ -3590,12 +3748,14 @@
       "main_image_price": null,
       "sku_min_price": 1856.5,
       "sku_median_price": 2151.7,
-      "sku_max_price": 2385.0,
+      "sku_max_price": 2385,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN01daxh411nJelYFBEbl_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/80.jpg"
   },
   "81": {
     "rank": 81,
@@ -3647,7 +3807,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2550.0,
+      "main_image_price": 2550,
       "sku_min_price": 1478.15,
       "sku_median_price": 1669.4,
       "sku_max_price": 1860.65,
@@ -3655,7 +3815,9 @@
       "price_diff": 689.35,
       "attraction_ratio": 172.5,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1950231285/O1CN013RukoC1LMa2z1GJxt_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/81.jpg"
   },
   "82": {
     "rank": 82,
@@ -3695,12 +3857,14 @@
       "main_image_price": null,
       "sku_min_price": 5998.45,
       "sku_median_price": 7398.82,
-      "sku_max_price": 9792.0,
+      "sku_max_price": 9792,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1691788071/O1CN01ijg2XB29UZktmP8Uz_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/82.jpg"
   },
   "83": {
     "rank": 83,
@@ -3731,7 +3895,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/828233086/O1CN01Je6MAx1YfRMqgymVW_!!4611686018427385214-0-item_pic.jpg",
+    "local_path": "market_images/83.jpg"
   },
   "84": {
     "rank": 84,
@@ -3784,7 +3950,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01jqYBbJ1XhRU08RbyD_!!387542955.jpg",
+    "local_path": "market_images/84.png"
   },
   "85": {
     "rank": 85,
@@ -3815,13 +3983,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 186.2,
-      "sku_median_price": 427.0,
-      "sku_max_price": 1524.0,
+      "sku_median_price": 427,
+      "sku_max_price": 1524,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2040755924/O1CN01hvWOTU1tdFIDFd29K_!!0-item_pic.jpg",
+    "local_path": "market_images/85.jpg"
   },
   "86": {
     "rank": 86,
@@ -3859,7 +4029,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/3540501685/O1CN01NyINiV1OJmSeMRkeE_!!3540501685.jpg",
+    "local_path": "market_images/86.jpg"
   },
   "87": {
     "rank": 87,
@@ -3893,7 +4065,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2066012447/O1CN01X8vrSO1TwmHJeF96g_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/87.jpg"
   },
   "88": {
     "rank": 88,
@@ -3942,7 +4116,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2215297788865/O1CN01DSmj1X2FMEEOhgVrl_!!2215297788865.jpg",
+    "local_path": "market_images/88.jpg"
   },
   "89": {
     "rank": 89,
@@ -3998,7 +4174,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/89.jpg",
+    "local_path": "market_images/89.jpg"
   },
   "90": {
     "rank": 90,
@@ -4045,12 +4223,14 @@
       "main_image_price": null,
       "sku_min_price": 505.75,
       "sku_median_price": 1013.2,
-      "sku_max_price": 2888.0,
+      "sku_max_price": 2888,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2861919497/O1CN015c19AG2K1gXcldRC5_!!2861919497.jpg",
+    "local_path": "market_images/90.jpg"
   },
   "91": {
     "rank": 91,
@@ -4093,7 +4273,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/91.jpg",
+    "local_path": "market_images/91.jpg"
   },
   "92": {
     "rank": 92,
@@ -4132,7 +4314,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2451073031/O1CN01stST2Y1YGFYpwjPDB_!!2451073031.jpg",
+    "local_path": "market_images/92.jpg"
   },
   "93": {
     "rank": 93,
@@ -4167,12 +4351,14 @@
       "main_image_price": null,
       "sku_min_price": 1581.85,
       "sku_median_price": 1741.65,
-      "sku_max_price": 4999.0,
+      "sku_max_price": 4999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2211983252447/O1CN01Ig5mCq1TwmGpHPesj_!!4611686018427386847-0-item_pic.jpg",
+    "local_path": "market_images/93.jpg"
   },
   "94": {
     "rank": 94,
@@ -4223,7 +4409,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/828233086/O1CN01aCbWIB1YfRMqjbWuB_!!4611686018427385214-0-item_pic.jpg",
+    "local_path": "market_images/94.png"
   },
   "95": {
     "rank": 95,
@@ -4249,13 +4437,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 340.78,
-      "sku_median_price": 449.0,
-      "sku_max_price": 809.0,
+      "sku_median_price": 449,
+      "sku_max_price": 809,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2201261192286/O1CN01GlykIa1Sl2UkCebAN_!!2201261192286.jpg",
+    "local_path": "market_images/95.jpg"
   },
   "96": {
     "rank": 96,
@@ -4289,7 +4479,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/96.jpg",
+    "local_path": "market_images/96.jpg"
   },
   "97": {
     "rank": 97,
@@ -4345,7 +4537,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1046710982/O1CN01BukdlL1J7o0EbCdfq_!!1046710982.jpg",
+    "local_path": "market_images/97.jpg"
   },
   "98": {
     "rank": 98,
@@ -4379,14 +4573,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 391.0,
-      "sku_median_price": 705.0,
-      "sku_max_price": 1287.0,
+      "sku_min_price": 391,
+      "sku_median_price": 705,
+      "sku_max_price": 1287,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/28203769/O1CN01b63bzZ1diFsJKxg0V_!!28203769.jpg",
+    "local_path": "market_images/98.jpg"
   },
   "99": {
     "rank": 99,
@@ -4411,7 +4607,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/387542955/O1CN014EWDpN1XhRTyBo2mq_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/99.jpg"
   },
   "100": {
     "rank": 100,
@@ -4446,14 +4644,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3780.0,
-      "sku_median_price": 8770.0,
-      "sku_max_price": 11800.0,
+      "sku_min_price": 3780,
+      "sku_median_price": 8770,
+      "sku_max_price": 11800,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2218866937907/O1CN01AoVUIy28HSmet2Tq1_!!2218866937907.png",
+    "local_path": "market_images/100.jpg"
   },
   "101": {
     "rank": 101,
@@ -4507,7 +4707,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/828233086/O1CN01eeYQAm1YfRMq47qQI-828233086.jpg",
+    "local_path": "market_images/101.jpg"
   },
   "102": {
     "rank": 102,
@@ -4528,13 +4730,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 340.42,
-      "sku_median_price": 434.0,
-      "sku_max_price": 809.0,
+      "sku_median_price": 434,
+      "sku_max_price": 809,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/102.jpg",
+    "local_path": "market_images/102.jpg"
   },
   "103": {
     "rank": 103,
@@ -4562,14 +4766,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3706.0,
+      "sku_min_price": 3706,
       "sku_median_price": 3879.82,
       "sku_max_price": 4053.65,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/103.png",
+    "local_path": "market_images/103.png"
   },
   "104": {
     "rank": 104,
@@ -4602,12 +4808,14 @@
       "main_image_price": null,
       "sku_min_price": 398.02,
       "sku_median_price": 709.08,
-      "sku_max_price": 1279.0,
+      "sku_max_price": 1279,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2982013557/O1CN01ohJg5E1c99ujTuilR_!!2982013557.jpg",
+    "local_path": "market_images/104.jpg"
   },
   "105": {
     "rank": 105,
@@ -4635,7 +4843,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/105.jpg",
+    "local_path": "market_images/105.jpg"
   },
   "106": {
     "rank": 106,
@@ -4668,7 +4878,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2215297788865/O1CN01pU37mb2FMEEOYSg8N_!!2215297788865.jpg",
+    "local_path": "market_images/106.jpg"
   },
   "107": {
     "rank": 107,
@@ -4720,13 +4932,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 5498.65,
-      "sku_median_price": 8968.0,
-      "sku_max_price": 10262.0,
+      "sku_median_price": 8968,
+      "sku_max_price": 10262,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1691788071/O1CN01RU8hNO29UZkt9D3VM_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/107.jpg"
   },
   "108": {
     "rank": 108,
@@ -4768,7 +4982,7 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 2178.0,
+      "main_image_price": 2178,
       "sku_min_price": 3926.15,
       "sku_median_price": 3926.15,
       "sku_max_price": 3926.15,
@@ -4776,7 +4990,9 @@
       "price_diff": -1748.15,
       "attraction_ratio": 55.5,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "market_images/108.jpg",
+    "local_path": "market_images/108.jpg"
   },
   "109": {
     "rank": 109,
@@ -4803,7 +5019,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/391855827/O1CN01v719yV1suoz4SqTTk_!!4611686018427387603-2-item_pic.png",
+    "local_path": "market_images/109.jpg"
   },
   "110": {
     "rank": 110,
@@ -4835,7 +5053,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2211116490561/O1CN01FKrAO21G0zIhx9jDB_!!4611686018427387713-0-item_pic.jpg",
+    "local_path": "market_images/110.jpg"
   },
   "111": {
     "rank": 111,
@@ -4890,15 +5110,17 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 1360.0,
-      "sku_min_price": 150.0,
-      "sku_median_price": 599.0,
-      "sku_max_price": 741.0,
+      "main_image_price": 1360,
+      "sku_min_price": 150,
+      "sku_median_price": 599,
+      "sku_max_price": 741,
       "closest_target": "SKU最高价",
-      "price_diff": 619.0,
+      "price_diff": 619,
       "attraction_ratio": 906.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/3582001234/O1CN01yu6PsV1KzDqehWwer_!!3582001234.jpg",
+    "local_path": "market_images/111.jpg"
   },
   "112": {
     "rank": 112,
@@ -4942,15 +5164,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1629.0,
-      "sku_min_price": 349.0,
-      "sku_median_price": 497.0,
-      "sku_max_price": 930.0,
+      "main_image_price": 1629,
+      "sku_min_price": 349,
+      "sku_median_price": 497,
+      "sku_max_price": 930,
       "closest_target": "SKU最高价",
-      "price_diff": 699.0,
+      "price_diff": 699,
       "attraction_ratio": 466.8,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2201219375501/O1CN01cgzog01qVVpDdw0kf_!!2201219375501.jpg",
+    "local_path": "market_images/112.jpg"
   },
   "113": {
     "rank": 113,
@@ -5014,7 +5238,9 @@
       "price_diff": 696.49,
       "attraction_ratio": 223.9,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/143584903/O1CN01THeeSD1m5d1E9ubSs_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/113.jpg"
   },
   "114": {
     "rank": 114,
@@ -5062,14 +5288,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 458.0,
-      "sku_median_price": 597.0,
-      "sku_max_price": 801.0,
+      "sku_min_price": 458,
+      "sku_median_price": 597,
+      "sku_max_price": 801,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/114.jpg",
+    "local_path": "market_images/114.jpg"
   },
   "115": {
     "rank": 115,
@@ -5099,12 +5327,14 @@
       "main_image_price": null,
       "sku_min_price": 1388.9,
       "sku_median_price": 2343.88,
-      "sku_max_price": 5143.0,
+      "sku_max_price": 5143,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2128866794/O1CN015ziibD203hyl3IuqL_!!4611686018427383274-0-item_pic.jpg",
+    "local_path": "market_images/115.jpg"
   },
   "116": {
     "rank": 116,
@@ -5158,7 +5388,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/143584903/O1CN01MkV9Z41m5d1ERr1rH_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/116.jpg"
   },
   "117": {
     "rank": 117,
@@ -5211,15 +5443,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2465.0,
+      "main_image_price": 2465,
       "sku_min_price": 1227.4,
       "sku_median_price": 1628.6,
-      "sku_max_price": 4148.0,
+      "sku_max_price": 4148,
       "closest_target": "SKU中位价",
       "price_diff": 836.4,
       "attraction_ratio": 200.8,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/661916707/O1CN01xFYYp41zPrWPB4zlm_!!4611686018427382819-0-item_pic.jpg",
+    "local_path": "market_images/117.jpg"
   },
   "118": {
     "rank": 118,
@@ -5248,12 +5482,14 @@
       "main_image_price": null,
       "sku_min_price": 815.15,
       "sku_median_price": 1116.05,
-      "sku_max_price": 2074.0,
+      "sku_max_price": 2074,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/118.jpg",
+    "local_path": "market_images/118.jpg"
   },
   "119": {
     "rank": 119,
@@ -5289,12 +5525,14 @@
       "main_image_price": null,
       "sku_min_price": 622.2,
       "sku_median_price": 1383.8,
-      "sku_max_price": 2088.0,
+      "sku_max_price": 2088,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2861919497/O1CN01TM2Tv22K1gXbccX4d_!!2861919497.jpg",
+    "local_path": "market_images/119.jpg"
   },
   "120": {
     "rank": 120,
@@ -5333,14 +5571,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 236.0,
+      "sku_min_price": 236,
       "sku_median_price": 371.44,
       "sku_max_price": 844.01,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/3230776774/O1CN01nrePIQ1zuXpfr7hA2_!!3230776774.png",
+    "local_path": "market_images/120.jpg"
   },
   "121": {
     "rank": 121,
@@ -5378,15 +5618,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 864.0,
-      "sku_min_price": 235.0,
-      "sku_median_price": 977.0,
-      "sku_max_price": 3080.0,
+      "main_image_price": 864,
+      "sku_min_price": 235,
+      "sku_median_price": 977,
+      "sku_max_price": 3080,
       "closest_target": "SKU中位价",
-      "price_diff": -113.0,
+      "price_diff": -113,
       "attraction_ratio": 367.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/753423342/O1CN010gXnGp1aYgQEwRmnu_!!753423342.jpg",
+    "local_path": "market_images/121.jpg"
   },
   "122": {
     "rank": 122,
@@ -5423,12 +5665,14 @@
       "main_image_price": null,
       "sku_min_price": 579.7,
       "sku_median_price": 929.9,
-      "sku_max_price": 1588.0,
+      "sku_max_price": 1588,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2861919497/O1CN01pRqOKE2K1gXbcl878_!!2861919497.jpg",
+    "local_path": "market_images/122.jpg"
   },
   "123": {
     "rank": 123,
@@ -5475,7 +5719,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2066012447/O1CN01a0HInW1TwmDjbz2CI_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/123.jpg"
   },
   "124": {
     "rank": 124,
@@ -5496,14 +5742,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2261.0,
+      "sku_min_price": 2261,
       "sku_median_price": 2490.5,
       "sku_max_price": 3290.35,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/124.jpg",
+    "local_path": "market_images/124.jpg"
   },
   "125": {
     "rank": 125,
@@ -5542,7 +5790,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/125.jpg",
+    "local_path": "market_images/125.jpg"
   },
   "126": {
     "rank": 126,
@@ -5595,13 +5845,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 358.39,
-      "sku_median_price": 560.0,
+      "sku_median_price": 560,
       "sku_max_price": 792.2,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/126.jpg",
+    "local_path": "market_images/126.jpg"
   },
   "127": {
     "rank": 127,
@@ -5629,7 +5881,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/127.jpg",
+    "local_path": "market_images/127.jpg"
   },
   "128": {
     "rank": 128,
@@ -5688,7 +5942,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2211116490561/O1CN01B5UKxj1G0zIWvlzJj_!!4611686018427387713-0-item_pic.jpg",
+    "local_path": "market_images/128.jpg"
   },
   "129": {
     "rank": 129,
@@ -5725,7 +5981,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN01z1tnfl1TwmDkI6fb7_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/129.jpg"
   },
   "130": {
     "rank": 130,
@@ -5769,7 +6027,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 999.0,
+      "main_image_price": 999,
       "sku_min_price": 1061.65,
       "sku_median_price": 1125.4,
       "sku_max_price": 1274.15,
@@ -5777,7 +6035,9 @@
       "price_diff": -62.65,
       "attraction_ratio": 94.1,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/387542955/O1CN01Qn78QM1XhRTqrgDrx_!!387542955.jpg",
+    "local_path": "market_images/130.jpg"
   },
   "131": {
     "rank": 131,
@@ -5824,7 +6084,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1202.0,
+      "main_image_price": 1202,
       "sku_min_price": 373.62,
       "sku_median_price": 639.4,
       "sku_max_price": 1088.35,
@@ -5832,7 +6092,9 @@
       "price_diff": 113.65,
       "attraction_ratio": 321.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/116402794/O1CN01zesexJ1WVhiR4i7J8_!!116402794.jpg",
+    "local_path": "market_images/131.jpg"
   },
   "132": {
     "rank": 132,
@@ -5879,15 +6141,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2287.0,
-      "sku_min_price": 2839.0,
-      "sku_median_price": 3282.0,
-      "sku_max_price": 4998.0,
+      "main_image_price": 2287,
+      "sku_min_price": 2839,
+      "sku_median_price": 3282,
+      "sku_max_price": 4998,
       "closest_target": "SKU最低价",
-      "price_diff": -552.0,
+      "price_diff": -552,
       "attraction_ratio": 80.6,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "market_images/132.jpg",
+    "local_path": "market_images/132.jpg"
   },
   "133": {
     "rank": 133,
@@ -5915,14 +6179,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 260.0,
+      "sku_min_price": 260,
       "sku_median_price": 554.2,
       "sku_max_price": 1224.85,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/133.jpg",
+    "local_path": "market_images/133.jpg"
   },
   "134": {
     "rank": 134,
@@ -5944,7 +6210,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/134.jpg",
+    "local_path": "market_images/134.jpg"
   },
   "135": {
     "rank": 135,
@@ -5993,14 +6261,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2760.0,
-      "sku_median_price": 3180.0,
-      "sku_max_price": 4862.0,
+      "sku_min_price": 2760,
+      "sku_median_price": 3180,
+      "sku_max_price": 4862,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/135.jpg",
+    "local_path": "market_images/135.jpg"
   },
   "136": {
     "rank": 136,
@@ -6033,7 +6303,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2074412022/O1CN01wfkRTq1Qo7xC6pxJC_!!4611686018427380726-0-item_pic.jpg",
+    "local_path": "market_images/136.jpg"
   },
   "137": {
     "rank": 137,
@@ -6069,7 +6341,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/919851856/O1CN01zqetc0bHjlI32pKq_!!4611686018427384656-0-item_pic.jpg",
+    "local_path": "market_images/137.jpg"
   },
   "138": {
     "rank": 138,
@@ -6124,7 +6398,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/706084574/O1CN01G9GsNC1jewiGRE5Q4_!!706084574.jpg",
+    "local_path": "market_images/138.png"
   },
   "139": {
     "rank": 139,
@@ -6153,14 +6429,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 419.0,
-      "sku_median_price": 526.0,
-      "sku_max_price": 846.0,
+      "sku_min_price": 419,
+      "sku_median_price": 526,
+      "sku_max_price": 846,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214761835442/O1CN01qVqWos1q4UTjwXJQX_!!2214761835442.jpg",
+    "local_path": "market_images/139.png"
   },
   "140": {
     "rank": 140,
@@ -6192,7 +6470,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01QSHivB1XhRTyAr2RG_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/140.jpg"
   },
   "141": {
     "rank": 141,
@@ -6249,7 +6529,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/143584903/O1CN01EtN0Aa1m5d1FD8X2J_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/141.jpg"
   },
   "142": {
     "rank": 142,
@@ -6277,7 +6559,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/142.jpg",
+    "local_path": "market_images/142.jpg"
   },
   "143": {
     "rank": 143,
@@ -6326,7 +6610,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1360.0,
+      "main_image_price": 1360,
       "sku_min_price": 2297.52,
       "sku_median_price": 2498.24,
       "sku_max_price": 2698.12,
@@ -6334,7 +6618,9 @@
       "price_diff": -937.52,
       "attraction_ratio": 59.2,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/143584903/O1CN01D6OnAC1m5d1ENaFwJ_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/143.jpg"
   },
   "144": {
     "rank": 144,
@@ -6385,14 +6671,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 150.0,
-      "sku_median_price": 283.0,
+      "sku_min_price": 150,
+      "sku_median_price": 283,
       "sku_max_price": 631.5,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/144.png",
+    "local_path": "market_images/144.png"
   },
   "145": {
     "rank": 145,
@@ -6437,7 +6725,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/145.jpg",
+    "local_path": "market_images/145.jpg"
   },
   "146": {
     "rank": 146,
@@ -6485,13 +6775,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 397.39,
-      "sku_median_price": 1148.0,
+      "sku_median_price": 1148,
       "sku_max_price": 2744.46,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/146.png",
+    "local_path": "market_images/146.png"
   },
   "147": {
     "rank": 147,
@@ -6549,7 +6841,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/147.jpg",
+    "local_path": "market_images/147.jpg"
   },
   "148": {
     "rank": 148,
@@ -6584,12 +6878,14 @@
       "main_image_price": null,
       "sku_min_price": 6884.15,
       "sku_median_price": 7946.65,
-      "sku_max_price": 10299.0,
+      "sku_max_price": 10299,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/387542955/O1CN01itgEwT1XhRTyAf5PL_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/148.jpg"
   },
   "149": {
     "rank": 149,
@@ -6640,12 +6936,14 @@
       "main_image_price": null,
       "sku_min_price": 3353.25,
       "sku_median_price": 5969.12,
-      "sku_max_price": 11638.0,
+      "sku_max_price": 11638,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/149.jpg",
+    "local_path": "market_images/149.jpg"
   },
   "150": {
     "rank": 150,
@@ -6690,7 +6988,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2214676966218/O1CN01kzjcun1vntqTln7n0_!!4611686018427382602-0-item_pic.jpg",
+    "local_path": "market_images/150.jpg"
   },
   "151": {
     "rank": 151,
@@ -6741,15 +7041,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2210.0,
-      "sku_min_price": 1828.0,
-      "sku_median_price": 2498.0,
-      "sku_max_price": 5816.0,
+      "main_image_price": 2210,
+      "sku_min_price": 1828,
+      "sku_median_price": 2498,
+      "sku_max_price": 5816,
       "closest_target": "SKU中位价",
-      "price_diff": -288.0,
+      "price_diff": -288,
       "attraction_ratio": 120.9,
       "attraction_level": "✨ 中位走量锚定 (主图主推中配爆款)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/661916707/O1CN01v01mEN1zPrWPY0Uoo_!!4611686018427382819-0-item_pic.jpg",
+    "local_path": "market_images/151.jpg"
   },
   "152": {
     "rank": 152,
@@ -6796,7 +7098,7 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 5337.0,
+      "main_image_price": 5337,
       "sku_min_price": 2434.5,
       "sku_median_price": 2711.5,
       "sku_max_price": 3249.5,
@@ -6804,7 +7106,9 @@
       "price_diff": 2087.5,
       "attraction_ratio": 219.2,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2212736985995/O1CN01p5p6As1u9lWFGDlKp_!!4611686018427382667-0-item_pic.jpg",
+    "local_path": "market_images/152.jpg"
   },
   "153": {
     "rank": 153,
@@ -6833,14 +7137,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2969.0,
-      "sku_median_price": 6849.0,
-      "sku_max_price": 99999.0,
+      "sku_min_price": 2969,
+      "sku_median_price": 6849,
+      "sku_max_price": 99999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/153.jpg",
+    "local_path": "market_images/153.jpg"
   },
   "154": {
     "rank": 154,
@@ -6870,12 +7176,14 @@
       "main_image_price": null,
       "sku_min_price": 409.3,
       "sku_median_price": 595.6,
-      "sku_max_price": 889.0,
+      "sku_max_price": 889,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1639969056/O1CN01pyLawe2Glhndd7Y8S_!!1639969056.jpg",
+    "local_path": "market_images/154.jpg"
   },
   "155": {
     "rank": 155,
@@ -6897,14 +7205,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 4199.0,
-      "sku_median_price": 6349.0,
-      "sku_max_price": 8499.0,
+      "sku_min_price": 4199,
+      "sku_median_price": 6349,
+      "sku_max_price": 8499,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/155.jpg",
+    "local_path": "market_images/155.jpg"
   },
   "156": {
     "rank": 156,
@@ -6932,13 +7242,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 101.25,
-      "sku_median_price": 238.0,
-      "sku_max_price": 442.0,
+      "sku_median_price": 238,
+      "sku_max_price": 442,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/156.png",
+    "local_path": "market_images/156.png"
   },
   "157": {
     "rank": 157,
@@ -6994,7 +7306,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/157.png",
+    "local_path": "market_images/157.png"
   },
   "158": {
     "rank": 158,
@@ -7030,7 +7344,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214226785163/O1CN01vDXAIT1o0hzjfESHm_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/158.jpg"
   },
   "159": {
     "rank": 159,
@@ -7080,13 +7396,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 325.42,
-      "sku_median_price": 424.0,
-      "sku_max_price": 794.0,
+      "sku_median_price": 424,
+      "sku_max_price": 794,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2200694069254/O1CN01LlJUeL2IEO9U6sEA5_!!2200694069254.jpg",
+    "local_path": "market_images/159.jpg"
   },
   "160": {
     "rank": 160,
@@ -7139,12 +7457,14 @@
       "main_image_price": null,
       "sku_min_price": 314.5,
       "sku_median_price": 319.5,
-      "sku_max_price": 325.0,
+      "sku_max_price": 325,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/160.jpg",
+    "local_path": "market_images/160.jpg"
   },
   "161": {
     "rank": 161,
@@ -7177,7 +7497,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/161.jpg",
+    "local_path": "market_images/161.jpg"
   },
   "162": {
     "rank": 162,
@@ -7236,7 +7558,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1950231285/O1CN01BmYCtP1LMa2YZ2g57_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/162.jpg"
   },
   "163": {
     "rank": 163,
@@ -7280,14 +7604,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 490.0,
+      "sku_min_price": 490,
       "sku_median_price": 663.5,
-      "sku_max_price": 769.0,
+      "sku_max_price": 769,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/163.jpg",
+    "local_path": "market_images/163.jpg"
   },
   "164": {
     "rank": 164,
@@ -7328,14 +7654,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 456.0,
-      "sku_median_price": 679.0,
-      "sku_max_price": 916.0,
+      "sku_min_price": 456,
+      "sku_median_price": 679,
+      "sku_max_price": 916,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/164.jpg",
+    "local_path": "market_images/164.jpg"
   },
   "165": {
     "rank": 165,
@@ -7390,14 +7718,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 198.0,
-      "sku_median_price": 429.0,
-      "sku_max_price": 1002.0,
+      "sku_min_price": 198,
+      "sku_median_price": 429,
+      "sku_max_price": 1002,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2107005715/O1CN01MjjSVV1s5Wa9QK4Xm_!!4611686018427386643-0-item_pic.jpg",
+    "local_path": "market_images/165.jpg"
   },
   "166": {
     "rank": 166,
@@ -7429,7 +7759,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2360914576/O1CN01GwmVee1jfrUHnahBT_!!2360914576.jpg",
+    "local_path": "market_images/166.jpg"
   },
   "167": {
     "rank": 167,
@@ -7472,7 +7804,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/167.jpg",
+    "local_path": "market_images/167.jpg"
   },
   "168": {
     "rank": 168,
@@ -7521,7 +7855,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/706084574/O1CN018k03QV1jewiFrWyoa_!!706084574.jpg",
+    "local_path": "market_images/168.jpg"
   },
   "169": {
     "rank": 169,
@@ -7559,12 +7895,14 @@
       "main_image_price": null,
       "sku_min_price": 3674.55,
       "sku_median_price": 9516.6,
-      "sku_max_price": 15326.0,
+      "sku_max_price": 15326,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1950231285/O1CN01S7Loue1LMa2xKKt4V_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/169.jpg"
   },
   "170": {
     "rank": 170,
@@ -7605,7 +7943,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/835016991/O1CN01jvkUlh21Vw0IilvwG_!!835016991.jpg",
+    "local_path": "market_images/170.jpg"
   },
   "171": {
     "rank": 171,
@@ -7633,7 +7973,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/143584903/O1CN01iXvmgA1m5d1E5YVnl_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/171.jpg"
   },
   "172": {
     "rank": 172,
@@ -7663,7 +8005,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/172.jpg",
+    "local_path": "market_images/172.jpg"
   },
   "173": {
     "rank": 173,
@@ -7690,14 +8034,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 596.0,
-      "sku_median_price": 1152.0,
+      "sku_min_price": 596,
+      "sku_median_price": 1152,
       "sku_max_price": 2070.99,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/62232731/O1CN01f3jv3x1W2qlHAeBci_!!62232731.jpg",
+    "local_path": "market_images/173.jpg"
   },
   "174": {
     "rank": 174,
@@ -7714,12 +8060,14 @@
       "main_image_price": null,
       "sku_min_price": 1482.48,
       "sku_median_price": 1906.64,
-      "sku_max_price": 6400.0,
+      "sku_max_price": 6400,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/748510995/O1CN01jNjj791JDlC5ROIpU_!!4611686018427387667-0-item_pic.jpg",
+    "local_path": "market_images/174.jpg"
   },
   "175": {
     "rank": 175,
@@ -7749,7 +8097,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/175.jpg",
+    "local_path": "market_images/175.jpg"
   },
   "176": {
     "rank": 176,
@@ -7781,14 +8131,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3169.0,
-      "sku_median_price": 99999.0,
-      "sku_max_price": 99999.0,
+      "sku_min_price": 3169,
+      "sku_median_price": 99999,
+      "sku_max_price": 99999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/176.jpg",
+    "local_path": "market_images/176.jpg"
   },
   "177": {
     "rank": 177,
@@ -7818,7 +8170,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/177.jpg",
+    "local_path": "market_images/177.jpg"
   },
   "178": {
     "rank": 178,
@@ -7872,14 +8226,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 10999.0,
-      "sku_median_price": 10999.0,
-      "sku_max_price": 10999.0,
+      "sku_min_price": 10999,
+      "sku_median_price": 10999,
+      "sku_max_price": 10999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/178.jpg",
+    "local_path": "market_images/178.jpg"
   },
   "179": {
     "rank": 179,
@@ -7924,7 +8280,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/381476738/O1CN01hza3oY1ze3nNoU80e_!!4611686018427387778-0-item_pic.jpg",
+    "local_path": "market_images/179.jpg"
   },
   "180": {
     "rank": 180,
@@ -7963,12 +8321,14 @@
       "main_image_price": null,
       "sku_min_price": 2379.15,
       "sku_median_price": 2889.15,
-      "sku_max_price": 4199.0,
+      "sku_max_price": 4199,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/180.jpg",
+    "local_path": "market_images/180.jpg"
   },
   "181": {
     "rank": 181,
@@ -8006,7 +8366,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/181.jpg",
+    "local_path": "market_images/181.jpg"
   },
   "182": {
     "rank": 182,
@@ -8039,12 +8401,14 @@
       "main_image_price": null,
       "sku_min_price": 696.15,
       "sku_median_price": 866.15,
-      "sku_max_price": 3000.0,
+      "sku_max_price": 3000,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2861919497/O1CN01fTWXJo2K1gXdJfW1X_!!2861919497.jpg",
+    "local_path": "market_images/182.jpg"
   },
   "183": {
     "rank": 183,
@@ -8079,14 +8443,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 119.0,
+      "sku_min_price": 119,
       "sku_median_price": 275.5,
-      "sku_max_price": 566.0,
+      "sku_max_price": 566,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2215064829477/O1CN01pxapdF2JsWWlfJReY_!!2215064829477.jpg",
+    "local_path": "market_images/183.jpg"
   },
   "184": {
     "rank": 184,
@@ -8126,7 +8492,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/184.jpg",
+    "local_path": "market_images/184.jpg"
   },
   "185": {
     "rank": 185,
@@ -8179,7 +8547,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/185.jpg",
+    "local_path": "market_images/185.jpg"
   },
   "186": {
     "rank": 186,
@@ -8203,14 +8573,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 9999.0,
-      "sku_median_price": 9999.0,
-      "sku_max_price": 9999.0,
+      "sku_min_price": 9999,
+      "sku_median_price": 9999,
+      "sku_max_price": 9999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/139439776/O1CN01qKqkj82M5Sy4JKl4H_!!139439776.jpg",
+    "local_path": "market_images/186.jpg"
   },
   "187": {
     "rank": 187,
@@ -8255,7 +8627,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/143584903/O1CN01q39wNk1m5d1FfIcIz_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/187.jpg"
   },
   "188": {
     "rank": 188,
@@ -8292,12 +8666,14 @@
       "main_image_price": null,
       "sku_min_price": 698.7,
       "sku_median_price": 1298.8,
-      "sku_max_price": 2766.0,
+      "sku_max_price": 2766,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/919851856/O1CN01MGQTLIsLJgD32pKq_!!4611686018427384656-0-item_pic.jpg",
+    "local_path": "market_images/188.jpg"
   },
   "189": {
     "rank": 189,
@@ -8341,7 +8717,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2066012447/O1CN01w5oDlT1TwmDihzf4D_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/189.jpg"
   },
   "190": {
     "rank": 190,
@@ -8372,12 +8750,14 @@
       "main_image_price": null,
       "sku_min_price": 543.76,
       "sku_median_price": 747.15,
-      "sku_max_price": 1085.0,
+      "sku_max_price": 1085,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/685563493/O1CN012IRLYK1bfqZAXEpXw-685563493.png",
+    "local_path": "market_images/190.jpg"
   },
   "191": {
     "rank": 191,
@@ -8417,7 +8797,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/828233086/O1CN01yKW13j1YfRMpCoM1C-828233086.jpg",
+    "local_path": "market_images/191.jpg"
   },
   "192": {
     "rank": 192,
@@ -8473,7 +8855,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/192.png",
+    "local_path": "market_images/192.png"
   },
   "193": {
     "rank": 193,
@@ -8505,7 +8889,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2214226785163/O1CN01tW3GRF1o0hyjHfxFv_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/193.jpg"
   },
   "194": {
     "rank": 194,
@@ -8544,14 +8930,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 439.0,
-      "sku_median_price": 724.0,
-      "sku_max_price": 1751.0,
+      "sku_min_price": 439,
+      "sku_median_price": 724,
+      "sku_max_price": 1751,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2377418597/O1CN01CRwhgE2DNU4UqvU8H_!!2377418597.jpg",
+    "local_path": "market_images/194.png"
   },
   "195": {
     "rank": 195,
@@ -8581,14 +8969,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 308.0,
-      "sku_median_price": 607.0,
-      "sku_max_price": 985.0,
+      "sku_min_price": 308,
+      "sku_median_price": 607,
+      "sku_max_price": 985,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/195.jpg",
+    "local_path": "market_images/195.jpg"
   },
   "196": {
     "rank": 196,
@@ -8629,7 +9019,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2220263286231/O1CN01IOHV1D1vtqzVazZ32_!!4611686018427381207-0-item_pic.jpg",
+    "local_path": "market_images/196.jpg"
   },
   "197": {
     "rank": 197,
@@ -8676,15 +9068,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1360.0,
+      "main_image_price": 1360,
       "sku_min_price": 1401.65,
       "sku_median_price": 1401.65,
       "sku_max_price": 1401.65,
       "closest_target": "SKU最低价",
       "price_diff": -41.65,
-      "attraction_ratio": 97.0,
+      "attraction_ratio": 97,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN01EQ2TCK1XhRTkqsc1i_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/197.jpg"
   },
   "198": {
     "rank": 198,
@@ -8726,7 +9120,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/198.jpg",
+    "local_path": "market_images/198.jpg"
   },
   "199": {
     "rank": 199,
@@ -8745,14 +9141,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 157.0,
-      "sku_median_price": 271.0,
-      "sku_max_price": 391.0,
+      "sku_min_price": 157,
+      "sku_median_price": 271,
+      "sku_max_price": 391,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/199.jpg",
+    "local_path": "market_images/199.jpg"
   },
   "200": {
     "rank": 200,
@@ -8796,15 +9194,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 999.0,
-      "sku_min_price": 439.0,
-      "sku_median_price": 724.0,
-      "sku_max_price": 1751.0,
+      "main_image_price": 999,
+      "sku_min_price": 439,
+      "sku_median_price": 724,
+      "sku_max_price": 1751,
       "closest_target": "SKU中位价",
-      "price_diff": 275.0,
+      "price_diff": 275,
       "attraction_ratio": 227.6,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2219554051918/O1CN01ney10g1Q2UkTiylnY_!!2219554051918.png",
+    "local_path": "market_images/200.jpg"
   },
   "201": {
     "rank": 201,
@@ -8837,7 +9237,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2451073031/O1CN0124fsiE1YGFYPRr5nz_!!2451073031.jpg",
+    "local_path": "market_images/201.jpg"
   },
   "202": {
     "rank": 202,
@@ -8881,7 +9283,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/828233086/O1CN01HAlwHU1YfRLVB2rzB_!!4611686018427385214-0-item_pic.jpg",
+    "local_path": "market_images/202.jpg"
   },
   "203": {
     "rank": 203,
@@ -8936,7 +9340,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2217706005293/O1CN01OkVRVoHd0ZK1chua_!!4611686018427380525-0-item_pic.jpg",
+    "local_path": "market_images/203.png"
   },
   "204": {
     "rank": 204,
@@ -8988,7 +9394,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/387542955/O1CN01sbkwXb1XhRTyIE8yz_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/204.jpg"
   },
   "205": {
     "rank": 205,
@@ -9024,7 +9432,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/205.jpg",
+    "local_path": "market_images/205.jpg"
   },
   "206": {
     "rank": 206,
@@ -9077,7 +9487,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1046710982/O1CN01DrXJyJ1J7o2kTEUTT_!!1046710982.jpg",
+    "local_path": "market_images/206.jpg"
   },
   "207": {
     "rank": 207,
@@ -9140,7 +9552,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1691788071/O1CN01QjXRJR29UZktTvcF8_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/207.jpg"
   },
   "208": {
     "rank": 208,
@@ -9176,7 +9590,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/208.jpg",
+    "local_path": "market_images/208.jpg"
   },
   "209": {
     "rank": 209,
@@ -9214,7 +9630,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/387542955/O1CN017AKo4L1XhRTfQLPFh_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/209.jpg"
   },
   "210": {
     "rank": 210,
@@ -9261,14 +9679,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2984.0,
-      "sku_median_price": 3284.0,
-      "sku_max_price": 4189.0,
+      "sku_min_price": 2984,
+      "sku_median_price": 3284,
+      "sku_max_price": 4189,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN01tZpih71TwmHJzZn94_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/210.jpg"
   },
   "211": {
     "rank": 211,
@@ -9303,12 +9723,14 @@
       "main_image_price": null,
       "sku_min_price": 3328.18,
       "sku_median_price": 3713.01,
-      "sku_max_price": 5085.0,
+      "sku_max_price": 5085,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1105025069/O1CN01uJOyLX1nJelXKYUC5_!!4611686018427385901-0-item_pic.jpg",
+    "local_path": "market_images/211.jpg"
   },
   "212": {
     "rank": 212,
@@ -9333,13 +9755,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 1030.2,
-      "sku_median_price": 1105.0,
+      "sku_median_price": 1105,
       "sku_max_price": 1171.3,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/371424161/O1CN01W79SKTig1fL1chua_!!371424161.jpg",
+    "local_path": "market_images/212.jpg"
   },
   "213": {
     "rank": 213,
@@ -9370,7 +9794,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2911805119/O1CN01okcZcD1ngYZMJIMVi_!!4611686018427387583-2-item_pic.png",
+    "local_path": "market_images/213.png"
   },
   "214": {
     "rank": 214,
@@ -9404,7 +9830,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/214.jpg",
+    "local_path": "market_images/214.jpg"
   },
   "215": {
     "rank": 215,
@@ -9454,7 +9882,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1950231285/O1CN01rNiIwC1LMa3GJYBIG_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/215.jpg"
   },
   "216": {
     "rank": 216,
@@ -9498,14 +9928,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 327.0,
-      "sku_median_price": 460.0,
+      "sku_min_price": 327,
+      "sku_median_price": 460,
       "sku_max_price": 799.76,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/1108912580/O1CN01FxhLBm1UvgtcyGSQc_!!1108912580.jpg",
+    "local_path": "market_images/216.jpg"
   },
   "217": {
     "rank": 217,
@@ -9552,14 +9984,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 325.0,
-      "sku_median_price": 465.0,
-      "sku_max_price": 780.0,
+      "sku_min_price": 325,
+      "sku_median_price": 465,
+      "sku_max_price": 780,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2208038343167/O1CN01jXQcD61ZGX47A7s94_!!2208038343167.jpg",
+    "local_path": "market_images/217.jpg"
   },
   "218": {
     "rank": 218,
@@ -9600,13 +10034,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 7698.45,
-      "sku_median_price": 12298.0,
-      "sku_max_price": 13298.0,
+      "sku_median_price": 12298,
+      "sku_max_price": 13298,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1691788071/O1CN01ddLiNX29UZktAV9Xn_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/218.jpg"
   },
   "219": {
     "rank": 219,
@@ -9632,7 +10068,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/768356405/O1CN01LXxvgr1xBXtT9oRuU_!!768356405.jpg",
+    "local_path": "market_images/219.jpg"
   },
   "220": {
     "rank": 220,
@@ -9670,12 +10108,14 @@
       "main_image_price": null,
       "sku_min_price": 2901.05,
       "sku_median_price": 3533.88,
-      "sku_max_price": 7769.0,
+      "sku_max_price": 7769,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/381476738/O1CN01di0I3N1ze3naGPxVR_!!4611686018427387778-0-item_pic.jpg",
+    "local_path": "market_images/220.jpg"
   },
   "221": {
     "rank": 221,
@@ -9710,7 +10150,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/685563493/O1CN01NYFwVs1bfqZA6Nsuc-685563493.png",
+    "local_path": "market_images/221.jpg"
   },
   "222": {
     "rank": 222,
@@ -9745,7 +10187,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 780.0,
+      "main_image_price": 780,
       "sku_min_price": 307.21,
       "sku_median_price": 559.98,
       "sku_max_price": 789.75,
@@ -9753,7 +10195,9 @@
       "price_diff": -9.75,
       "attraction_ratio": 253.9,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "market_images/222.jpg",
+    "local_path": "market_images/222.jpg"
   },
   "223": {
     "rank": 223,
@@ -9774,14 +10218,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 561.0,
+      "sku_min_price": 561,
       "sku_median_price": 2079.1,
       "sku_max_price": 3559.8,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/1973855643/O1CN01XWynIk1rYY1ldRNt5_!!4611686018427381147-0-item_pic.jpg",
+    "local_path": "market_images/223.jpg"
   },
   "224": {
     "rank": 224,
@@ -9814,13 +10260,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 6098.75,
-      "sku_median_price": 11321.0,
-      "sku_max_price": 12698.0,
+      "sku_median_price": 11321,
+      "sku_max_price": 12698,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1691788071/O1CN01G4ReKJ29UZknHFwp7_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/224.jpg"
   },
   "225": {
     "rank": 225,
@@ -9861,7 +10309,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/225.jpg",
+    "local_path": "market_images/225.jpg"
   },
   "226": {
     "rank": 226,
@@ -9916,7 +10366,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/226.jpg",
+    "local_path": "market_images/226.jpg"
   },
   "227": {
     "rank": 227,
@@ -9945,13 +10397,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 418.77,
-      "sku_median_price": 892.0,
-      "sku_max_price": 1458.0,
+      "sku_median_price": 892,
+      "sku_max_price": 1458,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2982013557/O1CN01Mgteh71c99ujEvAjP_!!2982013557.jpg",
+    "local_path": "market_images/227.jpg"
   },
   "228": {
     "rank": 228,
@@ -9980,13 +10434,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 265.24,
-      "sku_median_price": 457.0,
+      "sku_median_price": 457,
       "sku_max_price": 744.67,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/800692871/O1CN019I8NfA1X4xvhPUssi_!!800692871.jpg",
+    "local_path": "market_images/228.jpg"
   },
   "229": {
     "rank": 229,
@@ -10016,7 +10472,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/229.jpg",
+    "local_path": "market_images/229.jpg"
   },
   "230": {
     "rank": 230,
@@ -10042,14 +10500,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1077.0,
+      "sku_min_price": 1077,
       "sku_median_price": 1324.5,
-      "sku_max_price": 1518.0,
+      "sku_max_price": 1518,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/230.jpg",
+    "local_path": "market_images/230.jpg"
   },
   "231": {
     "rank": 231,
@@ -10079,7 +10539,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/231.jpg",
+    "local_path": "market_images/231.jpg"
   },
   "232": {
     "rank": 232,
@@ -10127,15 +10589,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 3694.0,
-      "sku_min_price": 2426.0,
-      "sku_median_price": 3809.0,
-      "sku_max_price": 5381.0,
+      "main_image_price": 3694,
+      "sku_min_price": 2426,
+      "sku_median_price": 3809,
+      "sku_max_price": 5381,
       "closest_target": "SKU中位价",
-      "price_diff": -115.0,
+      "price_diff": -115,
       "attraction_ratio": 152.3,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "market_images/232.jpg",
+    "local_path": "market_images/232.jpg"
   },
   "233": {
     "rank": 233,
@@ -10180,7 +10644,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/143584903/O1CN012bFJ0U1m5d1D5Cp3G_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/233.jpg"
   },
   "234": {
     "rank": 234,
@@ -10217,14 +10683,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 2789.0,
-      "sku_median_price": 3157.0,
-      "sku_max_price": 3241.0,
+      "sku_min_price": 2789,
+      "sku_median_price": 3157,
+      "sku_max_price": 3241,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN016fglF11TwmDkGvkwe_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/234.jpg"
   },
   "235": {
     "rank": 235,
@@ -10291,7 +10759,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/235.jpg",
+    "local_path": "market_images/235.jpg"
   },
   "236": {
     "rank": 236,
@@ -10338,14 +10808,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 457.0,
-      "sku_median_price": 663.0,
-      "sku_max_price": 879.0,
+      "sku_min_price": 457,
+      "sku_median_price": 663,
+      "sku_max_price": 879,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2216908303394/O1CN01OgkXhk1awVLX6pZts_!!2216908303394.jpg",
+    "local_path": "market_images/236.png"
   },
   "237": {
     "rank": 237,
@@ -10394,14 +10866,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 440.0,
+      "sku_min_price": 440,
       "sku_median_price": 706.5,
-      "sku_max_price": 979.0,
+      "sku_max_price": 979,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1643125966/O1CN01DzBldK1twTbPmJXoa_!!1643125966.jpg",
+    "local_path": "market_images/237.jpg"
   },
   "238": {
     "rank": 238,
@@ -10437,14 +10911,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 793.0,
-      "sku_median_price": 1956.0,
-      "sku_max_price": 5550.0,
+      "sku_min_price": 793,
+      "sku_median_price": 1956,
+      "sku_max_price": 5550,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2208612342721/O1CN01Y5mw1V1VyGajf5AOU_!!0-item_pic.jpg",
+    "local_path": "market_images/238.jpg"
   },
   "239": {
     "rank": 239,
@@ -10484,7 +10960,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/239.jpg",
+    "local_path": "market_images/239.jpg"
   },
   "240": {
     "rank": 240,
@@ -10506,7 +10984,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/240.jpg",
+    "local_path": "market_images/240.jpg"
   },
   "241": {
     "rank": 241,
@@ -10552,7 +11032,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/241.jpg",
+    "local_path": "market_images/241.jpg"
   },
   "242": {
     "rank": 242,
@@ -10587,7 +11069,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/242.jpg",
+    "local_path": "market_images/242.jpg"
   },
   "243": {
     "rank": 243,
@@ -10643,7 +11127,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2719.0,
+      "main_image_price": 2719,
       "sku_min_price": 737.26,
       "sku_median_price": 938.33,
       "sku_max_price": 1394.58,
@@ -10651,7 +11135,9 @@
       "price_diff": 1324.42,
       "attraction_ratio": 368.8,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/143584903/O1CN010E5boy1m5d1DPEkYP_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/243.jpg"
   },
   "244": {
     "rank": 244,
@@ -10692,15 +11178,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1023.0,
-      "sku_min_price": 336.0,
-      "sku_median_price": 1016.0,
-      "sku_max_price": 2609.0,
+      "main_image_price": 1023,
+      "sku_min_price": 336,
+      "sku_median_price": 1016,
+      "sku_max_price": 2609,
       "closest_target": "SKU中位价",
-      "price_diff": 7.0,
+      "price_diff": 7,
       "attraction_ratio": 304.5,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2204158028126/O1CN01zojkgb29tl7PLxuMc_!!0-item_pic.jpg",
+    "local_path": "market_images/244.jpg"
   },
   "245": {
     "rank": 245,
@@ -10734,7 +11222,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/387542955/O1CN01Mq9Tkq1XhRTlcJ79P_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/245.jpg"
   },
   "246": {
     "rank": 246,
@@ -10789,15 +11279,17 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 1724.0,
+      "main_image_price": 1724,
       "sku_min_price": 1741.65,
       "sku_median_price": 1741.65,
       "sku_max_price": 1741.65,
       "closest_target": "SKU最低价",
       "price_diff": -17.65,
-      "attraction_ratio": 99.0,
+      "attraction_ratio": 99,
       "attraction_level": "🎯 精准对标引流 (紧贴SKU最低门槛价)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/387542955/O1CN01Ydw5oZ1XhRTzhhEzZ_!!4611686018427383723-0-item_pic.jpg",
+    "local_path": "market_images/246.jpg"
   },
   "247": {
     "rank": 247,
@@ -10832,7 +11324,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/720743073/O1CN01TgnPdW1YZUESnw6Gt_!!720743073.jpg",
+    "local_path": "market_images/247.jpg"
   },
   "248": {
     "rank": 248,
@@ -10884,7 +11378,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2217706005293/O1CN01GSqhqusyJaG1chua_!!4611686018427380525-0-item_pic.jpg",
+    "local_path": "market_images/248.jpg"
   },
   "249": {
     "rank": 249,
@@ -10921,7 +11417,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2803717343/O1CN01nC9t25247951VtyCp_!!2803717343.jpg",
+    "local_path": "market_images/249.jpg"
   },
   "250": {
     "rank": 250,
@@ -10969,7 +11467,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2125.0,
+      "main_image_price": 2125,
       "sku_min_price": 618.24,
       "sku_median_price": 1028.64,
       "sku_max_price": 1728.52,
@@ -10977,7 +11475,9 @@
       "price_diff": 396.48,
       "attraction_ratio": 343.7,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/143584903/O1CN01jikDQK1m5d1EifYqW_!!4611686018427383431-0-item_pic.jpg",
+    "local_path": "market_images/250.jpg"
   },
   "251": {
     "rank": 251,
@@ -11009,12 +11509,14 @@
       "main_image_price": null,
       "sku_min_price": 5098.3,
       "sku_median_price": 7697.6,
-      "sku_max_price": 8733.0,
+      "sku_max_price": 8733,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/1691788071/O1CN01xGrDjE29UZknHHtPN_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/251.png"
   },
   "252": {
     "rank": 252,
@@ -11044,7 +11546,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2217825132606/O1CN01S2rwSp1V7bFrK9NUx_!!4611686018427379774-0-item_pic.jpg",
+    "local_path": "market_images/252.png"
   },
   "253": {
     "rank": 253,
@@ -11082,7 +11586,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/720743073/O1CN01Nea37OVgfpB2vH2e_!!720743073.jpg",
+    "local_path": "market_images/253.jpg"
   },
   "254": {
     "rank": 254,
@@ -11129,14 +11635,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3199.0,
-      "sku_median_price": 3199.0,
-      "sku_max_price": 8499.0,
+      "sku_min_price": 3199,
+      "sku_median_price": 3199,
+      "sku_max_price": 8499,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/254.jpg",
+    "local_path": "market_images/254.jpg"
   },
   "255": {
     "rank": 255,
@@ -11165,14 +11673,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 510.0,
-      "sku_median_price": 686.0,
-      "sku_max_price": 1144.0,
+      "sku_min_price": 510,
+      "sku_median_price": 686,
+      "sku_max_price": 1144,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/255.jpg",
+    "local_path": "market_images/255.jpg"
   },
   "256": {
     "rank": 256,
@@ -11214,7 +11724,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1104.0,
+      "main_image_price": 1104,
       "sku_min_price": 2178.64,
       "sku_median_price": 2642.74,
       "sku_max_price": 3305.74,
@@ -11222,7 +11732,9 @@
       "price_diff": -1074.64,
       "attraction_ratio": 50.7,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214226785163/O1CN01y9OtEN1o0hyjBYCUY_!!4611686018427384715-0-item_pic.jpg",
+    "local_path": "market_images/256.jpg"
   },
   "257": {
     "rank": 257,
@@ -11254,7 +11766,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/257.jpg",
+    "local_path": "market_images/257.jpg"
   },
   "258": {
     "rank": 258,
@@ -11283,7 +11797,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/3064327718/O1CN01QU6c8G26stwQqbyzr_!!4611686018427383334-0-item_pic.jpg",
+    "local_path": "market_images/258.jpg"
   },
   "259": {
     "rank": 259,
@@ -11311,12 +11827,14 @@
       "main_image_price": null,
       "sku_min_price": 259.11,
       "sku_median_price": 448.8,
-      "sku_max_price": 866.0,
+      "sku_max_price": 866,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/259.jpg",
+    "local_path": "market_images/259.jpg"
   },
   "260": {
     "rank": 260,
@@ -11350,14 +11868,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 577.0,
-      "sku_median_price": 890.0,
-      "sku_max_price": 1662.0,
+      "sku_min_price": 577,
+      "sku_median_price": 890,
+      "sku_max_price": 1662,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/260.jpg",
+    "local_path": "market_images/260.jpg"
   },
   "261": {
     "rank": 261,
@@ -11401,7 +11921,7 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 1529.0,
+      "main_image_price": 1529,
       "sku_min_price": 424.58,
       "sku_median_price": 578.34,
       "sku_max_price": 3824.62,
@@ -11409,7 +11929,9 @@
       "price_diff": 950.66,
       "attraction_ratio": 360.1,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/917665009/O1CN01IIUisZ1msB09zHFRo_!!917665009.jpg",
+    "local_path": "market_images/261.jpg"
   },
   "262": {
     "rank": 262,
@@ -11443,7 +11965,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/262.jpg",
+    "local_path": "market_images/262.jpg"
   },
   "263": {
     "rank": 263,
@@ -11484,7 +12008,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 399.0,
+      "main_image_price": 399,
       "sku_min_price": 663.02,
       "sku_median_price": 825.64,
       "sku_max_price": 1049.5,
@@ -11492,7 +12016,9 @@
       "price_diff": -264.02,
       "attraction_ratio": 60.2,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "market_images/263.jpg",
+    "local_path": "market_images/263.jpg"
   },
   "264": {
     "rank": 264,
@@ -11522,7 +12048,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/391855827/O1CN01cVaPpi1suoz4FwYDs_!!391855827.png",
+    "local_path": "market_images/264.jpg"
   },
   "265": {
     "rank": 265,
@@ -11551,14 +12079,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 426.0,
-      "sku_median_price": 552.0,
-      "sku_max_price": 827.0,
+      "sku_min_price": 426,
+      "sku_median_price": 552,
+      "sku_max_price": 827,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/2214761835442/O1CN018VSOVk1q4UTjq7BRj_!!2214761835442.jpg",
+    "local_path": "market_images/265.jpg"
   },
   "266": {
     "rank": 266,
@@ -11602,7 +12132,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/266.jpg",
+    "local_path": "market_images/266.jpg"
   },
   "267": {
     "rank": 267,
@@ -11635,7 +12167,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/267.jpg",
+    "local_path": "market_images/267.jpg"
   },
   "268": {
     "rank": 268,
@@ -11672,15 +12206,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 399.0,
-      "sku_min_price": 924.0,
-      "sku_median_price": 1235.0,
-      "sku_max_price": 1807.0,
+      "main_image_price": 399,
+      "sku_min_price": 924,
+      "sku_median_price": 1235,
+      "sku_max_price": 1807,
       "closest_target": "SKU最低价",
-      "price_diff": -525.0,
+      "price_diff": -525,
       "attraction_ratio": 43.2,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2216332099149/O1CN01R06S7Q2HSIhtWXOa2_!!4611686018427387469-0-item_pic.jpg",
+    "local_path": "market_images/268.jpg"
   },
   "269": {
     "rank": 269,
@@ -11710,13 +12246,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 7998.5,
-      "sku_median_price": 12198.0,
-      "sku_max_price": 14999.0,
+      "sku_median_price": 12198,
+      "sku_max_price": 14999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1691788071/O1CN014y5P1o29UZks7Rfzd_!!4611686018427380519-0-item_pic.jpg",
+    "local_path": "market_images/269.jpg"
   },
   "270": {
     "rank": 270,
@@ -11742,7 +12280,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/270.jpg",
+    "local_path": "market_images/270.jpg"
   },
   "271": {
     "rank": 271,
@@ -11773,7 +12313,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/3364888130/O1CN01C2osal29vb7fXrdUM_!!3364888130.jpg",
+    "local_path": "market_images/271.jpg"
   },
   "272": {
     "rank": 272,
@@ -11794,14 +12336,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1332.0,
+      "sku_min_price": 1332,
       "sku_median_price": 1420.25,
       "sku_max_price": 1508.5,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/272.jpg",
+    "local_path": "market_images/272.jpg"
   },
   "273": {
     "rank": 273,
@@ -11855,15 +12399,17 @@
       "极简家居场景沉浸"
     ],
     "price_analysis": {
-      "main_image_price": 1250.0,
+      "main_image_price": 1250,
       "sku_min_price": 2974.15,
       "sku_median_price": 2974.15,
       "sku_max_price": 2974.15,
       "closest_target": "SKU最低价",
       "price_diff": -1724.15,
-      "attraction_ratio": 42.0,
+      "attraction_ratio": 42,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "market_images/273.jpg",
+    "local_path": "market_images/273.jpg"
   },
   "274": {
     "rank": 274,
@@ -11887,14 +12433,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1000.0,
+      "sku_min_price": 1000,
       "sku_median_price": 6849.5,
-      "sku_max_price": 9999.0,
+      "sku_max_price": 9999,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/274.jpg",
+    "local_path": "market_images/274.jpg"
   },
   "275": {
     "rank": 275,
@@ -11940,14 +12488,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 94.0,
+      "sku_min_price": 94,
       "sku_median_price": 220.4,
-      "sku_max_price": 566.0,
+      "sku_max_price": 566,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2956063609/O1CN01f9N3Rv1cWyV2nN0Z2_!!2956063609.jpg",
+    "local_path": "market_images/275.jpg"
   },
   "276": {
     "rank": 276,
@@ -11981,7 +12531,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2360914576/O1CN01CowOdU1jfrUFqqMqY_!!2360914576.jpg",
+    "local_path": "market_images/276.jpg"
   },
   "277": {
     "rank": 277,
@@ -12001,14 +12553,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 1723.0,
-      "sku_median_price": 1993.0,
-      "sku_max_price": 2081.0,
+      "sku_min_price": 1723,
+      "sku_median_price": 1993,
+      "sku_max_price": 2081,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/277.jpg",
+    "local_path": "market_images/277.jpg"
   },
   "278": {
     "rank": 278,
@@ -12049,12 +12603,14 @@
       "main_image_price": null,
       "sku_min_price": 755.65,
       "sku_median_price": 1384.65,
-      "sku_max_price": 3427.0,
+      "sku_max_price": 3427,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/554022120/O1CN01KYITUh1RX0kawdR7L_!!4611686018427385064-0-item_pic.jpg",
+    "local_path": "market_images/278.jpg"
   },
   "279": {
     "rank": 279,
@@ -12099,7 +12655,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 1600.0,
+      "main_image_price": 1600,
       "sku_min_price": 506.6,
       "sku_median_price": 816.85,
       "sku_max_price": 1286.05,
@@ -12107,7 +12663,9 @@
       "price_diff": 313.95,
       "attraction_ratio": 315.8,
       "attraction_level": "💎 高配品质锚定 (主图主推高配旗舰)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/1046710982/O1CN01sHphvw1J7o1kc4cmT_!!1046710982.jpg",
+    "local_path": "market_images/279.jpg"
   },
   "280": {
     "rank": 280,
@@ -12149,7 +12707,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/685563493/O1CN011qGJMN1bfqZAraZdC-685563493.png",
+    "local_path": "market_images/280.jpg"
   },
   "281": {
     "rank": 281,
@@ -12182,7 +12742,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2217557804141/O1CN01B8NInL1gSdDU5Yp2O_!!4611686018427380845-0-item_pic.jpg",
+    "local_path": "market_images/281.jpg"
   },
   "282": {
     "rank": 282,
@@ -12242,7 +12804,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/282.png",
+    "local_path": "market_images/282.png"
   },
   "283": {
     "rank": 283,
@@ -12285,14 +12849,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 301.0,
+      "sku_min_price": 301,
       "sku_median_price": 607.75,
-      "sku_max_price": 1598.0,
+      "sku_max_price": 1598,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2219674446389/O1CN01ihQvuI1x4DZYSoMm7_!!4611686018427382325-0-item_pic.jpg",
+    "local_path": "market_images/283.jpg"
   },
   "284": {
     "rank": 284,
@@ -12338,7 +12904,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2126650380/O1CN016Dfexi1Eg5c3Os6wu_!!4611686018427386892-0-item_pic.jpg",
+    "local_path": "market_images/284.jpg"
   },
   "285": {
     "rank": 285,
@@ -12371,7 +12939,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/1950231285/O1CN019OM8Uv1LMa3JKJq13_!!4611686018427382517-0-item_pic.jpg",
+    "local_path": "market_images/285.jpg"
   },
   "286": {
     "rank": 286,
@@ -12393,7 +12963,7 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 3399.0,
+      "main_image_price": 3399,
       "sku_min_price": 4070.65,
       "sku_median_price": 4070.65,
       "sku_max_price": 4070.65,
@@ -12401,7 +12971,9 @@
       "price_diff": -671.65,
       "attraction_ratio": 83.5,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i4/828233086/O1CN01bGtvUe1YfRMqUdvdZ-828233086.jpg",
+    "local_path": "market_images/286.jpg"
   },
   "287": {
     "rank": 287,
@@ -12450,14 +13022,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3399.0,
-      "sku_median_price": 3399.0,
-      "sku_max_price": 3399.0,
+      "sku_min_price": 3399,
+      "sku_median_price": 3399,
+      "sku_max_price": 3399,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/287.jpg",
+    "local_path": "market_images/287.jpg"
   },
   "288": {
     "rank": 288,
@@ -12515,7 +13089,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2210120102867/O1CN01yFLeYr1X38d4jxb7Q_!!4611686018427384787-2-item_pic.png",
+    "local_path": "market_images/288.jpg"
   },
   "289": {
     "rank": 289,
@@ -12559,13 +13135,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 687.99,
-      "sku_median_price": 868.0,
-      "sku_max_price": 1058.0,
+      "sku_median_price": 868,
+      "sku_max_price": 1058,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/289.jpg",
+    "local_path": "market_images/289.jpg"
   },
   "290": {
     "rank": 290,
@@ -12610,15 +13188,17 @@
       "促销大字报冲击型"
     ],
     "price_analysis": {
-      "main_image_price": 2754.0,
-      "sku_min_price": 4139.0,
-      "sku_median_price": 6253.0,
-      "sku_max_price": 19299.0,
+      "main_image_price": 2754,
+      "sku_min_price": 4139,
+      "sku_median_price": 6253,
+      "sku_max_price": 19299,
       "closest_target": "SKU最低价",
-      "price_diff": -1385.0,
+      "price_diff": -1385,
       "attraction_ratio": 66.5,
       "attraction_level": "🔥 深度补贴引流 (主图价低于最低SKU 15%+)"
-    }
+    },
+    "url": "market_images/290.jpg",
+    "local_path": "market_images/290.jpg"
   },
   "291": {
     "rank": 291,
@@ -12660,7 +13240,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/291.jpg",
+    "local_path": "market_images/291.jpg"
   },
   "292": {
     "rank": 292,
@@ -12694,12 +13276,14 @@
       "main_image_price": null,
       "sku_min_price": 1515.55,
       "sku_median_price": 1689.8,
-      "sku_max_price": 2958.0,
+      "sku_max_price": 2958,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/748510995/O1CN01QaJwes1JDlC4NDDnk_!!4611686018427387667-0-item_pic.jpg",
+    "local_path": "market_images/292.jpg"
   },
   "293": {
     "rank": 293,
@@ -12739,7 +13323,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/1773715067/O1CN01JfPkwX1nIjxkwEpvE_!!4611686018427387515-0-item_pic.jpg",
+    "local_path": "market_images/293.jpg"
   },
   "294": {
     "rank": 294,
@@ -12785,7 +13371,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2165873208/O1CN01jrRP6b6X3XC2vH2e_!!4611686018427386424-0-item_pic.jpg",
+    "local_path": "market_images/294.jpg"
   },
   "295": {
     "rank": 295,
@@ -12815,12 +13403,14 @@
       "main_image_price": null,
       "sku_min_price": 4843.3,
       "sku_median_price": 6033.3,
-      "sku_max_price": 8798.0,
+      "sku_max_price": 8798,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i1/2862927971/O1CN01OWDNLK28km9GG0QHh_!!4611686018427383907-0-item_pic.jpg",
+    "local_path": "market_images/295.png"
   },
   "296": {
     "rank": 296,
@@ -12869,14 +13459,16 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 3791.0,
+      "sku_min_price": 3791,
       "sku_median_price": 4091.05,
       "sku_max_price": 4391.1,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2066012447/O1CN01KyiXXQ1TwmDjc1FXS_!!4611686018427386143-0-item_pic.jpg",
+    "local_path": "market_images/296.jpg"
   },
   "297": {
     "rank": 297,
@@ -12915,13 +13507,15 @@
     "price_analysis": {
       "main_image_price": null,
       "sku_min_price": 140.04,
-      "sku_median_price": 271.0,
-      "sku_max_price": 446.0,
+      "sku_median_price": 271,
+      "sku_max_price": 446,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/297.jpg",
+    "local_path": "market_images/297.jpg"
   },
   "298": {
     "rank": 298,
@@ -12969,7 +13563,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "market_images/298.jpg",
+    "local_path": "market_images/298.jpg"
   },
   "299": {
     "rank": 299,
@@ -13009,7 +13605,9 @@
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i2/2128866794/O1CN01aMVq09203hyfRTgso_!!4611686018427383274-0-item_pic.jpg",
+    "local_path": "market_images/299.png"
   },
   "300": {
     "rank": 300,
@@ -13033,13 +13631,15 @@
     ],
     "price_analysis": {
       "main_image_price": null,
-      "sku_min_price": 489.0,
-      "sku_median_price": 724.0,
-      "sku_max_price": 949.0,
+      "sku_min_price": 489,
+      "sku_median_price": 724,
+      "sku_max_price": 949,
       "closest_target": "无主图价格",
       "price_diff": null,
       "attraction_ratio": null,
       "attraction_level": "无主图标价"
-    }
+    },
+    "url": "https://img.alicdn.com/bao/uploaded/i3/2216908303394/O1CN01ArHyHc1awVLWJ9DrH_!!2216908303394.jpg",
+    "local_path": "market_images/300.jpg"
   }
 }

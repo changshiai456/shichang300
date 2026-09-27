@@ -184,6 +184,12 @@ def main():
         if not img_url and comp_p:
             img_url = comp_p.get("main_img_url", "")
 
+        local_img = ""
+        if os.path.exists(os.path.join(BASE_DIR, "market_images", f"{rank}.jpg")):
+            local_img = f"market_images/{rank}.jpg"
+        elif os.path.exists(os.path.join(BASE_DIR, "market_images", f"{rank}.png")):
+            local_img = f"market_images/{rank}.png"
+
         valid_sku_prices = [s["price"] for s in skus if s.get("price") and s["price"] > 0]
         min_p_val = float(p.get("min_price", 0.0)) if p.get("min_price") else (min(valid_sku_prices) if valid_sku_prices else 0.0)
         max_p_val = float(p.get("max_price", 0.0)) if p.get("max_price") else (max(valid_sku_prices) if valid_sku_prices else 0.0)
@@ -221,11 +227,12 @@ def main():
             "marketing_text": ocr_info.get("marketing_text", []),
             "visual_format": ocr_info.get("visual_format", []),
             "main_img_url": img_url,
+            "local_img_path": local_img,
             "image_file": f"{item_id}.jpg",
-            "pay_buyers_range": cat_info.get("pay_buyers_range", ""),
-            "visitors_range": cat_info.get("visitors_range", ""),
-            "keywords": cat_info.get("keywords", ""),
-            "rank_change": cat_info.get("rank_change", "")
+            "pay_buyers_range": str(cat_info.get("pay_buyers_range", "")).strip(),
+            "visitors_range": str(cat_info.get("visitors_range", "")).strip(),
+            "keywords": str(cat_info.get("keywords", "")).strip(),
+            "rank_change": str(cat_info.get("rank_change", "")).strip()
         }
         processed_mkt.append(prod_dict)
 
@@ -234,6 +241,7 @@ def main():
             "rank": rank,
             "has_image": True,
             "image_name": f"{item_id}.jpg",
+            "local_path": local_img,
             "ocr_raw": ocr_info.get("ocr_raw", ""),
             "ocr_lines": ocr_info.get("ocr_lines", []),
             "selling_points": ocr_info.get("selling_points", []),
@@ -305,6 +313,7 @@ def main():
             "marketing_text": p.get("marketing_text", []),
             "visual_format": p.get("visual_format", []),
             "main_img_url": p.get("main_img_url", ""),
+            "local_img_path": p.get("local_img_path", ""),
             "image_file": p.get("image_file", f"{item_id}.jpg")
         }
         processed_comp.append(prod_dict)
@@ -514,19 +523,17 @@ def main():
         with open(target_file, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # 1. 替换 const DB = ...;
-        new_content, count1 = re.subn(r'const DB = \{.*?\};', f'const DB = {db_minified};', content, count=1)
-        if count1 == 0:
-            print(f"  ⚠️ 未找到 const DB 替换锚点: {os.path.basename(target_file)}")
+        # 如果存在冲突标记，直接将冲突块替换为最新 DB 与 MAIN_IMAGE_DATA
+        if "<<<<<<< HEAD" in content:
+            replacement = f"const DB = {db_minified};\n        // ======================= 全量主图OCR与视觉解析数据库 =======================\n        const MAIN_IMAGE_DATA = {mid_minified};\n"
+            new_content = re.sub(r'<<<<<<< HEAD.*?>>>>>>> origin/main\n?', lambda m: replacement, content, flags=re.DOTALL)
+            print(f"  ✅ 成功解决冲突并替换 const DB & MAIN_IMAGE_DATA: {os.path.basename(target_file)}")
         else:
-            print(f"  ✅ 成功替换 const DB: {os.path.basename(target_file)}")
-
-        # 2. 替换 const MAIN_IMAGE_DATA = ...;
-        new_content, count2 = re.subn(r'const MAIN_IMAGE_DATA = \{.*?\};', f'const MAIN_IMAGE_DATA = {mid_minified};', new_content, count=1)
-        if count2 == 0:
-            print(f"  ⚠️ 未找到 const MAIN_IMAGE_DATA 替换锚点: {os.path.basename(target_file)}")
-        else:
-            print(f"  ✅ 成功替换 const MAIN_IMAGE_DATA: {os.path.basename(target_file)}")
+            # 1. 替换 const DB = ...;
+            new_content = re.sub(r'const DB = \{.*?\};', lambda m: f'const DB = {db_minified};', content, count=1, flags=re.DOTALL)
+            # 2. 替换 const MAIN_IMAGE_DATA = ...;
+            new_content = re.sub(r'const MAIN_IMAGE_DATA = \{.*?\};', lambda m: f'const MAIN_IMAGE_DATA = {mid_minified};', new_content, count=1, flags=re.DOTALL)
+            print(f"  ✅ 成功替换 const DB & MAIN_IMAGE_DATA: {os.path.basename(target_file)}")
 
         with open(target_file, "w", encoding="utf-8") as f:
             f.write(new_content)
