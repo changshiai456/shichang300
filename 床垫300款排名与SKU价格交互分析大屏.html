@@ -2696,6 +2696,85 @@
             padding-bottom: 10px;
         }
 
+    
+        /* 🔗 商品ID智能直达天猫与复制功能组件样式 */
+        .item-id-cell-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            vertical-align: middle;
+        }
+        .item-id-jump-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid #334155;
+            border-radius: 4px;
+            padding: 2px 7px;
+            color: #60a5fa;
+            font-size: 11px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+        }
+        .item-id-jump-link:hover {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.5), rgba(37, 99, 235, 0.6));
+            border-color: #38bdf8;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        .item-id-jump-link .id-jump-icon {
+            font-size: 11px;
+            opacity: 0.85;
+        }
+        .item-id-jump-link:hover .id-jump-icon {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .item-id-jump-link .id-external-arrow {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-left: 1px;
+            transition: transform 0.15s ease;
+        }
+        .item-id-jump-link:hover .id-external-arrow {
+            opacity: 1;
+            color: #38bdf8;
+            transform: translate(1px, -1px);
+        }
+        .item-id-copy-btn {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #334155;
+            color: #94a3b8;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            user-select: none;
+        }
+        .item-id-copy-btn:hover {
+            color: #f1f5f9;
+            border-color: #64748b;
+            background: rgba(51, 65, 85, 0.8);
+        }
+        .item-id-copy-btn.copy-success {
+            color: #34d399 !important;
+            border-color: #10b981 !important;
+            background: rgba(16, 185, 129, 0.25) !important;
+            font-weight: 700;
+        }
+
     </style>
 </head>
 <body>
@@ -4585,6 +4664,20 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                             <button class="btn-compare-add ${isCompared(p.unique_id) ? 'active' : ''}" data-uid="${p.unique_id}" onclick="toggleCompareProduct('${p.unique_id}', event)" title="加入横向对比工作台">
                                 ${isCompared(p.unique_id) ? '✓ 已加入对比' : '⚖️ 加入对比'}
                             </button>
+                            ${p.itemId ? `
+                                <div class="item-id-cell-box" style="margin-right: 4px;">
+                                    <a href="${getTmallDetailUrl(p.itemId)}" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       class="item-id-jump-link" 
+                                       title="🚀 点击智能直达天猫详情页 (ID: ${p.itemId})">
+                                        <span class="id-jump-icon">🛒</span>
+                                        <span>ID: ${p.itemId}</span>
+                                        <span class="id-external-arrow">↗</span>
+                                    </a>
+                                    <button class="item-id-copy-btn" onclick="copyItemId('${p.itemId}', event)" title="📋 复制商品ID">📋</button>
+                                </div>
+                            ` : ''}
                             <span class="prod-shop">${p.shop}</span>
                             <span class="prod-title">${p.title}</span>
                         </div>
@@ -4595,7 +4688,7 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                             <div class="stat-item">该商品均价: <b>￥${p.mean_price}</b></div>
                             ${p.height ? `<div class="stat-highlight" style="background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.3); color: #10b981;">床垫厚度: <b>${p.height}cm</b></div>` : ''}
                             <div class="stat-highlight">1.8m SKU: <b>${p.sku_count} 个</b></div>
-                            <a href="${p.link}" target="_blank" class="btn-link">查看天猫原页 ↗</a>
+                            <a href="${getTmallDetailUrl(p.itemId) || p.link}" target="_blank" rel="noopener noreferrer" class="btn-link" title="🚀 智能直达天猫详情页">查看天猫原页 ↗</a>
                         </div>
                     </div>
 
@@ -7507,6 +7600,14 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
 
 
         // ======================= 全局初始化 =======================
+        // 🚀 确保所有商品 link 属性均智能规范为最新生意参谋天猫直达参数
+        if (typeof DB !== 'undefined' && DB.products) {
+            DB.products.forEach(p => {
+                if (p.itemId) {
+                    p.link = getTmallDetailUrl(p.itemId);
+                }
+            });
+        }
         initProductHeights();
         loadFavorites();
         initPriceClusters();
@@ -8091,6 +8192,22 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                                     <div style="font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 6px;">
                                         ${escapeHtml(p.title)}
                                     </div>
+                                    ${p.itemId ? `
+                                        <div style="margin-bottom: 6px;">
+                                            <div class="item-id-cell-box">
+                                                <a href="${getTmallDetailUrl(p.itemId)}" 
+                                                   target="_blank" 
+                                                   rel="noopener noreferrer" 
+                                                   class="item-id-jump-link" 
+                                                   title="🚀 点击智能直达天猫详情页 (ID: ${p.itemId})">
+                                                    <span class="id-jump-icon">🛒</span>
+                                                    <span>ID: ${p.itemId}</span>
+                                                    <span class="id-external-arrow">↗</span>
+                                                </a>
+                                                <button class="item-id-copy-btn" onclick="copyItemId('${p.itemId}', event)" title="📋 复制商品ID">📋</button>
+                                            </div>
+                                        </div>
+                                    ` : ''}
                                     <div style="font-size: 12px; color: #38bdf8;">
                                         店铺: ${escapeHtml(p.shop)}
                                     </div>
@@ -8305,14 +8422,60 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
             runCustomFilter();
         }
 
-        function copyItemId(itemId, e) {
+        // =========================================================================
+        // 🚀 商品ID智能直达天猫详情页引擎 (支持生意参谋跟踪参数规范与自动容错)
+        // 拼接规范: https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={itemId}&spm=a21ag.29085015.0.0
+        // =========================================================================
+        function extractValidItemId(rawId) {
+            if (!rawId) return '';
+            const str = String(rawId).trim();
+            // 优先匹配 9~14 位纯数字串 (天猫/淘宝商品标准 ID)
+            const match = str.match(/\d{9,14}/);
+            if (match) return match[0];
+            const anyNum = str.match(/\d+/);
+            if (anyNum) return anyNum[0];
+            return str;
+        }
+
+        function getTmallDetailUrl(itemId) {
+            const cleanId = extractValidItemId(itemId);
+            if (!cleanId) return '';
+            return `https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=${encodeURIComponent(cleanId)}&spm=a21ag.29085015.0.0`;
+        }
+
+        function smartJumpToTmall(itemId, e) {
             if (e) e.stopPropagation();
-            navigator.clipboard.writeText(itemId).then(() => {
-                const originalText = e.target.innerText;
-                e.target.innerText = '✓ 已复制';
-                setTimeout(() => { e.target.innerText = originalText; }, 1200);
+            const cleanId = extractValidItemId(itemId);
+            if (!cleanId || cleanId === 'undefined' || cleanId === 'null') {
+                alert('⚠️ 未检测到有效的天猫商品ID，无法进行智能跳转。');
+                return false;
+            }
+            const url = getTmallDetailUrl(cleanId);
+            window.open(url, '_blank', 'noopener,noreferrer');
+            return true;
+        }
+
+        function copyItemId(itemId, e) {
+            if (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+            const cleanId = extractValidItemId(itemId) || String(itemId).trim();
+            if (!cleanId) return;
+
+            const targetBtn = e && (e.currentTarget || e.target);
+            navigator.clipboard.writeText(cleanId).then(() => {
+                if (targetBtn) {
+                    const originalHtml = targetBtn.innerHTML;
+                    targetBtn.innerHTML = '✓';
+                    targetBtn.classList.add('copy-success');
+                    setTimeout(() => {
+                        targetBtn.innerHTML = originalHtml;
+                        targetBtn.classList.remove('copy-success');
+                    }, 1200);
+                }
             }).catch(() => {
-                prompt('请复制商品ID:', itemId);
+                prompt('请复制商品ID:', cleanId);
             });
         }
 
@@ -8431,10 +8594,22 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                     <div>
                         <div style="font-weight: 700; color: #fff; font-size: 14px;">${escapeHtml(s.prod_title)}</div>
                         <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">
-                            ${escapeHtml(s.shop)} · 商品ID: <b style="color: #60a5fa;">${s.itemId}</b> · 排名: #${s.rank}
+                            ${escapeHtml(s.shop)} · 商品ID: 
+                        <span class="item-id-cell-box" style="display: inline-flex; vertical-align: middle;">
+                            <a href="${getTmallDetailUrl(s.itemId)}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="item-id-jump-link" 
+                               title="🚀 点击智能直达天猫详情页 (ID: ${s.itemId})">
+                                <span class="id-jump-icon">🛒</span>
+                                <b>${s.itemId}</b>
+                                <span class="id-external-arrow">↗</span>
+                            </a>
+                            <button class="item-id-copy-btn" onclick="copyItemId('${s.itemId}', event)" title="📋 复制商品ID">📋</button>
+                        </span> · 排名: #${s.rank}
                         </div>
                         <div style="margin-top: 8px;">
-                            <a href="${s.prod_link}" target="_blank" class="btn-export" style="font-size: 11px; text-decoration: none; display: inline-block;">天猫直达 ↗</a>
+                            <a href="${getTmallDetailUrl(s.itemId) || s.prod_link}" target="_blank" rel="noopener noreferrer" class="btn-export" style="font-size: 11px; text-decoration: none; display: inline-block;" title="🚀 直达天猫详情页">天猫直达 ↗</a>
                         </div>
                     </div>
                 </div>
@@ -8623,7 +8798,7 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                         prod_title: p.title,
                         prod_img: p.main_img_url || p.local_img_path || '',
                         prod_local_img: p.local_img_path || '',
-                        prod_link: p.link || `https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=${p.itemId}`,
+                        prod_link: getTmallDetailUrl(p.itemId) || p.link || `https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id=${p.itemId}&spm=a21ag.29085015.0.0`,
                         source: p.is_company ? 'company' : 'market',
                         sku_name: s.name,
                         price: price,
@@ -8766,11 +8941,25 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                             <b style="color: #fff;">${escapeHtml(s.shop)}</b>
                         </td>
 
-                        <!-- 商品ID -->
+                        <!-- 商品ID (点击智能直达天猫 / 便捷复制) -->
                         <td>
-                            <span class="item-id-badge" onclick="copyItemId('${s.itemId}', event)" title="点击复制商品ID">
-                                📋 ${s.itemId}
-                            </span>
+                            <div class="item-id-cell-box">
+                                <a href="${getTmallDetailUrl(s.itemId)}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="item-id-jump-link" 
+                                   onclick="event.stopPropagation();" 
+                                   title="🚀 点击智能直达天猫详情页 (ID: ${s.itemId})">
+                                    <span class="id-jump-icon">🛒</span>
+                                    <span>${s.itemId}</span>
+                                    <span class="id-external-arrow">↗</span>
+                                </a>
+                                <button class="item-id-copy-btn" 
+                                        onclick="copyItemId('${s.itemId}', event)" 
+                                        title="📋 复制商品ID: ${s.itemId}">
+                                    📋
+                                </button>
+                            </div>
                         </td>
 
                         <!-- 所属商品 (悬停自动放大) -->
@@ -8837,9 +9026,9 @@ const DB = {"meta": {"title": "天猫市场多周期全域横向对比与历史�
                             <span class="badge ${s.source === 'company' ? 'badge-company' : 'badge-market'}">${s.source === 'company' ? '自营' : '大盘'}</span>
                         </td>
 
-                        <!-- 天猫直达 -->
+                        <!-- 天猫直达 (智能拼接) -->
                         <td>
-                            <a href="${s.prod_link}" target="_blank" class="btn-export" style="font-size: 11px; padding: 2px 7px; text-decoration: none; display: inline-block;">天猫 ↗</a>
+                            <a href="${getTmallDetailUrl(s.itemId) || s.prod_link}" target="_blank" rel="noopener noreferrer" class="btn-export" style="font-size: 11px; padding: 2px 7px; text-decoration: none; display: inline-block;" title="🚀 直达天猫商品详情页">天猫 ↗</a>
                         </td>
                     </tr>
                 `;

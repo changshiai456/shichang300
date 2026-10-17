@@ -194,7 +194,7 @@ def main():
         base_p = new_p if new_p else old_p
         title = base_p.get("title", "")
         shop = base_p.get("shop", "")
-        link = f"https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={item_id}"
+        link = f"https://detail.tmall.com/item.htm?b_s_f=sycm&b_spm=a21ag.29085015&id={item_id}&spm=a21ag.29085015.0.0"
 
         # SKU 提取 (最新期优先)
         skus = []
